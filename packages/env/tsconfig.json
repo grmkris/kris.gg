@@ -1,6 +1,0 @@
-{
-  "extends": "@agent-next-app/config/tsconfig.base.json",
-  "compilerOptions": {
-    "strictNullChecks": true
-  }
-}
