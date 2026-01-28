@@ -237,6 +237,18 @@ Key imports:
 - `@/components/ui/card` - Card, CardHeader, CardTitle, CardContent
 - `@/components/ui/input` - Form input
 - `@/components/ui/skeleton` - Loading placeholder
+- `@/components/ui/dialog` - Modals, confirmations
+- `@/components/ui/sheet` - Mobile bottom panels
+- `@/components/ui/select` - Dropdown inputs
+- `@/components/ui/textarea` - Multi-line text
+- `@/components/ui/table` - Data display
+- `@/components/ui/tabs` - Content organization
+- `@/components/ui/calendar` - Date selection
+- `@/components/ui/chart` - Data visualization
+- `@/components/ui/command` - Search, quick actions
+- `@/components/ui/badge` - Status indicators
+- `@/components/ui/progress` - Progress bars
+- `@/components/ui/switch` - Toggles
 - `sonner` - toast() for notifications
 
 ## Auth
@@ -244,6 +256,64 @@ Key imports:
 - `publicProcedure` - No auth required
 - `protectedProcedure` - Requires session, access via `context.session.user`
 - Client: `authClient.useSession()` for session state
+
+## Instruction Protocol
+
+At session start, check `.claude/INSTRUCTION.md`. If present:
+
+1. Read instruction completely
+2. Plan implementation based on requirements
+3. Implement with small, verified commits
+4. Run `bun run verify` after each change
+5. Check off acceptance criteria as completed
+6. Final commit: `feat: complete [instruction title]`
+7. Rename to `INSTRUCTION.done.md`
+
+### INSTRUCTION.md Format
+
+```markdown
+# Instruction: [Title]
+
+## Objective
+
+[What to build in 1-2 sentences]
+
+## Requirements
+
+- [Feature 1]
+- [Feature 2]
+
+## Acceptance Criteria
+
+- [ ] [Verifiable criterion 1]
+- [ ] `bun run verify` passes
+
+## Reference Skills
+
+- See: `.claude/skills/[relevant-skill].md`
+```
+
+## Mobile-First Default
+
+All UI must be mobile-first:
+
+- Touch targets min 44x44px
+- Stack on mobile, grid on desktop
+- Bottom actions with Sheet component
+- Test at 375px width (iPhone SE)
+
+See `.claude/skills/mobile-patterns/SKILL.md` for patterns.
+
+## Charts
+
+Use `@/components/ui/chart` for data visualization:
+
+- LineChart - progress over time
+- BarChart - comparisons
+- AreaChart - cumulative data
+- PieChart - distribution
+
+See `.claude/skills/frontend-patterns/charts.md` for patterns.
 
 ## Commit Workflow
 

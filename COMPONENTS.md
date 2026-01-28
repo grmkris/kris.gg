@@ -217,6 +217,352 @@ toast("New message", {
 });
 ```
 
+## Dialog
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>Dialog description text.</DialogDescription>
+    </DialogHeader>
+    <div>Dialog content here</div>
+    <DialogFooter>
+      <Button variant="outline">Cancel</Button>
+      <Button>Save</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>;
+```
+
+## Sheet
+
+Mobile-friendly bottom/side panel.
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+// Bottom sheet (mobile)
+<Sheet>
+  <SheetTrigger asChild>
+    <Button>Open Sheet</Button>
+  </SheetTrigger>
+  <SheetContent side="bottom">
+    <SheetHeader>
+      <SheetTitle>Sheet Title</SheetTitle>
+      <SheetDescription>Sheet description.</SheetDescription>
+    </SheetHeader>
+    <div>Sheet content</div>
+  </SheetContent>
+</Sheet>
+
+// Side sheet
+<SheetContent side="right">...</SheetContent>
+<SheetContent side="left">...</SheetContent>
+```
+
+## Select
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+<Select>
+  <SelectTrigger className="w-[200px]">
+    <SelectValue placeholder="Select option" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="option1">Option 1</SelectItem>
+    <SelectItem value="option2">Option 2</SelectItem>
+    <SelectItem value="option3">Option 3</SelectItem>
+  </SelectContent>
+</Select>;
+
+// Controlled
+const [value, setValue] = useState("");
+<Select value={value} onValueChange={setValue}>
+  ...
+</Select>;
+```
+
+## Textarea
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+<Textarea placeholder="Enter description..." />
+<Textarea rows={5} />
+<Textarea disabled />
+
+// With label
+<div className="space-y-2">
+  <Label htmlFor="notes">Notes</Label>
+  <Textarea id="notes" placeholder="Add notes..." />
+</div>
+```
+
+## Table
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Date</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {items.map((item) => (
+      <TableRow key={item.id}>
+        <TableCell>{item.name}</TableCell>
+        <TableCell>{item.status}</TableCell>
+        <TableCell>{item.date}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>;
+```
+
+## Tabs
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+<Tabs defaultValue="overview">
+  <TabsList>
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview">Overview content</TabsContent>
+  <TabsContent value="settings">Settings content</TabsContent>
+</Tabs>;
+```
+
+## Calendar
+
+```tsx
+import { Calendar } from "@/components/ui/calendar";
+
+const [date, setDate] = useState<Date | undefined>();
+
+<Calendar mode="single" selected={date} onSelect={setDate} />;
+```
+
+## Badge
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+
+<Badge>Default</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="destructive">Destructive</Badge>
+<Badge variant="outline">Outline</Badge>
+```
+
+## Progress
+
+```tsx
+import { Progress } from "@/components/ui/progress";
+
+<Progress value={33} />
+<Progress value={66} className="h-2" />
+```
+
+## Switch
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+
+<Switch />
+<Switch checked />
+<Switch disabled />
+
+// Controlled
+const [enabled, setEnabled] = useState(false);
+<Switch checked={enabled} onCheckedChange={setEnabled} />
+
+// With label
+<div className="flex items-center gap-2">
+  <Switch id="notifications" />
+  <Label htmlFor="notifications">Enable notifications</Label>
+</div>
+```
+
+## Command
+
+Search and command palette.
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+
+<Command>
+  <CommandInput placeholder="Search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Actions">
+      <CommandItem>Create new</CommandItem>
+      <CommandItem>Edit</CommandItem>
+      <CommandItem>Delete</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>;
+```
+
+## Avatar
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+<Avatar>
+  <AvatarImage src="/avatar.png" alt="User" />
+  <AvatarFallback>JD</AvatarFallback>
+</Avatar>;
+```
+
+## Tooltip
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="outline">Hover me</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <p>Tooltip text</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>;
+```
+
+## Slider
+
+```tsx
+import { Slider } from "@/components/ui/slider";
+
+<Slider defaultValue={[50]} max={100} step={1} />;
+
+// Controlled
+const [value, setValue] = useState([50]);
+<Slider value={value} onValueChange={setValue} />;
+```
+
+## Pagination
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>
+        2
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>;
+```
+
+## Separator
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+
+<Separator />
+<Separator orientation="vertical" />
+```
+
+## Chart
+
+See `.claude/skills/frontend-patterns/charts.md` for full documentation.
+
+```tsx
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import { Line, LineChart, XAxis, YAxis } from "recharts";
+
+const chartConfig = {
+  value: { label: "Value", color: "hsl(var(--chart-1))" },
+} satisfies ChartConfig;
+
+<ChartContainer config={chartConfig} className="h-[300px] w-full">
+  <LineChart data={data}>
+    <XAxis dataKey="date" />
+    <YAxis />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Line dataKey="value" stroke="var(--color-value)" />
+  </LineChart>
+</ChartContainer>;
+```
+
 ## Common Patterns
 
 ### Form with validation
