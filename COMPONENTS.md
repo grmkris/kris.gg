@@ -138,11 +138,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Loader from "@/components/loader";
 
 // Full page loader
-<Loader />
+<Loader />;
 
 // Or use Loader2 icon directly
 import { Loader2 } from "lucide-react";
-<Loader2 className="animate-spin" />
+<Loader2 className="animate-spin" />;
 ```
 
 ## DropdownMenu
@@ -228,7 +228,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 
 export function CreateForm() {
