@@ -4,7 +4,7 @@ import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import { QueryCache, QueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-import type { AppRouterClient } from "@/server/routers/index";
+import  { type AppRouterClient } from "@/server/routers/index";
 
 export const queryClient = new QueryClient({
   queryCache: new QueryCache({
@@ -22,7 +22,8 @@ export const queryClient = new QueryClient({
 });
 
 export const link = new RPCLink({
-   async fetch(url, options) {
+  // eslint-disable-next-line require-await
+  async fetch(url, options) {
     return fetch(url, {
       ...options,
       credentials: "include",

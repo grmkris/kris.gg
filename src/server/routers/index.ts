@@ -1,4 +1,4 @@
-import { type RouterClient } from "@orpc/server";
+import type { RouterClient } from "@orpc/server";
 
 import { protectedProcedure, publicProcedure } from "../index";
 

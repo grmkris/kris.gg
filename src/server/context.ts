@@ -1,13 +1,17 @@
-import type { NextRequest } from "next/server";
+import  { type NextRequest } from "next/server";
 
 import { auth } from "@/auth";
 
-export const createContext = async (req: NextRequest) => {
+import  { type Api } from "./create-api";
+
+export const createContext = async (req: NextRequest, api: Api) => {
   const session = await auth.api.getSession({
     headers: req.headers,
   });
   return {
+    db: api.db,
     session,
+    ...api.services,
   };
 };
 

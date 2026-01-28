@@ -1,13 +1,17 @@
-import  { type NextRequest } from "next/server";
-
 import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { OpenAPIReferencePlugin } from "@orpc/openapi/plugins";
 import { onError } from "@orpc/server";
 import { RPCHandler } from "@orpc/server/fetch";
 import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4";
+import type { NextRequest } from "next/server";
 
+import { db } from "@/db";
 import { createContext } from "@/server/context";
+import { createApi } from "@/server/create-api";
 import { appRouter } from "@/server/routers/index";
+
+// Initialize API once at module level
+const api = createApi({ db });
 
 const rpcHandler = new RPCHandler(appRouter, {
   interceptors: [
@@ -17,6 +21,7 @@ const rpcHandler = new RPCHandler(appRouter, {
     }),
   ],
 });
+
 const apiHandler = new OpenAPIHandler(appRouter, {
   interceptors: [
     // oxlint-disable-next-line promise/prefer-await-to-callbacks
@@ -33,7 +38,7 @@ const apiHandler = new OpenAPIHandler(appRouter, {
 
 const handleRequest = async (req: NextRequest) => {
   const rpcResult = await rpcHandler.handle(req, {
-    context: await createContext(req),
+    context: await createContext(req, api),
     prefix: "/api/rpc",
   });
   if (rpcResult.response) {
@@ -41,7 +46,7 @@ const handleRequest = async (req: NextRequest) => {
   }
 
   const apiResult = await apiHandler.handle(req, {
-    context: await createContext(req),
+    context: await createContext(req, api),
     prefix: "/api/rpc/api-reference",
   });
   if (apiResult.response) {
