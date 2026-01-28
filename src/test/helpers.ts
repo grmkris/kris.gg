@@ -1,6 +1,6 @@
 import * as schema from "@/db/schema";
 
-import  { type TestSetup } from "./setup";
+import type { TestSetup } from "./setup";
 
 interface CreateUserOptions {
   email?: string;

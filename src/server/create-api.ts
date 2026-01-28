@@ -1,4 +1,4 @@
-import type { db as database } from "@/db";
+import  { type db as database } from "@/db";
 
 type Database = typeof database;
 
