@@ -1,0 +1,42 @@
+# Kristjan Grm
+
+> Builder from Slovenia, Ljubljana. Full-stack engineer building at the intersection of AI, crypto, and privacy-preserving tech. 16+ hackathon projects with multiple wins across ETHGlobal events worldwide.
+
+## About
+
+Kristjan is a builder who travels the world participating in hackathons. He has shipped projects in Buenos Aires, Seoul, Taipei, Paris, Bangkok, London, Brussels, Istanbul, Lisbon, Amsterdam, and more.
+
+Interests: AI agents, crypto payments, self-sovereign identity, privacy-preserving technologies.
+
+Personal: Cat owner, hiking, badminton, techno, cooking.
+
+## Links
+
+- [GitHub](https://github.com/grmkris)
+- [X/Twitter](https://x.com/_krisgg)
+- [LinkedIn](https://linkedin.com/in/kristjan-grm-1572a7159)
+
+## Notable Projects
+
+- [yoda.fun](https://yoda.fun): AI Oracle for prediction markets
+- [drizzle-pg-notify-audit-table](https://github.com/grmkris/drizzle-pg-notify-audit-table): PostgreSQL real-time audit tables with Drizzle ORM
+- [typeid-drizzle-zod-example](https://github.com/grmkris/typeid-drizzle-zod-example): Type-safe TypeIDs with Drizzle ORM and Zod
+
+## Hackathon Wins
+
+- **ETHGlobal Buenos Aires 2025** - Closet (Coinbase CDP Winner)
+- **ETHGlobal New Delhi 2025** - Opensource Orchestra (ENS 1st Place)
+- **ETHGlobal Prague 2025** - Mivio (Yellow 1st Place)
+- **BuidlAI Seoul 2025** - AgentForge (Nethermind 1st, Rootstock 1st)
+- **ETHGlobal Paris 2023** - PEERwallet (Polygon ID 1st Place)
+- **ETHPrague 2023** - PeerUp (5 prizes)
+- **ETHAmsterdam 2022** - Web3Hunt (The Graph 1st Place)
+
+## Tech Stack
+
+TypeScript, React, Next.js, Node.js, Bun, PostgreSQL, Drizzle ORM, Solidity, Hardhat, Viem, Wagmi, Vercel AI SDK, OpenAI API, Claude API.
+
+## Contact
+
+- Email: kristjan.grm1@gmail.com
+- Website: https://kris.gg
