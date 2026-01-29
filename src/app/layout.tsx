@@ -1,23 +1,33 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import  { type Metadata } from "next";
+
+import { JetBrains_Mono } from "next/font/google";
 
 import "../index.css";
-import Header from "@/components/header";
 import Providers from "@/components/providers";
 
-const geistSans = Geist({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  description: "agent-next-app",
-  title: "agent-next-app",
+  description: "Building at the AI × blockchain intersection",
+  openGraph: {
+    description:
+      "Full-stack engineer & CTO building at the AI × blockchain intersection",
+    siteName: "kris.gg",
+    title: "Kristjan Grm",
+    type: "website",
+    url: "https://kris.gg",
+  },
+  title: "Kristjan Grm | Full-Stack Engineer & CTO",
+  twitter: {
+    card: "summary",
+    creator: "@_krisgg",
+    description:
+      "Full-stack engineer & CTO building at the AI × blockchain intersection",
+    title: "Kristjan Grm",
+  },
 };
 
 export default function RootLayout({
@@ -27,15 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Providers>
-          <div className="grid grid-rows-[auto_1fr] h-svh">
-            <Header />
-            {children}
-          </div>
-        </Providers>
+      <body className={`${jetbrainsMono.variable} antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
