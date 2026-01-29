@@ -321,7 +321,11 @@ export default function Home() {
           <h1 className="text-lg font-medium">Kristjan Grm</h1>
           <p className="mt-1 text-sm text-[#737373]">Slovenia, Ljubljana 🇸🇮</p>
           <p className="mt-4 text-[#a3a3a3] leading-relaxed">
-            Hackathons have taken me to Buenos Aires, Seoul, Taipei, Paris, Bangkok... the list keeps growing. Life outside the terminal: a cat, mountain trails, badminton, good techno, and whatever's cooking. Lately building at the intersection of AI, crypto, and privacy-preserving tech.
+            Hackathons have taken me to Buenos Aires, Seoul, Taipei, Paris,
+            Bangkok... the list keeps growing. Life outside the terminal: a cat,
+            mountain trails, badminton, good techno, and whatever's cooking.
+            Lately building at the intersection of AI, crypto, and
+            privacy-preserving tech.
           </p>
 
           {/* Social links with icons */}
@@ -415,9 +419,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-20 border-t border-[#1a1a1a] pt-8">
-          <p className="text-sm text-[#525252]">
-            © {new Date().getFullYear()}
-          </p>
+          <p className="text-sm text-[#525252]">© {new Date().getFullYear()}</p>
         </footer>
       </div>
     </main>

@@ -1,5 +1,4 @@
-import  { type Metadata } from "next";
-
+import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 
 import "../index.css";
@@ -11,21 +10,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  description: "Building at the AI × blockchain intersection",
+  description: "Building at the AI × crypto × privacy intersection",
+  metadataBase: new URL("https://kris.gg"),
   openGraph: {
-    description:
-      "Full-stack engineer & CTO building at the AI × blockchain intersection",
+    description: "Building at the AI × crypto × privacy intersection",
     siteName: "kris.gg",
     title: "Kristjan Grm",
     type: "website",
     url: "https://kris.gg",
   },
-  title: "Kristjan Grm | Full-Stack Engineer & CTO",
+  title: "Kristjan Grm | Builder",
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     creator: "@_krisgg",
-    description:
-      "Full-stack engineer & CTO building at the AI × blockchain intersection",
+    description: "Building at the AI × crypto × privacy intersection",
     title: "Kristjan Grm",
   },
 };
