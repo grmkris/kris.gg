@@ -50,6 +50,7 @@ const FLAGS: Record<string, string> = {
   Paris: "🇫🇷",
   Prague: "🇨🇿",
   Seoul: "🇰🇷",
+  Shanghai: "🇨🇳",
   Taipei: "🇹🇼",
 };
 
@@ -66,6 +67,18 @@ interface TimelineItem {
 }
 
 const TIMELINE: TimelineItem[] = [
+  // 2026
+  {
+    description: "Verified intelligence map for humans + AI agents",
+    event: "ETHGlobal Cannes",
+    github: "https://github.com/grmkris/ethglobal-cannes-2026-groundtruth",
+    location: "Cannes",
+    name: "Ground Truth",
+    prizes: "World Agent Kit 2nd, ENS AI Agents 2nd",
+    showcase: "https://ethglobal.com/showcase/groundtruth-mz4us",
+    type: "hackathon",
+    year: "2026",
+  },
   // 2025
   {
     description: "AI wardrobe management",
@@ -102,6 +115,7 @@ const TIMELINE: TimelineItem[] = [
   {
     description: "EIP-7702 hardware wallet sessions",
     event: "ETHGlobal Cannes",
+    github: "https://github.com/grmkris/eth-global-cannes-2025",
     location: "Cannes",
     name: "SessionFlow",
     prizes: "Avail 2nd Place",
@@ -320,6 +334,9 @@ export default function Home() {
         <header className="mb-12">
           <h1 className="text-lg font-medium">Kristjan Grm</h1>
           <p className="mt-1 text-sm text-[#737373]">Slovenia, Ljubljana 🇸🇮</p>
+          <p className="mt-1 text-sm text-[#737373]">
+            Currently in Shanghai 🇨🇳 for MU
+          </p>
           <p className="mt-4 text-[#a3a3a3] leading-relaxed">
             Hackathons have taken me to Buenos Aires, Seoul, Taipei, Paris,
             Bangkok... the list keeps growing. Life outside the terminal: a cat,
