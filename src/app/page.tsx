@@ -335,14 +335,20 @@ export default function Home() {
           <h1 className="text-lg font-medium">Kristjan Grm</h1>
           <p className="mt-1 text-sm text-[#737373]">Slovenia, Ljubljana 🇸🇮</p>
           <p className="mt-1 text-sm text-[#737373]">
-            Currently in Shanghai 🇨🇳 for MU
+            Currently in Shanghai 🇨🇳 for{" "}
+            <a
+              href="https://mushanghai.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#a3a3a3] transition-colors hover:text-[#e8e8e8]"
+            >
+              MU
+            </a>
           </p>
           <p className="mt-4 text-[#a3a3a3] leading-relaxed">
-            Hackathons have taken me to Buenos Aires, Seoul, Taipei, Paris,
-            Bangkok... the list keeps growing. Life outside the terminal: a cat,
-            mountain trails, badminton, good techno, and whatever's cooking.
-            Lately building at the intersection of AI, crypto, and
-            privacy-preserving tech.
+            Hackathons keep the passport busy. Life outside the terminal: a
+            cat, mountain trails, badminton, good techno, and whatever's
+            cooking. Lately: AI agents, crypto identity, onchain payments.
           </p>
 
           {/* Social links with icons */}
