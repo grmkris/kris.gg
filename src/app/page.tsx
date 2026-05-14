@@ -443,9 +443,6 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-20 border-t border-[#1a1a1a] pt-8">
           <p className="text-sm text-[#525252]">© {new Date().getFullYear()}</p>
-          <p className="mt-3 text-xs text-[#333] transition-colors hover:text-[#525252]">
-            🐧 managed by penguin
-          </p>
         </footer>
       </div>
     </main>
