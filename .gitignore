@@ -61,3 +61,6 @@ next-env.d.ts
 tmp
 temp
 dev-dist
+
+# osxphotos export tracking
+.osxphotos_export.db

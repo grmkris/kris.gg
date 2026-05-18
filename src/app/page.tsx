@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FLAGS } from "@/content/flags";
+import { POSTS } from "@/content/journal";
 
 const SOCIALS = [
   {
@@ -32,27 +35,6 @@ const SOCIALS = [
     label: "LinkedIn",
   },
 ];
-
-const FLAGS: Record<string, string> = {
-  Amsterdam: "🇳🇱",
-  Bangkok: "🇹🇭",
-  Barcelona: "🇪🇸",
-  Belgrade: "🇷🇸",
-  Brussels: "🇧🇪",
-  "Buenos Aires": "🇦🇷",
-  Cannes: "🇫🇷",
-  Istanbul: "🇹🇷",
-  Lisbon: "🇵🇹",
-  Ljubljana: "🇸🇮",
-  London: "🇬🇧",
-  "New Delhi": "🇮🇳",
-  "New York": "🇺🇸",
-  Paris: "🇫🇷",
-  Prague: "🇨🇿",
-  Seoul: "🇰🇷",
-  Shanghai: "🇨🇳",
-  Taipei: "🇹🇼",
-};
 
 interface TimelineItem {
   description: string;
@@ -315,6 +297,14 @@ export default function Home() {
 
   const years = [...new Set(TIMELINE.map((item) => item.year))];
 
+  const journalByTimelineName: Record<string, (typeof POSTS)[number]> = {};
+  for (const post of POSTS) {
+    if (post.relatedTimeline) {
+      journalByTimelineName[post.relatedTimeline] = post;
+    }
+  }
+  const recentPosts = POSTS.slice(0, 3);
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
       {/* Grain texture */}
@@ -335,7 +325,7 @@ export default function Home() {
           <h1 className="text-lg font-medium">Kristjan Grm</h1>
           <p className="mt-1 text-sm text-[#737373]">Slovenia, Ljubljana 🇸🇮</p>
           <p className="mt-1 text-sm text-[#737373]">
-            Currently in Shanghai 🇨🇳 for{" "}
+            Now: Shanghai 🇨🇳 for{" "}
             <a
               href="https://mushanghai.xyz/"
               target="_blank"
@@ -344,6 +334,9 @@ export default function Home() {
             >
               MU
             </a>
+          </p>
+          <p className="mt-1 text-sm text-[#737373]">
+            Next: New York 🇺🇸 for ETHGlobal (Jun 7–14)
           </p>
           <p className="mt-4 text-[#a3a3a3] leading-relaxed">
             Hackathons keep the passport busy. Life outside the terminal: a
@@ -431,6 +424,14 @@ export default function Home() {
                             Showcase →
                           </a>
                         )}
+                        {journalByTimelineName[item.name] !== undefined && (
+                          <Link
+                            href={`/journal/${journalByTimelineName[item.name].slug}`}
+                            className="text-xs text-[#525252] transition-colors hover:text-[#737373]"
+                          >
+                            Journal →
+                          </Link>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -439,6 +440,45 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        {/* Journal */}
+        {recentPosts.length > 0 && (
+          <section className="mt-16">
+            <h2 className="mb-8 text-sm font-medium uppercase tracking-wider text-[#737373]">
+              Journal
+            </h2>
+            <div className="space-y-3">
+              {recentPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/journal/${post.slug}`}
+                  className="block border-l border-[#1a1a1a] pl-4 transition-colors hover:border-[#333]"
+                >
+                  <div className="flex items-center gap-2 text-sm text-[#525252]">
+                    <span>{post.date}</span>
+                    <span>·</span>
+                    <span>{FLAGS[post.location] ?? "🌍"}</span>
+                    <span>{post.location}</span>
+                  </div>
+                  <h4 className="mt-1 font-medium text-[#e8e8e8]">
+                    {post.title}
+                  </h4>
+                  <p className="mt-0.5 text-sm text-[#737373]">
+                    {post.summary}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            {POSTS.length > recentPosts.length && (
+              <Link
+                href="/journal"
+                className="mt-6 inline-block text-xs text-[#525252] transition-colors hover:text-[#737373]"
+              >
+                View all →
+              </Link>
+            )}
+          </section>
+        )}
 
         {/* Footer */}
         <footer className="mt-20 border-t border-[#1a1a1a] pt-8">
