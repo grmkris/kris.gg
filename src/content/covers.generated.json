@@ -1,20 +1,21 @@
 {
   "covers": [
     { "slug": "bolivia-2025", "index": 12 },
-    { "slug": "spain-jan-2026", "index": 7 },
-    { "slug": "brussels-2024", "index": 9 },
-    { "slug": "prague-2024-06", "index": 10 },
-    { "slug": "new-york-2025", "index": 11 },
-    { "slug": "argentina-2025", "index": 1 },
-    { "slug": "taipei-2025", "index": 6 },
-    { "slug": "lyon-2025", "index": 9 },
-    { "slug": "tenerife-2025", "index": 7 },
-    { "slug": "georgia-2025", "index": 11 },
-    { "slug": "shanghai-mu-2026", "index": 12 },
-    { "slug": "japan-2025", "index": 9 },
-    { "slug": "belgrade-2025", "index": 4 },
-    { "slug": "croatia-aug-2024", "index": 1 },
-    { "slug": "macedonia-2024", "index": 4 },
-    { "slug": "cannes-2026", "index": 5 }
+    { "slug": "new-york-2025", "index": 7 },
+    { "slug": "brussels-2024", "index": 10 },
+    { "slug": "prague-2024-06", "index": 9 },
+    { "slug": "bolivia-2025", "index": 1 },
+    { "slug": "tomorrowland-2025", "index": 9 },
+    { "slug": "croatia-jul-2024", "index": 8 },
+    { "slug": "shanghai-mu-2026", "index": 11 },
+    { "slug": "spain-jan-2026", "index": 11 },
+    { "slug": "tenerife-2025", "index": 4 },
+    { "slug": "cannes-2026", "index": 7 },
+    { "slug": "georgia-2025", "index": 12 },
+    { "slug": "verona-2026", "index": 2 },
+    { "slug": "japan-2025", "index": 11 },
+    { "slug": "bangkok-2024", "index": 10 },
+    { "slug": "tomorrowland-2025", "index": 6 },
+    { "slug": "cannes-2025", "index": 3 }
   ]
 }
