@@ -47,6 +47,7 @@
         "oxfmt": "latest",
         "oxlint": "latest",
         "oxlint-tsgolint": "^0.11.2",
+        "sharp": "^0.34.5",
         "tailwindcss": "^4.1.10",
         "typescript": "^5",
         "ultracite": "7.0.12",
