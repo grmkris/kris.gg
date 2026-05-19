@@ -62,7 +62,9 @@ export default function Home() {
       >
         {/* Header */}
         <header className="mb-12">
-          <h1 className="text-lg font-medium">Kristjan Grm</h1>
+          <h1 className="font-display text-4xl font-light tracking-tight">
+            Kristjan Grm
+          </h1>
           <p className="mt-1 text-sm text-[#737373]">Slovenia, Ljubljana 🇸🇮</p>
           <p className="mt-1 text-sm text-[#737373]">
             Now: Shanghai 🇨🇳 for{" "}

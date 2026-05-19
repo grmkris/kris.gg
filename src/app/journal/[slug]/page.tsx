@@ -91,7 +91,9 @@ export default async function JournalPost({ params }: PageProps) {
             <span>{FLAGS[trip.location] ?? "🌍"}</span>
             <span>{trip.location}</span>
           </div>
-          <h1 className="mt-2 text-2xl font-medium">{trip.title}</h1>
+          <h1 className="mt-2 font-display text-4xl font-light tracking-tight">
+            {trip.title}
+          </h1>
           <p className="mt-2 text-[#737373]">{trip.description}</p>
         </header>
 
