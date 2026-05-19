@@ -32,6 +32,13 @@ interface PhotoMeta {
   width: number;
   height: number;
   blur: string;
+  dominant: string; // "#rrggbb" — used for lightbox page-flash transition
+}
+
+function toHex(n: number): string {
+  return Math.max(0, Math.min(255, Math.round(n)))
+    .toString(16)
+    .padStart(2, "0");
 }
 
 type Manifest = Record<string, PhotoMeta[]>;
@@ -73,6 +80,10 @@ async function buildPhoto(
     .toBuffer();
   const blur = `data:image/webp;base64,${blurBuffer.toString("base64")}`;
 
+  // Dominant color for the lightbox page-flash transition
+  const stats = await sharp(sourcePath).stats();
+  const dominant = `#${toHex(stats.dominant.r)}${toHex(stats.dominant.g)}${toHex(stats.dominant.b)}`;
+
   return {
     src: `/photos/${slug}/${filename}`,
     thumb: `/photos/${slug}/${baseName}-400.webp`,
@@ -81,6 +92,7 @@ async function buildPhoto(
     width: meta.width,
     height: meta.height,
     blur,
+    dominant,
   };
 }
 
