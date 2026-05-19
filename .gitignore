@@ -64,3 +64,9 @@ dev-dist
 
 # osxphotos export tracking
 .osxphotos_export.db
+
+# Photo build artifacts — regenerated from public/photos/<slug>/NN.jpg
+# by scripts/build-photos.ts via the `prebuild` hook in package.json.
+public/photos/**/*-400.webp
+public/photos/**/*-800.webp
+public/photos/**/*-1600.webp
