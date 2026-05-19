@@ -1,13 +1,23 @@
-import  { type Metadata } from "next";
+import { type Metadata } from "next";
 
-import { JetBrains_Mono } from "next/font/google";
+import { Fraunces, Hanken_Grotesk } from "next/font/google";
 
 import "../index.css";
 import Providers from "@/components/providers";
 
-const jetbrainsMono = JetBrains_Mono({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-display",
+  weight: "variable",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+});
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: "variable",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+      <body
+        className={`${fraunces.variable} ${hanken.variable} font-sans antialiased`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
