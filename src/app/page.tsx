@@ -2,7 +2,7 @@ import { HeroRotating } from "@/components/hero-rotating";
 import { Manifest } from "@/components/manifest";
 import { YearRuler } from "@/components/year-ruler";
 import { TRIPS } from "@/content/trips";
-import { getTripPhotos } from "@/lib/photos";
+import { getHeroCovers } from "@/lib/covers";
 
 const SOCIALS = [
   {
@@ -22,11 +22,8 @@ const SOCIALS = [
 export default function Home() {
   const years = Array.from(new Set(TRIPS.map((t) => t.date.slice(0, 4))));
 
-  // Cover pool — first photo of every trip that has photos
-  const covers = TRIPS.flatMap((t) => {
-    const photos = getTripPhotos(t.slug);
-    return photos[0] ? [photos[0]] : [];
-  });
+  // Curated hero pool — selected by Opus 4.7 subagents (scouts + judge)
+  const covers = getHeroCovers();
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
@@ -37,8 +34,6 @@ export default function Home() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
-
-      <YearRuler years={years} />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-24 md:px-12 md:pt-20">
         {/* Hero block */}
@@ -95,8 +90,13 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Manifest — every trip + hackathon, interleaved by date */}
-        <Manifest trips={TRIPS} />
+        {/* Manifest — every trip + hackathon, interleaved by date.
+            Wrap with YearRuler so the mobile sticky strip pins to the top
+            of the manifest section (not over the hero). */}
+        <div>
+          <YearRuler years={years} />
+          <Manifest trips={TRIPS} />
+        </div>
 
         {/* Footer */}
         <footer className="mt-24 border-t border-[#1a1a1a] pt-8">

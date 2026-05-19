@@ -8,6 +8,7 @@ export interface PhotoMeta {
   width: number;
   height: number;
   blur: string;
+  dominant: string; // "#rrggbb" — used for lightbox page-flash transition
 }
 
 const data = photosData as Record<string, PhotoMeta[]>;
