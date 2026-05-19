@@ -1,23 +1,25 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FLAGS } from "@/content/flags";
-import { POSTS } from "@/content/journal";
+import { TRIPS } from "@/content/trips";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
+  return TRIPS.filter(
+    (t) => (t.body && t.body.length > 0) || (t.photos && t.photos.length > 0)
+  ).map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const post = POSTS.find((p) => p.slug === slug);
-  if (!post) return {};
+  const trip = TRIPS.find((t) => t.slug === slug);
+  if (!trip) return {};
   return {
-    title: `${post.title} — Kristjan Grm`,
-    description: post.summary,
+    title: `${trip.title} — Kristjan Grm`,
+    description: trip.description,
   };
 }
 
@@ -53,8 +55,15 @@ function renderBody(body: string) {
 
 export default async function JournalPost({ params }: PageProps) {
   const { slug } = await params;
-  const post = POSTS.find((p) => p.slug === slug);
-  if (!post) notFound();
+  const trip = TRIPS.find((t) => t.slug === slug);
+  if (!trip) notFound();
+
+  const hasHackathonMeta =
+    trip.event !== undefined ||
+    trip.project !== undefined ||
+    trip.prizes !== undefined ||
+    trip.github !== undefined ||
+    trip.showcase !== undefined;
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
@@ -68,29 +77,66 @@ export default async function JournalPost({ params }: PageProps) {
       <article className="relative mx-auto max-w-2xl px-6 py-16">
         <div className="mb-8">
           <Link
-            href="/journal"
+            href="/"
             className="text-xs text-[#525252] transition-colors hover:text-[#737373]"
           >
-            ← Journal
+            ← Back
           </Link>
         </div>
 
         <header className="mb-8">
           <div className="flex items-center gap-2 text-sm text-[#525252]">
-            <span>{post.date}</span>
+            <span>{trip.date}</span>
             <span>·</span>
-            <span>{FLAGS[post.location] ?? "🌍"}</span>
-            <span>{post.location}</span>
+            <span>{FLAGS[trip.location] ?? "🌍"}</span>
+            <span>{trip.location}</span>
           </div>
-          <h1 className="mt-2 text-2xl font-medium">{post.title}</h1>
-          <p className="mt-2 text-[#737373]">{post.summary}</p>
+          <h1 className="mt-2 text-2xl font-medium">{trip.title}</h1>
+          <p className="mt-2 text-[#737373]">{trip.description}</p>
         </header>
 
-        <div>{renderBody(post.body)}</div>
+        {/* Hackathon metadata block */}
+        {hasHackathonMeta && (
+          <div className="mb-8 border-l border-[#1a1a1a] pl-4">
+            {trip.event !== undefined && (
+              <p className="text-sm text-[#525252]">{trip.event}</p>
+            )}
+            {trip.project !== undefined && (
+              <p className="mt-1 font-medium text-[#e8e8e8]">{trip.project}</p>
+            )}
+            {trip.prizes !== undefined && (
+              <p className="mt-1 text-sm text-blue-400/80">🏆 {trip.prizes}</p>
+            )}
+            <div className="mt-2 flex gap-3">
+              {trip.github !== undefined && (
+                <a
+                  href={trip.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#525252] transition-colors hover:text-[#737373]"
+                >
+                  GitHub →
+                </a>
+              )}
+              {trip.showcase !== undefined && (
+                <a
+                  href={trip.showcase}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#525252] transition-colors hover:text-[#737373]"
+                >
+                  Showcase →
+                </a>
+              )}
+            </div>
+          </div>
+        )}
 
-        {post.photos && post.photos.length > 0 && (
+        {trip.body && <div>{renderBody(trip.body)}</div>}
+
+        {trip.photos && trip.photos.length > 0 && (
           <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {post.photos.map((src) => (
+            {trip.photos.map((src) => (
               <img
                 key={src}
                 src={src}
