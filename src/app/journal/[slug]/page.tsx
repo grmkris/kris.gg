@@ -2,18 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FLAGS } from "@/content/flags";
-import { TRIPS } from "@/content/trips";
+import { TRIPS, type Trip } from "@/content/trips";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
+import { showcaseLabel } from "@/lib/prizes";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return TRIPS.filter(
-    (t) => (t.body && t.body.length > 0) || (t.photos && t.photos.length > 0)
-  ).map((t) => ({ slug: t.slug }));
+  return TRIPS.map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -56,6 +55,89 @@ function renderBody(body: string) {
   });
 }
 
+function CreditBlock({ trip, prominent }: { trip: Trip; prominent: boolean }) {
+  const hasLinks = trip.github !== undefined || trip.showcase !== undefined;
+
+  return (
+    <div
+      className={
+        prominent
+          ? "mb-12 border-y border-[#262626] py-8"
+          : "mb-10 border-y border-[#262626] py-5"
+      }
+    >
+      {trip.event !== undefined && (
+        <p
+          className={
+            prominent
+              ? "credit-block text-sm text-[#a3a3a3]"
+              : "credit-block text-xs text-[#a3a3a3]"
+          }
+        >
+          {trip.event}
+        </p>
+      )}
+      {(trip.project !== undefined || trip.prizes !== undefined) && (
+        <p
+          className={
+            prominent
+              ? "mt-3 font-display text-2xl font-light leading-tight text-[#f4ede1]"
+              : "mt-1 font-sans text-sm text-[#e8e8e8]"
+          }
+        >
+          {trip.project}
+          {trip.project !== undefined && trip.prizes !== undefined && (
+            <span className="mx-2 text-[#525252]">·</span>
+          )}
+          {trip.prizes !== undefined && (
+            <span className={prominent ? "text-[#c8472b]" : "text-[#c8472b]"}>
+              {trip.prizes}
+            </span>
+          )}
+        </p>
+      )}
+      {hasLinks && (
+        <div
+          className={
+            prominent
+              ? "mt-5 flex gap-6 font-sans text-sm"
+              : "mt-3 flex gap-4 font-sans text-xs"
+          }
+        >
+          {trip.github !== undefined && (
+            <a
+              href={trip.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={
+                prominent
+                  ? "text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                  : "text-[#737373] transition-colors hover:text-[#f4ede1]"
+              }
+            >
+              GitHub →
+            </a>
+          )}
+          {trip.showcase !== undefined && (
+            <a
+              href={trip.showcase}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={
+                prominent
+                  ? "text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                  : "text-[#737373] transition-colors hover:text-[#f4ede1]"
+              }
+            >
+              {showcaseLabel(trip.showcase)} →
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default async function JournalPost({ params }: PageProps) {
   const { slug } = await params;
   const trip = TRIPS.find((t) => t.slug === slug);
@@ -69,6 +151,12 @@ export default async function JournalPost({ params }: PageProps) {
     trip.prizes !== undefined ||
     trip.github !== undefined ||
     trip.showcase !== undefined;
+  const hasPhotos = photos.length > 0;
+  const hasBody = trip.body !== undefined && trip.body.length > 0;
+  // Text-only entries (no body, no photos) get a more prominent credit block
+  // and an inline back-link inside the article container instead of floating
+  // over a (non-existent) hero.
+  const textOnly = !hasBody && !hasPhotos;
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
@@ -80,17 +168,20 @@ export default async function JournalPost({ params }: PageProps) {
         }}
       />
 
-      {/* Back link — floats above the hero */}
-      <div className="absolute top-6 left-6 z-20">
-        <Link
-          href="/"
-          className="rounded-full bg-[#0a0a0a]/60 px-3 py-1 text-xs text-[#e8e8e8] backdrop-blur-sm transition-colors hover:bg-[#0a0a0a]/80"
-        >
-          ← Back
-        </Link>
-      </div>
+      {/* Back link — floats above the hero when a hero exists; for text-only
+          entries it's rendered inline inside the article container below. */}
+      {cover && (
+        <div className="absolute top-6 left-6 z-20">
+          <Link
+            href="/"
+            className="rounded-full bg-[#0a0a0a]/60 px-3 py-1 text-xs text-[#e8e8e8] backdrop-blur-sm transition-colors hover:bg-[#0a0a0a]/80"
+          >
+            ← Back
+          </Link>
+        </div>
+      )}
 
-      {/* Full-bleed hero photo */}
+      {/* Full-bleed hero photo (only when a cover exists) */}
       {cover && (
         <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden bg-[#1a1a1a] md:h-[65vh]">
           <Image
@@ -103,13 +194,29 @@ export default async function JournalPost({ params }: PageProps) {
             className="object-cover"
             sizes="100vw"
           />
-          {/* subtle gradient fade into page */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
         </div>
       )}
 
-      <article className="relative mx-auto max-w-2xl px-6 pb-16 pt-12">
-        {/* Header */}
+      <article
+        className={
+          cover
+            ? "relative mx-auto max-w-2xl px-6 pb-16 pt-12"
+            : "relative mx-auto max-w-2xl px-6 pb-16 pt-20"
+        }
+      >
+        {/* Inline back link for text-only / no-hero entries */}
+        {!cover && (
+          <div className="mb-8">
+            <Link
+              href="/"
+              className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
+            >
+              ← Back
+            </Link>
+          </div>
+        )}
+
         <header className="mb-10">
           <div className="flex items-center gap-2 font-sans text-sm tabular-nums text-[#737373]">
             <span>{trip.date}</span>
@@ -125,57 +232,20 @@ export default async function JournalPost({ params }: PageProps) {
           </p>
         </header>
 
-        {/* Hackathon credit block */}
-        {hasHackathonMeta && (
-          <div className="mb-10 border-y border-[#262626] py-5">
-            {trip.event !== undefined && (
-              <p className="credit-block text-xs text-[#a3a3a3]">
-                {trip.event}
-              </p>
-            )}
-            {(trip.project !== undefined || trip.prizes !== undefined) && (
-              <p className="mt-1 font-sans text-sm text-[#e8e8e8]">
-                {trip.project}
-                {trip.project !== undefined && trip.prizes !== undefined && (
-                  <span className="mx-2 text-[#525252]">·</span>
-                )}
-                {trip.prizes !== undefined && (
-                  <span className="text-[#c8472b]">{trip.prizes}</span>
-                )}
-              </p>
-            )}
-            {(trip.github !== undefined || trip.showcase !== undefined) && (
-              <div className="mt-3 flex gap-4 font-sans text-xs">
-                {trip.github !== undefined && (
-                  <a
-                    href={trip.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#737373] transition-colors hover:text-[#f4ede1]"
-                  >
-                    GitHub →
-                  </a>
-                )}
-                {trip.showcase !== undefined && (
-                  <a
-                    href={trip.showcase}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#737373] transition-colors hover:text-[#f4ede1]"
-                  >
-                    Showcase →
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-        )}
+        {hasHackathonMeta && <CreditBlock trip={trip} prominent={textOnly} />}
 
-        {trip.body && <div>{renderBody(trip.body)}</div>}
+        {hasBody && <div>{renderBody(trip.body!)}</div>}
+
+        {/* Honest closer for text-only older trips */}
+        {textOnly && (
+          <p className="mt-16 font-sans text-xs uppercase tracking-[0.15em] text-[#404040]">
+            Photos not archived from this trip.
+          </p>
+        )}
       </article>
 
       {/* Photo masonry — wider than the article column */}
-      {photos.length > 0 && (
+      {hasPhotos && (
         <section className="mx-auto max-w-5xl px-4 pb-24">
           <PhotoGallery photos={photos} />
         </section>
