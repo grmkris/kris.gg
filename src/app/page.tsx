@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { HeroRotating } from "@/components/hero-rotating";
 import { Manifest } from "@/components/manifest";
 import { YearRuler } from "@/components/year-ruler";
-import { PORTRAIT } from "@/content/portrait.generated";
 import { TRIPS } from "@/content/trips";
 import { getHeroCovers } from "@/lib/covers";
 
@@ -42,18 +40,6 @@ export default function Home() {
         <header className="mb-20 grid gap-10 md:mb-32 md:grid-cols-[1.2fr_1fr] md:gap-16">
           <div className="flex flex-col justify-between">
             <div>
-              <div className="mb-6 h-[72px] w-[72px] overflow-hidden rounded-full ring-1 ring-[#262626] md:h-[96px] md:w-[96px]">
-                <Image
-                  src={PORTRAIT.webp400}
-                  alt="Kristjan Grm"
-                  width={96}
-                  height={96}
-                  priority
-                  placeholder="blur"
-                  blurDataURL={PORTRAIT.blur}
-                  className="h-full w-full object-cover"
-                />
-              </div>
               <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
                 Kristjan
                 <br />
