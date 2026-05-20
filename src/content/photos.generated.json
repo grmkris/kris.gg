@@ -1059,6 +1059,88 @@
       "dominant": "#d8d8d8"
     }
   ],
+  "geneva-2025": [
+    {
+      "src": "/photos/geneva-2025/01.jpg",
+      "thumb": "/photos/geneva-2025/01-400.webp",
+      "mid": "/photos/geneva-2025/01-800.webp",
+      "full": "/photos/geneva-2025/01-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoKAA0AA4BaJYwCdADY4n4AAP48eGobcgOJVZ9e1MBV7PWe+BG8hyXg0ae/4b3B2q2BVv0gfQv14I3dcvKSN4OmAAA=",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/geneva-2025/02.jpg",
+      "thumb": "/photos/geneva-2025/02-400.webp",
+      "mid": "/photos/geneva-2025/02-800.webp",
+      "full": "/photos/geneva-2025/02-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAgCdASoKAAgAA4BaJagCsH8AFxTFQ+V7wAD9uM3hbdBkbCkboJy1ivluP976y1u+e544lssD5Sf1GOeUUs9Jd3CG/N60AAA=",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/geneva-2025/03.jpg",
+      "thumb": "/photos/geneva-2025/03-400.webp",
+      "mid": "/photos/geneva-2025/03-800.webp",
+      "full": "/photos/geneva-2025/03-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoKAA0AA4BaJbACdADc6wo6rAD9of2ro8Py5mzeufN80iXn72ip3JH6iA8zvMqFFDphEVHbHYsI98hNyPdwKS89gzX7VAPR6sgHohxoPgX9inIAAAA=",
+      "dominant": "#180808"
+    },
+    {
+      "src": "/photos/geneva-2025/04.jpg",
+      "thumb": "/photos/geneva-2025/04-400.webp",
+      "mid": "/photos/geneva-2025/04-800.webp",
+      "full": "/photos/geneva-2025/04-1600.webp",
+      "width": 1199,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoKAA0AA4BaJbACdADdkzhqjQAA/qZ9fypRVUoFa6EgNz7zVw5kAK4gS9etHvsUUnFv2Rx6OX4YLT1hJOThecjwxhdR+4i6NvMGwkYHTanJMAAA",
+      "dominant": "#180818"
+    },
+    {
+      "src": "/photos/geneva-2025/05.jpg",
+      "thumb": "/photos/geneva-2025/05-400.webp",
+      "mid": "/photos/geneva-2025/05-800.webp",
+      "full": "/photos/geneva-2025/05-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoKAA0AA4BaJYwCdAEO7W6Kr/SAAP7ZFjWwD00tzUdILDH+OrU6PzJdsN429G1EIRGsaRWHuxmUE7Km3AA=",
+      "dominant": "#584848"
+    },
+    {
+      "src": "/photos/geneva-2025/06.jpg",
+      "thumb": "/photos/geneva-2025/06-400.webp",
+      "mid": "/photos/geneva-2025/06-800.webp",
+      "full": "/photos/geneva-2025/06-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoKAA0AA4BaJbACdAEPCMF4IAAAAP5IlSin9IRWTkRfpvifw8w5aEyjfgkugmRXsht37idAELuv6A+JyySfjwiepryAAA==",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/geneva-2025/07.jpg",
+      "thumb": "/photos/geneva-2025/07-400.webp",
+      "mid": "/photos/geneva-2025/07-800.webp",
+      "full": "/photos/geneva-2025/07-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoKAA0AA4BaJZACdACEdNYAAP3VtrUqILduh3Mp9VsH2+1hnDPuTp3YAdt6cf4cnFyZc2SbETHcAmjiAAA=",
+      "dominant": "#68a8f8"
+    },
+    {
+      "src": "/photos/geneva-2025/08.jpg",
+      "thumb": "/photos/geneva-2025/08-400.webp",
+      "mid": "/photos/geneva-2025/08-800.webp",
+      "full": "/photos/geneva-2025/08-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoKAA0AA4BaJaACdAD7FpDo/VgA/FBLPWhsU3P0tww/EB+RUlTxhHQTo0jYt6+XwtSWc0wp2cwbaKDPqpWzSFbcs2z/4Lia4Ek5O04iEJb5KQA9A+AAAA==",
+      "dominant": "#385898"
+    }
+  ],
   "georgia-2025": [
     {
       "src": "/photos/georgia-2025/01.jpg",

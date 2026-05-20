@@ -18,7 +18,7 @@ const MONTH_NAMES: Record<string, string> = {
 function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
   const month = MONTH_NAMES[trip.date.slice(5, 7)] ?? "";
   const flag = FLAGS[trip.location] ?? "🌍";
-  const isHackathon = trip.event !== undefined;
+  const hasEvent = trip.event !== undefined;
   const placement = parsePlacement(trip.prizes);
 
   const rowContent = (
@@ -38,7 +38,7 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
 
       {/* Event tag — hidden on mobile */}
       <span className="hidden font-sans text-xs uppercase tracking-wider text-[#737373] md:inline">
-        {isHackathon
+        {hasEvent
           ? trip.event
           : trip.type === "project"
             ? "Side project"
