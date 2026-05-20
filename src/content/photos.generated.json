@@ -2159,6 +2159,118 @@
       "dominant": "#98a8c8"
     }
   ],
+  "seoul-2025": [
+    {
+      "src": "/photos/seoul-2025/01.jpg",
+      "thumb": "/photos/seoul-2025/01-400.webp",
+      "mid": "/photos/seoul-2025/01-800.webp",
+      "full": "/photos/seoul-2025/01-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAQCdASoKAA0AA4BaJZQCdADYe0AA/sKjzZ4aWkGgkQqa2HN7kJFwaOgJbsPdRf7+l+tSwcZV6LhXZe+GsmT8Zq5YkJL6XRvwfkoAAAA=",
+      "dominant": "#080818"
+    },
+    {
+      "src": "/photos/seoul-2025/02.jpg",
+      "thumb": "/photos/seoul-2025/02-400.webp",
+      "mid": "/photos/seoul-2025/02-800.webp",
+      "full": "/photos/seoul-2025/02-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAA0AA4BaJQBdgCHd30i2vUAA/BF7MoPi4Vvp+h8g5RxYq3NiPqSKBeU2nKj2ZWqzi2V7LCi1rhvVdH5U6pOwm2qEWcIvcAA=",
+      "dominant": "#181818"
+    },
+    {
+      "src": "/photos/seoul-2025/03.jpg",
+      "thumb": "/photos/seoul-2025/03-400.webp",
+      "mid": "/photos/seoul-2025/03-800.webp",
+      "full": "/photos/seoul-2025/03-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoKAA0AA4BaJYwC7AEOPRFjmAD++Rb+/1csbhKoW0Ma7QK2xnVtd/2bin3UvXpCxj2ysAAA",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/seoul-2025/04.jpg",
+      "thumb": "/photos/seoul-2025/04-400.webp",
+      "mid": "/photos/seoul-2025/04-800.webp",
+      "full": "/photos/seoul-2025/04-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoKAA0AA4BaJagCdADzeuloAPdOAbpAxoX+h2E3uFF5Z4z7jKs1dfs8EHsp4UhXUVMdqjdJKas8oY/YuALPtMd4pryx9LHt/4IT0HxJQAA=",
+      "dominant": "#c89868"
+    },
+    {
+      "src": "/photos/seoul-2025/05.jpg",
+      "thumb": "/photos/seoul-2025/05-400.webp",
+      "mid": "/photos/seoul-2025/05-800.webp",
+      "full": "/photos/seoul-2025/05-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA0AA4BaJbACdAEUnV89JidnQAD95+xqF1u15EEvCcdSuoVx0gapSf8QNJjNeUsswx7+p0kjolk6SN+SXyaFl3r106aq4AA=",
+      "dominant": "#88a8f8"
+    },
+    {
+      "src": "/photos/seoul-2025/06.jpg",
+      "thumb": "/photos/seoul-2025/06-400.webp",
+      "mid": "/photos/seoul-2025/06-800.webp",
+      "full": "/photos/seoul-2025/06-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoKAA0AA4BaJZQCdAERGupzmAAA/mYK3ajMvubpKig/2pYKG4HywF8bhG6T79Lcp/Sz1s2qcAA=",
+      "dominant": "#d8d8d8"
+    },
+    {
+      "src": "/photos/seoul-2025/07.jpg",
+      "thumb": "/photos/seoul-2025/07-400.webp",
+      "mid": "/photos/seoul-2025/07-800.webp",
+      "full": "/photos/seoul-2025/07-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAAgAA4BaJbACdAD0ltAEp4AA/tHI7jkr5PRCncJSZicSTOzAW9h9RWRRILnFejOsT/xScyS77AIODfGpOHWUYZosAAAA",
+      "dominant": "#282828"
+    },
+    {
+      "src": "/photos/seoul-2025/08.jpg",
+      "thumb": "/photos/seoul-2025/08-400.webp",
+      "mid": "/photos/seoul-2025/08-800.webp",
+      "full": "/photos/seoul-2025/08-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoKAA0AA4BaJbACdAEQ/ijqtjiAAP66eD2PM9r4byC+mmnzDC7JKq067VG36Fh/9j+X7efyq+JeAAAA",
+      "dominant": "#086838"
+    },
+    {
+      "src": "/photos/seoul-2025/09.jpg",
+      "thumb": "/photos/seoul-2025/09-400.webp",
+      "mid": "/photos/seoul-2025/09-800.webp",
+      "full": "/photos/seoul-2025/09-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoKAA0AA4BaJYgCdH8AGZCOHhKSPAD+5lI/1IkZOgzq7O4GKO+ejfNGPsbWQKOrzzR94a4cGKA4Zgv5KCFRa6uNr9GRXCyr3NuFm1dwlaBcf4cEP2gAAA==",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/seoul-2025/10.jpg",
+      "thumb": "/photos/seoul-2025/10-400.webp",
+      "mid": "/photos/seoul-2025/10-800.webp",
+      "full": "/photos/seoul-2025/10-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoKAA0AA4BaJYgCdADMnP91jkAA8AdOq6LQsoARYCWYnHVEx5JdvU7osvm2rUoYOIZSU3L2KZQjWkEpjWnfRK/kWWqH1RSLSb1eKEflgAA=",
+      "dominant": "#583828"
+    },
+    {
+      "src": "/photos/seoul-2025/11.jpg",
+      "thumb": "/photos/seoul-2025/11-400.webp",
+      "mid": "/photos/seoul-2025/11-800.webp",
+      "full": "/photos/seoul-2025/11-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAgCdASoKAA0AA4BaJZwC7AYwTvs8fiRVDMAA34SDhsCfBqLbFdZ5wpXV7b1zLg7jY4y02f5M3e5O7EjqOUzvTrJweyzj5lmcYf87hJoNFKJm0AA=",
+      "dominant": "#080808"
+    }
+  ],
   "shanghai-mu-2026": [
     {
       "src": "/photos/shanghai-mu-2026/01.jpg",
