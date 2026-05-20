@@ -235,13 +235,6 @@ export default async function JournalPost({ params }: PageProps) {
         {hasHackathonMeta && <CreditBlock trip={trip} prominent={textOnly} />}
 
         {hasBody && <div>{renderBody(trip.body!)}</div>}
-
-        {/* Honest closer for text-only older trips */}
-        {textOnly && (
-          <p className="mt-16 font-sans text-xs uppercase tracking-[0.15em] text-[#404040]">
-            Photos not archived from this trip.
-          </p>
-        )}
       </article>
 
       {/* Photo masonry — wider than the article column */}
