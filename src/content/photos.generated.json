@@ -109,8 +109,8 @@
       "full": "/photos/argentina-2025/01-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAgCdASoKAA0AA4BaJZACdGuAAoexXAG5AAD+95r0fGymFBRpnyAD0fPCLQCUKL06z185BY/W8Tz7JjETQCEkCYAAAA==",
-      "dominant": "#080808"
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoKAA0AA4BaJYgCdADz8TV2AADMn+dMVgObTtCbiz7iQsOCqMhIvj+pSXuJOsoClY+m1+gtXPmNa7uGe3+QXAAA",
+      "dominant": "#385888"
     },
     {
       "src": "/photos/argentina-2025/02.jpg",
@@ -119,8 +119,8 @@
       "full": "/photos/argentina-2025/02-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoKAA0AA4BaJQBOgB6XIYqlVVAA/tK2A+7UDnCnMiTTWAPzhAqc+ANkqnoq7JGUPt1zRew7S7vqd9O2YbGI1iAA",
-      "dominant": "#8898a8"
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAA0AA4BaJQBOgB+FtlY7D7AA/plkkjF2TbJB6lLpkx6whqfIgBvZfF2MdIIxiLGIHJHKUO/bxhPGRS3m9lIOb72GsXcCDJnIUsMLSDVAAA==",
+      "dominant": "#b8b8b8"
     },
     {
       "src": "/photos/argentina-2025/03.jpg",
@@ -129,8 +129,8 @@
       "full": "/photos/argentina-2025/03-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA0AA4BaJZACdAD0pjsTIDREAAD+8159D5PgYfsjBPP02P3pWZ6lwvXZiFy3HZlcnM0YLp6hPM23Uletmo8G7L3OdkAwAAA=",
-      "dominant": "#081818"
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAA0AA4BaJZQAAlljKA3+AAD+YSDjrKLyof2nEJ4vwWHFz+J12hE6RAY+dy0Q+4niujFHmd+Jh/cl27cCAA==",
+      "dominant": "#181818"
     },
     {
       "src": "/photos/argentina-2025/04.jpg",
@@ -139,18 +139,18 @@
       "full": "/photos/argentina-2025/04-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoKAA0AA4BaJQBOj+AC+PPCUswAAP6RtswSgr5OyWBC8NX6RkJRvCcYHnXvlmX2iPgveBxpsi0IWvpNBhZPr/hgYFX6Z15kBDiMBwWmxHAAAA==",
-      "dominant": "#c8d8e8"
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJaACdAEQW8i/NIAA/rydu25PJ/mp19tZnDuTvpKv36DvnghfRZW4jClyYu75+X91+77r8IHq5G8SmCAAAA==",
+      "dominant": "#080808"
     },
     {
       "src": "/photos/argentina-2025/05.jpg",
       "thumb": "/photos/argentina-2025/05-400.webp",
       "mid": "/photos/argentina-2025/05-800.webp",
       "full": "/photos/argentina-2025/05-1600.webp",
-      "width": 1200,
-      "height": 1600,
-      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoKAA0AA4BaJZACdADz9anBw8gAAPR2tJCOC3N99gmrzO4a27lZy8A8sCZN7AFBY4ZzQJz8Tm5pOy1L7qwd0950JDODEcUnjgixAK1HNZMAAA==",
-      "dominant": "#484848"
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoKAAgAA4BaJZACdAEQzZxNshCqAAD+9dKLJleNt39OtwbsDokT008lkU7lA9sNzFreuPDmuZkN96ScQ2e+zJwTWm3AAA==",
+      "dominant": "#080808"
     },
     {
       "src": "/photos/argentina-2025/06.jpg",
@@ -159,8 +159,8 @@
       "full": "/photos/argentina-2025/06-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoKAA0AA4BaJQBOgMYJeDSy9MAA/uXcLG+w2VCai1/WDHuZII8djSlxzDSgLfVv+OlBLJS0hmey+ADLD5vMt2Nql7CSrls7omUBtydrk8QVTM0kdelOeQ42oh4AgAAA",
-      "dominant": "#181818"
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoKAA0AA4BaJYwAAl1YahTWAM4xptm5rBz3sNa51vGaWtrjvT4Zw3zw2b+p8MaYJ+8IiyDe2wLrpNssRVTjI6N+sn7bmAAA",
+      "dominant": "#080808"
     },
     {
       "src": "/photos/argentina-2025/07.jpg",
@@ -169,7 +169,7 @@
       "full": "/photos/argentina-2025/07-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoKAA0AA4BaJZACdADcWW0pWCAA/r/EC12+aJbTd+5S8L+fh99BY3qnA2W+L5utyzrXu8NrOoKU2/D12M1z+U59G4eA0hGr939bmU/qy2ramWEbhhgLYOSj4AA=",
+      "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoKAA0AA4BaJYwCdAYuk7nN3LAAAP7d/BXA4gu8tMAb6i6ZgBtCym7pw6h/SH8fu7BMCHWIb9MLFvKvUXdqrJ1hR3QftO3LKBJwY6POEB3RKUAFNJKSJgAA",
       "dominant": "#080808"
     },
     {
@@ -179,8 +179,8 @@
       "full": "/photos/argentina-2025/08-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAA0AA4BaJZgCdAEerdrutvAA/onNt5qy2d9ztH6BPNS0eeqhWdgnszDyrYowAcU2eUJRTPdySEMY0EE0H0cnLZP8GIAA",
-      "dominant": "#c8b898"
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoKAA0AA4BaJYwCdH8AFxTADzRYwAD9AWA/MU1Is0OC24vtebxfb8fsr55ZghEScPrBPnYCRWQv0sZKSiEKPahxoBAu2bk5i4XeGKAIjvT1MGOkt6AAAA==",
+      "dominant": "#080808"
     },
     {
       "src": "/photos/argentina-2025/09.jpg",
@@ -189,7 +189,7 @@
       "full": "/photos/argentina-2025/09-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAQCdASoKAA0AA4BaJZgCdADhN3KAAPqdQgg+uqG2HimzwFE8brg0LMvp10B4WPGjCI5dMApZBrkxlhbnhu3gw9838l9OcQNA4Kw+fropq9MpYvgAAA==",
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoKAA0AA4BaJZQCdAYulzV80+ANTAAAzi+bTZZN8DMbhkB93cA17B0NXAtA4caWGmwp7zkNmxM7aIF5cbV8HCrJEpmLVOqvD8pfKDscQ0xpGa2g/GAAAA==",
       "dominant": "#080808"
     },
     {
@@ -199,28 +199,128 @@
       "full": "/photos/argentina-2025/10-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJZQCdADhXQFOCoAA/et8Zu8eLzdaTFyS+XK2xLPWW4GadFZtcQyQlGIOK6aNlnR/BJZA1gFK8EgJAM4AAA==",
-      "dominant": "#888898"
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAA0AA4BaJQBOgCBu+H7EAAD+eTk4c/s+c9Pktj1ZC3iJUJ/kFxkad5Uo9PQ8eYGPFwYAnwm2vUUPiYOffHA4sbZtjAAA",
+      "dominant": "#585848"
     },
     {
       "src": "/photos/argentina-2025/11.jpg",
       "thumb": "/photos/argentina-2025/11-400.webp",
       "mid": "/photos/argentina-2025/11-800.webp",
       "full": "/photos/argentina-2025/11-1600.webp",
-      "width": 1200,
-      "height": 1600,
-      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoKAA0AA4BaJYwCdAEXZKKBvMigAPYrBavdmhkVBT1VimbFdprIkWS9xWPD8zTPi7HoG6wwt7wtNUpvBjFEkoq48RN+DYV/gAA=",
-      "dominant": "#586878"
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoKAAgAA4BaJaACdAD5i6xN8S6AAP7vjVpI1C2YPgW6RSku3BQjYTjYfR3++IvRwGm0neDTEzOfPwP0mLaMtONJFYAAAA==",
+      "dominant": "#080808"
     },
     {
       "src": "/photos/argentina-2025/12.jpg",
       "thumb": "/photos/argentina-2025/12-400.webp",
       "mid": "/photos/argentina-2025/12-800.webp",
       "full": "/photos/argentina-2025/12-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoKAAgAA4BaJYgCdADZoQZPAAD+LxX5xlvEnKqbCdXCFiHsFiPxyGhe8O43VnTdFTFcoqVL5qmNwU92VX3jikKDSFhVRpZKdAAAAA==",
+      "dominant": "#5888c8"
+    },
+    {
+      "src": "/photos/argentina-2025/13.jpg",
+      "thumb": "/photos/argentina-2025/13-400.webp",
+      "mid": "/photos/argentina-2025/13-800.webp",
+      "full": "/photos/argentina-2025/13-1600.webp",
       "width": 1200,
       "height": 1600,
-      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAA0AA4BaJZwCw7D5hA0VJgD+Gf0HXQs4PosCeEVRX5N9xIPzRfWzAwTpcZROtcE2kBicn37/E9i1T0AAAA==",
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAA0AA4BaJbACdAEOltKAheAA/rPP0dvKvulrY0Y2XWEqJYbRyCNuFauVt5sD3gqi5I5Ljt3q3ftst8G8MZ4lBoAxAYAA",
+      "dominant": "#88b8f8"
+    },
+    {
+      "src": "/photos/argentina-2025/14.jpg",
+      "thumb": "/photos/argentina-2025/14-400.webp",
+      "mid": "/photos/argentina-2025/14-800.webp",
+      "full": "/photos/argentina-2025/14-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoKAAgAA4BaJYgCdEf/gbjTfscvAAD7tic4P8MwWA0mXFuvwA+JPLhqUNPw9YWs9+iUp60C9pfgz6j9cGgKAAAA",
+      "dominant": "#5878a8"
+    },
+    {
+      "src": "/photos/argentina-2025/15.jpg",
+      "thumb": "/photos/argentina-2025/15-400.webp",
+      "mid": "/photos/argentina-2025/15-800.webp",
+      "full": "/photos/argentina-2025/15-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoKAAgAA4BaJQBOj+ADEp/Ovg1oAPsdvNTOAojY45D+Saxt3IPKYLsQZNXsVsUScvTBgCGxJGl7VhIHpCYvDeSQAAA=",
+      "dominant": "#486888"
+    },
+    {
+      "src": "/photos/argentina-2025/16.jpg",
+      "thumb": "/photos/argentina-2025/16-400.webp",
+      "mid": "/photos/argentina-2025/16-800.webp",
+      "full": "/photos/argentina-2025/16-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoKAA0AA4BaJagCdH8AGBjU9U8kAAD+56efBStFKo6h3tRZxAIXbK1VIWzq0Lm2n3IVbIrFpwIxAXU1dpk3vppt1fDSt3jElU5a7gMMnOI3oAAA",
+      "dominant": "#b8d8f8"
+    },
+    {
+      "src": "/photos/argentina-2025/17.jpg",
+      "thumb": "/photos/argentina-2025/17-400.webp",
+      "mid": "/photos/argentina-2025/17-800.webp",
+      "full": "/photos/argentina-2025/17-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoKAAgAA4BaJaACdH8AGBZm+rhQAP62HgtGoRlaR4Cio+xy2X1bstRBA0/7Iwuj2EXSb/+jK8JpjCApFTjlvsbMAnH3rwAA",
+      "dominant": "#c8e8f8"
+    },
+    {
+      "src": "/photos/argentina-2025/18.jpg",
+      "thumb": "/photos/argentina-2025/18-400.webp",
+      "mid": "/photos/argentina-2025/18-800.webp",
+      "full": "/photos/argentina-2025/18-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoKAAgAA4BaJbACdAEOlWShEgAA/rO9r4CuM5hqofsT3S8tWRMs1dTbGqnFpfN4Qbh36SM8rIAAAA==",
+      "dominant": "#b8b8b8"
+    },
+    {
+      "src": "/photos/argentina-2025/19.jpg",
+      "thumb": "/photos/argentina-2025/19-400.webp",
+      "mid": "/photos/argentina-2025/19-800.webp",
+      "full": "/photos/argentina-2025/19-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoKAAgAA4BaJZgAAu0cK4+5yAAA/u9qF2RQmB5Aw5aasOPTm2qqlg8GnxIL6dBH1rYSQeWEk69KwAAA",
+      "dominant": "#181828"
+    },
+    {
+      "src": "/photos/argentina-2025/20.jpg",
+      "thumb": "/photos/argentina-2025/20-400.webp",
+      "mid": "/photos/argentina-2025/20-800.webp",
+      "full": "/photos/argentina-2025/20-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoKAAgAA4BaJZQCdAEQ/b+KHAAA/vbfz+26LPwy8Im2oIGvxAzHoAAA",
       "dominant": "#080808"
+    },
+    {
+      "src": "/photos/argentina-2025/21.jpg",
+      "thumb": "/photos/argentina-2025/21-400.webp",
+      "mid": "/photos/argentina-2025/21-800.webp",
+      "full": "/photos/argentina-2025/21-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoKAA0AA4BaJZwAAudDKJ326qAA/vWXVYduekep0acLY0SOXm7UfYmhH3g/Q6KgAAA=",
+      "dominant": "#081828"
+    },
+    {
+      "src": "/photos/argentina-2025/22.jpg",
+      "thumb": "/photos/argentina-2025/22-400.webp",
+      "mid": "/photos/argentina-2025/22-800.webp",
+      "full": "/photos/argentina-2025/22-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoKAA0AA4BaJZQCdAEOOgRRIAD+8uchWIFpbeRqWySMiUJ7kG617yl2sAA=",
+      "dominant": "#181828"
     }
   ],
   "bangkok-2024": [
@@ -1057,6 +1157,168 @@
       "height": 1600,
       "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKAA0AA4BaJYwCdAEOupHcAAD+8jgCN4X0G0LlVeHWnjjZ1hhaOqwYt0bXV/Py6/h8Y10YxQqEQSVhEAA=",
       "dominant": "#d8d8d8"
+    }
+  ],
+  "edge-city-patagonia-2025": [
+    {
+      "src": "/photos/edge-city-patagonia-2025/01.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/01-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/01-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/01-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoKAA0AA4BaJQBWABcICjzgAP7eDyLJSNgHaHGF3SDMw6HuWjXcJYgnai1LpHLcMj5wbDkhBJjkOBAXmXSj1HG45nO4AAAA",
+      "dominant": "#283828"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/02.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/02-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/02-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/02-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoKAA0AA4BaJQBOgB8wEieAAP4BdCepr6iAyOIRVgGuW2q/FeLqUrzAIK/p4bDykw/RNABAy0UEFl/2KSjV7Diyj44hWQAA",
+      "dominant": "#686868"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/03.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/03-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/03-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/03-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoKAA0AA4BaJYwCdAEPEIJ6VTEAAP7yXM+RkUxknT/gm/b8ccyxbDTb9iK4rm5mGXr7k9PLKsEEed6tAaAAAA==",
+      "dominant": "#c8d8d8"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/04.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/04-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/04-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/04-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAAgAA4BaJZgCdAEf3ZfEEAAA/mFqya4zrgZStgEH0C4/cvOCNwTzaWGx/ePw11N6JWT8l74tgP0H62zft5jrZceyGuuAAAA=",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/05.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/05-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/05-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/05-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAAgAA4BaJZgCdADdkHQ3UAD+yULSs0V7yhlmQzZ4pb/b4QEiYPLyhKx1CrOR0OWp96uBkUkZNEy2kImu64YpmpaaAAAA",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/06.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/06-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/06-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/06-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoKAA0AA4BaJZgCdEf/gcQG8fEYoAD+J2Qy4C/M+fohSkLM2OS9553LAEFSeafMG9HXk4P4zFhbm79H2Gc1wKy53k5hz0sZhMwdwpY6P//e3ISPEgUfXF2gPUn3+VYZHuqsuZIfIAA=",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/07.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/07-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/07-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/07-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoKAA0AA4BaJaACdADcpx1pgAD+5gcCifMZOD/5Ndm75U/QnDcPiu2cRDZmdpTm1fpqfVj28f8StPHKPRe9CGxfoJWh8kd3AuIuA3KYstOMtcI2mLJLHRIiftk8ySAA",
+      "dominant": "#482818"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/08.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/08-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/08-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/08-1600.webp",
+      "width": 1600,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoKAAgAA4BaJQBOgB5vj6AwAP4lyMiJfMkZ7TwVy2IhmKq6wKCivcMFZYIy1wx2AS1vPZU6MRSGxWmHyIaXAAAA",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/09.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/09-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/09-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/09-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA0AA4BaJYwCdIExGBwVI+HxAAD+s73scKBx4azHFZ1ii85AGCA624ChLuhIpwJi/j+mGm6V21UJAuiLtqorlGPk+fMAAAA=",
+      "dominant": "#a8b8c8"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/10.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/10-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/10-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/10-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoKAA0AA4BaJbACdAD8LJi194wWAAD+ZYUqAREUF+/zNi/U19kXEGyD19EvI3ZdgaiopJUnkwhOAw5NxgtCqhsJ4i/3xfAA",
+      "dominant": "#9898a8"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/11.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/11-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/11-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/11-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoKAA0AA4BaJZQCdAEKE2g/EAAAyzT2VcQJNp6+kE5RSplDlWfcecbPGPI8uXNDMBrs9LAA",
+      "dominant": "#687878"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/12.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/12-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/12-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/12-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAA0AA4BaJQBOgCPwkBAHHlIA/q+kNWUBfVffJuRYz0Gf411s2UDKnSSidBUtcQs9vz2qbx5gDRYr4FoUsbObzXI1AAAA",
+      "dominant": "#a8b8c8"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/13.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/13-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/13-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/13-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAA0AA4BaJYwCdAEfzojgAAD+3/F/xdKLhAhX8jacZDF0HbU56LWuM0aHYQtCE8j76ZrJGPJRvZRFInpP+c7FY9Ig9gAA",
+      "dominant": "#98a8b8"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/14.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/14-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/14-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/14-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoKAA0AA4BaJQAASzA+Z674AAD8M6TsiyUmsKj/Ib5vpy0GYxyiONq2X1EyhrDLoKuErFvEhWRdUWq/opDb+DqPP4DrVwIf73iMlmr6UdBMzKKAAAA=",
+      "dominant": "#080808"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/15.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/15-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/15-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/15-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoKAA0ABIBaJZACdAFAAAD+9ForZN/X0RJn4T2O6AA=",
+      "dominant": "#080828"
+    },
+    {
+      "src": "/photos/edge-city-patagonia-2025/16.jpg",
+      "thumb": "/photos/edge-city-patagonia-2025/16-400.webp",
+      "mid": "/photos/edge-city-patagonia-2025/16-800.webp",
+      "full": "/photos/edge-city-patagonia-2025/16-1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoKAA0AA4BaJQBdgBuaWOxwAAD+9J/iYBvNEE/wSjvT1XA0i2JlT5tgeLEEnQ20mMo9jvPjq1xSdiBEa5qHBEJeXFmxo6tAAAA=",
+      "dominant": "#080808"
     }
   ],
   "geneva-2025": [
