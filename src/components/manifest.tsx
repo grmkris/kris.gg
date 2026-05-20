@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FLAGS } from "@/content/flags";
 import type { Trip } from "@/content/trips";
 import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
+import { parsePlacement } from "@/lib/prizes";
 
 interface Props {
   trips: Trip[];
@@ -14,22 +15,11 @@ const MONTH_NAMES: Record<string, string> = {
   "09": "SEP", "10": "OCT", "11": "NOV", "12": "DEC",
 };
 
-function hasDetail(trip: Trip): boolean {
-  return (
-    (trip.body !== undefined && trip.body.length > 0) ||
-    (trip.photos !== undefined && trip.photos.length > 0)
-  );
-}
-
 function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
   const month = MONTH_NAMES[trip.date.slice(5, 7)] ?? "";
   const flag = FLAGS[trip.location] ?? "🌍";
   const isHackathon = trip.event !== undefined;
-  const detailable = hasDetail(trip);
-  const showWon =
-    trip.prizes !== undefined &&
-    (trip.prizes.toLowerCase().includes("winner") ||
-      /\b1st\b/i.test(trip.prizes));
+  const placement = parsePlacement(trip.prizes);
 
   const rowContent = (
     <div className="group relative grid grid-cols-[40px_24px_1fr] items-baseline gap-x-4 border-t border-[#1a1a1a] py-4 transition-colors duration-300 tabular-nums hover:border-[#333] md:grid-cols-[40px_28px_120px_140px_1fr_auto]">
@@ -68,10 +58,10 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
         )}
       </span>
 
-      {/* WON tag — 1st place only */}
-      {showWon && (
-        <span className="hidden font-sans text-[10px] uppercase tracking-[0.15em] text-[#c8472b] md:inline">
-          WON
+      {/* Placement tag — best numeric rank from prizes, e.g. 1ST / 2× 2ND */}
+      {placement && (
+        <span className="hidden whitespace-nowrap font-sans text-[10px] uppercase tracking-[0.15em] text-[#c8472b] md:inline">
+          {placement.display}
         </span>
       )}
 
@@ -101,14 +91,11 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
     </div>
   );
 
-  if (detailable) {
-    return (
-      <Link href={`/journal/${trip.slug}`} className="block">
-        {rowContent}
-      </Link>
-    );
-  }
-  return rowContent;
+  return (
+    <Link href={`/journal/${trip.slug}`} className="block">
+      {rowContent}
+    </Link>
+  );
 }
 
 export function Manifest({ trips }: Props) {
