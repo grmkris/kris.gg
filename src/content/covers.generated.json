@@ -1,10 +1,8 @@
 {
   "covers": [
-    { "slug": "bolivia-2025", "index": 12 },
     { "slug": "new-york-2025", "index": 7 },
     { "slug": "brussels-2024", "index": 10 },
     { "slug": "prague-2024-06", "index": 9 },
-    { "slug": "bolivia-2025", "index": 1 },
     { "slug": "tomorrowland-2025", "index": 9 },
     { "slug": "croatia-jul-2024", "index": 8 },
     { "slug": "shanghai-mu-2026", "index": 11 },
@@ -13,7 +11,6 @@
     { "slug": "cannes-2026", "index": 7 },
     { "slug": "georgia-2025", "index": 12 },
     { "slug": "verona-2026", "index": 2 },
-    { "slug": "japan-2025", "index": 11 },
     { "slug": "bangkok-2024", "index": 10 },
     { "slug": "tomorrowland-2025", "index": 6 },
     { "slug": "cannes-2025", "index": 3 },
@@ -22,6 +19,16 @@
     { "slug": "geneva-2025", "index": 3 },
     { "slug": "geneva-2025", "index": 6 },
     { "slug": "edge-city-patagonia-2025", "index": 9 },
-    { "slug": "argentina-2025", "index": 19 }
+    { "slug": "argentina-2025", "index": 19 },
+    { "slug": "tokyo-2025", "index": 22 },
+    { "slug": "tokyo-2025", "index": 11 },
+    { "slug": "kyoto-2025", "index": 3 },
+    { "slug": "machu-picchu-2025", "index": 3 },
+    { "slug": "machu-picchu-2025", "index": 11 },
+    { "slug": "la-paz-2025", "index": 6 },
+    { "slug": "macedonia-2024", "index": 13 },
+    { "slug": "shanghai-mu-2026", "index": 17 },
+    { "slug": "shanghai-mu-2026", "index": 23 },
+    { "slug": "tomorrowland-2025", "index": 20 }
   ]
 }
