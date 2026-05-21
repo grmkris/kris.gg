@@ -10,6 +10,8 @@ export const FLAGS: Record<string, string> = {
   Cuzco: "🇵🇪",
   Geneva: "🇨🇭",
   Istanbul: "🇹🇷",
+  Kyoto: "🇯🇵",
+  "Machu Picchu": "🇵🇪",
   Jasenice: "🇭🇷",
   "La Paz": "🇧🇴",
   Lisbon: "🇵🇹",
@@ -30,5 +32,6 @@ export const FLAGS: Record<string, string> = {
   Tbilisi: "🇬🇪",
   Tenerife: "🇪🇸",
   Tokyo: "🇯🇵",
+  Uyuni: "🇧🇴",
   Verona: "🇮🇹",
 };
