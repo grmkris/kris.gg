@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import { PhotoGallery } from "@/components/photo-gallery";
 import { FLAGS } from "@/content/flags";
 import { TRIPS, type Trip } from "@/content/trips";
-import { PhotoGallery } from "@/components/photo-gallery";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { showcaseLabel } from "@/lib/prizes";
 
@@ -18,10 +19,27 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const trip = TRIPS.find((t) => t.slug === slug);
-  if (!trip) return {};
+  if (!trip) {
+    return {};
+  }
+  const url = `https://kris.gg/journal/${slug}`;
   return {
-    title: `${trip.title} — Kristjan Grm`,
     description: trip.description,
+    openGraph: {
+      description: trip.description,
+      publishedTime: `${trip.date}-01`,
+      siteName: "kris.gg",
+      title: trip.title,
+      type: "article" as const,
+      url,
+    },
+    title: trip.title,
+    twitter: {
+      card: "summary_large_image" as const,
+      creator: "@_krisgg",
+      description: trip.description,
+      title: trip.title,
+    },
   };
 }
 
@@ -141,7 +159,9 @@ function CreditBlock({ trip, prominent }: { trip: Trip; prominent: boolean }) {
 export default async function JournalPost({ params }: PageProps) {
   const { slug } = await params;
   const trip = TRIPS.find((t) => t.slug === slug);
-  if (!trip) notFound();
+  if (!trip) {
+    notFound();
+  }
 
   const photos = getTripPhotos(slug);
   const cover = getCoverPhoto(slug);

@@ -1,23 +1,22 @@
-import { type Metadata } from "next";
-
+import type { Metadata } from "next";
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 
 import "../index.css";
 import Providers from "@/components/providers";
 
 const fraunces = Fraunces({
+  axes: ["opsz", "SOFT"],
+  display: "swap",
   subsets: ["latin"],
   variable: "--font-display",
   weight: "variable",
-  display: "swap",
-  axes: ["opsz", "SOFT"],
 });
 
 const hanken = Hanken_Grotesk({
+  display: "swap",
   subsets: ["latin"],
   variable: "--font-sans",
   weight: "variable",
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +29,10 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://kris.gg",
   },
-  title: "Kristjan Grm | Builder",
+  title: {
+    default: "Kristjan Grm | Builder",
+    template: "%s — Kristjan Grm",
+  },
   twitter: {
     card: "summary_large_image",
     creator: "@_krisgg",
