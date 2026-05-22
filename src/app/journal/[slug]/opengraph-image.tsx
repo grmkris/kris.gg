@@ -10,6 +10,7 @@ import {
 } from "@/lib/og";
 
 export const runtime = "nodejs";
+export const dynamicParams = false;
 export const alt = "kris.gg journal entry";
 export const size = { height: 630, width: 1200 };
 export const contentType = "image/png";
