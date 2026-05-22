@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { HeroRotating } from "@/components/hero-rotating";
 import { Manifest } from "@/components/manifest";
 import { YearRuler } from "@/components/year-ruler";
@@ -20,7 +22,7 @@ const SOCIALS = [
 ];
 
 export default function Home() {
-  const years = Array.from(new Set(TRIPS.map((t) => t.date.slice(0, 4))));
+  const years = [...new Set(TRIPS.map((t) => t.date.slice(0, 4)))];
 
   // Curated hero pool — selected by Opus 4.7 subagents (scouts + judge)
   const covers = getHeroCovers();
@@ -63,10 +65,31 @@ export default function Home() {
               </div>
 
               <p className="mt-8 max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]">
-                Hackathons keep the passport busy. Life outside the terminal:
-                a cat, mountain trails, badminton, good techno, and whatever's
+                Hackathons keep the passport busy. Life outside the terminal: a
+                cat, mountain trails, badminton, good techno, and whatever's
                 cooking. Lately: AI agents, crypto identity, onchain payments.
               </p>
+
+              <nav className="mt-8 flex gap-6 font-sans text-sm uppercase tracking-[0.18em]">
+                <Link
+                  className="text-[#f4ede1] transition-colors hover:text-[#c8472b]"
+                  href="/building"
+                >
+                  Building
+                </Link>
+                <Link
+                  className="text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                  href="/notes"
+                >
+                  Notes
+                </Link>
+                <Link
+                  className="text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                  href="/now"
+                >
+                  Now
+                </Link>
+              </nav>
             </div>
 
             <div className="mt-10 flex gap-5 font-sans text-xs uppercase tracking-[0.15em]">
