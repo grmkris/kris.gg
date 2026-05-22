@@ -107,7 +107,7 @@ Albufera at dusk.`,
     location: "Uyuni",
     description: `Potosí silver city → Salar de Uyuni night sky.`,
     body: `South Bolivia: Potosí first — the colonial silver-mining city, courtyards under rain — then the long drive down to the world's largest salt flat. Stars over the salar.`,
-    photos: Array.from({ length: 2 }, (_, i) => `/photos/uyuni-2025/${String(i + 1).padStart(2, "0")}.jpg`),
+    photos: Array.from({ length: 6 }, (_, i) => `/photos/uyuni-2025/${String(i + 1).padStart(2, "0")}.jpg`),
   },
   {
     slug: "la-paz-2025",
@@ -116,7 +116,7 @@ Albufera at dusk.`,
     location: "La Paz",
     description: `Urban-altitude opening to the Bolivia leg.`,
     body: `La Paz at 3,640m. Witches' market corridors with hanging charms, Isabel la Católica statue lit between modern towers, the giant LA PAZ sign on the hillside at night. A themed bar with miniature whipala buses serving cocktails on the table.`,
-    photos: Array.from({ length: 8 }, (_, i) => `/photos/la-paz-2025/${String(i + 1).padStart(2, "0")}.jpg`),
+    photos: Array.from({ length: 10 }, (_, i) => `/photos/la-paz-2025/${String(i + 1).padStart(2, "0")}.jpg`),
   },
   {
     slug: "machu-picchu-2025",
@@ -138,19 +138,7 @@ Cloud-forest atmosphere most of the day. The bare tree on the terrace — quiet 
     body: `Started in Cuzco — narrow Inca-stone alleys, Plaza de Armas — then up through the Sacred Valley: Chinchero, Temple of the Moon, Ollantaytambo. Then a few days at Mandor and the hot springs at Cocalmayo.
 
 The altitude is real.`,
-    photos: [
-      "/photos/cuzco-2025/01.jpg",
-      "/photos/cuzco-2025/02.jpg",
-      "/photos/cuzco-2025/03.jpg",
-      "/photos/cuzco-2025/04.jpg",
-      "/photos/cuzco-2025/05.jpg",
-      "/photos/cuzco-2025/06.jpg",
-      "/photos/cuzco-2025/07.jpg",
-      "/photos/cuzco-2025/08.jpg",
-      "/photos/cuzco-2025/09.jpg",
-      "/photos/cuzco-2025/10.jpg",
-      "/photos/cuzco-2025/11.jpg",
-    ],
+    photos: Array.from({ length: 10 }, (_, i) => `/photos/cuzco-2025/${String(i + 1).padStart(2, "0")}.jpg`),
   },
   {
     slug: "argentina-2025",
@@ -433,7 +421,7 @@ Dreamville camping, the Art Nouveau pavilion with its glass-roof rotunda and pin
     body: `Middle leg of the Japan trip between two Tokyo stays. Gion lanterns at night, a red-lacquer shrine approach lined with stone lanterns, and the Kamogawa river — locals sitting equidistant along the bank in the spring evening.
 
 First time in Japan.`,
-    photos: Array.from({ length: 5 }, (_, i) => `/photos/kyoto-2025/${String(i + 1).padStart(2, "0")}.jpg`),
+    photos: Array.from({ length: 6 }, (_, i) => `/photos/kyoto-2025/${String(i + 1).padStart(2, "0")}.jpg`),
   },
   {
     slug: "tokyo-2025",
@@ -444,7 +432,7 @@ First time in Japan.`,
     body: `Tokyo as bookends of the Japan trip — first arrival and final exit. Konbini dairy aisles and 7-Eleven onigiri, izakaya storefronts with hand-chalked specials, the Yoshinoya beef bowl signs and the multi-floor bar directories lit at night. Meiji Shrine's torii under the zelkova canopy. Shibuya Sky after dark — the entire neon grid stretching to the horizon through glass. Late: yakiniku, then The Bellwood for cedar-tray nightcaps.
 
 First time in Japan.`,
-    photos: Array.from({ length: 26 }, (_, i) => `/photos/tokyo-2025/${String(i + 1).padStart(2, "0")}.jpg`),
+    photos: Array.from({ length: 22 }, (_, i) => `/photos/tokyo-2025/${String(i + 1).padStart(2, "0")}.jpg`),
   },
   {
     slug: "seoul-2025",
