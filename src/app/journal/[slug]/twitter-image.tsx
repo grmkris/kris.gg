@@ -6,3 +6,4 @@ export {
   generateStaticParams,
 } from "./opengraph-image";
 export const runtime = "nodejs";
+export const dynamicParams = false;
