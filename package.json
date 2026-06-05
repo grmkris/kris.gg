@@ -9,6 +9,10 @@
     "prebuild": "bun run build-photos",
     "predev": "bun run build-photos",
     "build-photos": "bun run scripts/build-photos.ts",
+    "photos:mine": "bun run scripts/photos/mine.ts",
+    "photos:curate": "bun run scripts/photos/curate.ts",
+    "photos:review": "bun run scripts/photos/review.ts",
+    "photos:place": "bun run scripts/photos/place.ts",
     "start": "bun --bun next start",
     "typecheck": "tsc --noEmit",
     "fix": "ultracite fix --type-aware --type-check",
@@ -21,6 +25,7 @@
     "verify": "bun run typecheck && bun run fix && bun run test"
   },
   "dependencies": {
+    "@ai-sdk/google": "^3.0.80",
     "@base-ui/react": "^1.0.0",
     "@orpc/client": "^1.12.2",
     "@orpc/openapi": "^1.12.2",
@@ -31,6 +36,7 @@
     "@t3-oss/env-nextjs": "^0.13.10",
     "@tanstack/react-form": "^1.28.0",
     "@tanstack/react-query": "^5.90.12",
+    "ai": "^6.0.193",
     "babel-plugin-react-compiler": "^1.0.0",
     "better-auth": "^1.4.9",
     "class-variance-authority": "^0.7.1",
