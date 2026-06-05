@@ -1,6 +1,27 @@
-# Agent App - Autonomous Operation
+# kris.gg — Autonomous Operation
 
-Next.js app with App Router, SQLite/Drizzle, ORPC, better-auth.
+Personal site: **static Next.js (App Router) on Vercel**. No backend — it's a
+content site (trips/journal/building/notes) built from `src/content/*` + photos.
+The better-auth/ORPC/Drizzle scaffolding from the original template has been
+removed; ignore the DB/auth/router patterns further down unless you re-introduce
+a backend.
+
+## Environments (Vercel dev-flow)
+
+Two long-lived branches, both auto-deploying via Vercel:
+
+- **`dev`** → preview at **`dev.kris.gg`** (Vercel preview build). Work here.
+- **`main`** → production at **`kris.gg`**.
+
+Commit to `dev`, test on `dev.kris.gg`, then promote with a reviewed `dev`→`main`
+**merge-commit** PR (never squash — keeps `dev` an ancestor of `main`). Never push
+`main` directly.
+
+The only env-sensitive value is the canonical origin (`src/lib/site.ts` →
+`siteUrl()`/`isProd`), driven by `NEXT_PUBLIC_SITE_URL`, set per Vercel env
+(Production = `https://kris.gg`, dev-branch Preview = `https://dev.kris.gg`). It
+feeds `metadataBase`, OG `url`s, the sitemap, and robots (which `noindex`s non-prod).
+react-grab loads only when `NEXT_PUBLIC_VERCEL_ENV !== "production"`.
 
 ## Autonomous Workflow
 

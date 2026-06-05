@@ -7,6 +7,7 @@ import { FLAGS } from "@/content/flags";
 import { TRIPS, type Trip } from "@/content/trips";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { showcaseLabel } from "@/lib/prizes";
+import { siteUrl } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!trip) {
     return {};
   }
-  const url = `https://kris.gg/journal/${slug}`;
+  const url = `${siteUrl()}/journal/${slug}`;
   return {
     description: trip.description,
     openGraph: {
