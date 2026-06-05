@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getNote, NOTES } from "@/content/notes";
 import { getProject } from "@/content/projects";
 import { renderNoteBody } from "@/lib/notes";
+import { siteUrl } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PageProps) {
       siteName: "kris.gg",
       title: note.title,
       type: "article" as const,
-      url: `https://kris.gg/notes/${slug}`,
+      url: `${siteUrl()}/notes/${slug}`,
     },
     title: note.title,
     twitter: {

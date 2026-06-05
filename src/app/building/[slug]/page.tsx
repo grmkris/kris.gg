@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { getProject, PROJECTS } from "@/content/projects";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
+import { siteUrl } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PageProps) {
       siteName: "kris.gg",
       title: project.title,
       type: "article" as const,
-      url: `https://kris.gg/building/${slug}`,
+      url: `${siteUrl()}/building/${slug}`,
     },
     title: project.title,
     twitter: {
