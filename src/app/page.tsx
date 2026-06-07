@@ -132,17 +132,17 @@ export default function Home() {
             >
               <p>Slovenia 🇸🇮 · Ljubljana</p>
               <p>
-                Now: Shanghai 🇨🇳 for{" "}
+                Now: New York 🇺🇸 ·{" "}
                 <a
                   className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1] hover:decoration-[#a3a3a3]"
-                  href="https://mushanghai.xyz/"
+                  href="https://ethconf.com"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  MU
-                </a>
+                  ETHConf
+                </a>{" "}
+                + ETHGlobal · Jun 7–14
               </p>
-              <p>Next: New York 🇺🇸 · ETHGlobal Jun 7–14</p>
             </div>
 
             <p
