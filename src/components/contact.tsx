@@ -9,19 +9,18 @@ const EMAIL_DOMAIN = "gmail.com";
 
 const TELEGRAM = "kristjan96";
 
-const SOCIALS = [
+// One equal tier — Email is prepended client-side once assembled.
+const LINKS = [
+  { href: `https://t.me/${TELEGRAM}`, label: "Telegram" },
   { href: "https://github.com/grmkris", label: "GitHub" },
   { href: "https://x.com/_krisgg", label: "X" },
   { href: "https://linkedin.com/in/kristjan-grm-1572a7159", label: "LinkedIn" },
 ];
 
-function Arrow() {
-  return (
-    <span className="text-[#525252] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#c8472b]">
-      →
-    </span>
-  );
-}
+// Shared treatment so every contact reads at the same weight; stamp-red
+// underline is the single hover accent.
+const LINK_CLASS =
+  "py-1 font-sans text-xs uppercase tracking-[0.15em] text-[#737373] underline-offset-4 transition-colors hover:text-[#f4ede1] hover:underline hover:decoration-[#c8472b]";
 
 export function Contact() {
   const [email, setEmail] = useState("");
@@ -34,41 +33,30 @@ export function Contact() {
     <div>
       <p className="credit-block text-xs text-[#737373]">Get in touch</p>
 
-      <div className="mt-3 flex flex-col gap-2">
+      <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
         {email ? (
           <a
+            aria-label={`Email ${email}`}
+            className={LINK_CLASS}
             href={`mailto:${email}`}
-            className="group inline-flex w-fit items-center gap-2 font-display text-lg text-[#f4ede1] transition-colors hover:text-[#c8472b]"
+            title={email}
           >
-            {email}
-            <Arrow />
+            Email
           </a>
         ) : (
           // Pre-hydration / no-JS fallback — label only, no live address.
-          <span className="font-display text-lg text-[#737373]">Email</span>
+          <span className={LINK_CLASS}>Email</span>
         )}
 
-        <a
-          href={`https://t.me/${TELEGRAM}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex w-fit items-center gap-2 font-display text-lg text-[#f4ede1] transition-colors hover:text-[#c8472b]"
-        >
-          Telegram @{TELEGRAM}
-          <Arrow />
-        </a>
-      </div>
-
-      <div className="mt-5 flex gap-5 font-sans text-xs uppercase tracking-[0.15em]">
-        {SOCIALS.map((social) => (
+        {LINKS.map((link) => (
           <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
+            className={LINK_CLASS}
+            href={link.href}
+            key={link.label}
             rel="noopener noreferrer"
-            className="text-[#525252] transition-colors hover:text-[#f4ede1]"
+            target="_blank"
           >
-            {social.label}
+            {link.label}
           </a>
         ))}
       </div>
