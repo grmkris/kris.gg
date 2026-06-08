@@ -109,25 +109,35 @@ export default function BuildingIndex() {
           <p className="mt-5 font-sans text-xs uppercase tracking-[0.12em] text-[#737373]">
             {SIGNATURE_STACK}
           </p>
-          <p className="mt-6 font-sans text-sm text-[#737373]">
-            Currently building →{" "}
-            <Link
-              className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1]"
-              href="/now"
-            >
-              what I'm working on now
-            </Link>
-          </p>
         </header>
 
-        <section>
-          {PROJECTS.map((project) => (
-            <ProjectRow
-              cover={getCoverPhoto(project.slug)}
-              key={project.slug}
-              project={project}
-            />
-          ))}
+        <section className="space-y-12">
+          <div>
+            <p className="credit-block mb-2 text-xs text-[#525252]">
+              Currently
+            </p>
+            {PROJECTS.filter((p) => p.status !== "shipped").map((project) => (
+              <ProjectRow
+                cover={getCoverPhoto(project.slug)}
+                key={project.slug}
+                project={project}
+              />
+            ))}
+          </div>
+          {PROJECTS.some((p) => p.status === "shipped") && (
+            <div>
+              <p className="credit-block mb-2 text-xs text-[#525252]">
+                Earlier
+              </p>
+              {PROJECTS.filter((p) => p.status === "shipped").map((project) => (
+                <ProjectRow
+                  cover={getCoverPhoto(project.slug)}
+                  key={project.slug}
+                  project={project}
+                />
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </main>

@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/building",
     "/journal",
     "/notes",
-    "/now",
     ...TRIPS.map((t) => `/journal/${t.slug}`),
     ...PROJECTS.map((p) => `/building/${p.slug}`),
     ...NOTES.map((n) => `/notes/${n.slug}`),
