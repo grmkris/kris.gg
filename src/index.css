@@ -181,3 +181,28 @@
     transform: scale(1.07);
   }
 }
+
+/* Home hero layout. Mobile flows name → photo → meta (lift the signature photo
+   above the bio); desktop is two columns with the photo spanning both rows. */
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: "name" "photo" "meta";
+}
+.hero-name {
+  grid-area: name;
+}
+.hero-photo {
+  grid-area: photo;
+}
+.hero-meta {
+  grid-area: meta;
+}
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 1fr;
+    column-gap: 4rem;
+    align-items: center;
+    grid-template-areas: "name photo" "meta photo";
+  }
+}

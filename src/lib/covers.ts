@@ -1,9 +1,18 @@
 import coversData from "@/content/covers.generated.json";
+import { TRIPS } from "@/content/trips";
 import { getTripPhotos, type PhotoMeta } from "@/lib/photos";
 
 interface CoverEntry {
   slug: string;
   index: number;
+}
+
+export interface HeroFrame {
+  photo: PhotoMeta;
+  /** Trip slug the photo belongs to — links the hero frame to /journal/[slug]. */
+  slug: string;
+  /** Caption shown over the frame, e.g. "Shanghai · 2026". */
+  label: string;
 }
 
 const entries = coversData.covers as CoverEntry[];
@@ -20,6 +29,25 @@ export function getHeroCovers(): PhotoMeta[] {
     if (photo) {
       out.push(photo);
     }
+  }
+  return out;
+}
+
+/**
+ * Same curated pool as getHeroCovers, but each frame carries its trip slug and
+ * a "Location · Year" caption so the home hero can label frames and link each
+ * one to its /journal entry.
+ */
+export function getHeroFrames(): HeroFrame[] {
+  const out: HeroFrame[] = [];
+  for (const entry of entries) {
+    const photo = getTripPhotos(entry.slug)[entry.index - 1];
+    if (!photo) {
+      continue;
+    }
+    const trip = TRIPS.find((t) => t.slug === entry.slug);
+    const label = trip ? `${trip.location} · ${trip.date.slice(0, 4)}` : "";
+    out.push({ label, photo, slug: entry.slug });
   }
   return out;
 }
