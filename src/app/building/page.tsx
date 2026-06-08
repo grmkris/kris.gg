@@ -10,9 +10,6 @@ export const metadata = {
   title: "Building",
 };
 
-const SIGNATURE_STACK =
-  "Bun · Hono · oRPC · Drizzle / Postgres · Better Auth · Next.js · Turborepo";
-
 const STATUS_LABEL: Record<Project["status"], string> = {
   active: "In progress",
   live: "Live",
@@ -96,9 +93,6 @@ export default function BuildingIndex() {
           <p className="mt-4 max-w-xl font-display text-lg italic leading-snug text-[#a3a3a3]">
             Production AI, full-stack, and web3 products — taken from idea to
             live, fast.
-          </p>
-          <p className="mt-5 font-sans text-xs uppercase tracking-[0.12em] text-[#737373]">
-            {SIGNATURE_STACK}
           </p>
         </header>
 
