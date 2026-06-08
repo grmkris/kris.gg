@@ -11,7 +11,7 @@ import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
 
 // Literal route union — each member is a real route, so Link accepts it
 // without a cast (a widened `string` would not be assignable).
-type SectionHref = "/building" | "/journal" | "/notes" | "/now";
+type SectionHref = "/building" | "/journal" | "/notes";
 
 const SECTIONS: {
   coverSlug: string;
@@ -28,7 +28,9 @@ const SECTIONS: {
     meta: `${PROJECTS.length} projects`,
   },
   {
-    coverSlug: TRIPS[0]?.slug ?? "",
+    // TRIPS[0] is the newest entry (may lack photos) — pin a photo-rich trip
+    // so the index hover reveal always has an image.
+    coverSlug: "shanghai-mu-2026",
     desc: "Hackathons, trips, and a well-stamped passport.",
     href: "/journal",
     label: "Journal",
@@ -40,13 +42,6 @@ const SECTIONS: {
     href: "/notes",
     label: "Notes",
     meta: `${NOTES.length} notes`,
-  },
-  {
-    coverSlug: "sonara",
-    desc: "What I'm building right this month.",
-    href: "/now",
-    label: "Now",
-    meta: "Live",
   },
 ];
 
