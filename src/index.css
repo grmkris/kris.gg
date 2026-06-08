@@ -151,12 +151,20 @@
   .kenburns {
     animation: slow-zoom 9s ease-out both;
   }
+  /* Per-navigation page entrance (app/template.tsx). Opacity-only on purpose —
+     a transform here would re-root position:fixed children (grain, scrubber). */
+  .page-enter {
+    animation: page-fade 0.35s ease-out both;
+  }
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
       animation: none;
     }
     .kenburns {
+      animation: none;
+    }
+    .page-enter {
       animation: none;
     }
   }
@@ -179,6 +187,15 @@
   }
   to {
     transform: scale(1.07);
+  }
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
