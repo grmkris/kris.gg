@@ -13,7 +13,9 @@ export function YearRuler({ years }: Props) {
     const observers: IntersectionObserver[] = [];
     for (const year of years) {
       const el = document.getElementById(`year-${year}`);
-      if (!el) continue;
+      if (!el) {
+        continue;
+      }
       const observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
@@ -28,7 +30,9 @@ export function YearRuler({ years }: Props) {
       observers.push(observer);
     }
     return () => {
-      for (const obs of observers) obs.disconnect();
+      for (const obs of observers) {
+        obs.disconnect();
+      }
     };
   }, [years]);
 
@@ -57,7 +61,7 @@ export function YearRuler({ years }: Props) {
       </nav>
 
       {/* Mobile — sticky horizontal strip at the top while manifest is in view */}
-      <nav className="sticky top-0 z-30 -mx-6 mb-6 border-y border-[#1a1a1a] bg-[#0a0a0a]/95 backdrop-blur-sm md:hidden">
+      <nav className="sticky top-12 z-30 -mx-6 mb-6 border-y border-[#1a1a1a] bg-[#0a0a0a]/95 backdrop-blur-sm md:hidden">
         <ul className="flex items-center justify-center gap-1 px-6 py-3 font-sans text-xs tabular-nums">
           {years.map((year, i) => {
             const isActive = year === activeYear;

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
@@ -71,17 +70,6 @@ export default async function ProjectPage({ params }: PageProps) {
       />
 
       {cover ? (
-        <div className="absolute top-6 left-6 z-20">
-          <Link
-            className="rounded-full bg-[#0a0a0a]/60 px-3 py-1 text-xs text-[#e8e8e8] backdrop-blur-sm transition-colors hover:bg-[#0a0a0a]/80"
-            href="/building"
-          >
-            ← Building
-          </Link>
-        </div>
-      ) : null}
-
-      {cover ? (
         <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden bg-[#1a1a1a] md:h-[65vh]">
           <Image
             alt=""
@@ -104,17 +92,6 @@ export default async function ProjectPage({ params }: PageProps) {
             : "relative mx-auto max-w-2xl px-6 pt-20 pb-16"
         }
       >
-        {cover ? null : (
-          <div className="mb-8">
-            <Link
-              className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-              href="/building"
-            >
-              ← Building
-            </Link>
-          </div>
-        )}
-
         <header className="mb-8">
           <div className="flex flex-wrap items-center gap-2 font-sans text-sm tabular-nums text-[#737373]">
             <span>{project.date}</span>

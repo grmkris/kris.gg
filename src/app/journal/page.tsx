@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { Manifest } from "@/components/manifest";
 import { YearRuler } from "@/components/year-ruler";
 import { TRIPS } from "@/content/trips";
@@ -24,15 +22,6 @@ export default function JournalIndex() {
       />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-24 md:px-12 md:pt-24">
-        <div className="mb-12">
-          <Link
-            className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-            href="/"
-          >
-            ← Kristjan Grm
-          </Link>
-        </div>
-
         <header className="mb-12">
           <h1 className="font-display text-5xl font-light leading-[1.05] tracking-tight text-[#f4ede1] md:text-6xl">
             Journal
