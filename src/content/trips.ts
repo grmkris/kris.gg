@@ -17,6 +17,15 @@ export interface Trip {
 
 export const TRIPS: Trip[] = [
   {
+    slug: "new-york-2026",
+    title: "New York",
+    date: "2026-06",
+    location: "New York",
+    description: `ETHConf week into the ETHGlobal NYC hackathon.`,
+    event: "ETHConf + ETHGlobal New York",
+    body: `Straight in from Shanghai — PVG → JFK red-eye, landing Sunday into Long Island City. ETHConf talks rolling into the ETHGlobal NYC hackathon, Court Square to Manhattan and back.`,
+  },
+  {
     slug: "shanghai-mu-2026",
     title: "MU Shanghai",
     date: "2026-05",

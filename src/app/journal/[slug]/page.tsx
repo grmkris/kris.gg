@@ -7,6 +7,7 @@ import { FLAGS } from "@/content/flags";
 import { TRIPS, type Trip } from "@/content/trips";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { showcaseLabel } from "@/lib/prizes";
+import { siteUrl } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!trip) {
     return {};
   }
-  const url = `https://kris.gg/journal/${slug}`;
+  const url = `${siteUrl()}/journal/${slug}`;
   return {
     description: trip.description,
     openGraph: {
@@ -193,10 +194,10 @@ export default async function JournalPost({ params }: PageProps) {
       {cover && (
         <div className="absolute top-6 left-6 z-20">
           <Link
-            href="/"
+            href="/journal"
             className="rounded-full bg-[#0a0a0a]/60 px-3 py-1 text-xs text-[#e8e8e8] backdrop-blur-sm transition-colors hover:bg-[#0a0a0a]/80"
           >
-            ← Back
+            ← Journal
           </Link>
         </div>
       )}
@@ -229,10 +230,10 @@ export default async function JournalPost({ params }: PageProps) {
         {!cover && (
           <div className="mb-8">
             <Link
-              href="/"
+              href="/journal"
               className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
             >
-              ← Back
+              ← Journal
             </Link>
           </div>
         )}

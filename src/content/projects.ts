@@ -166,46 +166,6 @@ export const PROJECTS: Project[] = [
     title: "StyleLab",
   },
   {
-    // TODO: rename — Kris is choosing a new product name. Update title + slug.
-    approach:
-      "One multi-tenant platform with dynamic [locale]/[org]/[workspace] routing and sixteen feature domains — commerce (orders, products, inventory, payments, subscriptions), CMS, customers, forms, documents, tasks, payroll and more — split across an admin dashboard and a customer-facing storefront, with OpenAPI docs and OpenTelemetry/Pino observability.",
-    client: "Personal product",
-    date: "2025–26",
-    highlights: [
-      "Dynamic [locale]/[org]/[workspace] multi-tenant routing",
-      "16 independent feature domains",
-      "Admin dashboard + customer storefront from one platform",
-      "OpenAPI docs + OpenTelemetry/Pino observability",
-    ],
-    metrics: [
-      { label: "Feature domains", value: "16" },
-      { label: "Apps", value: "Admin + storefront" },
-    ],
-    outcome:
-      "16 feature domains across admin + storefront apps, with tenant isolation enforced at the routing and data layers.",
-    problem:
-      "Small businesses are told to glue together a storefront, a CMS, a CRM, and an ops dashboard from five different SaaS bills — none of which talk to each other.",
-    role: "Solo build",
-    slug: "appmisha",
-    stack: [
-      "Bun",
-      "Next 16",
-      "Hono",
-      "oRPC",
-      "Drizzle",
-      "Postgres",
-      "Redis",
-      "MinIO / S3",
-      "Better Auth",
-      "OpenTelemetry",
-    ],
-    status: "active",
-    tagline:
-      "A multi-tenant commerce and CMS platform with separate admin and storefront apps.",
-    theme: "saas",
-    title: "Appmisha",
-  },
-  {
     approach:
       "A platform that syncs with the Syrve POS, models waybills, drivers and vehicles, maps suppliers, products and units of measure with conversions, and bridges the RSGE tax system — all behind a shared auth and multi-tenant layer with 25 type-safe routers.",
     client: "F&B logistics client",

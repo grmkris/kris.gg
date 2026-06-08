@@ -1,30 +1,102 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { Contact } from "@/components/contact";
 import { HeroRotating } from "@/components/hero-rotating";
-import { Manifest } from "@/components/manifest";
-import { YearRuler } from "@/components/year-ruler";
+import { NOTES } from "@/content/notes";
+import { PROJECTS } from "@/content/projects";
 import { TRIPS } from "@/content/trips";
 import { getHeroCovers } from "@/lib/covers";
+import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
 
-const SOCIALS = [
+// Literal route union — each member is a real route, so Link accepts it
+// without a cast (a widened `string` would not be assignable).
+type SectionHref = "/building" | "/journal" | "/notes";
+
+const SECTIONS: {
+  coverSlug: string;
+  desc: string;
+  href: SectionHref;
+  label: string;
+  meta: string;
+}[] = [
   {
-    href: "https://github.com/grmkris",
-    label: "GitHub",
+    coverSlug: PROJECTS[0]?.slug ?? "",
+    desc: "Production AI, full-stack & web3 products — idea to live, fast.",
+    href: "/building",
+    label: "Building",
+    meta: `${PROJECTS.length} projects`,
   },
   {
-    href: "https://x.com/_krisgg",
-    label: "X",
+    // TRIPS[0] is the newest entry (may lack photos) — pin a photo-rich trip
+    // so the index hover reveal always has an image.
+    coverSlug: "shanghai-mu-2026",
+    desc: "Hackathons, trips, and a well-stamped passport.",
+    href: "/journal",
+    label: "Journal",
+    meta: `${TRIPS.length} entries`,
   },
   {
-    href: "https://linkedin.com/in/kristjan-grm-1572a7159",
-    label: "LinkedIn",
+    coverSlug: NOTES[0]?.sourceProject ?? PROJECTS[0]?.slug ?? "",
+    desc: "Engineering patterns and field notes.",
+    href: "/notes",
+    label: "Notes",
+    meta: `${NOTES.length} notes`,
   },
 ];
 
-export default function Home() {
-  const years = [...new Set(TRIPS.map((t) => t.date.slice(0, 4)))];
+function IndexRow({
+  cover,
+  desc,
+  href,
+  label,
+  meta,
+}: {
+  cover: PhotoMeta | null;
+  desc: string;
+  href: SectionHref;
+  label: string;
+  meta: string;
+}) {
+  return (
+    <Link
+      className="group relative block border-t border-[#1a1a1a] py-6 transition-colors hover:border-[#333]"
+      href={href}
+    >
+      <div className="flex items-baseline justify-between gap-4">
+        <h2 className="font-display text-2xl text-[#f4ede1] transition-colors group-hover:text-[#c8472b] md:text-3xl">
+          {label}
+        </h2>
+        <span className="shrink-0 font-sans text-[10px] uppercase tracking-[0.15em] text-[#525252]">
+          {meta}
+        </span>
+      </div>
+      <p className="mt-2 max-w-xl font-display text-[1.0625rem] italic leading-snug text-[#a3a3a3]">
+        {desc}
+      </p>
 
-  // Curated hero pool — selected by Opus 4.7 subagents (scouts + judge)
+      {cover ? (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/2 right-[-13rem] hidden h-28 w-44 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 xl:block"
+        >
+          <Image
+            alt=""
+            blurDataURL={cover.blur}
+            className="object-cover"
+            fill
+            placeholder="blur"
+            sizes="176px"
+            src={cover.mid}
+          />
+        </div>
+      ) : null}
+    </Link>
+  );
+}
+
+export default function Home() {
+  // Curated hero pool — selected by Opus 4.7 subagents (scouts + judge).
   const covers = getHeroCovers();
 
   return (
@@ -37,89 +109,73 @@ export default function Home() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-24 md:px-12 md:pt-20">
-        {/* Hero block */}
-        <header className="mb-20 grid gap-10 md:mb-32 md:grid-cols-[1.2fr_1fr] md:gap-16">
-          <div className="flex flex-col justify-between">
-            <div>
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-6 pt-12 pb-16 md:px-12 md:pt-16">
+        {/* Hero — who I am + how to reach me */}
+        <header className="grid flex-1 content-center gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-16">
+          <div className="flex flex-col gap-8">
+            <div className="reveal" style={{ animationDelay: "0ms" }}>
               <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
                 Kristjan
                 <br />
                 Grm
               </h1>
-
-              <div className="mt-8 space-y-1 font-sans text-sm text-[#737373] tabular-nums">
-                <p>Slovenia 🇸🇮 · Ljubljana</p>
-                <p>
-                  Now: Shanghai 🇨🇳 for{" "}
-                  <a
-                    href="https://mushanghai.xyz/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1] hover:decoration-[#a3a3a3]"
-                  >
-                    MU
-                  </a>
-                </p>
-                <p>Next: New York 🇺🇸 · ETHGlobal Jun 7–14</p>
-              </div>
-
-              <p className="mt-8 max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]">
-                Hackathons keep the passport busy. Life outside the terminal: a
-                cat, mountain trails, badminton, good techno, and whatever's
-                cooking. Lately: AI agents, crypto identity, onchain payments.
-              </p>
-
-              <nav className="mt-8 flex gap-6 font-sans text-sm uppercase tracking-[0.18em]">
-                <Link
-                  className="text-[#f4ede1] transition-colors hover:text-[#c8472b]"
-                  href="/building"
-                >
-                  Building
-                </Link>
-                <Link
-                  className="text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
-                  href="/notes"
-                >
-                  Notes
-                </Link>
-                <Link
-                  className="text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
-                  href="/now"
-                >
-                  Now
-                </Link>
-              </nav>
             </div>
 
-            <div className="mt-10 flex gap-5 font-sans text-xs uppercase tracking-[0.15em]">
-              {SOCIALS.map((link) => (
+            <div
+              className="reveal space-y-1 font-sans text-sm text-[#737373] tabular-nums"
+              style={{ animationDelay: "90ms" }}
+            >
+              <p>Slovenia 🇸🇮 · Ljubljana</p>
+              <p>
+                Now: New York 🇺🇸 ·{" "}
                 <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
+                  className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1] hover:decoration-[#a3a3a3]"
+                  href="https://ethconf.com"
                   rel="noopener noreferrer"
-                  className="text-[#525252] transition-colors hover:text-[#f4ede1]"
+                  target="_blank"
                 >
-                  {link.label}
-                </a>
-              ))}
+                  ETHConf
+                </a>{" "}
+                + ETHGlobal · Jun 7–14
+              </p>
+            </div>
+
+            <p
+              className="reveal max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]"
+              style={{ animationDelay: "180ms" }}
+            >
+              Builder at the AI × crypto × privacy intersection. Hackathons keep
+              the passport busy; life outside the terminal is a cat, mountain
+              trails, badminton, and good techno.
+            </p>
+
+            <div className="reveal" style={{ animationDelay: "270ms" }}>
+              <Contact />
             </div>
           </div>
 
-          {/* Hero photo (right column on desktop, below on mobile) */}
-          <div className="md:pl-4">
+          {/* Rolling images (right column on desktop, below on mobile) */}
+          <div className="reveal md:pl-4" style={{ animationDelay: "150ms" }}>
             <HeroRotating covers={covers} />
           </div>
         </header>
 
-        {/* Manifest — every trip + hackathon, interleaved by date.
-            Wrap with YearRuler so the mobile sticky strip pins to the top
-            of the manifest section (not over the hero). */}
-        <div>
-          <YearRuler years={years} />
-          <Manifest trips={TRIPS} />
-        </div>
+        {/* Index — the four places to go next */}
+        <section className="mt-20 md:mt-28">
+          <p className="credit-block mb-3 text-xs text-[#525252]">Index</p>
+          <div>
+            {SECTIONS.map((section) => (
+              <IndexRow
+                cover={getCoverPhoto(section.coverSlug)}
+                desc={section.desc}
+                href={section.href}
+                key={section.href}
+                label={section.label}
+                meta={section.meta}
+              />
+            ))}
+          </div>
+        </section>
 
         {/* Footer */}
         <footer className="mt-24 border-t border-[#1a1a1a] pt-8">
