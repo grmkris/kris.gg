@@ -15,33 +15,47 @@ export function Masthead() {
   return (
     <header className="sticky top-0 z-40 border-[#1a1a1a] border-b bg-[#0a0a0a]/80 backdrop-blur-sm">
       <nav className="mx-auto flex h-12 max-w-6xl items-center justify-between px-6 md:px-12">
+        {/* "kg" monogram — a mark, not the domain (no longer doubles the hero) */}
         <Link
-          className="font-sans text-sm uppercase tracking-[0.18em] text-[#f4ede1] transition-colors hover:text-[#c8472b]"
+          className="font-display text-xl lowercase text-[#f4ede1] transition-colors hover:text-[#c8472b]"
           href="/"
         >
-          kris.gg
+          kg
         </Link>
 
-        <div className="flex gap-5 font-sans text-xs uppercase tracking-[0.15em]">
-          {NAV.map((item) => {
+        {/* Numbered table-of-contents nav; active section = italic stamp-red */}
+        <ul className="flex items-center gap-5 font-sans text-xs uppercase tracking-[0.15em] sm:gap-6">
+          {NAV.map((item, i) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
-              <Link
-                aria-current={active ? "page" : undefined}
-                className={
-                  active
-                    ? "text-[#c8472b]"
-                    : "text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
-                }
-                href={item.href}
-                key={item.href}
-              >
-                {item.label}
-              </Link>
+              <li key={item.href}>
+                <Link
+                  aria-current={active ? "page" : undefined}
+                  className="group inline-flex items-baseline gap-1.5"
+                  href={item.href}
+                >
+                  <span
+                    className={`hidden text-[10px] tabular-nums sm:inline ${
+                      active ? "text-[#c8472b]" : "text-[#525252]"
+                    }`}
+                  >
+                    {`0${i + 1}`}
+                  </span>
+                  <span
+                    className={
+                      active
+                        ? "text-[#c8472b] italic"
+                        : "text-[#a3a3a3] transition-colors group-hover:text-[#f4ede1]"
+                    }
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </nav>
     </header>
   );
