@@ -89,15 +89,6 @@ export default function BuildingIndex() {
       />
 
       <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-24 md:px-12 md:pt-24">
-        <div className="mb-12">
-          <Link
-            className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-            href="/"
-          >
-            ← Kristjan Grm
-          </Link>
-        </div>
-
         <header className="mb-12">
           <h1 className="font-display text-5xl font-light leading-[1.05] tracking-tight text-[#f4ede1] md:text-6xl">
             Building

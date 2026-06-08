@@ -62,15 +62,6 @@ export default async function NotePage({ params }: PageProps) {
       />
 
       <article className="relative mx-auto max-w-2xl px-6 pt-16 pb-24 md:pt-24">
-        <div className="mb-10">
-          <Link
-            className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-            href="/notes"
-          >
-            ← Notes
-          </Link>
-        </div>
-
         <header className="mb-10">
           <div className="flex items-center gap-2 font-sans text-sm tabular-nums text-[#737373]">
             <span>{note.date}</span>

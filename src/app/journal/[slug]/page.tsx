@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
@@ -189,19 +188,6 @@ export default async function JournalPost({ params }: PageProps) {
         }}
       />
 
-      {/* Back link — floats above the hero when a hero exists; for text-only
-          entries it's rendered inline inside the article container below. */}
-      {cover && (
-        <div className="absolute top-6 left-6 z-20">
-          <Link
-            href="/journal"
-            className="rounded-full bg-[#0a0a0a]/60 px-3 py-1 text-xs text-[#e8e8e8] backdrop-blur-sm transition-colors hover:bg-[#0a0a0a]/80"
-          >
-            ← Journal
-          </Link>
-        </div>
-      )}
-
       {/* Full-bleed hero photo (only when a cover exists) */}
       {cover && (
         <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden bg-[#1a1a1a] md:h-[65vh]">
@@ -226,18 +212,6 @@ export default async function JournalPost({ params }: PageProps) {
             : "relative mx-auto max-w-2xl px-6 pb-16 pt-20"
         }
       >
-        {/* Inline back link for text-only / no-hero entries */}
-        {!cover && (
-          <div className="mb-8">
-            <Link
-              href="/journal"
-              className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-            >
-              ← Journal
-            </Link>
-          </div>
-        )}
-
         <header className="mb-10">
           <div className="flex items-center gap-2 font-sans text-sm tabular-nums text-[#737373]">
             <span>{trip.date}</span>
