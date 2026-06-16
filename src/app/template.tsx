@@ -1,4 +1,4 @@
-import  { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 // A template re-mounts on every navigation (unlike layout), so wrapping the
 // page in `.page-enter` gives a subtle cross-fade between routes. The masthead

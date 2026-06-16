@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import type { HeroFrame } from "@/lib/covers";
+import  { type HeroFrame } from "@/lib/covers";
 
 interface Props {
   /** Curated frames (photo + slug + caption) to cycle through. */

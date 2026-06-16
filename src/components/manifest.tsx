@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import  { type Trip } from "@/content/trips";
+
 import { FLAGS } from "@/content/flags";
-import type { Trip } from "@/content/trips";
 import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
 import { parsePlacement } from "@/lib/prizes";
 
@@ -10,9 +12,18 @@ interface Props {
 }
 
 const MONTH_NAMES: Record<string, string> = {
-  "01": "JAN", "02": "FEB", "03": "MAR", "04": "APR",
-  "05": "MAY", "06": "JUN", "07": "JUL", "08": "AUG",
-  "09": "SEP", "10": "OCT", "11": "NOV", "12": "DEC",
+  "01": "JAN",
+  "02": "FEB",
+  "03": "MAR",
+  "04": "APR",
+  "05": "MAY",
+  "06": "JUN",
+  "07": "JUL",
+  "08": "AUG",
+  "09": "SEP",
+  "10": "OCT",
+  "11": "NOV",
+  "12": "DEC",
 };
 
 function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
@@ -40,9 +51,9 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
       <span className="hidden font-sans text-xs uppercase tracking-wider text-[#737373] md:inline">
         {hasEvent
           ? trip.event
-          : trip.type === "project"
+          : (trip.type === "project"
             ? "Side project"
-            : "Trip"}
+            : "Trip")}
       </span>
 
       {/* Description / project */}
@@ -99,7 +110,7 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
 }
 
 export function Manifest({ trips }: Props) {
-  const years = Array.from(new Set(trips.map((t) => t.date.slice(0, 4))));
+  const years = [...new Set(trips.map((t) => t.date.slice(0, 4)))];
 
   return (
     <section className="space-y-12">

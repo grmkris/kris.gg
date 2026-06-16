@@ -1,14 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState } from "react";
-import type { PhotoMeta } from "@/lib/photos";
+
+import  { type PhotoMeta } from "@/lib/photos";
 
 import "yet-another-react-lightbox/styles.css";
 
 const Lightbox = dynamic(
-  () => import("yet-another-react-lightbox").then((mod) => mod.default),
+  async () => import("yet-another-react-lightbox").then((mod) => mod.default),
   { ssr: false }
 );
 
@@ -21,23 +22,36 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
   const [flashColor, setFlashColor] = useState<string | null>(null);
   const [flashActive, setFlashActive] = useState(false);
 
-  if (photos.length === 0) return null;
+  if (photos.length === 0) {
+    return null;
+  }
 
   function openAt(i: number) {
     const photo = photos[i];
-    if (!photo) return;
+    if (!photo) {
+      return;
+    }
     setIndex(i);
     setFlashColor(photo.dominant);
     setFlashActive(true);
     // Brief color wash before the lightbox modal lands
-    window.setTimeout(() => setOpen(true), FLASH_IN_MS);
+    window.setTimeout(() => {
+      setOpen(true);
+    }, FLASH_IN_MS);
   }
 
   function handleClose() {
     setOpen(false);
     // After the modal closes, ease the color overlay back out
-    window.setTimeout(() => setFlashActive(false), 40);
-    window.setTimeout(() => setFlashColor(null), 40 + FLASH_OUT_MS + 50);
+    window.setTimeout(() => {
+      setFlashActive(false);
+    }, 40);
+    window.setTimeout(
+      () => {
+        setFlashColor(null);
+      },
+      40 + FLASH_OUT_MS + 50
+    );
   }
 
   return (
@@ -47,7 +61,9 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
           <button
             type="button"
             key={photo.src}
-            onClick={() => openAt(i)}
+            onClick={() => {
+              openAt(i);
+            }}
             className="mb-3 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-sm border border-[#1a1a1a] bg-[#1a1a1a] transition-opacity hover:opacity-90"
           >
             <Image
@@ -83,9 +99,9 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
         close={handleClose}
         index={index}
         slides={photos.map((p) => ({
+          height: p.height,
           src: p.full,
           width: p.width,
-          height: p.height,
         }))}
         controller={{ closeOnBackdropClick: true }}
         styles={{

@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+import  { type MetadataRoute } from "next";
 
 import { NOTES } from "@/content/notes";
 import { PROJECTS } from "@/content/projects";

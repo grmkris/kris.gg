@@ -14,11 +14,11 @@
  */
 
 const RANK_WORDS: Record<string, number> = {
-  winner: 1,
   "1st": 1,
   "2nd": 2,
   "3rd": 3,
   "4th": 4,
+  winner: 1,
 };
 
 const RANK_LABEL: Record<number, string> = {
@@ -37,26 +37,34 @@ function tokenRank(token: string): number | null {
   // Try sponsor + place pattern OR bare place pattern.
   // Use \b to anchor on word boundary so we don't match "1st" inside "21st".
   const m = /\b(Winner|1st|2nd|3rd|4th)\b/i.exec(token);
-  if (!m) return null;
+  if (!m) {
+    return null;
+  }
   return RANK_WORDS[m[1].toLowerCase()] ?? null;
 }
 
 export function parsePlacement(
   prizesStr: string | undefined
 ): Placement | null {
-  if (!prizesStr) return null;
+  if (!prizesStr) {
+    return null;
+  }
 
   const ranks = prizesStr
     .split(",")
     .map((t) => tokenRank(t.trim()))
     .filter((r): r is number => r !== null);
 
-  if (ranks.length === 0) return null;
+  if (ranks.length === 0) {
+    return null;
+  }
 
   const bestRank = Math.min(...ranks);
   const bestCount = ranks.filter((r) => r === bestRank).length;
   const baseLabel = RANK_LABEL[bestRank];
-  if (!baseLabel) return null;
+  if (!baseLabel) {
+    return null;
+  }
 
   return {
     display: bestCount > 1 ? `${bestCount}× ${baseLabel}` : baseLabel,
@@ -65,7 +73,11 @@ export function parsePlacement(
 }
 
 export function showcaseLabel(url: string): string {
-  if (url.includes("ethglobal.com")) return "ETHGlobal";
-  if (url.includes("devfolio.co")) return "Devfolio";
+  if (url.includes("ethglobal.com")) {
+    return "ETHGlobal";
+  }
+  if (url.includes("devfolio.co")) {
+    return "Devfolio";
+  }
   return "Showcase";
 }
