@@ -15,7 +15,6 @@
 import { existsSync, statSync } from "node:fs";
 import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-
 import sharp from "sharp";
 
 const PUBLIC_PHOTOS = "public/photos";
@@ -44,7 +43,9 @@ function toHex(n: number): string {
 type Manifest = Record<string, PhotoMeta[]>;
 
 function isUpToDate(src: string, dst: string): boolean {
-  if (!existsSync(dst)) return false;
+  if (!existsSync(dst)) {
+    return false;
+  }
   return statSync(dst).mtimeMs >= statSync(src).mtimeMs;
 }
 
@@ -66,7 +67,9 @@ async function buildPhoto(
   // Generate variants
   for (const width of VARIANT_WIDTHS) {
     const variantPath = join(slugDir, `${baseName}-${width}.webp`);
-    if (isUpToDate(sourcePath, variantPath)) continue;
+    if (isUpToDate(sourcePath, variantPath)) {
+      continue;
+    }
     await sharp(sourcePath)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality: QUALITY })
@@ -85,14 +88,14 @@ async function buildPhoto(
   const dominant = `#${toHex(stats.dominant.r)}${toHex(stats.dominant.g)}${toHex(stats.dominant.b)}`;
 
   return {
-    src: `/photos/${slug}/${filename}`,
-    thumb: `/photos/${slug}/${baseName}-400.webp`,
-    mid: `/photos/${slug}/${baseName}-800.webp`,
-    full: `/photos/${slug}/${baseName}-1600.webp`,
-    width: meta.width,
-    height: meta.height,
     blur,
     dominant,
+    full: `/photos/${slug}/${baseName}-1600.webp`,
+    height: meta.height,
+    mid: `/photos/${slug}/${baseName}-800.webp`,
+    src: `/photos/${slug}/${filename}`,
+    thumb: `/photos/${slug}/${baseName}-400.webp`,
+    width: meta.width,
   };
 }
 
@@ -101,7 +104,7 @@ async function main() {
   const slugs = (await readdir(PUBLIC_PHOTOS, { withFileTypes: true }))
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
-    .sort();
+    .toSorted();
 
   const manifest: Manifest = {};
   let totalPhotos = 0;
@@ -112,9 +115,11 @@ async function main() {
     await mkdir(slugDir, { recursive: true });
     const files = (await readdir(slugDir))
       .filter((f) => /^\d{2}\.jpe?g$/i.test(f))
-      .sort();
+      .toSorted();
 
-    if (files.length === 0) continue;
+    if (files.length === 0) {
+      continue;
+    }
 
     const entries: PhotoMeta[] = [];
     for (const file of files) {
@@ -147,7 +152,7 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

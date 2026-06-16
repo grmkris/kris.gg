@@ -19,11 +19,13 @@ const QUALITY = 85;
 
 // Square face crop. Source is 1500x2000 portrait with face in upper third.
 // Crop a 700x700 window centered on face_y≈575, image center x=750.
-const CROP = { left: 400, top: 200, width: 700, height: 700 } as const;
+const CROP = { height: 700, left: 400, top: 200, width: 700 } as const;
 
 async function main() {
   const meta = await sharp(SRC).metadata();
-  if (!meta.width || !meta.height) throw new Error("no dimensions");
+  if (!meta.width || !meta.height) {
+    throw new Error("no dimensions");
+  }
 
   // Pre-crop pipeline: extract face-centered square, then downsize per variant.
   const cropped = sharp(SRC).extract(CROP);
@@ -57,7 +59,7 @@ export const PORTRAIT = {
   console.log(`  ${meta.width}x${meta.height}, blur ${blurBuffer.length}B`);
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });
