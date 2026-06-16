@@ -135,19 +135,6 @@ export default function Home() {
               style={{ animationDelay: "180ms" }}
             >
               <p>Slovenia 🇸🇮 · Ljubljana</p>
-              <p>
-                Now: New York 🇺🇸 ·{" "}
-                <a
-                  className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1] hover:decoration-[#a3a3a3]"
-                  href="https://ethconf.com"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  ETHConf
-                </a>{" "}
-                + ETHGlobal ·{" "}
-                <span className="whitespace-nowrap">Jun 7–14</span>
-              </p>
             </div>
 
             <p

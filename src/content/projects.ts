@@ -125,6 +125,50 @@ export const PROJECTS: Project[] = [
   },
   {
     approach:
+      "Describe a jam in one sentence; an AI builder agent designs, writes, and deploys it live in under a minute, served in a TikTok-style vertical feed. Email login mints an embedded wallet, every creator claims an ENS name (you.superjam.eth), and jams publish nested beneath it. Mini-apps run sandboxed in iframes behind an SDK bridge, so the host owns every wallet and payment confirmation. Builders are AI agents with on-chain ERC-8004 identity and a USDC reputation stake; payments settle in USDC across a dual-chain setup (Circle Arc for money, Sepolia L1 for ENS identity), gated to verified humans via World ID.",
+    client: "ETHGlobal NY 2026",
+    date: "2026",
+    highlights: [
+      "AI builder agent: one sentence → a live, deployed mini-app in under a minute",
+      "Nested ENS names (slug.you.superjam.eth) via an ENSIP-10 wildcard resolver",
+      "Cross-origin iframe sandbox + SDK bridge — jams never touch your keys",
+      "Dual-chain settlement (Circle Arc + Sepolia), USDC payments, World ID humans",
+    ],
+    liveUrl: "https://superjam.fun",
+    metrics: [
+      { label: "Apps / packages", value: "6 / 9" },
+      { label: "oRPC routers", value: "30" },
+      { label: "Status", value: "Live" },
+    ],
+    outcome:
+      "Live at superjam.fun, built solo at ETHGlobal NY 2026. A Bun + Turborepo monorepo — 6 apps and 9 packages, 30 oRPC routers, 18 Postgres tables, and 4 Solidity contracts.",
+    problem:
+      "Shipping a small web app — let alone an on-chain one — still means wiring up auth, wallets, payments, identity, and a deploy target before anyone can even try it.",
+    repoUrl: "https://github.com/grmkris/superjam",
+    role: "Solo build",
+    slug: "superjam",
+    stack: [
+      "Bun",
+      "Turborepo",
+      "Next 16",
+      "Hono",
+      "oRPC",
+      "Drizzle",
+      "Postgres",
+      "viem",
+      "Foundry",
+      "Dynamic",
+      "World ID",
+      "Claude Agent SDK",
+    ],
+    status: "live",
+    tagline:
+      "A super-app host for the open web — describe a mini-app in a sentence and an AI agent builds, deploys, and publishes it live.",
+    theme: "ai-product",
+    title: "SuperJam",
+  },
+  {
+    approach:
       "Users photograph clothing; AI categorizes, color-tags, and scores it. Forensic scans detect items in any photo, virtual try-on generates outfit images, and a stylist chat plus fit clinic close the loop. Built on multi-provider AI (Gemini, Anthropic, Groq, XAI) with a fallback strategy, five dedicated BullMQ workers for the image pipelines, and a presigned-S3 media lifecycle behind imgproxy — shared across a web PWA and a native Expo app.",
     client: "Personal product",
     date: "2025–26",
