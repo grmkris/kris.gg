@@ -425,6 +425,258 @@
       "width": 1200
     }
   ],
+  "beijing-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoKAA0AA4BaJZgCdADdo8e2o+gA/uaYQNS5HYIzwqu3SOx3DdJRvHIh37r3GN9bBSBu466RFSeJdqo2J1FlBK0GQq2vl4SmkiAJ/4ytRVQNW+J2jiXwAAAA",
+      "dominant": "#282828",
+      "full": "/photos/beijing-2026/01-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/01-800.webp",
+      "src": "/photos/beijing-2026/01.jpg",
+      "thumb": "/photos/beijing-2026/01-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoKAA0AA4BaJYgCsADYXAAA/u7c33TMruhw1hcLgIufT9ZJhs5nXn2LnJvShGL0dEZ8esOY211Img+PJ7mU9B8AAAA=",
+      "dominant": "#282808",
+      "full": "/photos/beijing-2026/02-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/02-800.webp",
+      "src": "/photos/beijing-2026/02.jpg",
+      "thumb": "/photos/beijing-2026/02-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQAgCdASoKAA0AA4BaJQBOkERjEp95dbLFUAAA/tqhZQgKj4Q36Q0EgpyVHePgK+yoEr/xTF/gnlXV0Aov/SiOw0K2X60SG/00xbDhTdGboQkxFt838AAA",
+      "dominant": "#282828",
+      "full": "/photos/beijing-2026/03-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/03-800.webp",
+      "src": "/photos/beijing-2026/03.jpg",
+      "thumb": "/photos/beijing-2026/03-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoKAA0AA4BaJQBYdh6teYlAAP7CA/I7+IRVJyt17n7xmq3a2Ff7qlzPrFxvJw43K7Q7J7Pxv/UqCLweMKSYAA==",
+      "dominant": "#686868",
+      "full": "/photos/beijing-2026/04-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/04-800.webp",
+      "src": "/photos/beijing-2026/04.jpg",
+      "thumb": "/photos/beijing-2026/04-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoKAA0AA4BaJaACdAEOrg3IAP7xDpdGk4PRDubFqhARqsnYBcQtYUOJkUn/Sz1jQLU89pi2Eg7dmuI2OODpOLZ0jce9MSIbCAAAAA==",
+      "dominant": "#282808",
+      "full": "/photos/beijing-2026/05-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/05-800.webp",
+      "src": "/photos/beijing-2026/05.jpg",
+      "thumb": "/photos/beijing-2026/05-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAA0AA4BaJQBOgCPw6klnoAD+hv+3Ud2nOokPulPJLYtVe8OYt0oECoYmVsw339zH5y5+XYzSPCYlh/78uS5eoNoPAAAA",
+      "dominant": "#484848",
+      "full": "/photos/beijing-2026/06-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/06-800.webp",
+      "src": "/photos/beijing-2026/06.jpg",
+      "thumb": "/photos/beijing-2026/06-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoKAA0AA4BaJZgCdADzZ88wAAD+6PFjPbL6OWQQtTYqp0F7ZmQAnzNVgVhwDiM0/aQnIVUqiQqh12Y3t835zTbgAAA=",
+      "dominant": "#484838",
+      "full": "/photos/beijing-2026/07-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/07-800.webp",
+      "src": "/photos/beijing-2026/07.jpg",
+      "thumb": "/photos/beijing-2026/07-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoKAA0AA4BaJZwAAt1u4sVF4cAA/gkL0T+IcZpKEhHnKkDlWUtupH9L/5VMpgp3k7XFogk1m5wE38j3ciwGgB1skkdzQsKP+75BAgAA",
+      "dominant": "#d8e8e8",
+      "full": "/photos/beijing-2026/08-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/08-800.webp",
+      "src": "/photos/beijing-2026/08.jpg",
+      "thumb": "/photos/beijing-2026/08-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA0AA4BaJQBOgCKdNe4igAD+hRqIkEqx1tS/u+Ly25ciLardtY+qpvfOXTf5qVt7bhcak+rDd+5XVjnRCcWhJSAAAA==",
+      "dominant": "#484848",
+      "full": "/photos/beijing-2026/09-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/09-800.webp",
+      "src": "/photos/beijing-2026/09.jpg",
+      "thumb": "/photos/beijing-2026/09-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoKAA0AA4BaJbACdAEQE5xv/kAA/rwqUTV2PFxsIz3E8O0fW8btFtDi4hLxuW0d+Iz5rhEGet3XaZ+aMFzor/LoJvfsP63I5BZpDG2j3XYwpZlwkgAAAA==",
+      "dominant": "#c8a878",
+      "full": "/photos/beijing-2026/10-1600.webp",
+      "height": 1024,
+      "mid": "/photos/beijing-2026/10-800.webp",
+      "src": "/photos/beijing-2026/10.jpg",
+      "thumb": "/photos/beijing-2026/10-400.webp",
+      "width": 768
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoKAA0AA4BaJZACdH8AF8P0L2sZgAD+7IW93ANq2aejPfEXXNRAe0SJM2zHJVuu6VZW/nXWRnMX/kWlX93lcwBexIgPNExs/qBvw2cvJIe0vEUe7zXOeuELgAA=",
+      "dominant": "#180818",
+      "full": "/photos/beijing-2026/11-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/11-800.webp",
+      "src": "/photos/beijing-2026/11.jpg",
+      "thumb": "/photos/beijing-2026/11-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAA0AA4BaJZwAApea2KiAAP3CwHa6z7snNirmK0Z9wEFrE/gfj0QU62U1m5d5QytW7ZVFNlrq5SPaD/67AEmEHwAAAA==",
+      "dominant": "#686868",
+      "full": "/photos/beijing-2026/12-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/12-800.webp",
+      "src": "/photos/beijing-2026/12.jpg",
+      "thumb": "/photos/beijing-2026/12-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAgCdASoKAA0AA4BaJZwAD4/QgVIOYy1QawAA/oPlsbgDLct2j+pCsTyrvn+2GpmxcPbpOGebN1h13fDRB2xglSh4XYUk+tyoAuMmR58Zx5AA",
+      "dominant": "#d8d8d8",
+      "full": "/photos/beijing-2026/13-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/13-800.webp",
+      "src": "/photos/beijing-2026/13.jpg",
+      "thumb": "/photos/beijing-2026/13-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoKAA0AA4BaJYwCdAYtLmvyI+REwAD9v/YuPxS188QWZOiiFKB/DC04TPxhU3bC61fKlBUAj5vPja1czQhOV67smtZKALKYqbRx4AAA",
+      "dominant": "#c8c8c8",
+      "full": "/photos/beijing-2026/14-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/14-800.webp",
+      "src": "/photos/beijing-2026/14.jpg",
+      "thumb": "/photos/beijing-2026/14-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoKAA0AA4BaJQBOgCHZsDfEAAD+b/i0V07iz5ectG2G8UmturZJjAbd4J4g0xD0adJPUlRQAAA=",
+      "dominant": "#686858",
+      "full": "/photos/beijing-2026/15-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/15-800.webp",
+      "src": "/photos/beijing-2026/15.jpg",
+      "thumb": "/photos/beijing-2026/15-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoKAA0AA4BaJZACdAEfA62+3PKAAP7duUXgv5rPWXk0ac4eli7BGvjiOTEALqnQ4/gG+YcuwgaIhnv6nPNfERD4EW15FIlsj67KhdYkpvykMVUDVviagTgAAAA=",
+      "dominant": "#282828",
+      "full": "/photos/beijing-2026/16-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/16-800.webp",
+      "src": "/photos/beijing-2026/16.jpg",
+      "thumb": "/photos/beijing-2026/16-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACQAQCdASoKAA0AA4BaJQBOgCHWfkAA/rupzUewThan1dGqbMoiZnA/ilQbGqaRD5Cr9slzygAAAA==",
+      "dominant": "#585848",
+      "full": "/photos/beijing-2026/17-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/17-800.webp",
+      "src": "/photos/beijing-2026/17.jpg",
+      "thumb": "/photos/beijing-2026/17-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoKAA0AA4BaJYgC7AEUUfgn+3GAAP7uoCNBQt9SH1iBll0bqxJPGd5JsUqrCYf18CIoCLeukTQfHk+GavqgAA==",
+      "dominant": "#282808",
+      "full": "/photos/beijing-2026/18-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/18-800.webp",
+      "src": "/photos/beijing-2026/18.jpg",
+      "thumb": "/photos/beijing-2026/18-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAA0AA4BaJQBOgBwi8qwAAP7j1owBkcxGfqUAIJkDikY9hDJcvBMmc0YKoDnMHrUp/BaTW+JVYR+CmdBzeoJiJ3gAAA==",
+      "dominant": "#685848",
+      "full": "/photos/beijing-2026/19-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/19-800.webp",
+      "src": "/photos/beijing-2026/19.jpg",
+      "thumb": "/photos/beijing-2026/19-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoKAA0AA4BaJZACdBHABemj9B7MAAD6mXvJWyJo9DePbMnjQD3qWZINK34zCArfBv/b4mao1tN0BDiBhsmcXxKdMTr2QDGZ8hRAAA==",
+      "dominant": "#181818",
+      "full": "/photos/beijing-2026/20-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/20-800.webp",
+      "src": "/photos/beijing-2026/20.jpg",
+      "thumb": "/photos/beijing-2026/20-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoKAA0AA4BaJZQCw7EO+OJUyI4AAP70cM+WMWaY3DhkIpI3zX8Jeqy9/O29m06uGBDm8KeVAAA=",
+      "dominant": "#181818",
+      "full": "/photos/beijing-2026/21-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/21-800.webp",
+      "src": "/photos/beijing-2026/21.jpg",
+      "thumb": "/photos/beijing-2026/21-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAQCdASoKAA0AA4BaJZQAAluL/AAA/cVvB2tu/Lpu+skAwBfFJGnvE3lP9IrvI0jpfioiQ9roVpHVgCEvMtgWE7EnoXpYMvAAAA==",
+      "dominant": "#f8f8f8",
+      "full": "/photos/beijing-2026/22-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/22-800.webp",
+      "src": "/photos/beijing-2026/22.jpg",
+      "thumb": "/photos/beijing-2026/22-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoKAA0AA4BaJYgCdAEOvDsSJWAA/rupzUewSpDS0m51mJ/y5c9muOx32lG48TtVAAA=",
+      "dominant": "#585848",
+      "full": "/photos/beijing-2026/23-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/23-800.webp",
+      "src": "/photos/beijing-2026/23.jpg",
+      "thumb": "/photos/beijing-2026/23-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoKAA0AA4BaJQBOgCPOpS335MwAAP5YiS0rXDTdbEcr0OAFkQl8u86qZfWElj0lEWUwzBt247gCwfFR57v97Pti6dCv2rKhvjUipIAA",
+      "dominant": "#c8c8c8",
+      "full": "/photos/beijing-2026/24-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/24-800.webp",
+      "src": "/photos/beijing-2026/24.jpg",
+      "thumb": "/photos/beijing-2026/24-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJYwC7AEXpcX1hMQA+/QSZ33heL0SyacfIUU3o7Tt9fxFIFod5zFuNSJ972PtlTmyLcOannFYwpFiSAAAAA==",
+      "dominant": "#686868",
+      "full": "/photos/beijing-2026/25-1600.webp",
+      "height": 2400,
+      "mid": "/photos/beijing-2026/25-800.webp",
+      "src": "/photos/beijing-2026/25.jpg",
+      "thumb": "/photos/beijing-2026/25-400.webp",
+      "width": 1800
+    }
+  ],
   "belgrade-2025": [
     {
       "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoKAA0AA4BaJaACdAEQADb+IoAA/mFT5MJuE4gYaGAy9NbHSFlWzWhtVdDOrZRIAAA=",
@@ -1523,6 +1775,440 @@
       "src": "/photos/georgia-2025/12.jpg",
       "thumb": "/photos/georgia-2025/12-400.webp",
       "width": 1200
+    }
+  ],
+  "great-wall-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJQBWACIBJr1k7gAA/k+DO6LEhYaCGbPjvjhw69rliMPQhSRJMBo/hYN9Io/ckYibeOax9U1qY1lsNuAAAA==",
+      "dominant": "#483828",
+      "full": "/photos/great-wall-2026/01-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/01-800.webp",
+      "src": "/photos/great-wall-2026/01.jpg",
+      "thumb": "/photos/great-wall-2026/01-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoKAA0AA4BaJZgAAuacar0FmAD+56zTkkB8k4S5lqTea+oMf+lQzL4fGOawK4gA",
+      "dominant": "#d8d8e8",
+      "full": "/photos/great-wall-2026/02-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/02-800.webp",
+      "src": "/photos/great-wall-2026/02.jpg",
+      "thumb": "/photos/great-wall-2026/02-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoKAA0AA4BaJZACdAEPCqaXgZRAAP7rJbJHVPz/MsL0fMtz6UtzWlmNxGGOyQ62bpj1CRZ4wvieQAAA",
+      "dominant": "#c8d8d8",
+      "full": "/photos/great-wall-2026/03-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/03-800.webp",
+      "src": "/photos/great-wall-2026/03.jpg",
+      "thumb": "/photos/great-wall-2026/03-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAA0AA4BaJQBOgCLvx5Qo0iAA/uh8mER3aZTiInqFMRbUPkixEaHPZ+i57tkvroyq77m2a/h0rnfgp2DMWAfbiR1cPryXiCKYR1TcCW4AAA==",
+      "dominant": "#c8d8e8",
+      "full": "/photos/great-wall-2026/04-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/04-800.webp",
+      "src": "/photos/great-wall-2026/04.jpg",
+      "thumb": "/photos/great-wall-2026/04-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACQAQCdASoKAA0AA4BaJZAAApt2SgAA/uem+hu31Y0H+RJNMNc4OvKq4k90jnHAY7KQOewpMrgAAA==",
+      "dominant": "#d8d8d8",
+      "full": "/photos/great-wall-2026/05-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/05-800.webp",
+      "src": "/photos/great-wall-2026/05.jpg",
+      "thumb": "/photos/great-wall-2026/05-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAA0AA4BaJYwCdAELPXkAAP7CsyoyYH4eq34QEzBblO8ag3gsrfTZ/N4zoQHKo2GgTjgYeaiIkqTppnczxWN3ylyaAA==",
+      "dominant": "#080808",
+      "full": "/photos/great-wall-2026/06-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/06-800.webp",
+      "src": "/photos/great-wall-2026/06.jpg",
+      "thumb": "/photos/great-wall-2026/06-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoKAA0AA4BaJQBOgCHV0NAAAP7qsFQ75Zf1uFAUR8SItKErr5xjLk6cAAA=",
+      "dominant": "#b8c8d8",
+      "full": "/photos/great-wall-2026/07-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/07-800.webp",
+      "src": "/photos/great-wall-2026/07.jpg",
+      "thumb": "/photos/great-wall-2026/07-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAgCdASoKAA0AA4BaJYgCdH8AGEj3c7+7imvwAP7WGTS0NvStjqNH+6q03TNdiQ/xWNVhTpb7642pbrsKC3NXJOC7ki2ZNi8vznEgqeHk+Hi4JzAmgAAA",
+      "dominant": "#a8b878",
+      "full": "/photos/great-wall-2026/08-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/08-800.webp",
+      "src": "/photos/great-wall-2026/08.jpg",
+      "thumb": "/photos/great-wall-2026/08-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoKAA0AA4BaJZACdAEO4YnQAP7q6bmMk3MhoyqQrYB+oC4R2QG6JLkLnYr4D8ULYNBVPrgA",
+      "dominant": "#b8c8c8",
+      "full": "/photos/great-wall-2026/09-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/09-800.webp",
+      "src": "/photos/great-wall-2026/09.jpg",
+      "thumb": "/photos/great-wall-2026/09-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JQBYdhC2HDV/Jtm6aMhAAAP7eAo7sH1T/wKmUx1S3V3Mc/GkdMe1KjVguUk7/svijO8lwohtJQdxeVSNeAAAA",
+      "dominant": "#381808",
+      "full": "/photos/great-wall-2026/10-1600.webp",
+      "height": 640,
+      "mid": "/photos/great-wall-2026/10-800.webp",
+      "src": "/photos/great-wall-2026/10.jpg",
+      "thumb": "/photos/great-wall-2026/10-400.webp",
+      "width": 360
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoKAA0AA4BaJYwCw7EVYjvTheXgAP5PyVTDAQoTuCzIp16aflxDIZmYoKj7wIsIqha+V2XSz1O/AkVtetJQaeJzKAAAAA==",
+      "dominant": "#b8c8e8",
+      "full": "/photos/great-wall-2026/11-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/11-800.webp",
+      "src": "/photos/great-wall-2026/11.jpg",
+      "thumb": "/photos/great-wall-2026/11-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoKAA0AA4BaJYwCdADcgU+E1AAA/uh8mERwD0oApQD7NzViLh/mCAaryUF7OKk8fo7+Ptqfb1Qpg7BcsP0Y89hKEycaTDhuytciCKYR1Td1ewAA",
+      "dominant": "#c8d8e8",
+      "full": "/photos/great-wall-2026/12-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/12-800.webp",
+      "src": "/photos/great-wall-2026/12.jpg",
+      "thumb": "/photos/great-wall-2026/12-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoKAA0AA4BaJQBOgBusYzbYAP7e73BWA5g2mMRgqLKPKMcqb4l3bJ7AXz/XVNMJKgj0Ff4A",
+      "dominant": "#b8c8d8",
+      "full": "/photos/great-wall-2026/13-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/13-800.webp",
+      "src": "/photos/great-wall-2026/13.jpg",
+      "thumb": "/photos/great-wall-2026/13-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoKAA0AA4BaJZACdAD0vH21AAD+ynqCRLrhXdtfgCFWXWRFUSkYMiJIkdds3RyLPJ1WCQjJWbThiqkvLPfVzOJgn6TTGLX7AAA=",
+      "dominant": "#a8d8d8",
+      "full": "/photos/great-wall-2026/14-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/14-800.webp",
+      "src": "/photos/great-wall-2026/14.jpg",
+      "thumb": "/photos/great-wall-2026/14-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoKAA0AA4BaJbACdAEfhpfxAAD+JvPE6+GshzIaW943V6s8Rhwx61CKjdZBD4VV3GqFmt5AdjnjJsqcVUaCqbE5GxNuwyUCqRaTloOV4a7Stsw7NDiAAA==",
+      "dominant": "#383838",
+      "full": "/photos/great-wall-2026/15-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/15-800.webp",
+      "src": "/photos/great-wall-2026/15.jpg",
+      "thumb": "/photos/great-wall-2026/15-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoKAA0AA4BaJbACdADdh5Z8qigA/iUisjwz6BfviqPKLblYOx8eF2+IB7meUdqxwWwE+2yaO68apC948JMEASVPnd3ryk/toLfO3ZS4ir7u06l2Ekr6bwcPfOAsgAAA",
+      "dominant": "#383838",
+      "full": "/photos/great-wall-2026/16-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/16-800.webp",
+      "src": "/photos/great-wall-2026/16.jpg",
+      "thumb": "/photos/great-wall-2026/16-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoKAA0AA4BaJagAAubh4eAA/utkNcxj50kCDfFHq0hkOoYTqRlHc+Ly5W1C5rX7p5hHsSYAAAA=",
+      "dominant": "#d8c8d8",
+      "full": "/photos/great-wall-2026/17-1600.webp",
+      "height": 2400,
+      "mid": "/photos/great-wall-2026/17-800.webp",
+      "src": "/photos/great-wall-2026/17.jpg",
+      "thumb": "/photos/great-wall-2026/17-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoKAA0AA4BaJQBOgCLZmMwAAAD+woeIKl8ZCiiNfpTvNACZX1PdgPRlrZyNaLz/RU0RCzOLZv0xWpI34yLzAwqgAAA=",
+      "dominant": "#c8b8a8",
+      "full": "/photos/great-wall-2026/18-1600.webp",
+      "height": 480,
+      "mid": "/photos/great-wall-2026/18-800.webp",
+      "src": "/photos/great-wall-2026/18.jpg",
+      "thumb": "/photos/great-wall-2026/18-400.webp",
+      "width": 360
+    }
+  ],
+  "hangzhou-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JQBWHf9gTRSIoAP7Nu7MhNxuxVw0X50N12dNP572x8dp7fG8S5kZQ8nbcyeZysZ2VTR/EXBjLGqa0VUMF8G7/u4NewDh3WdBhjQfRoeTSjAAA",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/01-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/01-800.webp",
+      "src": "/photos/hangzhou-2026/01.jpg",
+      "thumb": "/photos/hangzhou-2026/01-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoKABIAPu1iqU2ppaQiMAgBMB2JZQCdAB5lJNjFvhgSAAD+SM555BmVA7VpXRfK4D/WB7fOP1xeXa9/ux7tZMZHyjyWTZs5Pk/WaK1vtDKi4rSihDr2CvX1zPD4rzY26OX7Mtp/l50B9+WQAAA=",
+      "dominant": "#585858",
+      "full": "/photos/hangzhou-2026/02-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/02-800.webp",
+      "src": "/photos/hangzhou-2026/02.jpg",
+      "thumb": "/photos/hangzhou-2026/02-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoKAA0AA4BaJQBOgB6CXMNs6JYAAN5UnOSM4jI4a4R0uacu8PbcuHMVK7t0LsmaLlinXqPG24+/M5t+Nm1FEdg0dOGo2iX+cl6xsuy5i39nqNlP6tAAAA==",
+      "dominant": "#181818",
+      "full": "/photos/hangzhou-2026/03-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/03-800.webp",
+      "src": "/photos/hangzhou-2026/03.jpg",
+      "thumb": "/photos/hangzhou-2026/03-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAA0AA4BaJYwCdAEDe9fchAAA/mqDqkGrqxLEk7OzyphjnROWuPjqfRCqO5MSRIahc0cMj2SsmxeY5/7JcSCBGR3fBOgA",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/04-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/04-800.webp",
+      "src": "/photos/hangzhou-2026/04.jpg",
+      "thumb": "/photos/hangzhou-2026/04-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoKAA0AA4BaJagCdAEVYk3WXgmrAAD+29H7cbU03U0oJ+NQgtAsZ9VdDm+jrOezAiddIOzblHOBRkbMXlz4DH0Sgf8ruIw4hB40oq9E9eRkAAAA",
+      "dominant": "#181818",
+      "full": "/photos/hangzhou-2026/05-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/05-800.webp",
+      "src": "/photos/hangzhou-2026/05.jpg",
+      "thumb": "/photos/hangzhou-2026/05-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoKAA0AA4BaJQBOgBwzSD6GjuSAAP7mCqfiiF40FjMn/aq7X1HMvNnEATY6/62SXYEtGa54LMBEN6Ns/ilHMIGw8aoQRzhSd0JL3GgA",
+      "dominant": "#281818",
+      "full": "/photos/hangzhou-2026/06-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/06-800.webp",
+      "src": "/photos/hangzhou-2026/06.jpg",
+      "thumb": "/photos/hangzhou-2026/06-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoKAA0AA4BaJbACdAEWtfGIOFCT0AD5DYXHaRT1XE7pkL5GK2y5b8aut+bMxiv0cYyXLw3tHiCFoPrMs3inZMBWA+v4PopBy+ixwbXvANZnrQqAyFdAAA==",
+      "dominant": "#b8c8c8",
+      "full": "/photos/hangzhou-2026/07-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/07-800.webp",
+      "src": "/photos/hangzhou-2026/07.jpg",
+      "thumb": "/photos/hangzhou-2026/07-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoKABIAPu1iqk2ppaQiMAgBMB2JQBUeg2Qc1nmXZIAA/tl/yTcXuynsDSLiCpoKhCGTO6uUwpJ1lRrbnKrRlLCWbTUYKTeUEpcsFl70pQhsAAAA",
+      "dominant": "#585858",
+      "full": "/photos/hangzhou-2026/08-1600.webp",
+      "height": 640,
+      "mid": "/photos/hangzhou-2026/08-800.webp",
+      "src": "/photos/hangzhou-2026/08.jpg",
+      "thumb": "/photos/hangzhou-2026/08-400.webp",
+      "width": 360
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoKAA0AA4BaJQBOgCPUQtCN+wAA/rx08433SqOO3L6qoHndFzlYD76uM6GM6OnRVjts3PmitH557EBz+EjAAA==",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/09-1600.webp",
+      "height": 342,
+      "mid": "/photos/hangzhou-2026/09-800.webp",
+      "src": "/photos/hangzhou-2026/09.jpg",
+      "thumb": "/photos/hangzhou-2026/09-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoKABIAPu1iqk2ppaQiMAgBMB2JQAAF7c903hH3epAA/s8WgVWf3CHoc78+VZ6++wbOeUXl3gKanqbzCn8I+bcVEqnUhpczhI4/wQKem5d3K2AA",
+      "dominant": "#181808",
+      "full": "/photos/hangzhou-2026/10-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/10-800.webp",
+      "src": "/photos/hangzhou-2026/10.jpg",
+      "thumb": "/photos/hangzhou-2026/10-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JYwC/OButgKAlTKRvbDUQAP7P66d+PaNTfDcbUaruq8wH2tAIvuN8XFGFB/Ra7ESY3Ke0F5PL8LUJNsN6bYwcRQxmOKeNj4fgAA==",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/11-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/11-800.webp",
+      "src": "/photos/hangzhou-2026/11.jpg",
+      "thumb": "/photos/hangzhou-2026/11-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoKAA0AA4BaJQBOgCLsgQUEzLAAAP7EPrX/QlArH35H1nbkfAuaohO47IPPEeWx+1xl8PXHBtNgFDVXlEK4eXY3t0VIF9tj1xaLgAAA",
+      "dominant": "#98b8d8",
+      "full": "/photos/hangzhou-2026/12-1600.webp",
+      "height": 342,
+      "mid": "/photos/hangzhou-2026/12-800.webp",
+      "src": "/photos/hangzhou-2026/12.jpg",
+      "thumb": "/photos/hangzhou-2026/12-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoKAA0AA4BaJQBOgCFlLcAAAP7ReqqLvhwG4bQ32B4U6ayu19cNdpLD6wWfCxIhi4JJ/wbyNy8lm51ozNqAAA==",
+      "dominant": "#383828",
+      "full": "/photos/hangzhou-2026/13-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/13-800.webp",
+      "src": "/photos/hangzhou-2026/13.jpg",
+      "thumb": "/photos/hangzhou-2026/13-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoKAA0AA4BaJbACdADc+FO6bfAA/vbvBoaJww90MROuMlO4vS3SsqbrwijJAPxkoMhwPAkEi7dxathItI39y531Tj7fYJ+L5TTijtdb2ALZflQQoAA=",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/14-1600.webp",
+      "height": 480,
+      "mid": "/photos/hangzhou-2026/14-800.webp",
+      "src": "/photos/hangzhou-2026/14.jpg",
+      "thumb": "/photos/hangzhou-2026/14-400.webp",
+      "width": 360
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JZQCdABupFasq03WMPUuwAPv8jXe1uhYYZP+z+pstP0QvoTUC/D9pyQktvTCFTJfmQ/2RDh9soPZ2jBd65RBDLqp8mO11Y0AAAA==",
+      "dominant": "#686868",
+      "full": "/photos/hangzhou-2026/15-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/15-800.webp",
+      "src": "/photos/hangzhou-2026/15.jpg",
+      "thumb": "/photos/hangzhou-2026/15-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JZQC/OCPa7N4zDW89MjrAAP7QPVw/MAw4NyCXgN4RsdOoBAZ31BKMjj3DRTvgzTzOT0gsvt5oeKXEEL1M+GN6151j+etBIrZ36NDEAAA=",
+      "dominant": "#282818",
+      "full": "/photos/hangzhou-2026/16-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/16-800.webp",
+      "src": "/photos/hangzhou-2026/16.jpg",
+      "thumb": "/photos/hangzhou-2026/16-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAQCdASoKAA0AA4BaJQBOgBtflQAA/sch4JaO6Ch9dgdATjskT4Kxy4/UG4H9ZTmzb+la/vFVKk+9uOeK1nz9UqkLX+cE2ZWrmlPMQnQAAA==",
+      "dominant": "#98b8d8",
+      "full": "/photos/hangzhou-2026/17-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/17-800.webp",
+      "src": "/photos/hangzhou-2026/17.jpg",
+      "thumb": "/photos/hangzhou-2026/17-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAQCdASoKAA0AA4BaJbACdADZqIcgAP1JnCmvddhYK50YHWFnkJwEfmi6EDM/3LKAuLg/ScPAfAm8BNcDPQbFXYYql2VkFjyb37iZ59LqM0AA",
+      "dominant": "#181828",
+      "full": "/photos/hangzhou-2026/18-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/18-800.webp",
+      "src": "/photos/hangzhou-2026/18.jpg",
+      "thumb": "/photos/hangzhou-2026/18-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA0AA4BaJQBOgB6SDJhMAAD+n+CJCyhJaAvbHZcpdVAu9Vf9LRBv95BIEjxjC1ZiiPNkg35P1LuMfvONO9y7EBjQAA==",
+      "dominant": "#181818",
+      "full": "/photos/hangzhou-2026/19-1600.webp",
+      "height": 342,
+      "mid": "/photos/hangzhou-2026/19-800.webp",
+      "src": "/photos/hangzhou-2026/19.jpg",
+      "thumb": "/photos/hangzhou-2026/19-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA0AA4BaJZQC7ADdprpGopQ4AAD+8ypWHTblCBO+2tWUQ+6dzg8U9DenNOnSwg7SjehIfinT+9RjOhyn/86pH3gukiSoAAA=",
+      "dominant": "#c8d8e8",
+      "full": "/photos/hangzhou-2026/20-1600.webp",
+      "height": 480,
+      "mid": "/photos/hangzhou-2026/20-800.webp",
+      "src": "/photos/hangzhou-2026/20.jpg",
+      "thumb": "/photos/hangzhou-2026/20-400.webp",
+      "width": 360
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoKAAYAA4BaJQAAWNMzGCoAAP7p4z1abgs648YufKeQeYB/gKTj53Ks+AA=",
+      "dominant": "#080808",
+      "full": "/photos/hangzhou-2026/21-1600.webp",
+      "height": 256,
+      "mid": "/photos/hangzhou-2026/21-800.webp",
+      "src": "/photos/hangzhou-2026/21.jpg",
+      "thumb": "/photos/hangzhou-2026/21-400.webp",
+      "width": 456
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoKAA0AA4BaJZQAAsQy9I9AAADylKdmkYsTZMxy5AcWH0jeugirAEQ7wG4jUtNExwJSqAAA",
+      "dominant": "#383838",
+      "full": "/photos/hangzhou-2026/22-1600.webp",
+      "height": 480,
+      "mid": "/photos/hangzhou-2026/22-800.webp",
+      "src": "/photos/hangzhou-2026/22.jpg",
+      "thumb": "/photos/hangzhou-2026/22-400.webp",
+      "width": 360
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoKAA0AA4BaJYgCdADaPJm6aAD5dat42RRxDiIICh/jOdg3Y33YYpxLhnTczEs0xahugZXY836jtTNnAn+9UpWCH/uztvyBN2BmUcUloAA=",
+      "dominant": "#181828",
+      "full": "/photos/hangzhou-2026/23-1600.webp",
+      "height": 2400,
+      "mid": "/photos/hangzhou-2026/23-800.webp",
+      "src": "/photos/hangzhou-2026/23.jpg",
+      "thumb": "/photos/hangzhou-2026/23-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAwCdASoKABIAPu1iqU2ppaOiMAgBMB2JQBOgA8ocUCRjwsAA/dSFfuPYXbiRVMZwGbL6bI9CWlTTs1/GkvhTDkzb2zoxIC0zO2AD1vs1LOrKw/HgUJDnQAA=",
+      "dominant": "#685828",
+      "full": "/photos/hangzhou-2026/24-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/24-800.webp",
+      "src": "/photos/hangzhou-2026/24.jpg",
+      "thumb": "/photos/hangzhou-2026/24-400.webp",
+      "width": 256
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoKABIAPu1iqU2ppaQiMAgBMB2JZQCsAB6UrfL1AeBjAAD+5z7WvHjAizXhywEFOTK4AYN2De0/ED4/Prk4geLJF5dTxOnTfmt42Hla89PNa3yQ4JhTAWtcV56SENQAAAA=",
+      "dominant": "#c8d8e8",
+      "full": "/photos/hangzhou-2026/25-1600.webp",
+      "height": 456,
+      "mid": "/photos/hangzhou-2026/25-800.webp",
+      "src": "/photos/hangzhou-2026/25.jpg",
+      "thumb": "/photos/hangzhou-2026/25-400.webp",
+      "width": 256
     }
   ],
   "invok": [
@@ -3073,18 +3759,18 @@
   ],
   "shanghai-mu-2026": [
     {
-      "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoKAAgAA4BaJQBOgCICUWa0AAD+hAardrLq4aUELj1zsVVMbn6vAAAA",
-      "dominant": "#585858",
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA0AA4BaJZQCdADdtEvAQydEAADifqGtCwHOP/CynuwrSFR+4aC90O0EezKHdI7hIpuyq3VDJeKhvYPqOrkPxi8o2zw0AAA=",
+      "dominant": "#484848",
       "full": "/photos/shanghai-mu-2026/01-1600.webp",
-      "height": 1800,
+      "height": 2400,
       "mid": "/photos/shanghai-mu-2026/01-800.webp",
       "src": "/photos/shanghai-mu-2026/01.jpg",
       "thumb": "/photos/shanghai-mu-2026/01-400.webp",
-      "width": 2400
+      "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoKAAgAA4BaJbACdADhX5m0WAD+dq7vEz3owhp6gtNieTK5Pf6DrpXduitXTcZHAAA=",
-      "dominant": "#486898",
+      "blur": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoKAAgAA4BaJZgCdAEO6RLW6QAA/vLYAp4VS+pxAzRYD1AdlJ0JCJmbtYD9DLAA",
+      "dominant": "#282828",
       "full": "/photos/shanghai-mu-2026/02-1600.webp",
       "height": 1800,
       "mid": "/photos/shanghai-mu-2026/02-800.webp",
@@ -3093,18 +3779,18 @@
       "width": 2400
     },
     {
-      "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoKAAgAA4BaJQBOgCHcVlCMAAD+QK0kqtxjrKgJQRRPFpvPxuY3iuJ0AAA=",
-      "dominant": "#686868",
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoKAA0AA4BaJYgCdAEekM3BOAAA+GN4Qkgr3XqUQ6jpQE90y2X7jrv84E4MOyBdUrQiA+hmBlr9poAc/vIbG0AA",
+      "dominant": "#b8c8d8",
       "full": "/photos/shanghai-mu-2026/03-1600.webp",
-      "height": 1800,
+      "height": 2400,
       "mid": "/photos/shanghai-mu-2026/03-800.webp",
       "src": "/photos/shanghai-mu-2026/03.jpg",
       "thumb": "/photos/shanghai-mu-2026/03-400.webp",
-      "width": 2400
+      "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKAA0AA4BaJQBOgCHcyrrsgAD+qYrqO1Xk2ZofQ6FdglulYPpQoN61JETDc+ypjDghARkq41IzImRwAAA=",
-      "dominant": "#585868",
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoKAA0AA4BaJQBOgB6VsooNVX4AAP7s3t1sD8J2vyBlLzBSRE17a28LUNFALvTMx0nxODp0GXSMVTwbDNHqnQroVQI2QZZFtqIFAAAA",
+      "dominant": "#181818",
       "full": "/photos/shanghai-mu-2026/04-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/04-800.webp",
@@ -3113,8 +3799,8 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJYgCsAELQkVuYAD+80C0a4awTw/ADDehqyB+UqzIYYjuRMeqUfkgk4453fVW0sr9F0gA",
-      "dominant": "#081828",
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoKAA0AA4BaJQBOgBujG1qo4gAA/vLipnQv9pnOkWDlY6DpnkwE0TLuMOK7IY0+C33cZnXrdAoF7gITdU5kAAAA",
+      "dominant": "#181828",
       "full": "/photos/shanghai-mu-2026/05-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/05-800.webp",
@@ -3123,8 +3809,8 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoKAA0AA4BaJYgCdAD5hc+z6AAA9A0Eo7VamsMrzfb29PYvp30Ruy7S/OK2MU7PGb6o+hrFU2AAAA==",
-      "dominant": "#686858",
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoKAA0AA4BaJZAC7AEOwU9XynwA/vRP293/gLakEnc43d3KoBanNiGJqen7fEDPd3vDj5oOTwsAAA==",
+      "dominant": "#282828",
       "full": "/photos/shanghai-mu-2026/06-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/06-800.webp",
@@ -3133,8 +3819,8 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA0AA4BaJQBOgB6vOpTRAAD+bP7vWrjMwz/wToVDD8r2mU/U/jtJxjtRgBEJqcjt4yhmrY8QZiYac/1PCRcJBQAAAA==",
-      "dominant": "#b8d8e8",
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoKAA0AA4BaJQBOgCERiy8QAPzLu9OVKhCLE6saSFW5Xd3bQYnLY+LviNH/GLYcrEeB2AS0Gkdb7ZQpPCgAAA==",
+      "dominant": "#685858",
       "full": "/photos/shanghai-mu-2026/07-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/07-800.webp",
@@ -3143,28 +3829,28 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoKAA0AA4BaJQBOgCERiy8QAPzLu9OVKhCLE6saSFW5Xd3bQYnLY+LviNH/GLYcrEeB2AS0Gkdb7ZQpPCgAAA==",
-      "dominant": "#685858",
+      "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoKAAgAA4BaJQBOgCICUWa0AAD+hAardrLq4aUELj1zsVVMbn6vAAAA",
+      "dominant": "#585858",
       "full": "/photos/shanghai-mu-2026/08-1600.webp",
-      "height": 2400,
+      "height": 1800,
       "mid": "/photos/shanghai-mu-2026/08-800.webp",
       "src": "/photos/shanghai-mu-2026/08.jpg",
       "thumb": "/photos/shanghai-mu-2026/08-400.webp",
-      "width": 1800
-    },
-    {
-      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAgCdASoKAAgAA4BaJZQCdH8AGBGXBU0AAP7hNTTXALwhb2V+REYjoUw8wKO4rPIOATCgAAA=",
-      "dominant": "#c8d8e8",
-      "full": "/photos/shanghai-mu-2026/09-1600.webp",
-      "height": 1800,
-      "mid": "/photos/shanghai-mu-2026/09-800.webp",
-      "src": "/photos/shanghai-mu-2026/09.jpg",
-      "thumb": "/photos/shanghai-mu-2026/09-400.webp",
       "width": 2400
     },
     {
-      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAQCdASoKAA0AA4BaJYwCdAD6nAAA/sqAgVPJiHWcRb1LLW8uGQIxpsOBRRxFWEPAbtCuz0f+hYw/EnYqKAhR8vWygAAA",
-      "dominant": "#686858",
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoKAA0AA4BaJQBOkCYit+8rUjGAAP49mkfCQahESjS33t9gDOzLNRVwcOudWpAB+KYpQAAA",
+      "dominant": "#786858",
+      "full": "/photos/shanghai-mu-2026/09-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/09-800.webp",
+      "src": "/photos/shanghai-mu-2026/09.jpg",
+      "thumb": "/photos/shanghai-mu-2026/09-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoKAA0AA4BaJQBOgBttqMa4AAD+gR7VsyfJ3k/Sxxx1HcxjuM6dFNiZ9V30E0wx3WBshT7EStvEq4zmHvcMAAAA",
+      "dominant": "#4868a8",
       "full": "/photos/shanghai-mu-2026/10-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/10-800.webp",
@@ -3173,18 +3859,18 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAAgAA4BaJYgAAvyElRcweIAA4nO9xHHVgEv0i/3P2bNvcK7qwERoqxhr2Y7tGfx+/Hf9aLxfhw3AAAA=",
-      "dominant": "#282828",
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAAgAA4BaJbACdAEQXIWT5lAAzef+rP7MlEWy89c3l4GI7BQStONDT3wSaSJgnSzPO0C0MdEWtCPAAAA=",
+      "dominant": "#d8a878",
       "full": "/photos/shanghai-mu-2026/11-1600.webp",
-      "height": 1800,
+      "height": 960,
       "mid": "/photos/shanghai-mu-2026/11-800.webp",
       "src": "/photos/shanghai-mu-2026/11.jpg",
       "thumb": "/photos/shanghai-mu-2026/11-400.webp",
-      "width": 2400
+      "width": 1280
     },
     {
-      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAA0AA4BaJYwAAY2cHickAPzU0oui0vs7m2F4wxExSwcOXUGq91VY/c2duCUd4iKW0LonoC7Yb8vIMB/F4Ki4LDgAAA==",
-      "dominant": "#888878",
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAA0AA4BaJZAC7ADdoYnMjAAA/veCDQD3pTRZXwdxDFKdmGEaz1noexLXYI5u3/nBC4QwVLwYQYJIAAA=",
+      "dominant": "#181818",
       "full": "/photos/shanghai-mu-2026/12-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/12-800.webp",
@@ -3193,8 +3879,8 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoKAA0AA4BaJQBOgMXSyQD/EDhOAAD+3gI2aq4wVfn2mQbYKuKD3i4oAscQgKklWszjxtuSZKtJF5DLUcDIWqM6VtU3srfR2gbPw/agAAA=",
-      "dominant": "#282828",
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoKAA0AA4BaJagCdAELZPJ0MfjkAPhjsecQk/16NfCf4J8TUaS1gt5KKVBeEFwY6/Cd7kiq8D+T3jFjg3ABUtlxEBID2GAA",
+      "dominant": "#5888d8",
       "full": "/photos/shanghai-mu-2026/13-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/13-800.webp",
@@ -3203,53 +3889,273 @@
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAAgAA4BaJQBOgCIOvOOtywAA/jQpFEYCqiVgrBQWlvYsZdVOJ2ccjErmftzL2aDoBbU2b/Zy+d4n58t0DpffVYAAAA==",
-      "dominant": "#080808",
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJaACdADcUoG46AAAyyD6nXKiqndu5E+YBFEH5pxVTVOtK3g/AdnClElRhcHiTpAmkaqj9OGz7yWUnIAAAA==",
+      "dominant": "#a88878",
       "full": "/photos/shanghai-mu-2026/14-1600.webp",
-      "height": 1800,
+      "height": 2400,
       "mid": "/photos/shanghai-mu-2026/14-800.webp",
       "src": "/photos/shanghai-mu-2026/14.jpg",
       "thumb": "/photos/shanghai-mu-2026/14-400.webp",
-      "width": 2400
+      "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoKAA0AA4BaJQBdgCFrMQrH0wAA/veEFRHpIQOTyrvsDXYVUwcIy7ZevU5+Y2S/Jx4EpUgA",
-      "dominant": "#080808",
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAQCdASoKAA0AA4BaJaACdADb3WxYAP63qRpWVNb57l++OlcG0kqSsE5tw/Os0cbgQG3YvDYy5NZsCJPUoQAnsUtXUQBmaso/vPqW2e58AAAA",
+      "dominant": "#985838",
       "full": "/photos/shanghai-mu-2026/15-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/15-800.webp",
       "src": "/photos/shanghai-mu-2026/15.jpg",
       "thumb": "/photos/shanghai-mu-2026/15-400.webp",
-      "width": 1800
+      "width": 1799
     },
     {
-      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoKAAgAA4BaJZQCdAD0lwlMigAA/odYSkmDbko8cq+gwDhDW2mKMxKYsbVzVKQM27ZegMQUL2p0aAAA",
-      "dominant": "#080808",
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA0AA4BaJZACdADbRPMeAADOPOA2+GnPn5Rzjy0wIcISsZ+Yn/2E/zEiYqJHkOLo9uNxLs8j2g2hqVtceahulkUUAA==",
+      "dominant": "#282828",
       "full": "/photos/shanghai-mu-2026/16-1600.webp",
-      "height": 1800,
+      "height": 2400,
       "mid": "/photos/shanghai-mu-2026/16-800.webp",
       "src": "/photos/shanghai-mu-2026/16.jpg",
       "thumb": "/photos/shanghai-mu-2026/16-400.webp",
-      "width": 2400
-    },
-    {
-      "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoKAA0AA4BaJZACdAEO0WtEAqsAAPyyrEeLYIRCBTeUB7Ne2XVuIh14Wes0b/xrFt2N6T94n8jDzr+KM0meMfdErloydZMdgJnXK5b3y5KJBcq/hfEzDG90sAA=",
-      "dominant": "#181808",
-      "full": "/photos/shanghai-mu-2026/17-1600.webp",
-      "height": 2400,
-      "mid": "/photos/shanghai-mu-2026/17-800.webp",
-      "src": "/photos/shanghai-mu-2026/17.jpg",
-      "thumb": "/photos/shanghai-mu-2026/17-400.webp",
       "width": 1800
     },
     {
-      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoKAA0AA4BaJQBOgCIBcKwAAP51zx2Pdx+Qg/w3Fy4RSz4DqLMrBpjvmpo8SEquzcmiuAJHpTq4dVpO3cDnqNsP9G91lB5qg76wNbfplhnEwAAA",
-      "dominant": "#989898",
+      "blur": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoKAAgAA4BaJQBOgCHclRhzDgAA/ieA6nihFVz3oGOnOgp4SA02uNqts9oAAA==",
+      "dominant": "#585858",
+      "full": "/photos/shanghai-mu-2026/17-1600.webp",
+      "height": 1800,
+      "mid": "/photos/shanghai-mu-2026/17-800.webp",
+      "src": "/photos/shanghai-mu-2026/17.jpg",
+      "thumb": "/photos/shanghai-mu-2026/17-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoKAA0AA4BaJbACdADX6wAAyXMxGdHMURCmkn7duJBuKIr2xuswBtOfIeHIP/4dZjA1YX9FeEz3m94IxGFRHOk/AAA=",
+      "dominant": "#788898",
       "full": "/photos/shanghai-mu-2026/18-1600.webp",
       "height": 2400,
       "mid": "/photos/shanghai-mu-2026/18-800.webp",
       "src": "/photos/shanghai-mu-2026/18.jpg",
       "thumb": "/photos/shanghai-mu-2026/18-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKAA0AA4BaJbACdAEOioV+AAD+9uDTwJ98cAxhxq4sjiET2hdn1NtyZnxllAZDRZ3/0/Qve5i6OjIAAAA=",
+      "dominant": "#080828",
+      "full": "/photos/shanghai-mu-2026/19-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/19-800.webp",
+      "src": "/photos/shanghai-mu-2026/19.jpg",
+      "thumb": "/photos/shanghai-mu-2026/19-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoKAA0AA4BaJYgCdAEKlpHegAD+8Y+PRYUJ/B/F1PRwSaKGzVToLm9xpCJQX85IBdIUMa0jEX1n13ZcGEewf7u8AAA=",
+      "dominant": "#181828",
+      "full": "/photos/shanghai-mu-2026/20-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/20-800.webp",
+      "src": "/photos/shanghai-mu-2026/20.jpg",
+      "thumb": "/photos/shanghai-mu-2026/20-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJYgCsAELQkVuYAD+80C0a4awTw/ADDehqyB+UqzIYYjuRMeqUfkgk4453fVW0sr9F0gA",
+      "dominant": "#081828",
+      "full": "/photos/shanghai-mu-2026/21-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/21-800.webp",
+      "src": "/photos/shanghai-mu-2026/21.jpg",
+      "thumb": "/photos/shanghai-mu-2026/21-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA0AA4BaJQBOgBwgK/+tgAD4U+/YevjYtvoS9ztEOmqKM35OTodSvjA7D7DeXXkO4L5QItLd1/BulFupSVBx2BYAAA==",
+      "dominant": "#5898e8",
+      "full": "/photos/shanghai-mu-2026/22-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/22-800.webp",
+      "src": "/photos/shanghai-mu-2026/22.jpg",
+      "thumb": "/photos/shanghai-mu-2026/22-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAA0AA4BaJQBWACLQLpdu09gA/pwCsPQwOFqwBF2SAOsNtzHerT7NwWXtzZijXz2aHzZrv2X0amDIwM3j+C0g0rBInJbKtNdIochiMwAAAA==",
+      "dominant": "#686878",
+      "full": "/photos/shanghai-mu-2026/23-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/23-800.webp",
+      "src": "/photos/shanghai-mu-2026/23.jpg",
+      "thumb": "/photos/shanghai-mu-2026/23-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoKAA0AA4BaJQBOj+ACBemBucAA/P76QpTuTiLmJtnFSRd3H8RiYqAM4k+Vp0ikSLfGOeRnU4Hz6YQ2u8iauiAAAAA=",
+      "dominant": "#381808",
+      "full": "/photos/shanghai-mu-2026/24-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/24-800.webp",
+      "src": "/photos/shanghai-mu-2026/24.jpg",
+      "thumb": "/photos/shanghai-mu-2026/24-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoKAA0AA4BaJQBOgCByuXbJa4AA942X4+R+kqRjKBPcwqA8s9Xv9zCFbT59CsRybU8cBKnMJOAwWqWmbVAAAA==",
+      "dominant": "#584838",
+      "full": "/photos/shanghai-mu-2026/25-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/25-800.webp",
+      "src": "/photos/shanghai-mu-2026/25.jpg",
+      "thumb": "/photos/shanghai-mu-2026/25-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAgCdASoKAA0AA4BaJYwCdAEOz4DX3dIAAP54vAxmCAzJJpI0mXfBv8CRUPRjmTf7ad4thAA=",
+      "dominant": "#585858",
+      "full": "/photos/shanghai-mu-2026/26-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/26-800.webp",
+      "src": "/photos/shanghai-mu-2026/26.jpg",
+      "thumb": "/photos/shanghai-mu-2026/26-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoKAA0AA4BaJbACdADZSnoAAP2T4kc701eEcJghZESNtoTGQodpza2WwbKtGhFBEXIu+g4Jb+tAHwAA",
+      "dominant": "#484848",
+      "full": "/photos/shanghai-mu-2026/27-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/27-800.webp",
+      "src": "/photos/shanghai-mu-2026/27.jpg",
+      "thumb": "/photos/shanghai-mu-2026/27-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoKAAYAA4BaJQBOgCFqpUBDLgAA/soEFvXx2FepBBham/T51I9EHDeR93pc4WZ4gAA=",
+      "dominant": "#b8d8e8",
+      "full": "/photos/shanghai-mu-2026/28-1600.webp",
+      "height": 1350,
+      "mid": "/photos/shanghai-mu-2026/28-800.webp",
+      "src": "/photos/shanghai-mu-2026/28.jpg",
+      "thumb": "/photos/shanghai-mu-2026/28-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoKAA0AA4BaJQBOgMXSyQD/EDhOAAD+3gI2aq4wVfn2mQbYKuKD3i4oAscQgKklWszjxtuSZKtJF5DLUcDIWqM6VtU3srfR2gbPw/agAAA=",
+      "dominant": "#282828",
+      "full": "/photos/shanghai-mu-2026/29-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/29-800.webp",
+      "src": "/photos/shanghai-mu-2026/29.jpg",
+      "thumb": "/photos/shanghai-mu-2026/29-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoKAA0AA4BaJQBOgCILlzFOWLmrwAD8LaOrapD6frOBYj+dyk8rOu5eAePQZADCNFeGUVcxkczfIHRtadQVc+Bq4F4bdXDsld7BMEAA",
+      "dominant": "#282828",
+      "full": "/photos/shanghai-mu-2026/30-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/30-800.webp",
+      "src": "/photos/shanghai-mu-2026/30.jpg",
+      "thumb": "/photos/shanghai-mu-2026/30-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoKAA0AA4BaJZAC7AEOqr1BAAD+9FKgr4msB7BXjqHYQjjQE4c0wwCXS4suVxtwOkfMqsqd1+kEAA==",
+      "dominant": "#181828",
+      "full": "/photos/shanghai-mu-2026/31-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/31-800.webp",
+      "src": "/photos/shanghai-mu-2026/31.jpg",
+      "thumb": "/photos/shanghai-mu-2026/31-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABwAQCdASoKAA0AA4BaJQAAK9SrAADrtTP6STDTLi5XQjPzAe0MWAOfJ0/yVUHWAqPqdTgAAAA=",
+      "dominant": "#686858",
+      "full": "/photos/shanghai-mu-2026/32-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/32-800.webp",
+      "src": "/photos/shanghai-mu-2026/32.jpg",
+      "thumb": "/photos/shanghai-mu-2026/32-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJZACdAEOk+iRAAD+9C2Mzz/gQMHWw1sdxQixdRg6hW0c5lsZm4+7c/3IgzgO6dmuOYAA",
+      "dominant": "#181828",
+      "full": "/photos/shanghai-mu-2026/33-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/33-800.webp",
+      "src": "/photos/shanghai-mu-2026/33.jpg",
+      "thumb": "/photos/shanghai-mu-2026/33-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoKAA0AA4BaJZQCdADdruhbY7mwAP5AUcv98lvtyNJ/MTcz0T0kT2nAbSHvoHUFhy+hyHWkTDC4RF+gAAA=",
+      "dominant": "#685858",
+      "full": "/photos/shanghai-mu-2026/34-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/34-800.webp",
+      "src": "/photos/shanghai-mu-2026/34.jpg",
+      "thumb": "/photos/shanghai-mu-2026/34-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoKAA0AA4BaJZgCdAECpHF5/JQAAP7O0rVUMDkyLnKyYzceER//qQUHdMuAnJR/y0JzAANJHZzsy9tpRv1/rztStEWAr9qbtHyWU7QgtQ6G3bFrnZwNmQR4vNmaAA==",
+      "dominant": "#782828",
+      "full": "/photos/shanghai-mu-2026/35-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/35-800.webp",
+      "src": "/photos/shanghai-mu-2026/35.jpg",
+      "thumb": "/photos/shanghai-mu-2026/35-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAAgAA4BaJQBOgCIOvOOtywAA/jQpFEYCqiVgrBQWlvYsZdVOJ2ccjErmftzL2aDoBbU2b/Zy+d4n58t0DpffVYAAAA==",
+      "dominant": "#080808",
+      "full": "/photos/shanghai-mu-2026/36-1600.webp",
+      "height": 1800,
+      "mid": "/photos/shanghai-mu-2026/36-800.webp",
+      "src": "/photos/shanghai-mu-2026/36.jpg",
+      "thumb": "/photos/shanghai-mu-2026/36-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAgCdASoKAA0AA4BaJbACdGuAAs11GfFxWgAA/IDfLJPttL7R8m1uML/duw7PS4DiDRvCg7kGtWyhrISu60SxO95T0VeYgdhGrF9jzqk4AAAA",
+      "dominant": "#6898f8",
+      "full": "/photos/shanghai-mu-2026/37-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/37-800.webp",
+      "src": "/photos/shanghai-mu-2026/37.jpg",
+      "thumb": "/photos/shanghai-mu-2026/37-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoKAA0AA4BaJQBOgCIL2quVxp0EAAD9UrxBdjnj+uK8ybk8S2ZbtHy3k7/MOHKklnCjuNT4P4C1CwjUH4RjPGOuFd/qBP1wASYHzf9JXKysAA==",
+      "dominant": "#080808",
+      "full": "/photos/shanghai-mu-2026/38-1600.webp",
+      "height": 1856,
+      "mid": "/photos/shanghai-mu-2026/38-800.webp",
+      "src": "/photos/shanghai-mu-2026/38.jpg",
+      "thumb": "/photos/shanghai-mu-2026/38-400.webp",
+      "width": 1408
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoKAA0AA4BaJaACdH8AFcd2TcossADeKN0o32nWVoawRb/Zap5VIdUf6b3lj4aK8tuNs0ecIJ70VmsNwx8+Kd+XyGYA0ILsSe/ACV/iDuLF/wAA",
+      "dominant": "#384868",
+      "full": "/photos/shanghai-mu-2026/39-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/39-800.webp",
+      "src": "/photos/shanghai-mu-2026/39.jpg",
+      "thumb": "/photos/shanghai-mu-2026/39-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoKAA0AA4BaJZgCdADdrk3dCJAAAP5CY/q3F2BPApKHhvWAHqHIyIFn/eOfewgcNKuEq9hp4a/fMODrLn+/rS4fhmAC/ASwwIAAAA==",
+      "dominant": "#181818",
+      "full": "/photos/shanghai-mu-2026/40-1600.webp",
+      "height": 2400,
+      "mid": "/photos/shanghai-mu-2026/40-800.webp",
+      "src": "/photos/shanghai-mu-2026/40.jpg",
+      "thumb": "/photos/shanghai-mu-2026/40-400.webp",
       "width": 1800
     }
   ],
@@ -3313,6 +4219,148 @@
       "src": "/photos/sonara/06.jpg",
       "thumb": "/photos/sonara/06-400.webp",
       "width": 1024
+    }
+  ],
+  "songjiang-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAgCdASoKAA0AA4BaJYgCdH8AE7TSG7EPcAAA/uXbLn+7EOvm/xVAevZDNzQlNVro0RQYajddHJ2faeK4qSXDD24AAA==",
+      "dominant": "#080808",
+      "full": "/photos/songjiang-2026/01-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/01-800.webp",
+      "src": "/photos/songjiang-2026/01.jpg",
+      "thumb": "/photos/songjiang-2026/01-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAA0AA4BaJYgCdADcniZHgAD+9dpAYwms2e2GQ1BZNnUZtk3ncj1/8CZ8B6FSJc1i6qUx+BF/7wnuT/lcNBmcrEl754AA",
+      "dominant": "#180808",
+      "full": "/photos/songjiang-2026/02-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/02-800.webp",
+      "src": "/photos/songjiang-2026/02.jpg",
+      "thumb": "/photos/songjiang-2026/02-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoKAA0AA4BaJZgCdAEfTJNVNr8AAP6HyJsssswKGsNZMIrs5XflMrj0Idveleb9nbOTBuxqMTALS6fBgU9T4V4YgiRivjfqkhlW5MsjEKDzOuwAAAA=",
+      "dominant": "#985838",
+      "full": "/photos/songjiang-2026/03-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/03-800.webp",
+      "src": "/photos/songjiang-2026/03.jpg",
+      "thumb": "/photos/songjiang-2026/03-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoKAA0AA4BaJaACdAEPEJ52mgAA/pFx3oaVGxX7Z6G2NbA6Yc4XkLr24vgyrbM/MxbPA0CTHJh1uPKtWW9owAAA",
+      "dominant": "#5898d8",
+      "full": "/photos/songjiang-2026/04-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/04-800.webp",
+      "src": "/photos/songjiang-2026/04.jpg",
+      "thumb": "/photos/songjiang-2026/04-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoKAA0AA4BaJbACdAEO5KslNhnAAMsmvKA/5suOWV5HM4tDTOOAGnwQTh16bipkqkzG4Pl1A+vGZ49rcOPCvlLZm9vj5HIcYuAAAA==",
+      "dominant": "#4878b8",
+      "full": "/photos/songjiang-2026/05-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/05-800.webp",
+      "src": "/photos/songjiang-2026/05.jpg",
+      "thumb": "/photos/songjiang-2026/05-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKAA0AA4BaJbACdAEOy+Q9wAD30/20kdHrRbfgtZuEru1MYZLXgGbJuQXujW/RYXTz4n2U6u8pltYAAAA=",
+      "dominant": "#4888d8",
+      "full": "/photos/songjiang-2026/06-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/06-800.webp",
+      "src": "/photos/songjiang-2026/06.jpg",
+      "thumb": "/photos/songjiang-2026/06-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoKAAgAA4BaJQBdgBuIpRNXPgAA/XAOJaj+ck5vq0jmWWuY4vTlQhv5WOB33mdK9nuywWepqHckAA==",
+      "dominant": "#282818",
+      "full": "/photos/songjiang-2026/07-1600.webp",
+      "height": 1800,
+      "mid": "/photos/songjiang-2026/07-800.webp",
+      "src": "/photos/songjiang-2026/07.jpg",
+      "thumb": "/photos/songjiang-2026/07-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJbACdAEOuTLrAAD30/20kdHrZslpQP4B3BxRoglop1Fnf7o1v0WGy9sP9lOrvKZbWAAA",
+      "dominant": "#4888d8",
+      "full": "/photos/songjiang-2026/08-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/08-800.webp",
+      "src": "/photos/songjiang-2026/08.jpg",
+      "thumb": "/photos/songjiang-2026/08-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoKAA0AA4BaJYwCdH8AGAlpKrVAAP5b/OGL3tQS7DJbvOkPjTdjPVhiJ5Use1CNjYN31akQ4JrxVk7AesZzjDBdAAA=",
+      "dominant": "#888888",
+      "full": "/photos/songjiang-2026/09-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/09-800.webp",
+      "src": "/photos/songjiang-2026/09.jpg",
+      "thumb": "/photos/songjiang-2026/09-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoKAA0AA4BaJZQCdAEO9avz9/US0AD+W/GoQZ2Rt5F+0rV4BcrkW2N/t2zINS8SaVELQF7ZcP2zn9xUpajreAAA",
+      "dominant": "#888888",
+      "full": "/photos/songjiang-2026/10-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/10-800.webp",
+      "src": "/photos/songjiang-2026/10.jpg",
+      "thumb": "/photos/songjiang-2026/10-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoKAA0AA4BaJagCdADyb0P4AAD4UAp0c0SLcTNp7hO1P47AucxhAm328wxQcwE0x1kv7b3e/k32yR1ZZzbqAAAA",
+      "dominant": "#5888b8",
+      "full": "/photos/songjiang-2026/11-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/11-800.webp",
+      "src": "/photos/songjiang-2026/11.jpg",
+      "thumb": "/photos/songjiang-2026/11-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJagCdAEO4cYnVADLJzINqg+iub3nOM/D9mpPvn2+Nmjq47yqz8ZvYJUF52w+zDUCAAAA",
+      "dominant": "#4878b8",
+      "full": "/photos/songjiang-2026/12-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/12-800.webp",
+      "src": "/photos/songjiang-2026/12.jpg",
+      "thumb": "/photos/songjiang-2026/12-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJQBOgBulEC12VGgA/cCviiFJ8JWoQNr6PvFCSUJxqEdaQmwOhd0+tryPmhOJag+jXdjHHXKK68xjisAAAA==",
+      "dominant": "#483828",
+      "full": "/photos/songjiang-2026/13-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/13-800.webp",
+      "src": "/photos/songjiang-2026/13.jpg",
+      "thumb": "/photos/songjiang-2026/13-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAA0AA4BaJQBdgB8x7F69CAAA/vSdPDU/5TLnilEAPhFBYuInYoMnICNzm5A64+J7lgYblR0JXtcTUAA=",
+      "dominant": "#181818",
+      "full": "/photos/songjiang-2026/14-1600.webp",
+      "height": 2400,
+      "mid": "/photos/songjiang-2026/14-800.webp",
+      "src": "/photos/songjiang-2026/14.jpg",
+      "thumb": "/photos/songjiang-2026/14-400.webp",
+      "width": 1800
     }
   ],
   "spain-jan-2026": [
