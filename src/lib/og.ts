@@ -56,7 +56,8 @@ export async function embedPhoto(publicRelativePath: string): Promise<string> {
   const absPath = join(
     process.cwd(),
     "public",
-    publicRelativePath.replace(/^\//, "")
+    // Strip any ?v=… cache-bust query before reading from disk.
+    publicRelativePath.replace(/\?.*$/, "").replace(/^\//, "")
   );
   const jpegBuf = await sharp(absPath).jpeg({ quality: 85 }).toBuffer();
   const dataUrl = `data:image/jpeg;base64,${jpegBuf.toString("base64")}`;

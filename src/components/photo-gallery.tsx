@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import  { type PhotoMeta } from "@/lib/photos";
 
@@ -16,11 +16,55 @@ const Lightbox = dynamic(
 const FLASH_IN_MS = 180;
 const FLASH_OUT_MS = 220;
 
+// Shareable deep-link: reflect the open photo in the URL as ?photo=N (1-based),
+// so the address bar can be copied to share a specific image, and opening such a
+// URL jumps straight to that photo. Uses history.replaceState (not the Next
+// router) to avoid an RSC refetch / scroll reset on every lightbox step.
+const PHOTO_PARAM = "photo";
+
+function readPhotoParam(count: number): number | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+  const raw = new URLSearchParams(window.location.search).get(PHOTO_PARAM);
+  if (!raw) {
+    return null;
+  }
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n < 1 || n > count) {
+    return null;
+  }
+  return n - 1;
+}
+
+function writePhotoParam(index: number | null): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+  const url = new URL(window.location.href);
+  if (index === null) {
+    url.searchParams.delete(PHOTO_PARAM);
+  } else {
+    url.searchParams.set(PHOTO_PARAM, String(index + 1));
+  }
+  window.history.replaceState(null, "", `${url.pathname}${url.search}`);
+}
+
 export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [flashColor, setFlashColor] = useState<string | null>(null);
   const [flashActive, setFlashActive] = useState(false);
+
+  // Deep-link: if the URL names a photo, open the lightbox there on mount
+  // (straight to the image, no color-flash intro).
+  useEffect(() => {
+    const i = readPhotoParam(photos.length);
+    if (i !== null) {
+      setIndex(i);
+      setOpen(true);
+    }
+  }, [photos.length]);
 
   if (photos.length === 0) {
     return null;
@@ -32,6 +76,7 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
       return;
     }
     setIndex(i);
+    writePhotoParam(i);
     setFlashColor(photo.dominant);
     setFlashActive(true);
     // Brief color wash before the lightbox modal lands
@@ -42,6 +87,7 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
 
   function handleClose() {
     setOpen(false);
+    writePhotoParam(null);
     // After the modal closes, ease the color overlay back out
     window.setTimeout(() => {
       setFlashActive(false);
@@ -98,6 +144,12 @@ export function PhotoGallery({ photos }: { photos: PhotoMeta[] }) {
         open={open}
         close={handleClose}
         index={index}
+        on={{
+          view: ({ index: i }) => {
+            setIndex(i);
+            writePhotoParam(i);
+          },
+        }}
         slides={photos.map((p) => ({
           height: p.height,
           src: p.full,

@@ -12,8 +12,9 @@
  *
  * Incremental: skips variants newer than their source.
  */
+import { createHash } from "node:crypto";
 import { existsSync, statSync } from "node:fs";
-import { mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import sharp from "sharp";
 
@@ -87,14 +88,26 @@ async function buildPhoto(
   const stats = await sharp(sourcePath).stats();
   const dominant = `#${toHex(stats.dominant.r)}${toHex(stats.dominant.g)}${toHex(stats.dominant.b)}`;
 
+  // Cache-bust: a short hash of the SOURCE bytes appended as ?v=… to every
+  // variant URL. Variant paths are stable (NN-800.webp), so when a slot's photo
+  // changes (re-curation) the bytes change but the URL wouldn't — and the CDN /
+  // Next image optimizer would serve the stale image. The content hash makes the
+  // URL change with the content, busting every cache layer. (og.ts strips the
+  // query before its filesystem read.)
+  const v = createHash("sha1")
+    .update(await readFile(sourcePath))
+    .digest("hex")
+    .slice(0, 8);
+  const q = `?v=${v}`;
+
   return {
     blur,
     dominant,
-    full: `/photos/${slug}/${baseName}-1600.webp`,
+    full: `/photos/${slug}/${baseName}-1600.webp${q}`,
     height: meta.height,
-    mid: `/photos/${slug}/${baseName}-800.webp`,
-    src: `/photos/${slug}/${filename}`,
-    thumb: `/photos/${slug}/${baseName}-400.webp`,
+    mid: `/photos/${slug}/${baseName}-800.webp${q}`,
+    src: `/photos/${slug}/${filename}${q}`,
+    thumb: `/photos/${slug}/${baseName}-400.webp${q}`,
     width: meta.width,
   };
 }
