@@ -55,6 +55,21 @@ interface ScoredLite {
 const PLACE_MAX_EDGE = 2400;
 const PLACE_QUALITY = 88;
 
+// A real iPhone original is ~3-4k on the long edge; osxphotos/PhotoKit silently
+// return small cached DERIVATIVES (256/360/768/1024/1280px) for iCloud originals
+// that aren't fully synced. Anything below this is not a usable full-res source.
+const MIN_FULLRES_EDGE = 1600;
+
+/** Long edge of an image in px (0 if unreadable). */
+async function edgeOf(path: string): Promise<number> {
+  try {
+    const m = await sharp(path).metadata();
+    return Math.max(m.width ?? 0, m.height ?? 0);
+  } catch {
+    return 0;
+  }
+}
+
 /** Map a stage file to its uuid, preferring edited > original (skip preview). */
 function pickByUuid(files: string[]): Map<string, string> {
   const best = new Map<string, { file: string; priority: number }>();
@@ -221,7 +236,21 @@ async function main(): Promise<void> {
       }
     }
   } else {
-    // Photos. Pass 1: LOCAL originals — instant full-res, never hangs.
+    // Track the best (largest-edge) source per uuid. osxphotos/PhotoKit can
+    // return a small derivative for an un-synced original, so first-found isn't
+    // enough — keep the largest and only treat >= MIN_FULLRES_EDGE as full-res.
+    const best = new Map<string, { path: string; edge: number }>();
+    const consider = async (uuid: string, path: string) => {
+      const edge = await edgeOf(path);
+      const cur = best.get(uuid);
+      if (!cur || edge > cur.edge) {
+        best.set(uuid, { edge, path });
+      }
+    };
+    const stillSmall = (u: string) =>
+      (best.get(u)?.edge ?? 0) < MIN_FULLRES_EDGE;
+
+    // Photos. Pass 1: LOCAL export — instant for already-synced originals.
     const photoWinners = winners.filter((u) => !isVideo(u));
     if (photoWinners.length > 0) {
       const localDir = join(stageDir, "local");
@@ -233,31 +262,32 @@ async function main(): Promise<void> {
         photoWinners
       );
       for (const [uuid, file] of local) {
-        sources.set(uuid, join(localDir, file));
+        await consider(uuid, join(localDir, file));
       }
-      // Pass 2 (--download): bulk PhotoKit download of the iCloud-only ones.
-      const stillMissing = photoWinners.filter((u) => !sources.has(u));
-      if (download && stillMissing.length > 0) {
+      // Pass 2 (--download): bulk PhotoKit for anything missing OR only a small
+      // local derivative (the silent-thumbnail case).
+      const needDownload = photoWinners.filter(stillSmall);
+      if (download && needDownload.length > 0) {
         const dlDir = join(stageDir, "dl");
         await mkdir(dlDir, { recursive: true });
-        log(`  downloading ${stillMissing.length} originals (bulk, PhotoKit)…`);
+        log(`  downloading ${needDownload.length} originals (bulk, PhotoKit)…`);
         const bulk = await downloadBulk(
           dlDir,
           join(paths.root, "missing.txt"),
-          stillMissing
+          needDownload
         );
         for (const [uuid, file] of bulk) {
-          sources.set(uuid, join(dlDir, file));
+          await consider(uuid, join(dlDir, file));
         }
-        // Per-item fallback for any stragglers the bulk pass missed.
-        const leftover = stillMissing.filter((u) => !sources.has(u));
+        // Per-item retry for those still below full-res.
+        const leftover = needDownload.filter(stillSmall);
         for (let i = 0; i < leftover.length; i++) {
           log(
             `  retry ${i + 1}/${leftover.length} ${leftover[i].slice(0, 8)}…`
           );
           const file = await downloadOne(join(stageDir, "retry"), leftover[i]);
           if (file) {
-            sources.set(leftover[i], file);
+            await consider(leftover[i], file);
           }
         }
       }
@@ -271,13 +301,20 @@ async function main(): Promise<void> {
       const t = selection.frames?.[uuid] ?? (meta.get(uuid)?.duration ?? 2) / 2;
       const dest = join(stageDir, `${uuid}.jpg`);
       if (await extractFrame(video, t, dest)) {
-        sources.set(uuid, dest);
+        await consider(uuid, dest);
       }
     }
-    // Fallback: anything not fetched full-res → local ≤1024px preview.
+    // Last resort: the ≤1024 mine preview, but only if it beats what we have
+    // (a 1024 preview tops a 256px thumbnail; it won't override a 1280 derivative).
     for (const uuid of winners) {
-      if (!sources.has(uuid) && existsSync(cacheSrc(uuid))) {
-        sources.set(uuid, cacheSrc(uuid));
+      if (stillSmall(uuid) && existsSync(cacheSrc(uuid))) {
+        await consider(uuid, cacheSrc(uuid));
+      }
+    }
+    // Commit the best source per uuid; flag any that never reached full-res.
+    for (const [uuid, b] of best) {
+      sources.set(uuid, b.path);
+      if (b.edge < MIN_FULLRES_EDGE) {
         previewUuids.add(uuid);
       }
     }
@@ -288,10 +325,10 @@ async function main(): Promise<void> {
   ).length;
   if (previewUuids.size > 0 && !fromCache) {
     log(
-      `  ! ${fullCount} full-res, ${previewUuids.size} at preview quality (≤1024px — iCloud original unavailable).`
+      `  ! ${fullCount} full-res, ${previewUuids.size} LOW-RES (<${MIN_FULLRES_EDGE}px — iCloud original not synced): ${[...previewUuids].map((u) => u.slice(0, 8)).join(", ")}`
     );
     log(
-      "    To upgrade the preview ones later: when iCloud downloads work, remove their NN.jpg + placed.json entries and re-run place --download."
+      "    Let Photos finish downloading originals (Settings → iCloud, or right-click → Download Original), then `rm` their NN.jpg + placed.json entries and re-run place --download."
     );
   }
 
