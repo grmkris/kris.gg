@@ -65,9 +65,21 @@ async function buildPhoto(
     return null;
   }
 
+  // Cache-bust: a short hash of the SOURCE bytes baked into each variant
+  // FILENAME (NN.<hash>-800.webp). Variant paths are otherwise stable, so when a
+  // slot's photo changes (re-curation) the bytes change but a stable URL wouldn't
+  // — and the CDN / Next image optimizer would keep serving the stale image. A
+  // content hash in the name makes the URL change with the content, busting every
+  // cache layer. (Hash goes BEFORE the width so the gitignore `*-<width>.webp`
+  // still matches; a `?v=` query is rejected by Next 16's images.localPatterns.)
+  const v = createHash("sha1")
+    .update(await readFile(sourcePath))
+    .digest("hex")
+    .slice(0, 8);
+
   // Generate variants
   for (const width of VARIANT_WIDTHS) {
-    const variantPath = join(slugDir, `${baseName}-${width}.webp`);
+    const variantPath = join(slugDir, `${baseName}.${v}-${width}.webp`);
     if (isUpToDate(sourcePath, variantPath)) {
       continue;
     }
@@ -88,26 +100,14 @@ async function buildPhoto(
   const stats = await sharp(sourcePath).stats();
   const dominant = `#${toHex(stats.dominant.r)}${toHex(stats.dominant.g)}${toHex(stats.dominant.b)}`;
 
-  // Cache-bust: a short hash of the SOURCE bytes appended as ?v=… to every
-  // variant URL. Variant paths are stable (NN-800.webp), so when a slot's photo
-  // changes (re-curation) the bytes change but the URL wouldn't — and the CDN /
-  // Next image optimizer would serve the stale image. The content hash makes the
-  // URL change with the content, busting every cache layer. (og.ts strips the
-  // query before its filesystem read.)
-  const v = createHash("sha1")
-    .update(await readFile(sourcePath))
-    .digest("hex")
-    .slice(0, 8);
-  const q = `?v=${v}`;
-
   return {
     blur,
     dominant,
-    full: `/photos/${slug}/${baseName}-1600.webp${q}`,
+    full: `/photos/${slug}/${baseName}.${v}-1600.webp`,
     height: meta.height,
-    mid: `/photos/${slug}/${baseName}-800.webp${q}`,
-    src: `/photos/${slug}/${filename}${q}`,
-    thumb: `/photos/${slug}/${baseName}-400.webp${q}`,
+    mid: `/photos/${slug}/${baseName}.${v}-800.webp`,
+    src: `/photos/${slug}/${filename}`,
+    thumb: `/photos/${slug}/${baseName}.${v}-400.webp`,
     width: meta.width,
   };
 }
