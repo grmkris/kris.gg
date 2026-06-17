@@ -42,7 +42,7 @@ Exit is SH → NYC, straight into ETHGlobal.`,
     event: "muShanghai",
     location: "Shanghai",
     photos: Array.from(
-      { length: 31 },
+      { length: 18 },
       (_, i) => `/photos/shanghai-mu-2026/${String(i + 1).padStart(2, "0")}.jpg`
     ),
     slug: "shanghai-mu-2026",
