@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import  { type HeroFrame } from "@/lib/covers";
+import type { HeroFrame } from "@/lib/covers";
 
 interface Props {
   /** Curated frames (photo + slug + caption) to cycle through. */
@@ -48,8 +48,11 @@ export function HeroRotating({ frames, intervalMs = 4800 }: Props) {
           <div
             key={frame.photo.full}
             aria-hidden={isActive ? undefined : true}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              isActive ? "opacity-100" : "opacity-0"
+            // Crossfade with a touch of blur on the outgoing/incoming frame:
+            // during the overlap both photos are softened, so the eye reads one
+            // dissolving image instead of two distinct frames ghosting.
+            className={`absolute inset-0 transition-[opacity,filter] duration-1000 ease-[var(--ease-in-out-strong)] ${
+              isActive ? "opacity-100 blur-0" : "opacity-0 blur-[3px]"
             }`}
           >
             <Image
@@ -88,7 +91,7 @@ export function HeroRotating({ frames, intervalMs = 4800 }: Props) {
               {pool.map((frame, i) => (
                 <span
                   key={frame.photo.full}
-                  className={`h-1 rounded-full transition-all duration-500 ${
+                  className={`h-1 rounded-full transition-[width,background-color] duration-300 ${
                     i === index ? "w-5 bg-[#f4ede1]" : "w-1 bg-[#f4ede1]/40"
                   }`}
                 />

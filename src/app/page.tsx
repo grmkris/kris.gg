@@ -78,7 +78,7 @@ function IndexRow({
       {cover ? (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 right-[-13rem] hidden h-28 w-44 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 xl:block"
+          className="pointer-events-none absolute top-1/2 right-[-13rem] hidden h-28 w-44 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-opacity duration-500 ease-[var(--ease-out-strong)] group-hover:opacity-100 xl:block"
         >
           <Image
             alt=""
@@ -113,6 +113,7 @@ export default function Home() {
         {/* Hero — who I am + how to reach me. Mobile order: name → photo →
             meta; desktop: name + meta stacked left, photo right (see .hero-grid). */}
         <header className="hero-grid">
+          {/* Reveal stagger: even ~70ms gaps — name → photo → meta cascade */}
           <div className="hero-name reveal" style={{ animationDelay: "0ms" }}>
             <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
               Kristjan
@@ -124,7 +125,7 @@ export default function Home() {
           {/* Rolling images — links each frame to its journal entry */}
           <div
             className="hero-photo reveal md:pl-4"
-            style={{ animationDelay: "120ms" }}
+            style={{ animationDelay: "70ms" }}
           >
             <HeroRotating frames={frames} />
           </div>
@@ -132,21 +133,21 @@ export default function Home() {
           <div className="hero-meta flex flex-col gap-8">
             <div
               className="reveal space-y-1 font-sans text-sm text-[#737373] tabular-nums"
-              style={{ animationDelay: "180ms" }}
+              style={{ animationDelay: "140ms" }}
             >
               <p>Slovenia 🇸🇮 · Ljubljana</p>
             </div>
 
             <p
               className="reveal max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]"
-              style={{ animationDelay: "240ms" }}
+              style={{ animationDelay: "210ms" }}
             >
               Builder at the AI × crypto × privacy intersection. Hackathons keep
               the passport busy; life outside the terminal is a cat, mountain
               trails, badminton, and good techno.
             </p>
 
-            <div className="reveal" style={{ animationDelay: "300ms" }}>
+            <div className="reveal" style={{ animationDelay: "280ms" }}>
               <Contact />
             </div>
           </div>

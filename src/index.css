@@ -29,6 +29,13 @@
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
+  /* Custom easing curves — stronger than the built-in CSS keywords, which feel
+     weak/sluggish. One source of truth; reference via
+     `ease-[var(--ease-out-strong)]`. Named with a `-strong` suffix to avoid
+     Tailwind v4's reserved `--ease-out`/`--ease-in-out` theme tokens (whose
+     defaults would otherwise win the cascade and clobber these). */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -145,7 +152,7 @@
      Starts hidden + nudged down, settles into place. */
   .reveal {
     opacity: 0;
-    animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: reveal-up 0.6s var(--ease-out-strong) both;
   }
   /* Slow Ken Burns drift on the active rotating-hero frame */
   .kenburns {
