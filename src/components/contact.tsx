@@ -52,7 +52,7 @@ const SOCIALS: Contact[] = [
 ];
 
 const ROW =
-  "group grid grid-cols-[5rem_1fr_auto] items-center gap-x-4 border-[#141414] border-b py-1 last:border-b-0";
+  "group grid grid-cols-[4.5rem_1fr_auto] items-center gap-x-3 py-0.5";
 const LABEL =
   "font-sans text-xs uppercase tracking-[0.12em] text-[#737373] transition-colors group-hover:text-[#a3a3a3]";
 // Stamp-red underline grows left→right on row hover (gradient bg sized 0→100%).
@@ -60,7 +60,7 @@ const HANDLE =
   "inline-flex items-baseline gap-1 justify-self-start bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#c4bdb1] transition-[color,background-size] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#f4ede1]";
 // Always visible on touch; hover/focus-revealed only where hover exists.
 const COPY =
-  "inline-flex min-h-[44px] items-center justify-self-end px-2 font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
+  "inline-flex min-h-[44px] items-center justify-self-end px-2 font-sans text-[0.7rem] [@media(hover:hover)]:min-h-0 uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
