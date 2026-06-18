@@ -25,6 +25,7 @@ const QUALITY = 82;
 const BLUR_WIDTH = 10;
 
 interface PhotoMeta {
+  id: string; // stable 8-hex content hash — per-photo permalink id (/journal/<slug>/<id>)
   src: string;
   thumb: string;
   mid: string;
@@ -105,6 +106,7 @@ async function buildPhoto(
     dominant,
     full: `/photos/${slug}/${baseName}.${v}-1600.webp`,
     height: meta.height,
+    id: v,
     mid: `/photos/${slug}/${baseName}.${v}-800.webp`,
     src: `/photos/${slug}/${filename}`,
     thumb: `/photos/${slug}/${baseName}.${v}-400.webp`,
