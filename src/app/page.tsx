@@ -6,7 +6,7 @@ import { HeroRotating } from "@/components/hero-rotating";
 import { NOTES } from "@/content/notes";
 import { PROJECTS } from "@/content/projects";
 import { TRIPS } from "@/content/trips";
-import { getHeroCovers } from "@/lib/covers";
+import { getHeroFrames } from "@/lib/covers";
 import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
 
 // Literal route union — each member is a real route, so Link accepts it
@@ -96,8 +96,8 @@ function IndexRow({
 }
 
 export default function Home() {
-  // Curated hero pool — selected by Opus 4.7 subagents (scouts + judge).
-  const covers = getHeroCovers();
+  // Curated hero pool (photo + slug + caption) — selected by Opus 4.7 subagents.
+  const frames = getHeroFrames();
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
@@ -109,54 +109,46 @@ export default function Home() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-6 pt-12 pb-16 md:px-12 md:pt-16">
-        {/* Hero — who I am + how to reach me */}
-        <header className="grid flex-1 content-center gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-16">
-          <div className="flex flex-col gap-8">
-            <div className="reveal" style={{ animationDelay: "0ms" }}>
-              <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
-                Kristjan
-                <br />
-                Grm
-              </h1>
-            </div>
+      <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-16 md:px-12 md:pt-20">
+        {/* Hero — who I am + how to reach me. Mobile order: name → photo →
+            meta; desktop: name + meta stacked left, photo right (see .hero-grid). */}
+        <header className="hero-grid">
+          <div className="hero-name reveal" style={{ animationDelay: "0ms" }}>
+            <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
+              Kristjan
+              <br />
+              Grm
+            </h1>
+          </div>
 
+          {/* Rolling images — links each frame to its journal entry */}
+          <div
+            className="hero-photo reveal md:pl-4"
+            style={{ animationDelay: "120ms" }}
+          >
+            <HeroRotating frames={frames} />
+          </div>
+
+          <div className="hero-meta flex flex-col gap-8">
             <div
               className="reveal space-y-1 font-sans text-sm text-[#737373] tabular-nums"
-              style={{ animationDelay: "90ms" }}
+              style={{ animationDelay: "180ms" }}
             >
               <p>Slovenia 🇸🇮 · Ljubljana</p>
-              <p>
-                Now: New York 🇺🇸 ·{" "}
-                <a
-                  className="text-[#a3a3a3] underline decoration-[#404040] underline-offset-2 transition-colors hover:text-[#f4ede1] hover:decoration-[#a3a3a3]"
-                  href="https://ethconf.com"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  ETHConf
-                </a>{" "}
-                + ETHGlobal · Jun 7–14
-              </p>
             </div>
 
             <p
               className="reveal max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]"
-              style={{ animationDelay: "180ms" }}
+              style={{ animationDelay: "240ms" }}
             >
               Builder at the AI × crypto × privacy intersection. Hackathons keep
               the passport busy; life outside the terminal is a cat, mountain
               trails, badminton, and good techno.
             </p>
 
-            <div className="reveal" style={{ animationDelay: "270ms" }}>
+            <div className="reveal" style={{ animationDelay: "300ms" }}>
               <Contact />
             </div>
-          </div>
-
-          {/* Rolling images (right column on desktop, below on mobile) */}
-          <div className="reveal md:pl-4" style={{ animationDelay: "150ms" }}>
-            <HeroRotating covers={covers} />
           </div>
         </header>
 

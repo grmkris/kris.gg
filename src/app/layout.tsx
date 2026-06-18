@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import  { type Metadata } from "next";
+
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import Script from "next/script";
 
 import "../index.css";
+import { Masthead } from "@/components/masthead";
 import Providers from "@/components/providers";
 import { siteUrl } from "@/lib/site";
 
@@ -65,7 +67,10 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${hanken.variable} font-sans antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Masthead />
+          {children}
+        </Providers>
       </body>
     </html>
   );

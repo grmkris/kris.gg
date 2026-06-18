@@ -1,6 +1,7 @@
 import photosData from "@/content/photos.generated.json";
 
 export interface PhotoMeta {
+  id: string; // stable per-photo permalink id (8-hex content hash)
   src: string;
   thumb: string;
   mid: string;

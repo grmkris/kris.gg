@@ -12,10 +12,10 @@
  *
  * Incremental: skips variants newer than their source.
  */
+import { createHash } from "node:crypto";
 import { existsSync, statSync } from "node:fs";
-import { mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-
 import sharp from "sharp";
 
 const PUBLIC_PHOTOS = "public/photos";
@@ -25,6 +25,7 @@ const QUALITY = 82;
 const BLUR_WIDTH = 10;
 
 interface PhotoMeta {
+  id: string; // stable 8-hex content hash — per-photo permalink id (/journal/<slug>/<id>)
   src: string;
   thumb: string;
   mid: string;
@@ -44,7 +45,9 @@ function toHex(n: number): string {
 type Manifest = Record<string, PhotoMeta[]>;
 
 function isUpToDate(src: string, dst: string): boolean {
-  if (!existsSync(dst)) return false;
+  if (!existsSync(dst)) {
+    return false;
+  }
   return statSync(dst).mtimeMs >= statSync(src).mtimeMs;
 }
 
@@ -63,10 +66,24 @@ async function buildPhoto(
     return null;
   }
 
+  // Cache-bust: a short hash of the SOURCE bytes baked into each variant
+  // FILENAME (NN.<hash>-800.webp). Variant paths are otherwise stable, so when a
+  // slot's photo changes (re-curation) the bytes change but a stable URL wouldn't
+  // — and the CDN / Next image optimizer would keep serving the stale image. A
+  // content hash in the name makes the URL change with the content, busting every
+  // cache layer. (Hash goes BEFORE the width so the gitignore `*-<width>.webp`
+  // still matches; a `?v=` query is rejected by Next 16's images.localPatterns.)
+  const v = createHash("sha1")
+    .update(await readFile(sourcePath))
+    .digest("hex")
+    .slice(0, 8);
+
   // Generate variants
   for (const width of VARIANT_WIDTHS) {
-    const variantPath = join(slugDir, `${baseName}-${width}.webp`);
-    if (isUpToDate(sourcePath, variantPath)) continue;
+    const variantPath = join(slugDir, `${baseName}.${v}-${width}.webp`);
+    if (isUpToDate(sourcePath, variantPath)) {
+      continue;
+    }
     await sharp(sourcePath)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality: QUALITY })
@@ -85,14 +102,15 @@ async function buildPhoto(
   const dominant = `#${toHex(stats.dominant.r)}${toHex(stats.dominant.g)}${toHex(stats.dominant.b)}`;
 
   return {
-    src: `/photos/${slug}/${filename}`,
-    thumb: `/photos/${slug}/${baseName}-400.webp`,
-    mid: `/photos/${slug}/${baseName}-800.webp`,
-    full: `/photos/${slug}/${baseName}-1600.webp`,
-    width: meta.width,
-    height: meta.height,
     blur,
     dominant,
+    full: `/photos/${slug}/${baseName}.${v}-1600.webp`,
+    height: meta.height,
+    id: v,
+    mid: `/photos/${slug}/${baseName}.${v}-800.webp`,
+    src: `/photos/${slug}/${filename}`,
+    thumb: `/photos/${slug}/${baseName}.${v}-400.webp`,
+    width: meta.width,
   };
 }
 
@@ -101,7 +119,7 @@ async function main() {
   const slugs = (await readdir(PUBLIC_PHOTOS, { withFileTypes: true }))
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
-    .sort();
+    .toSorted();
 
   const manifest: Manifest = {};
   let totalPhotos = 0;
@@ -112,9 +130,11 @@ async function main() {
     await mkdir(slugDir, { recursive: true });
     const files = (await readdir(slugDir))
       .filter((f) => /^\d{2}\.jpe?g$/i.test(f))
-      .sort();
+      .toSorted();
 
-    if (files.length === 0) continue;
+    if (files.length === 0) {
+      continue;
+    }
 
     const entries: PhotoMeta[] = [];
     for (const file of files) {
@@ -147,7 +167,7 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

@@ -10,9 +10,6 @@ export const metadata = {
   title: "Building",
 };
 
-const SIGNATURE_STACK =
-  "Bun · Hono · oRPC · Drizzle / Postgres · Better Auth · Next.js · Turborepo";
-
 const STATUS_LABEL: Record<Project["status"], string> = {
   active: "In progress",
   live: "Live",
@@ -89,15 +86,6 @@ export default function BuildingIndex() {
       />
 
       <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-24 md:px-12 md:pt-24">
-        <div className="mb-12">
-          <Link
-            className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252] transition-colors hover:text-[#f4ede1]"
-            href="/"
-          >
-            ← Kristjan Grm
-          </Link>
-        </div>
-
         <header className="mb-12">
           <h1 className="font-display text-5xl font-light leading-[1.05] tracking-tight text-[#f4ede1] md:text-6xl">
             Building
@@ -105,9 +93,6 @@ export default function BuildingIndex() {
           <p className="mt-4 max-w-xl font-display text-lg italic leading-snug text-[#a3a3a3]">
             Production AI, full-stack, and web3 products — taken from idea to
             live, fast.
-          </p>
-          <p className="mt-5 font-sans text-xs uppercase tracking-[0.12em] text-[#737373]">
-            {SIGNATURE_STACK}
           </p>
         </header>
 

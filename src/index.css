@@ -151,12 +151,20 @@
   .kenburns {
     animation: slow-zoom 9s ease-out both;
   }
+  /* Per-navigation page entrance (app/template.tsx). Opacity-only on purpose —
+     a transform here would re-root position:fixed children (grain, scrubber). */
+  .page-enter {
+    animation: page-fade 0.35s ease-out both;
+  }
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
       animation: none;
     }
     .kenburns {
+      animation: none;
+    }
+    .page-enter {
       animation: none;
     }
   }
@@ -179,5 +187,39 @@
   }
   to {
     transform: scale(1.07);
+  }
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Home hero layout. Mobile flows name → photo → meta (lift the signature photo
+   above the bio); desktop is two columns with the photo spanning both rows. */
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: "name" "photo" "meta";
+}
+.hero-name {
+  grid-area: name;
+}
+.hero-photo {
+  grid-area: photo;
+}
+.hero-meta {
+  grid-area: meta;
+}
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 1fr;
+    column-gap: 4rem;
+    align-items: center;
+    grid-template-areas: "name photo" "meta photo";
   }
 }

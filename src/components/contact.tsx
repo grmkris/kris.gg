@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 // Email is assembled client-side so the address never ships in the static
 // HTML — naive scrapers that read the server response come up empty.
-const EMAIL_USER = "kristjan.grm1";
-const EMAIL_DOMAIN = "gmail.com";
+const EMAIL_USER = "hello";
+const EMAIL_DOMAIN = "kris.gg";
 
 const TELEGRAM = "kristjan96";
 
@@ -18,9 +18,10 @@ const LINKS = [
 ];
 
 // Shared treatment so every contact reads at the same weight; stamp-red
-// underline is the single hover accent.
+// underline is the single hover accent. Sized up from the rest of the metadata
+// so this reads as the page's primary call to action.
 const LINK_CLASS =
-  "py-1 font-sans text-xs uppercase tracking-[0.15em] text-[#737373] underline-offset-4 transition-colors hover:text-[#f4ede1] hover:underline hover:decoration-[#c8472b]";
+  "py-1 font-sans text-sm uppercase tracking-[0.12em] text-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#f4ede1] hover:underline hover:decoration-[#c8472b]";
 
 export function Contact() {
   const [email, setEmail] = useState("");
@@ -30,10 +31,10 @@ export function Contact() {
   }, []);
 
   return (
-    <div>
+    <div className="border-[#1a1a1a] border-t pt-6">
       <p className="credit-block text-xs text-[#737373]">Get in touch</p>
 
-      <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+      <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
         {email ? (
           <a
             aria-label={`Email ${email}`}
