@@ -57,7 +57,7 @@ const LABEL =
   "font-sans text-xs uppercase tracking-[0.12em] text-[#737373] transition-colors group-hover:text-[#a3a3a3]";
 // Stamp-red underline grows left→right on row hover (gradient bg sized 0→100%).
 const HANDLE =
-  "inline-flex items-baseline gap-1 justify-self-start bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#c4bdb1] transition-[color,background-size] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#f4ede1]";
+  "inline-flex items-baseline gap-1 justify-self-start bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#8c8c8c] transition-[color,background-size] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#f4ede1]";
 // Always visible on touch; hover/focus-revealed only where hover exists.
 const COPY =
   "inline-flex min-h-[44px] items-center justify-self-end px-2 font-sans text-[0.7rem] [@media(hover:hover)]:min-h-0 uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
@@ -114,7 +114,7 @@ function ContactRow({ contact }: { contact: Contact }) {
         {external && (
           <span
             aria-hidden
-            className="text-[0.7rem] text-[#525252] transition-colors group-hover:text-[#c8472b]"
+            className="text-[0.7rem] text-[#525252] opacity-100 transition-[color,opacity] duration-200 group-hover:text-[#c8472b] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100"
           >
             ↗
           </span>
