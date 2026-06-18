@@ -51,16 +51,17 @@ const SOCIALS: Contact[] = [
   },
 ];
 
-const ROW =
-  "group grid grid-cols-[4.5rem_1fr_auto] items-center gap-x-3 py-0.5";
+const ROW = "group flex items-center gap-x-3 py-1";
+// The label is the link — clicking it opens the URL.
+const LINK = "inline-flex items-baseline gap-2.5";
 const LABEL =
-  "font-sans text-xs uppercase tracking-[0.12em] text-[#737373] transition-colors group-hover:text-[#a3a3a3]";
-// Stamp-red underline grows left→right on row hover (gradient bg sized 0→100%).
+  "font-sans text-xs uppercase tracking-[0.12em] text-[#8a8a8a] transition-colors group-hover:text-[#f4ede1]";
+// Handle is revealed on hover (always shown on touch, where there's no hover).
+// Stamp-red underline grows left→right on reveal.
 const HANDLE =
-  "inline-flex items-baseline gap-1 justify-self-start bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#8c8c8c] transition-[color,background-size] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#f4ede1]";
-// Always visible on touch; hover/focus-revealed only where hover exists.
+  "inline-flex items-baseline gap-1 bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#8c8c8c] opacity-100 transition-[color,background-size,opacity] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#c4bdb1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
 const COPY =
-  "inline-flex min-h-[44px] items-center justify-self-end px-2 font-sans text-[0.7rem] [@media(hover:hover)]:min-h-0 uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
+  "inline-flex min-h-[44px] items-center px-2 font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:min-h-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -90,35 +91,32 @@ function CopyButton({ value, label }: { value: string; label: string }) {
 function ContactRow({ contact }: { contact: Contact }) {
   const { label, display, href, copyText, external } = contact;
 
-  // Email row before hydration: label only (address not yet assembled).
+  // Email row before hydration: quiet label only (address not yet assembled).
   if (!display) {
     return (
       <div className={ROW}>
         <span className={LABEL}>{label}</span>
-        <span className="font-sans text-sm text-[#525252]">…</span>
-        <span />
       </div>
     );
   }
 
   return (
     <div className={ROW}>
-      <span className={LABEL}>{label}</span>
       <a
         aria-label={`Open ${label}, ${display}`}
-        className={HANDLE}
+        className={LINK}
         href={href}
         {...(external ? { rel: "noopener noreferrer", target: "_blank" } : {})}
       >
-        {display}
-        {external && (
-          <span
-            aria-hidden
-            className="text-[0.7rem] text-[#525252] opacity-100 transition-[color,opacity] duration-200 group-hover:text-[#c8472b] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100"
-          >
-            ↗
-          </span>
-        )}
+        <span className={LABEL}>{label}</span>
+        <span className={HANDLE}>
+          {display}
+          {external && (
+            <span aria-hidden className="text-[0.7rem] text-[#c8472b]">
+              ↗
+            </span>
+          )}
+        </span>
       </a>
       <CopyButton label={label} value={copyText} />
     </div>
