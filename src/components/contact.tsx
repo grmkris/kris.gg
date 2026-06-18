@@ -61,7 +61,7 @@ const LABEL =
 const HANDLE =
   "inline-flex items-baseline gap-1 bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#8c8c8c] opacity-100 transition-[color,background-size,opacity] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#c4bdb1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
 const COPY =
-  "inline-flex min-h-[44px] items-center px-2 font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity] duration-200 hover:text-[#f4ede1] [@media(hover:hover)]:min-h-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
+  "inline-flex min-h-[44px] items-center px-2 font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity,transform] duration-200 ease-[var(--ease-out-strong)] hover:text-[#f4ede1] active:scale-[0.97] [@media(hover:hover)]:min-h-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -74,7 +74,9 @@ function CopyButton({ value, label }: { value: string; label: string }) {
         navigator.clipboard?.writeText(value).then(
           () => {
             setCopied(true);
-            window.setTimeout(() => setCopied(false), 1200);
+            window.setTimeout(() => {
+              setCopied(false);
+            }, 1200);
           },
           () => {
             // clipboard blocked — no-op
