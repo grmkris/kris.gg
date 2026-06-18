@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 // Email is assembled client-side so the address never ships in the static
 // HTML — naive scrapers that read the server response come up empty.
-const EMAIL_USER = "kristjan.grm1";
-const EMAIL_DOMAIN = "gmail.com";
+const EMAIL_USER = "hello";
+const EMAIL_DOMAIN = "kris.gg";
 
 const TELEGRAM = "kristjan96";
 
