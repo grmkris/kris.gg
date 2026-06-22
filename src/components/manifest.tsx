@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import  { type Trip } from "@/content/trips";
-
 import { FLAGS } from "@/content/flags";
+import type { Trip } from "@/content/trips";
 import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
 import { parsePlacement } from "@/lib/prizes";
 
@@ -86,7 +85,7 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
       {cover && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 right-[-12rem] hidden h-28 w-40 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 lg:block"
+          className="pointer-events-none absolute top-1/2 right-[-12rem] hidden h-28 w-40 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-opacity duration-500 ease-[var(--ease-out-strong)] group-hover:opacity-100 lg:block"
         >
           <Image
             src={cover.mid}

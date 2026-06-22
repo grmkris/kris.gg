@@ -50,7 +50,7 @@ export function YearRuler({ years }: Props) {
                   className={`flex items-center gap-3 font-sans text-xs tabular-nums transition-colors ${isActive ? "text-[#f4ede1]" : "text-[#404040] hover:text-[#737373]"}`}
                 >
                   <span
-                    className={`h-px transition-all ${isActive ? "w-6 bg-[#f4ede1]" : "w-2 bg-[#404040]"}`}
+                    className={`h-px transition-[width,background-color] ${isActive ? "w-6 bg-[#f4ede1]" : "w-2 bg-[#404040]"}`}
                   />
                   {year}
                 </a>
@@ -74,7 +74,7 @@ export function YearRuler({ years }: Props) {
                 >
                   <span>{year}</span>
                   <span
-                    className={`h-px transition-all ${isActive ? "w-4 bg-[#f4ede1]" : "w-0 bg-transparent"}`}
+                    className={`h-px transition-[width,background-color] ${isActive ? "w-4 bg-[#f4ede1]" : "w-0 bg-transparent"}`}
                   />
                 </a>
               </li>
