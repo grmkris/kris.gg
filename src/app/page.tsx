@@ -146,10 +146,6 @@ export default function Home() {
               the passport busy; life outside the terminal is a cat, mountain
               trails, badminton, and good techno.
             </p>
-
-            <div className="reveal" style={{ animationDelay: "280ms" }}>
-              <Contact />
-            </div>
           </div>
         </header>
 
@@ -170,9 +166,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="mt-24 border-t border-[#1a1a1a] pt-8">
-          <p className="font-sans text-xs uppercase tracking-[0.15em] text-[#525252]">
+        {/* Contact + copyright — moved out of the hero to the page foot */}
+        <footer className="mt-24">
+          <Contact />
+          <p className="mt-8 font-sans text-xs uppercase tracking-[0.15em] text-[#525252]">
             © {new Date().getFullYear()} · kris.gg
           </p>
         </footer>
