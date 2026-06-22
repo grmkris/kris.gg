@@ -1,5 +1,6 @@
 "use client";
 
+import { Popover } from "@base-ui/react/popover";
 import { useEffect, useState } from "react";
 
 // Email is assembled client-side so the address never ships in the static
@@ -51,17 +52,19 @@ const SOCIALS: Contact[] = [
   },
 ];
 
-const ROW = "group flex items-center gap-x-3 py-1";
-// The label is the link — clicking it opens the URL.
-const LINK = "inline-flex items-baseline gap-2.5";
+// Inline quiet label; brightens while its popover is open (hover or tap).
 const LABEL =
-  "font-sans text-xs uppercase tracking-[0.12em] text-[#8a8a8a] transition-colors group-hover:text-[#f4ede1]";
-// Handle is revealed on hover (always shown on touch, where there's no hover).
-// Stamp-red underline grows left→right on reveal.
+  "font-sans text-xs uppercase tracking-[0.12em] text-[#8a8a8a] transition-colors duration-200 hover:text-[#f4ede1] data-[popup-open]:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none cursor-pointer";
+
+// Card scales in from the trigger (origin-aware), ~150ms ease-out.
+const POPUP =
+  "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 origin-(--transform-origin) duration-150 ease-[var(--ease-out-strong)] flex items-center gap-3 rounded-none bg-[#161616] px-3 py-2 ring-1 ring-[#262626]";
+
 const HANDLE =
-  "inline-flex items-baseline gap-1 bg-gradient-to-r from-[#c8472b] to-[#c8472b] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-sm text-[#8c8c8c] opacity-100 transition-[color,background-size,opacity] duration-300 group-hover:bg-[length:100%_1px] group-hover:text-[#c4bdb1] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
+  "inline-flex items-baseline gap-1 font-sans text-sm text-[#c4bdb1] transition-colors duration-200 hover:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none";
+
 const COPY =
-  "inline-flex min-h-[44px] items-center px-2 font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] opacity-100 transition-[color,opacity,transform] duration-200 ease-[var(--ease-out-strong)] hover:text-[#f4ede1] active:scale-[0.97] [@media(hover:hover)]:min-h-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:opacity-100";
+  "font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] transition-[color,transform] duration-150 ease-[var(--ease-out-strong)] hover:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none active:scale-[0.97]";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -69,7 +72,7 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   return (
     <button
       aria-label={copied ? "Copied" : `Copy ${label} — ${value}`}
-      className={copied ? `${COPY} text-[#c8472b] opacity-100` : COPY}
+      className={copied ? `${COPY} text-[#c8472b]` : COPY}
       onClick={() => {
         navigator.clipboard?.writeText(value).then(
           () => {
@@ -90,38 +93,53 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   );
 }
 
-function ContactRow({ contact }: { contact: Contact }) {
+function ContactPopover({ contact }: { contact: Contact }) {
   const { label, display, href, copyText, external } = contact;
 
-  // Email row before hydration: quiet label only (address not yet assembled).
+  // Email before hydration: the address isn't assembled yet, so show the quiet
+  // label without a popover (nothing to reveal).
   if (!display) {
-    return (
-      <div className={ROW}>
-        <span className={LABEL}>{label}</span>
-      </div>
-    );
+    return <span className={LABEL}>{label}</span>;
   }
 
   return (
-    <div className={ROW}>
-      <a
-        aria-label={`Open ${label}, ${display}`}
-        className={LINK}
-        href={href}
-        {...(external ? { rel: "noopener noreferrer", target: "_blank" } : {})}
+    <Popover.Root>
+      <Popover.Trigger
+        className={LABEL}
+        closeDelay={80}
+        delay={120}
+        openOnHover
       >
-        <span className={LABEL}>{label}</span>
-        <span className={HANDLE}>
-          {display}
-          {external && (
-            <span aria-hidden className="text-[0.7rem] text-[#c8472b]">
-              ↗
-            </span>
-          )}
-        </span>
-      </a>
-      <CopyButton label={label} value={copyText} />
-    </div>
+        {label}
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Positioner
+          align="center"
+          className="isolate z-50"
+          side="top"
+          sideOffset={8}
+        >
+          <Popover.Popup className={POPUP}>
+            <a
+              aria-label={`Open ${label}, ${display}`}
+              className={HANDLE}
+              href={href}
+              {...(external
+                ? { rel: "noopener noreferrer", target: "_blank" }
+                : {})}
+            >
+              {display}
+              {external && (
+                <span aria-hidden className="text-[0.7rem] text-[#c8472b]">
+                  ↗
+                </span>
+              )}
+            </a>
+            <CopyButton label={label} value={copyText} />
+          </Popover.Popup>
+        </Popover.Positioner>
+      </Popover.Portal>
+    </Popover.Root>
   );
 }
 
@@ -147,9 +165,9 @@ export function Contact() {
     <div className="border-[#1a1a1a] border-t pt-6">
       <p className="credit-block text-xs text-[#737373]">Get in touch</p>
 
-      <div className="mt-2 max-w-md">
+      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
         {contacts.map((c) => (
-          <ContactRow contact={c} key={c.key} />
+          <ContactPopover contact={c} key={c.key} />
         ))}
       </div>
     </div>
