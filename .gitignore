@@ -65,8 +65,7 @@ dev-dist
 # osxphotos export tracking
 .osxphotos_export.db
 
-# Photo build artifacts — regenerated from public/photos/<slug>/NN.jpg
-# by scripts/build-photos.ts via the `prebuild` hook in package.json.
-public/photos/**/*-400.webp
-public/photos/**/*-800.webp
-public/photos/**/*-1600.webp
+# Photos live on Cloudflare R2 (i.kris.gg), uploaded by `bun run photos:publish`
+# (scripts/photos/publish.ts). Sources + encoded variants stay local/on R2 and
+# out of git; only src/content/photos.generated.json (R2 URLs) is committed.
+public/photos/

@@ -43,25 +43,39 @@ export async function loadOgFonts(): Promise<OgFont[]> {
 // duplicate decode/encode work for the Twitter route.
 const photoCache = new Map<string, string>();
 
-// Read a photo from /public and return a JPEG data URL inline-embedded in
-// JSX. The photo pipeline outputs WebP, but @vercel/og's bundled Satori
-// (0.7.2) has a stub WebP decoder — feeding it WebP causes "Spread syntax
-// requires ...iterable" at render time. So we always decode → JPEG via
-// sharp before handing to Satori.
-export async function embedPhoto(publicRelativePath: string): Promise<string> {
-  const cached = photoCache.get(publicRelativePath);
+// Fetch a photo and return a JPEG data URL inline-embedded in JSX. Photos now
+// live on R2 (photos.generated.json stores absolute URLs), so we fetch the
+// bytes; a non-URL path falls back to reading /public. The pipeline outputs
+// WebP, but @vercel/og's bundled Satori (0.7.2) has a stub WebP decoder —
+// feeding it WebP causes "Spread syntax requires ...iterable" at render time —
+// so we always decode → JPEG via sharp before handing to Satori.
+export async function embedPhoto(photoSrc: string): Promise<string> {
+  const cached = photoCache.get(photoSrc);
   if (cached) {
     return cached;
   }
-  const absPath = join(
-    process.cwd(),
-    "public",
-    // Strip any ?v=… cache-bust query before reading from disk.
-    publicRelativePath.replace(/\?.*$/, "").replace(/^\//, "")
-  );
-  const jpegBuf = await sharp(absPath).jpeg({ quality: 85 }).toBuffer();
+  let input: Buffer;
+  if (/^https?:\/\//.test(photoSrc)) {
+    const res = await fetch(photoSrc);
+    if (!res.ok) {
+      throw new Error(
+        `embedPhoto: failed to fetch ${photoSrc} (${res.status} ${res.statusText})`
+      );
+    }
+    input = Buffer.from(await res.arrayBuffer());
+  } else {
+    input = await readFile(
+      // Strip any ?v=… cache-bust query before reading from disk.
+      join(
+        process.cwd(),
+        "public",
+        photoSrc.replace(/\?.*$/, "").replace(/^\//, "")
+      )
+    );
+  }
+  const jpegBuf = await sharp(input).jpeg({ quality: 85 }).toBuffer();
   const dataUrl = `data:image/jpeg;base64,${jpegBuf.toString("base64")}`;
-  photoCache.set(publicRelativePath, dataUrl);
+  photoCache.set(photoSrc, dataUrl);
   return dataUrl;
 }
 
