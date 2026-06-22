@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps) {
   // so a shared per-photo link previews that exact image.
   const image = {
     height: pic.height,
-    url: `${siteUrl()}${pic.src}`,
+    url: pic.src, // already an absolute R2 URL
     width: pic.width,
   };
   return {
