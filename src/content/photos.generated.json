@@ -1816,6 +1816,72 @@
       "src": "https://i.kris.gg/photos/gardaland-2026/08.jpg",
       "thumb": "https://i.kris.gg/photos/gardaland-2026/08.5e920144-400.webp",
       "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoKAAgAA4BaJQBOgBurVzPHQAD2sL4Xr51JiN1TvvBwA7nhfZJLd1DoYg7uodKZRSyUG836ytRgOx2sFC+bsbYqXgdmrDZfl6DbbkgA",
+      "dominant": "#b88878",
+      "full": "https://i.kris.gg/photos/gardaland-2026/09.125767d0-1600.webp",
+      "height": 1800,
+      "id": "125767d0",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/09.125767d0-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/09.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/09.125767d0-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAAgAA4BaJQBOgBufLJ1WAAD+q68r33w4JLwMsz3KLwvGY1AHAv2zZrnTr7bTbzmCmkRN4NjOMNyiVwD0QVZigzgAAA==",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/gardaland-2026/10.2bee0912-1600.webp",
+      "height": 1800,
+      "id": "2bee0912",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/10.2bee0912-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/10.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/10.2bee0912-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoKAA0AA4BaJYwAAlI4xXXgAP6x7h3/6nTI4D3/4lbHUdMBlIR0K74QveGwm9id6zZmX8m2I7aaOA2IEnidMKQTsBi5+BGPoAA=",
+      "dominant": "#a8a8a8",
+      "full": "https://i.kris.gg/photos/gardaland-2026/11.41687c04-1600.webp",
+      "height": 2040,
+      "id": "41687c04",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/11.41687c04-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/11.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/11.41687c04-400.webp",
+      "width": 1530
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoKAAgAA4BaJZgCdAD8LipOf9OAAPrmq/U+8HTcIll7Tzchl9kdg/IhV08TLqxKdTGJdNKXpaVVnNQUGUW4GXIlKAAAAA==",
+      "dominant": "#a8d8f8",
+      "full": "https://i.kris.gg/photos/gardaland-2026/12.619583ae-1600.webp",
+      "height": 1800,
+      "id": "619583ae",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/12.619583ae-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/12.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/12.619583ae-400.webp",
+      "width": 2400
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoKAAgAA4BaJYwCdACNjGAA/s0U8VZl0gj7eGLEwmSj5R/e3YInIp4D0aUZd3lHbTSJ9d41KSMUFxgZRfKQHXYAAAA=",
+      "dominant": "#484848",
+      "full": "https://i.kris.gg/photos/gardaland-2026/13.2c269b2d-1600.webp",
+      "height": 1536,
+      "id": "2c269b2d",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/13.2c269b2d-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/13.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/13.2c269b2d-400.webp",
+      "width": 2048
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoKAA0AA4BaJZgCdADcCIzQAADJ7tn/w0L40PVLFOdsSJUHE7TMtOl7XDsrEMwvlThtdHt+gHzOYYcApPOwuqtn8v0iz31UTI0GSSgA",
+      "dominant": "#887858",
+      "full": "https://i.kris.gg/photos/gardaland-2026/14.d2ebbd64-1600.webp",
+      "height": 2400,
+      "id": "d2ebbd64",
+      "mid": "https://i.kris.gg/photos/gardaland-2026/14.d2ebbd64-800.webp",
+      "src": "https://i.kris.gg/photos/gardaland-2026/14.jpg",
+      "thumb": "https://i.kris.gg/photos/gardaland-2026/14.d2ebbd64-400.webp",
+      "width": 1800
     }
   ],
   "geneva-2025": [
