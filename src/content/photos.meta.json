@@ -238,51 +238,6 @@
   },
   "gardaland-2026": {
     "10": {
-      "caption": "People sitting on a roller coaster ride under a blue sky",
-      "scene": "Roller Coaster",
-      "score": 66,
-      "tags": [
-        "people",
-        "other"
-      ]
-    },
-    "11": {
-      "caption": "People riding a water attraction at Gardaland Resort",
-      "scene": "Gardaland water ride",
-      "score": 76,
-      "tags": [
-        "people",
-        "other"
-      ]
-    },
-    "12": {
-      "caption": "People riding the Shaman roller coaster at Gardaland Resort.",
-      "scene": "Gardaland rides",
-      "score": 72,
-      "tags": [
-        "people",
-        "other"
-      ]
-    },
-    "13": {
-      "caption": "A smiling couple riding a carousel at an amusement park",
-      "scene": "Gardaland carousel selfie",
-      "score": 62,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "14": {
-      "caption": "A couple posing in front of a carousel at an amusement park",
-      "scene": "Gardaland carousel",
-      "score": 34,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "15": {
       "caption": "A man smiling and riding a carousel horse in Ljubljana",
       "scene": "Carousel",
       "score": 76,
@@ -290,7 +245,7 @@
         "people"
       ]
     },
-    "16": {
+    "11": {
       "caption": "Friends posing inside a mirror maze",
       "scene": "mirror maze",
       "score": 96,
@@ -298,7 +253,7 @@
         "people"
       ]
     },
-    "17": {
+    "12": {
       "caption": "A close-up selfie of a couple smiling together.",
       "scene": "Couple selfie",
       "score": 65,
@@ -307,7 +262,7 @@
         "portrait"
       ]
     },
-    "18": {
+    "13": {
       "caption": "Smiling couple taking a selfie on a carousel",
       "scene": "Gardaland carousel selfie",
       "score": 100,
@@ -316,7 +271,7 @@
         "portrait"
       ]
     },
-    "19": {
+    "14": {
       "caption": "Low-angle selfie of a couple in front of a modern wall",
       "scene": "Modern wall selfie",
       "score": 84,
@@ -352,23 +307,6 @@
       ]
     },
     "04": {
-      "caption": "Woman walking through an amusement park during a summer trip",
-      "scene": "Amusement park walk",
-      "score": 40,
-      "tags": [
-        "people",
-        "other"
-      ]
-    },
-    "05": {
-      "caption": "First-person view of a roller coaster climbing a lift hill",
-      "scene": "Gardaland theme park",
-      "score": 34,
-      "tags": [
-        "other"
-      ]
-    },
-    "06": {
       "caption": "Woman posing next to a dragon statue at Gardaland amusement park",
       "scene": "Gardaland dragon statue",
       "score": 95,
@@ -376,7 +314,7 @@
         "people"
       ]
     },
-    "07": {
+    "05": {
       "caption": "Crowds of visitors entering Peppa Pig Land at an amusement park",
       "scene": "Gardaland theme park",
       "score": 53,
@@ -384,22 +322,40 @@
         "people"
       ]
     },
+    "06": {
+      "caption": "People riding a water attraction at Gardaland Resort",
+      "scene": "Gardaland water ride",
+      "score": 76,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "07": {
+      "caption": "People riding the Shaman roller coaster at Gardaland Resort.",
+      "scene": "Gardaland rides",
+      "score": 72,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
     "08": {
-      "caption": "Smiling woman riding a small tram",
-      "scene": "Amusement ride",
-      "score": 46,
+      "caption": "A smiling couple riding a carousel at an amusement park",
+      "scene": "Gardaland carousel selfie",
+      "score": 62,
       "tags": [
         "people",
         "portrait"
       ]
     },
     "09": {
-      "caption": "Passengers riding a roller coaster through a tunnel",
-      "scene": "Gardaland theme park",
-      "score": 18,
+      "caption": "A couple posing in front of a carousel at an amusement park",
+      "scene": "Gardaland carousel",
+      "score": 34,
       "tags": [
         "people",
-        "other"
+        "portrait"
       ]
     }
   },
