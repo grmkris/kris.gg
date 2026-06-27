@@ -17,6 +17,22 @@ export interface Trip {
 
 export const TRIPS: Trip[] = [
   {
+    body: `A day trip across the border to Gardaland on the south shore of Lake Garda — the dragon-pagoda corner, the Atlantide water ride, mirror mazes and old carousels.`,
+    date: "2026-06",
+    description: `A day at Gardaland on Lake Garda.`,
+    location: "Lake Garda",
+    slug: "gardaland-2026",
+    title: "Gardaland",
+  },
+  {
+    body: `Home for the summer after Shanghai and New York — Grosuplje and the garden, Ljubljana evenings, a day out to Novo Mesto.`,
+    date: "2026-06",
+    description: `Home for the summer — Grosuplje, Ljubljana, Novo Mesto.`,
+    location: "Ljubljana",
+    slug: "slovenia-summer-2026",
+    title: "Slovenia summer",
+  },
+  {
     body: `Straight in from Shanghai — PVG → JFK red-eye, landing Sunday into Long Island City. ETHConf talks rolling into the ETHGlobal NYC hackathon, where I built SuperJam — an AI super-app host. Court Square to Manhattan and back, then the flight home.`,
     date: "2026-06",
     description: `A super-app host where an AI agent builds and ships mini-apps from a sentence.`,
