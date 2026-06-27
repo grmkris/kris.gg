@@ -238,6 +238,67 @@
   },
   "gardaland-2026": {
     "10": {
+      "caption": "People sitting on a roller coaster ride under a blue sky",
+      "scene": "Roller Coaster",
+      "score": 66,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "11": {
+      "caption": "People riding a water attraction at Gardaland Resort",
+      "scene": "Gardaland water ride",
+      "score": 76,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "12": {
+      "caption": "People riding the Shaman roller coaster at Gardaland Resort.",
+      "scene": "Gardaland rides",
+      "score": 72,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "13": {
+      "caption": "A smiling couple riding a carousel at an amusement park",
+      "scene": "Gardaland carousel selfie",
+      "score": 62,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "14": {
+      "caption": "A couple posing in front of a carousel at an amusement park",
+      "scene": "Gardaland carousel",
+      "score": 34,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "15": {
+      "caption": "A man smiling and riding a carousel horse in Ljubljana",
+      "scene": "Carousel",
+      "score": 76,
+      "tags": [
+        "people"
+      ]
+    },
+    "16": {
+      "caption": "Friends posing inside a mirror maze",
+      "scene": "mirror maze",
+      "score": 96,
+      "tags": [
+        "people"
+      ]
+    },
+    "17": {
       "caption": "A close-up selfie of a couple smiling together.",
       "scene": "Couple selfie",
       "score": 65,
@@ -246,7 +307,7 @@
         "portrait"
       ]
     },
-    "11": {
+    "18": {
       "caption": "Smiling couple taking a selfie on a carousel",
       "scene": "Gardaland carousel selfie",
       "score": 100,
@@ -255,7 +316,7 @@
         "portrait"
       ]
     },
-    "12": {
+    "19": {
       "caption": "Low-angle selfie of a couple in front of a modern wall",
       "scene": "Modern wall selfie",
       "score": 84,
@@ -274,6 +335,14 @@
       ]
     },
     "02": {
+      "caption": "A crowd of people waiting in line outdoors",
+      "scene": "Waiting in queue",
+      "score": 10,
+      "tags": [
+        "people"
+      ]
+    },
+    "03": {
       "caption": "A man in a pink bucket hat smiles for a photo.",
       "scene": "Gardaland entrance",
       "score": 43,
@@ -282,7 +351,24 @@
         "portrait"
       ]
     },
-    "03": {
+    "04": {
+      "caption": "Woman walking through an amusement park during a summer trip",
+      "scene": "Amusement park walk",
+      "score": 40,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "05": {
+      "caption": "First-person view of a roller coaster climbing a lift hill",
+      "scene": "Gardaland theme park",
+      "score": 34,
+      "tags": [
+        "other"
+      ]
+    },
+    "06": {
       "caption": "Woman posing next to a dragon statue at Gardaland amusement park",
       "scene": "Gardaland dragon statue",
       "score": 95,
@@ -290,53 +376,27 @@
         "people"
       ]
     },
-    "04": {
-      "caption": "A smiling couple riding a carousel at an amusement park",
-      "scene": "Gardaland carousel selfie",
-      "score": 62,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "05": {
-      "caption": "A couple posing in front of a carousel at an amusement park",
-      "scene": "Gardaland carousel",
-      "score": 34,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "06": {
-      "caption": "A man smiling and riding a carousel horse in Ljubljana",
-      "scene": "Carousel",
-      "score": 76,
-      "tags": [
-        "people"
-      ]
-    },
     "07": {
-      "caption": "Friends posing inside a mirror maze",
-      "scene": "mirror maze",
-      "score": 96,
+      "caption": "Crowds of visitors entering Peppa Pig Land at an amusement park",
+      "scene": "Gardaland theme park",
+      "score": 53,
       "tags": [
         "people"
       ]
     },
     "08": {
-      "caption": "People riding a water attraction at Gardaland Resort",
-      "scene": "Gardaland water ride",
-      "score": 76,
+      "caption": "Smiling woman riding a small tram",
+      "scene": "Amusement ride",
+      "score": 46,
       "tags": [
         "people",
-        "other"
+        "portrait"
       ]
     },
     "09": {
-      "caption": "People riding the Shaman roller coaster at Gardaland Resort.",
-      "scene": "Gardaland rides",
-      "score": 72,
+      "caption": "Passengers riding a roller coaster through a tunnel",
+      "scene": "Gardaland theme park",
+      "score": 18,
       "tags": [
         "people",
         "other"

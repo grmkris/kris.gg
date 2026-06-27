@@ -40,9 +40,42 @@ const JPEG_QUALITY = 82;
 
 type Kind = "photo" | "video";
 
+/** Where a candidate came from — drives source-aware curation. */
+type Source = "iphone" | "glasses" | "whatsapp" | "wechat" | "other";
+
+/** Classify provenance from the Photos album, UTI, and original filename. */
+function classifySource(
+  albums: string[],
+  uti: string,
+  filename: string
+): Source {
+  const set = new Set(albums);
+  // Meta AI app media (Ray-Ban glasses POV clips land here).
+  if (set.has("Meta AI")) {
+    return "glasses";
+  }
+  if (set.has("WhatsApp") || /(?:-|_)WA\d{4}/.test(filename)) {
+    return "whatsapp";
+  }
+  if (set.has("WeChat")) {
+    return "wechat";
+  }
+  // Own device capture.
+  if (
+    /^IMG_\d+/.test(filename) ||
+    uti === "public.heic" ||
+    uti === "public.jpeg" ||
+    uti === "com.apple.quicktime-movie"
+  ) {
+    return "iphone";
+  }
+  return "other";
+}
+
 interface Candidate {
   uuid: string;
   kind: Kind;
+  source: Source;
   date: string | null;
   place: string | null;
   city: string | null;
@@ -51,17 +84,26 @@ interface Candidate {
   lng: number | null;
   width: number;
   height: number;
+  /** True original dimensions (the candidate jpg above is a ≤1024 preview). */
+  assetWidth: number | null;
+  assetHeight: number | null;
+  /** Original is iCloud-only (not on this Mac) — full-res needs a download. */
+  missing: boolean;
   duration?: number;
 }
 
 interface MediaMeta {
   uuid: string;
+  source: Source;
   date: string | null;
   place: string | null;
   city: string | null;
   country: string | null;
   lat: number | null;
   lng: number | null;
+  assetWidth: number | null;
+  assetHeight: number | null;
+  missing: boolean;
   duration?: number;
 }
 
@@ -108,6 +150,12 @@ async function queryMetadata(
     duration?: number;
     latitude?: number | null;
     longitude?: number | null;
+    uti?: string | null;
+    original_filename?: string | null;
+    ismissing?: boolean | null;
+    width?: number | null;
+    height?: number | null;
+    album_info?: { title?: string | null }[] | null;
     place?: {
       name?: string;
       address?: { city?: string; country?: string };
@@ -117,14 +165,21 @@ async function queryMetadata(
     const city = rec.place?.address?.city ?? null;
     const country = rec.place?.address?.country ?? null;
     const place = rec.place?.name ?? city ?? country ?? null;
+    const albums = (rec.album_info ?? [])
+      .map((a) => a.title ?? "")
+      .filter(Boolean);
     map.set(rec.uuid, {
+      assetHeight: rec.height ?? null,
+      assetWidth: rec.width ?? null,
       city,
       country,
       date: rec.date ?? null,
       duration: rec.duration,
       lat: rec.latitude ?? null,
       lng: rec.longitude ?? null,
+      missing: Boolean(rec.ismissing),
       place,
+      source: classifySource(albums, rec.uti ?? "", rec.original_filename ?? ""),
       uuid: rec.uuid,
     });
   }
@@ -208,6 +263,8 @@ async function minePass(
     const dims = await sharp(buffer).metadata();
     const info = meta.get(uuid);
     byUuid.set(uuid, {
+      assetHeight: info?.assetHeight ?? null,
+      assetWidth: info?.assetWidth ?? null,
       city: info?.city ?? null,
       country: info?.country ?? null,
       date: info?.date ?? null,
@@ -216,7 +273,9 @@ async function minePass(
       kind,
       lat: info?.lat ?? null,
       lng: info?.lng ?? null,
+      missing: info?.missing ?? false,
       place: info?.place ?? null,
+      source: info?.source ?? "other",
       uuid,
       width: dims.width ?? 0,
     });
@@ -249,6 +308,8 @@ async function main(): Promise<void> {
     existing.map((c) => [
       c.uuid,
       {
+        assetHeight: c.assetHeight ?? null,
+        assetWidth: c.assetWidth ?? null,
         city: c.city ?? null,
         country: c.country ?? null,
         date: c.date ?? null,
@@ -257,7 +318,9 @@ async function main(): Promise<void> {
         kind: c.kind ?? "photo",
         lat: c.lat ?? null,
         lng: c.lng ?? null,
+        missing: c.missing ?? false,
         place: c.place ?? null,
+        source: c.source ?? "other",
         uuid: c.uuid,
         width: c.width ?? 0,
       },
@@ -313,6 +376,16 @@ async function main(): Promise<void> {
   const nVideo = candidates.filter((c) => c.kind === "video").length;
   log(
     `  ✓ ${slug}: ${candidates.length} candidates (${candidates.length - nVideo} photos, ${nVideo} videos)`
+  );
+  const bySource = candidates.reduce<Record<string, number>>((acc, c) => {
+    acc[c.source] = (acc[c.source] ?? 0) + 1;
+    return acc;
+  }, {});
+  const nMissing = candidates.filter((c) => c.missing).length;
+  log(
+    `    sources: ${Object.entries(bySource)
+      .map(([s, n]) => `${s} ${n}`)
+      .join(", ")}${nMissing ? ` · ${nMissing} iCloud-only` : ""}`
   );
 }
 
