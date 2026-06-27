@@ -373,16 +373,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 </Tabs>;
 ```
 
-## Calendar
-
-```tsx
-import { Calendar } from "@/components/ui/calendar";
-
-const [date, setDate] = useState<Date | undefined>();
-
-<Calendar mode="single" selected={date} onSelect={setDate} />;
-```
-
 ## Badge
 
 ```tsx
@@ -421,33 +411,6 @@ const [enabled, setEnabled] = useState(false);
   <Switch id="notifications" />
   <Label htmlFor="notifications">Enable notifications</Label>
 </div>
-```
-
-## Command
-
-Search and command palette.
-
-```tsx
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
-
-<Command>
-  <CommandInput placeholder="Search..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Actions">
-      <CommandItem>Create new</CommandItem>
-      <CommandItem>Edit</CommandItem>
-      <CommandItem>Delete</CommandItem>
-    </CommandGroup>
-  </CommandList>
-</Command>;
 ```
 
 ## Avatar
@@ -534,33 +497,6 @@ import { Separator } from "@/components/ui/separator";
 
 <Separator />
 <Separator orientation="vertical" />
-```
-
-## Chart
-
-See `.claude/skills/frontend-patterns/charts.md` for full documentation.
-
-```tsx
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
-import { Line, LineChart, XAxis, YAxis } from "recharts";
-
-const chartConfig = {
-  value: { label: "Value", color: "hsl(var(--chart-1))" },
-} satisfies ChartConfig;
-
-<ChartContainer config={chartConfig} className="h-[300px] w-full">
-  <LineChart data={data}>
-    <XAxis dataKey="date" />
-    <YAxis />
-    <ChartTooltip content={<ChartTooltipContent />} />
-    <Line dataKey="value" stroke="var(--color-value)" />
-  </LineChart>
-</ChartContainer>;
 ```
 
 ## Common Patterns
