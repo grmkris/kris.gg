@@ -42,7 +42,7 @@ IMPLEMENT → TYPECHECK → FIX → TEST → COMMIT
 
 | Command               | Purpose                         |
 | --------------------- | ------------------------------- |
-| `bun run typecheck`   | TypeScript validation           |
+| `bun run typecheck`   | TypeScript type-check (tsgo)    |
 | `bun run fix`         | Lint and format                 |
 | `bun run fix:unsafe`  | Auto-fix with unsafe transforms |
 | `bun run test`        | Run tests                       |
