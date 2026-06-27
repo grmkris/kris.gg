@@ -40,42 +40,9 @@ const JPEG_QUALITY = 82;
 
 type Kind = "photo" | "video";
 
-/** Where a candidate came from — drives source-aware curation. */
-type Source = "iphone" | "glasses" | "whatsapp" | "wechat" | "other";
-
-/** Classify provenance from the Photos album, UTI, and original filename. */
-function classifySource(
-  albums: string[],
-  uti: string,
-  filename: string
-): Source {
-  const set = new Set(albums);
-  // Meta AI app media (Ray-Ban glasses POV clips land here).
-  if (set.has("Meta AI")) {
-    return "glasses";
-  }
-  if (set.has("WhatsApp") || /(?:-|_)WA\d{4}/.test(filename)) {
-    return "whatsapp";
-  }
-  if (set.has("WeChat")) {
-    return "wechat";
-  }
-  // Own device capture.
-  if (
-    /^IMG_\d+/.test(filename) ||
-    uti === "public.heic" ||
-    uti === "public.jpeg" ||
-    uti === "com.apple.quicktime-movie"
-  ) {
-    return "iphone";
-  }
-  return "other";
-}
-
 interface Candidate {
   uuid: string;
   kind: Kind;
-  source: Source;
   date: string | null;
   place: string | null;
   city: string | null;
@@ -94,7 +61,6 @@ interface Candidate {
 
 interface MediaMeta {
   uuid: string;
-  source: Source;
   date: string | null;
   place: string | null;
   city: string | null;
@@ -150,12 +116,9 @@ async function queryMetadata(
     duration?: number;
     latitude?: number | null;
     longitude?: number | null;
-    uti?: string | null;
-    original_filename?: string | null;
     ismissing?: boolean | null;
     width?: number | null;
     height?: number | null;
-    album_info?: { title?: string | null }[] | null;
     place?: {
       name?: string;
       address?: { city?: string; country?: string };
@@ -165,9 +128,6 @@ async function queryMetadata(
     const city = rec.place?.address?.city ?? null;
     const country = rec.place?.address?.country ?? null;
     const place = rec.place?.name ?? city ?? country ?? null;
-    const albums = (rec.album_info ?? [])
-      .map((a) => a.title ?? "")
-      .filter(Boolean);
     map.set(rec.uuid, {
       assetHeight: rec.height ?? null,
       assetWidth: rec.width ?? null,
@@ -179,7 +139,6 @@ async function queryMetadata(
       lng: rec.longitude ?? null,
       missing: Boolean(rec.ismissing),
       place,
-      source: classifySource(albums, rec.uti ?? "", rec.original_filename ?? ""),
       uuid: rec.uuid,
     });
   }
@@ -275,7 +234,6 @@ async function minePass(
       lng: info?.lng ?? null,
       missing: info?.missing ?? false,
       place: info?.place ?? null,
-      source: info?.source ?? "other",
       uuid,
       width: dims.width ?? 0,
     });
@@ -320,7 +278,6 @@ async function main(): Promise<void> {
         lng: c.lng ?? null,
         missing: c.missing ?? false,
         place: c.place ?? null,
-        source: c.source ?? "other",
         uuid: c.uuid,
         width: c.width ?? 0,
       },
@@ -377,16 +334,10 @@ async function main(): Promise<void> {
   log(
     `  ✓ ${slug}: ${candidates.length} candidates (${candidates.length - nVideo} photos, ${nVideo} videos)`
   );
-  const bySource = candidates.reduce<Record<string, number>>((acc, c) => {
-    acc[c.source] = (acc[c.source] ?? 0) + 1;
-    return acc;
-  }, {});
   const nMissing = candidates.filter((c) => c.missing).length;
-  log(
-    `    sources: ${Object.entries(bySource)
-      .map(([s, n]) => `${s} ${n}`)
-      .join(", ")}${nMissing ? ` · ${nMissing} iCloud-only` : ""}`
-  );
+  if (nMissing) {
+    log(`    ${nMissing} iCloud-only (full-res original needs a download)`);
+  }
 }
 
 main().catch((error) => {
