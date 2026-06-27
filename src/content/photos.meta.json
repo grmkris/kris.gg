@@ -238,12 +238,12 @@
   },
   "gardaland-2026": {
     "01": {
-      "caption": "Visitors on a water ride at an amusement park",
-      "scene": "amusement park water ride",
-      "score": 98,
+      "caption": "A man in a pink bucket hat smiles for a photo.",
+      "scene": "Gardaland entrance",
+      "score": 43,
       "tags": [
         "people",
-        "other"
+        "portrait"
       ]
     },
     "02": {
@@ -255,6 +255,41 @@
       ]
     },
     "03": {
+      "caption": "A smiling couple riding a carousel at an amusement park",
+      "scene": "Gardaland carousel selfie",
+      "score": 62,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "04": {
+      "caption": "A couple posing in front of a carousel at an amusement park",
+      "scene": "Gardaland carousel",
+      "score": 34,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "05": {
+      "caption": "A close-up selfie of a couple smiling together.",
+      "scene": "Couple selfie",
+      "score": 65,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "06": {
+      "caption": "Friends posing inside a mirror maze",
+      "scene": "mirror maze",
+      "score": 96,
+      "tags": [
+        "people"
+      ]
+    },
+    "07": {
       "caption": "People riding a water attraction at Gardaland Resort",
       "scene": "Gardaland water ride",
       "score": 76,
@@ -263,27 +298,10 @@
         "other"
       ]
     },
-    "04": {
-      "caption": "Friends posing inside a mirror maze",
-      "scene": "mirror maze",
-      "score": 96,
-      "tags": [
-        "people"
-      ]
-    },
-    "05": {
-      "caption": "Visitors taking a selfie inside a mirror maze with stone arches",
-      "scene": "mirror maze arches",
-      "score": 90,
-      "tags": [
-        "people",
-        "other"
-      ]
-    },
-    "06": {
-      "caption": "Woman posing next to a vintage Margaritas sign on a door",
-      "scene": "Vintage Margaritas sign",
-      "score": 98,
+    "08": {
+      "caption": "A close-up of a couple sharing a kiss",
+      "scene": "Couple close-up selfie",
+      "score": 56,
       "tags": [
         "people",
         "portrait"
@@ -1220,6 +1238,15 @@
       ]
     },
     "02": {
+      "caption": "Man sitting at an outdoor cafe in Ljubljana",
+      "scene": "outdoor market Grosuplje",
+      "score": 91,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "03": {
       "caption": "A breakfast plate with fried eggs, sausages, mushrooms, and toast",
       "scene": "Breakfast",
       "score": 87,
@@ -1227,15 +1254,15 @@
         "food"
       ]
     },
-    "03": {
-      "caption": "A cup of gelato at an outdoor cafe in Ljubljana",
-      "scene": "Ljubljana gelato",
-      "score": 99,
+    "04": {
+      "caption": "A bowl of shrimp salad and plates of ham and burrata",
+      "scene": "shrimp salad and mortadella lunch",
+      "score": 98,
       "tags": [
         "food"
       ]
     },
-    "04": {
+    "05": {
       "caption": "Langoustines cooking in a pan on a stovetop",
       "scene": "home cooking langoustines",
       "score": 84,
@@ -1243,15 +1270,15 @@
         "food"
       ]
     },
-    "05": {
-      "caption": "A large plate of cooked shrimp served with arugula salad",
-      "scene": "cooked shrimp dinner",
-      "score": 100,
+    "06": {
+      "caption": "A cup of gelato at an outdoor cafe in Ljubljana",
+      "scene": "Ljubljana gelato",
+      "score": 99,
       "tags": [
         "food"
       ]
     },
-    "06": {
+    "07": {
       "caption": "Fresh cherries in a plastic bag",
       "scene": "Fresh cherries",
       "score": 68,
