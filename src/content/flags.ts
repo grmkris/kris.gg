@@ -16,6 +16,7 @@ export const FLAGS: Record<string, string> = {
   Jasenice: "🇭🇷",
   Kyoto: "🇯🇵",
   "La Paz": "🇧🇴",
+  "Lake Garda": "🇮🇹",
   Lisbon: "🇵🇹",
   Ljubljana: "🇸🇮",
   London: "🇬🇧",

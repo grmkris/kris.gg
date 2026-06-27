@@ -371,17 +371,10 @@ async function main(): Promise<void> {
   await writeJson(paths.placedJson, [...placed, ...newlyPlaced]);
   await rm(stageDir, { force: true, recursive: true });
 
-  // 3. Regenerate photos.generated.json via the existing build pipeline.
-  log("  running build-photos…");
-  const build = Bun.spawn(["bun", "run", "build-photos"], {
-    stderr: "inherit",
-    stdout: "inherit",
-  });
-  await build.exited;
-
   log(
     `  ✓ ${slug}: placed ${newlyPlaced.length} photos (now ${index - 1} total in gallery)`
   );
+  log(`  next: run "bun run photos:publish" to encode + upload to R2.`);
   log(
     `  reminder: update src/content/covers.generated.json if you want a new hero cover.`
   );

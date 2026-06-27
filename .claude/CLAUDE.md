@@ -42,7 +42,7 @@ IMPLEMENT → TYPECHECK → FIX → TEST → COMMIT
 
 | Command               | Purpose                         |
 | --------------------- | ------------------------------- |
-| `bun run typecheck`   | TypeScript validation           |
+| `bun run typecheck`   | TypeScript type-check (tsgo)    |
 | `bun run fix`         | Lint and format                 |
 | `bun run fix:unsafe`  | Auto-fix with unsafe transforms |
 | `bun run test`        | Run tests                       |
@@ -264,9 +264,6 @@ Key imports:
 - `@/components/ui/textarea` - Multi-line text
 - `@/components/ui/table` - Data display
 - `@/components/ui/tabs` - Content organization
-- `@/components/ui/calendar` - Date selection
-- `@/components/ui/chart` - Data visualization
-- `@/components/ui/command` - Search, quick actions
 - `@/components/ui/badge` - Status indicators
 - `@/components/ui/progress` - Progress bars
 - `@/components/ui/switch` - Toggles

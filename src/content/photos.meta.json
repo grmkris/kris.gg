@@ -1,0 +1,1478 @@
+{
+  "beijing-2026": {
+    "10": {
+      "caption": "Crowded entrance to the Qianmen Food Court in Beijing at night",
+      "scene": "Qianmen Food Court",
+      "score": 94,
+      "tags": [
+        "night",
+        "people",
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "11": {
+      "caption": "A high-speed train stopped at Beijing South Railway Station.",
+      "scene": "Beijing South Railway Station",
+      "score": 94,
+      "tags": [
+        "architecture",
+        "people"
+      ]
+    },
+    "12": {
+      "caption": "Zhengyangmen archway with the Arrow Tower in Beijing",
+      "scene": "Zhengyangmen daytime",
+      "score": 93,
+      "tags": [
+        "architecture",
+        "people",
+        "cityscape"
+      ]
+    },
+    "13": {
+      "caption": "A dining table spread featuring Peking duck and other Chinese dishes",
+      "scene": "Peking Duck dining",
+      "score": 93,
+      "tags": [
+        "food"
+      ]
+    },
+    "14": {
+      "caption": "Illuminated Zhengyangmen Archer Tower at night with crowds in Beijing",
+      "scene": "Zhengyangmen night",
+      "score": 92,
+      "tags": [
+        "night",
+        "architecture",
+        "cityscape",
+        "people"
+      ]
+    },
+    "15": {
+      "caption": "Traditional Beijing copper hot pot surrounded by various meats and vegetables",
+      "scene": "Beijing Copper Hot Pot",
+      "score": 92,
+      "tags": [
+        "food"
+      ]
+    },
+    "16": {
+      "caption": "Illuminated Zhengyangmen gatehouse and night traffic in Beijing",
+      "scene": "Zhengyangmen night",
+      "score": 91,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "17": {
+      "caption": "Tree-lined pedestrian street in Beijing decorated with lanterns at dusk",
+      "scene": "Qianmen Street",
+      "score": 89,
+      "tags": [
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "18": {
+      "caption": "Illuminated Zhengyangmen gate and pedestrian street at night in Beijing",
+      "scene": "Zhengyangmen gate crowd",
+      "score": 89,
+      "tags": [
+        "night",
+        "architecture",
+        "cityscape",
+        "people"
+      ]
+    },
+    "19": {
+      "caption": "A vendor serving grilled lamb skewers at a stall in Beijing",
+      "scene": "Lamb skewers stall",
+      "score": 88,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "20": {
+      "caption": "Qianmen Street decorated with red lanterns at night",
+      "scene": "Qianmen Street night",
+      "score": 88,
+      "tags": [
+        "night",
+        "cityscape"
+      ]
+    },
+    "21": {
+      "caption": "A narrow alley in Beijing lined with parked scooters and bicycles",
+      "scene": "Beijing Hutong",
+      "score": 86,
+      "tags": [
+        "cityscape"
+      ]
+    },
+    "22": {
+      "caption": "Illuminated traditional tower and street traffic in Beijing at night",
+      "scene": "Beijing city street night",
+      "score": 86,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "23": {
+      "caption": "Beijing-style stir-fried mutton with scallions in a hot pan",
+      "scene": "Beijing cuisine",
+      "score": 85,
+      "tags": [
+        "food"
+      ]
+    },
+    "24": {
+      "caption": "A high-speed train stopped at Beijing South Railway Station platform.",
+      "scene": "Beijing South station",
+      "score": 85,
+      "tags": [
+        "other"
+      ]
+    },
+    "25": {
+      "caption": "A group of friends dining at a restaurant in Beijing.",
+      "scene": "Beijing restaurant dining",
+      "score": 76,
+      "tags": [
+        "people",
+        "food"
+      ]
+    },
+    "01": {
+      "caption": "A traditional Beijing copper hot pot dining table with fresh ingredients.",
+      "scene": "Beijing copper hot pot",
+      "score": 100,
+      "tags": [
+        "food"
+      ]
+    },
+    "02": {
+      "caption": "People walking along Qianmen Street at dusk in Beijing",
+      "scene": "Qianmen Street dusk",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "03": {
+      "caption": "Illuminated archway at Xianyukou Food Street in Beijing at night",
+      "scene": "Xianyukou Food Street",
+      "score": 99,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "04": {
+      "caption": "Two seasoned meat skewers held up on a Beijing street.",
+      "scene": "Beijing street skewers",
+      "score": 98,
+      "tags": [
+        "food"
+      ]
+    },
+    "05": {
+      "caption": "The entrance to Quanjude Roast Duck Restaurant in Beijing at night",
+      "scene": "Quanjude Roast Duck Restaurant",
+      "score": 98,
+      "tags": [
+        "architecture",
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "A colorful shop selling traditional dried fruits in Dashilan, Beijing",
+      "scene": "Dashilan dried fruit shop",
+      "score": 97,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "07": {
+      "caption": "Illuminated Zhengyangmen arrow tower at night in Beijing",
+      "scene": "Zhengyangmen arrow tower",
+      "score": 97,
+      "tags": [
+        "architecture",
+        "night",
+        "cityscape"
+      ]
+    },
+    "08": {
+      "caption": "Entrance archway to Xianyukou Food Street in Beijing",
+      "scene": "Xianyukou Food Street",
+      "score": 96,
+      "tags": [
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "09": {
+      "caption": "A colorful dried fruit and plum shop in Beijing",
+      "scene": "Dashilan dried fruit shop",
+      "score": 96,
+      "tags": [
+        "food",
+        "people"
+      ]
+    }
+  },
+  "gardaland-2026": {
+    "10": {
+      "caption": "A man smiling and riding a carousel horse in Ljubljana",
+      "scene": "Carousel",
+      "score": 76,
+      "tags": [
+        "people"
+      ]
+    },
+    "11": {
+      "caption": "Friends posing inside a mirror maze",
+      "scene": "mirror maze",
+      "score": 96,
+      "tags": [
+        "people"
+      ]
+    },
+    "12": {
+      "caption": "A close-up selfie of a couple smiling together.",
+      "scene": "Couple selfie",
+      "score": 65,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "13": {
+      "caption": "Smiling couple taking a selfie on a carousel",
+      "scene": "Gardaland carousel selfie",
+      "score": 100,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "14": {
+      "caption": "Low-angle selfie of a couple in front of a modern wall",
+      "scene": "Modern wall selfie",
+      "score": 84,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "01": {
+      "caption": "Selfie in front of the Gardaland amusement park entrance",
+      "scene": "Gardaland entrance selfie",
+      "score": 94,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "02": {
+      "caption": "A crowd of people waiting in line outdoors",
+      "scene": "Waiting in queue",
+      "score": 10,
+      "tags": [
+        "people"
+      ]
+    },
+    "03": {
+      "caption": "A man in a pink bucket hat smiles for a photo.",
+      "scene": "Gardaland entrance",
+      "score": 43,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "04": {
+      "caption": "Woman posing next to a dragon statue at Gardaland amusement park",
+      "scene": "Gardaland dragon statue",
+      "score": 95,
+      "tags": [
+        "people"
+      ]
+    },
+    "05": {
+      "caption": "Crowds of visitors entering Peppa Pig Land at an amusement park",
+      "scene": "Gardaland theme park",
+      "score": 53,
+      "tags": [
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "People riding a water attraction at Gardaland Resort",
+      "scene": "Gardaland water ride",
+      "score": 76,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "07": {
+      "caption": "People riding the Shaman roller coaster at Gardaland Resort.",
+      "scene": "Gardaland rides",
+      "score": 72,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "08": {
+      "caption": "A smiling couple riding a carousel at an amusement park",
+      "scene": "Gardaland carousel selfie",
+      "score": 62,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "09": {
+      "caption": "A couple posing in front of a carousel at an amusement park",
+      "scene": "Gardaland carousel",
+      "score": 34,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    }
+  },
+  "great-wall-2026": {
+    "10": {
+      "caption": "View of green mountains through a Great Wall watchtower arch window",
+      "scene": "arch_view",
+      "score": 85,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "11": {
+      "caption": "Two men posing for a selfie on the Great Wall of China",
+      "scene": "selfie",
+      "score": 84,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "12": {
+      "caption": "The Great Wall winding through misty green hills",
+      "scene": "misty_landscape",
+      "score": 82,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "13": {
+      "caption": "A distant view of the Great Wall seen from a car",
+      "scene": "Great Wall from car window",
+      "score": 81,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "14": {
+      "caption": "A man smiling while sitting on a colorful bean bag outdoors",
+      "scene": "Festival relaxation",
+      "score": 78,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "15": {
+      "caption": "Lush green hillsides in the Jiugukou Natural Scenic Spot",
+      "scene": "Jiugukou mountains",
+      "score": 76,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "16": {
+      "caption": "A group selfie during a night event at Jiugukou",
+      "scene": "Jiugukou night event",
+      "score": 27,
+      "tags": [
+        "people",
+        "night"
+      ]
+    },
+    "01": {
+      "caption": "View of a Great Wall watchtower framed by a brick arch",
+      "scene": "Watchtower framed view",
+      "score": 100,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "02": {
+      "caption": "A wooden staircase leads towards the Great Wall in foggy mountains.",
+      "scene": "Great Wall hiking trail",
+      "score": 99,
+      "tags": [
+        "landscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "03": {
+      "caption": "The Great Wall of China winding through misty green mountains",
+      "scene": "Great Wall landscape",
+      "score": 97,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "04": {
+      "caption": "Two men taking a selfie at the Great Wall of China",
+      "scene": "Great Wall selfie",
+      "score": 96,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
+      ]
+    },
+    "05": {
+      "caption": "Warning sign on railing with Great Wall of China in background",
+      "scene": "warning_sign",
+      "score": 94,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "06": {
+      "caption": "View of lush green hills through a stone watchtower arch",
+      "scene": "arch_view",
+      "score": 93,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "07": {
+      "caption": "Great Wall of China winding through misty green mountains",
+      "scene": "misty_landscape",
+      "score": 91,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "08": {
+      "caption": "People gathered at an outdoor music stage near the Great Wall.",
+      "scene": "music_stage",
+      "score": 90,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "09": {
+      "caption": "Great Wall of China winding through misty green mountains",
+      "scene": "misty_landscape",
+      "score": 88,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    }
+  },
+  "hangzhou-2026": {
+    "10": {
+      "caption": "A man looking over green tea fields in Hangzhou.",
+      "scene": "Longjing tea plantations",
+      "score": 95,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "11": {
+      "caption": "A historic pedestrian street illuminated at night in Hangzhou.",
+      "scene": "Qinghefang Street",
+      "score": 95,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "12": {
+      "caption": "People walking along an illuminated pathway at West Lake at night",
+      "scene": "West Lake Night",
+      "score": 94,
+      "tags": [
+        "people",
+        "night",
+        "landscape"
+      ]
+    },
+    "13": {
+      "caption": "Stone lantern glowing on West Lake at dusk in Hangzhou",
+      "scene": "West Lake night",
+      "score": 94,
+      "tags": [
+        "night",
+        "landscape",
+        "architecture"
+      ]
+    },
+    "14": {
+      "caption": "A traditional Buddhist temple decorated with flags and lanterns in Hangzhou.",
+      "scene": "Temple exterior hall",
+      "score": 93,
+      "tags": [
+        "architecture",
+        "people"
+      ]
+    },
+    "15": {
+      "caption": "People praying inside a temple at Hangzhou West Lake",
+      "scene": "Temple Worship",
+      "score": 93,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "16": {
+      "caption": "Entrance of a Lady White Snake themed attraction in Hefang Street",
+      "scene": "Hefang Street attraction",
+      "score": 93,
+      "tags": [
+        "architecture",
+        "other"
+      ]
+    },
+    "17": {
+      "caption": "A group of tourists posing in front of Leifeng Pagoda",
+      "scene": "Leifeng Pagoda",
+      "score": 92,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "18": {
+      "caption": "Lit path and large tree at night in Hangzhou West Lake",
+      "scene": "West Lake Night",
+      "score": 92,
+      "tags": [
+        "landscape",
+        "night",
+        "people"
+      ]
+    },
+    "19": {
+      "caption": "A group of smiling friends taking a selfie in the rain",
+      "scene": "Friends rain selfie",
+      "score": 91,
+      "tags": [
+        "people"
+      ]
+    },
+    "20": {
+      "caption": "People praying inside a Buddhist temple hall in Hangzhou",
+      "scene": "Temple Worship",
+      "score": 90,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "01": {
+      "caption": "A cook serving pan-fried buns in a Hangzhou restaurant",
+      "scene": "Shengjian bao cooking",
+      "score": 100,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "02": {
+      "caption": "Lush green tea plantations on hillsides in Hangzhou",
+      "scene": "Longjing tea plantations",
+      "score": 99,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "03": {
+      "caption": "A Buddhist altar inside a temple at Hangzhou West Lake",
+      "scene": "Temple altar interior",
+      "score": 99,
+      "tags": [
+        "architecture"
+      ]
+    },
+    "04": {
+      "caption": "Buddhist monks during a ceremony inside a Hangzhou temple.",
+      "scene": "Buddhist temple ceremony",
+      "score": 99,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "05": {
+      "caption": "A street food vendor selling crispy flatbreads in Hangzhou",
+      "scene": "Street food vendor",
+      "score": 99,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "The illuminated Hangzhou Drum Tower at night with tourists walking through",
+      "scene": "Hangzhou Drum Tower night",
+      "score": 98,
+      "tags": [
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "07": {
+      "caption": "A tall multi-tiered pagoda in Hangzhou West Lake Scenery Spot",
+      "scene": "pagoda",
+      "score": 97,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "08": {
+      "caption": "Chefs preparing steamed buns in a restaurant kitchen in Hangzhou",
+      "scene": "bun_restaurant",
+      "score": 97,
+      "tags": [
+        "people",
+        "food"
+      ]
+    },
+    "09": {
+      "caption": "Traditional Chinese pastries displayed at a shop in Hangzhou.",
+      "scene": "Traditional Hangzhou pastries",
+      "score": 96,
+      "tags": [
+        "food"
+      ]
+    }
+  },
+  "seoul-2025": {
+    "10": {
+      "caption": "Enjoying a warm Korean egg bread on the streets of Seoul",
+      "scene": "Korean egg bread street food",
+      "score": 90,
+      "tags": [
+        "food",
+        "other"
+      ]
+    },
+    "11": {
+      "caption": "The illuminated facade of Myeongdong Cathedral at night",
+      "scene": "Myeongdong Cathedral",
+      "score": 84,
+      "tags": [
+        "architecture",
+        "night"
+      ]
+    },
+    "12": {
+      "caption": "South Korean soldiers on guard at the DMZ Joint Security Area",
+      "scene": "DMZ Joint Security Area",
+      "score": 100,
+      "tags": [
+        "architecture",
+        "people"
+      ]
+    },
+    "13": {
+      "caption": "Illuminated cherry blossoms at night in Seoul",
+      "scene": "Lotte World Tower cherry blossoms",
+      "score": 93,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "14": {
+      "caption": "A man posing in front of a Missha storefront in Seoul",
+      "scene": "Missha storefront Myeongdong",
+      "score": 83,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "15": {
+      "caption": "High-angle view of Seokchon Lake surrounded by cherry blossoms in Seoul",
+      "scene": "Seokchon Lake aerial",
+      "score": 94,
+      "tags": [
+        "cityscape",
+        "landscape",
+        "architecture"
+      ]
+    },
+    "16": {
+      "caption": "A cup of fresh strawberries at a Seoul street market.",
+      "scene": "Market strawberries",
+      "score": 88,
+      "tags": [
+        "food",
+        "other"
+      ]
+    },
+    "17": {
+      "caption": "Korean barbecue grilling over charcoal in a Seoul restaurant",
+      "scene": "Korean barbecue",
+      "score": 77,
+      "tags": [
+        "food"
+      ]
+    },
+    "18": {
+      "caption": "Vibrant neon signs illuminate a bustling street in Seoul at night",
+      "scene": "Seoul neon street",
+      "score": 92,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    },
+    "19": {
+      "caption": "A fun group selfie with friends at night in Seoul",
+      "scene": "Group selfie at night",
+      "score": 59,
+      "tags": [
+        "people",
+        "night"
+      ]
+    },
+    "20": {
+      "caption": "A fluffy cat resting on a table in a Seoul cafe",
+      "scene": "Seoul cat cafe",
+      "score": 64,
+      "tags": [
+        "other"
+      ]
+    },
+    "01": {
+      "caption": "Bustling nightlife and neon signs on a crowded street in Seoul",
+      "scene": "Myeongdong street night",
+      "score": 93,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "02": {
+      "caption": "The colorful storefront of an HBAF Almond Store in Seoul",
+      "scene": "HBAF Almond Store",
+      "score": 97,
+      "tags": [
+        "other"
+      ]
+    },
+    "03": {
+      "caption": "Lotte World Tower illuminated at night in Seoul",
+      "scene": "Lotte World Tower",
+      "score": 99,
+      "tags": [
+        "architecture",
+        "night",
+        "cityscape"
+      ]
+    },
+    "04": {
+      "caption": "A person kneeling in prayer before an illuminated statue at night",
+      "scene": "Myeongdong Cathedral statue",
+      "score": 98,
+      "tags": [
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "05": {
+      "caption": "People relaxing at a colorful rooftop bar in Seoul at night",
+      "scene": "Seoul rooftop bar",
+      "score": 99,
+      "tags": [
+        "night",
+        "cityscape",
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "Crowded streets of Myeongdong at night in Seoul",
+      "scene": "Myeongdong street night",
+      "score": 97,
+      "tags": [
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "07": {
+      "caption": "Myeongdong Cathedral illuminated at night in Seoul",
+      "scene": "Myeongdong Cathedral",
+      "score": 89,
+      "tags": [
+        "architecture",
+        "night",
+        "people",
+        "cityscape"
+      ]
+    },
+    "08": {
+      "caption": "An array of freshly baked pastries on display in a Seoul cafe.",
+      "scene": "Seoul cafe pastries",
+      "score": 98,
+      "tags": [
+        "food"
+      ]
+    },
+    "09": {
+      "caption": "Vibrant neon signs light up a street in Seoul at night",
+      "scene": "Seoul street neon signs",
+      "score": 96,
+      "tags": [
+        "cityscape",
+        "night",
+        "architecture",
+        "people"
+      ]
+    }
+  },
+  "shanghai-mu-2026": {
+    "10": {
+      "caption": "Crowded Nanjing Road pedestrian street lit up at night in Shanghai",
+      "scene": "Nanjing Road crowd",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "11": {
+      "caption": "Shanghai Tower and Jin Mao Tower illuminated at night",
+      "scene": "Lujiazui skyscrapers at night",
+      "score": 99,
+      "tags": [
+        "architecture",
+        "night",
+        "cityscape"
+      ]
+    },
+    "12": {
+      "caption": "Pathway leading to the floating roofs of Guangfulin in Shanghai",
+      "scene": "Guangfulin floating roofs",
+      "score": 99,
+      "tags": [
+        "architecture",
+        "landscape",
+        "people"
+      ]
+    },
+    "13": {
+      "caption": "Chef preparing pan-fried buns at Da Hu Chun in Shanghai",
+      "scene": "Shengjianbao food stall",
+      "score": 98,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "14": {
+      "caption": "Pan-fried buns being prepared in a kitchen on Nanjing Road",
+      "scene": "Shengjian bao preparation",
+      "score": 98,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "15": {
+      "caption": "Copper cask with Chinese seals at Starbucks Reserve Roastery Shanghai",
+      "scene": "Starbucks Reserve Roastery",
+      "score": 98,
+      "tags": [
+        "architecture",
+        "other"
+      ]
+    },
+    "16": {
+      "caption": "Shanghai skyline shrouded in fog at night from the waterfront",
+      "scene": "Foggy Bund skyline",
+      "score": 98,
+      "tags": [
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "17": {
+      "caption": "Illuminated historic buildings and crowds near The Bund at night",
+      "scene": "The Bund night view",
+      "score": 98,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "18": {
+      "caption": "Entrance to the MU Shanghai Robotics event at INS Xinleyuan",
+      "scene": "MU Shanghai event",
+      "score": 98,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "19": {
+      "caption": "Shanghai skyscrapers illuminated at night",
+      "scene": "Lujiazui skyscrapers close-up",
+      "score": 98,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    },
+    "20": {
+      "caption": "Lit skyscrapers in Lujiazui, Shanghai, viewed at night",
+      "scene": "Lujiazui skyscrapers close-up",
+      "score": 98,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    },
+    "21": {
+      "caption": "Street view in Shanghai with old buildings and modern skyscrapers.",
+      "scene": "Shanghai old and new street",
+      "score": 97,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "22": {
+      "caption": "Concrete skywalks and corridors inside the 1933 Old Millfun",
+      "scene": "1933 Old Millfun",
+      "score": 97,
+      "tags": [
+        "architecture",
+        "cityscape"
+      ]
+    },
+    "23": {
+      "caption": "Grand glass dome and murals inside Shanghai Yuexing Global Harbor.",
+      "scene": "Yuexing Global Harbor",
+      "score": 97,
+      "tags": [
+        "architecture"
+      ]
+    },
+    "24": {
+      "caption": "Ornate interior architecture of Shanghai Yuexing Global Harbor shopping mall.",
+      "scene": "Yuexing Global Harbor mall",
+      "score": 97,
+      "tags": [
+        "architecture",
+        "cityscape"
+      ]
+    },
+    "25": {
+      "caption": "Shanghai skyline and Oriental Pearl Tower shrouded in night fog",
+      "scene": "Bund skyline night",
+      "score": 97,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    },
+    "26": {
+      "caption": "Pedestrians on Nanjing Road near The Bund at night",
+      "scene": "Nanjing Road",
+      "score": 97,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "27": {
+      "caption": "DJs performing in front of a blue light projection screen",
+      "scene": "Shanghai nightlife club",
+      "score": 97,
+      "tags": [
+        "people",
+        "night",
+        "other"
+      ]
+    },
+    "28": {
+      "caption": "A Korean barbecue dinner with raw meats, side dishes, and drinks",
+      "scene": "Korean BBQ",
+      "score": 97,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "29": {
+      "caption": "Concrete skyways and walkways at the 1933 Old Millfun in Shanghai",
+      "scene": "1933 Old Millfun",
+      "score": 96,
+      "tags": [
+        "architecture",
+        "cityscape"
+      ]
+    },
+    "30": {
+      "caption": "Night view of the Bund and Huangpu River in Shanghai",
+      "scene": "Bund skyline night",
+      "score": 96,
+      "tags": [
+        "cityscape",
+        "night",
+        "architecture"
+      ]
+    },
+    "31": {
+      "caption": "Illuminated skyscraper shrouded in fog at night in Shanghai",
+      "scene": "Shanghai skyscraper at night",
+      "score": 96,
+      "tags": [
+        "night",
+        "cityscape",
+        "architecture"
+      ]
+    },
+    "32": {
+      "caption": "The Bund waterfront overlooking the illuminated Pudong skyline at night",
+      "scene": "The Bund night view",
+      "score": 96,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "people"
+      ]
+    },
+    "33": {
+      "caption": "City model exhibition inside the Shanghai Tower",
+      "scene": "Shanghai Tower exhibition",
+      "score": 96,
+      "tags": [
+        "cityscape",
+        "other"
+      ]
+    },
+    "34": {
+      "caption": "People dining on dumplings and side dishes at a restaurant",
+      "scene": "Dumpling dining",
+      "score": 96,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "35": {
+      "caption": "Submerged triangular buildings at Guangfulin Cultural Relics Park in Shanghai.",
+      "scene": "Guangfulin Cultural Relics Park",
+      "score": 96,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "36": {
+      "caption": "Scooter riders waiting at an intersection on Beijing Road in Shanghai",
+      "scene": "Shanghai street scene",
+      "score": 95,
+      "tags": [
+        "people",
+        "cityscape"
+      ]
+    },
+    "37": {
+      "caption": "A delivery driver on a scooter waiting at a Shanghai intersection",
+      "scene": "Street traffic",
+      "score": 95,
+      "tags": [
+        "cityscape",
+        "people"
+      ]
+    },
+    "38": {
+      "caption": "People walking on the pedestrian pathway of Waibaidu Bridge",
+      "scene": "Waibaidu Bridge",
+      "score": 95,
+      "tags": [
+        "people",
+        "architecture",
+        "cityscape"
+      ]
+    },
+    "39": {
+      "caption": "Group of artists posing behind DJ equipment at MU Shanghai",
+      "scene": "MU Shanghai artists",
+      "score": 94,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "40": {
+      "caption": "Three friends smiling inside a high-speed train in Shanghai",
+      "scene": "High-speed train interior",
+      "score": 92,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "41": {
+      "caption": "Two men posing with the illuminated Shanghai skyline at night",
+      "scene": "Bund Rooftop Portrait",
+      "score": 91,
+      "tags": [
+        "people",
+        "cityscape",
+        "night"
+      ]
+    },
+    "01": {
+      "caption": "Concrete bridges and unique architecture at 1933 Old Millfun in Shanghai",
+      "scene": "1933 Old Millfun",
+      "score": 100,
+      "tags": [
+        "architecture",
+        "cityscape"
+      ]
+    },
+    "02": {
+      "caption": "View of the illuminated Lujiazui skyline in Shanghai at night",
+      "scene": "Lujiazui skyline night",
+      "score": 100,
+      "tags": [
+        "cityscape",
+        "night",
+        "architecture"
+      ]
+    },
+    "03": {
+      "caption": "Crowds on Nanjing Road Pedestrian Street in Shanghai",
+      "scene": "Nanjing Road Pedestrian Street",
+      "score": 100,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "people",
+        "night"
+      ]
+    },
+    "04": {
+      "caption": "Top-down view of a Chinese hot pot dinner with friends.",
+      "scene": "Chinese hot pot",
+      "score": 100,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "05": {
+      "caption": "The Shanghai Tower and Jin Mao Tower illuminated at night",
+      "scene": "Lujiazui skyscrapers",
+      "score": 100,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    },
+    "06": {
+      "caption": "Shanghai skyline and Oriental Pearl Tower illuminated at night",
+      "scene": "Lujiazui skyline night",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night",
+        "landscape"
+      ]
+    },
+    "07": {
+      "caption": "Crowds on Nanjing Road Pedestrian Street in Shanghai",
+      "scene": "Nanjing Road pedestrian street",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "people",
+        "architecture"
+      ]
+    },
+    "08": {
+      "caption": "People gather along the waterfront looking at the foggy Shanghai skyline.",
+      "scene": "Foggy Bund skyline",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "night",
+        "people"
+      ]
+    },
+    "09": {
+      "caption": "Night view of Shanghai skyline through the steel truss of Waibaidu Bridge",
+      "scene": "Waibaidu Bridge night view",
+      "score": 99,
+      "tags": [
+        "cityscape",
+        "architecture",
+        "night"
+      ]
+    }
+  },
+  "slovenia-summer-2026": {
+    "01": {
+      "caption": "Outdoor food stalls and seating area in Grosuplje, Slovenia",
+      "scene": "Grosuplje outdoor food market",
+      "score": 97,
+      "tags": [
+        "people",
+        "food"
+      ]
+    },
+    "02": {
+      "caption": "Man sitting at an outdoor cafe in Ljubljana",
+      "scene": "outdoor market Grosuplje",
+      "score": 91,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "03": {
+      "caption": "A breakfast plate with fried eggs, sausages, mushrooms, and toast",
+      "scene": "Breakfast",
+      "score": 87,
+      "tags": [
+        "food"
+      ]
+    },
+    "04": {
+      "caption": "A bowl of shrimp salad and plates of ham and burrata",
+      "scene": "shrimp salad and mortadella lunch",
+      "score": 98,
+      "tags": [
+        "food"
+      ]
+    },
+    "05": {
+      "caption": "Langoustines cooking in a pan on a stovetop",
+      "scene": "home cooking langoustines",
+      "score": 84,
+      "tags": [
+        "food"
+      ]
+    },
+    "06": {
+      "caption": "A cup of gelato at an outdoor cafe in Ljubljana",
+      "scene": "Ljubljana gelato",
+      "score": 99,
+      "tags": [
+        "food"
+      ]
+    },
+    "07": {
+      "caption": "Fresh cherries in a plastic bag",
+      "scene": "Fresh cherries",
+      "score": 68,
+      "tags": [
+        "food"
+      ]
+    }
+  },
+  "songjiang-2026": {
+    "10": {
+      "caption": "A man posing at a moon gate in Guangfulin Cultural Site.",
+      "scene": "Moon gate at Guangfulin",
+      "score": 88,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "11": {
+      "caption": "The iconic bone needle sculpture at Guangfulin Cultural Site.",
+      "scene": "Guangfulin bone needle",
+      "score": 86,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "12": {
+      "caption": "A large wooden boat docked along a river in Songjiang",
+      "scene": "Traditional boat structure on river",
+      "score": 85,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "13": {
+      "caption": "Mannequin of a traditional Chinese merchant with an abacus",
+      "scene": "Guangfulin museum exhibit",
+      "score": 84,
+      "tags": [
+        "other"
+      ]
+    },
+    "14": {
+      "caption": "View from under a stone bridge at Guangfulin Cultural Site",
+      "scene": "Under stone bridge view",
+      "score": 82,
+      "tags": [
+        "people",
+        "architecture",
+        "landscape"
+      ]
+    },
+    "15": {
+      "caption": "Two men squatting in a park at Guangfulin Cultural Site",
+      "scene": "Guangfulin park tourists",
+      "score": 41,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "01": {
+      "caption": "Illuminated pagoda reflected in water at Guangfulin Cultural Site",
+      "scene": "Guangfulin illuminated pagoda",
+      "score": 100,
+      "tags": [
+        "architecture",
+        "night"
+      ]
+    },
+    "02": {
+      "caption": "Traditional lanterns illuminating a path at Shanghai Guangfulin Cultural Site.",
+      "scene": "Guangfulin lantern path",
+      "score": 99,
+      "tags": [
+        "night",
+        "architecture"
+      ]
+    },
+    "03": {
+      "caption": "A vendor showing steamed cakes in a large bamboo steamer",
+      "scene": "Steamed cakes food vendor",
+      "score": 97,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "04": {
+      "caption": "Traditional wooden boat-style structure on a river in Songjiang",
+      "scene": "River boat structure",
+      "score": 96,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "05": {
+      "caption": "Scenic canal at the Guangfulin Cultural Site in Shanghai",
+      "scene": "Guangfulin canal view",
+      "score": 95,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "06": {
+      "caption": "River view with a stone arch bridge at Guangfulin Cultural Site",
+      "scene": "River view with stone bridge",
+      "score": 93,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "07": {
+      "caption": "Chefs standing inside a restaurant in Shanghai Guangfulin Cultural Site",
+      "scene": "Guangfulin restaurant window",
+      "score": 92,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "08": {
+      "caption": "Scenic river view with a traditional stone bridge in the distance",
+      "scene": "River view with stone bridge",
+      "score": 90,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "09": {
+      "caption": "A man poses with open arms inside a circular stone gate",
+      "scene": "Moon gate at Guangfulin",
+      "score": 89,
+      "tags": [
+        "people",
+        "portrait",
+        "architecture"
+      ]
+    }
+  }
+}
