@@ -25,9 +25,9 @@ export const TRIPS: Trip[] = [
     title: "Gardaland",
   },
   {
-    body: `Home for the summer after Shanghai and New York — Grosuplje and the garden, Ljubljana evenings, a day out to Novo Mesto.`,
+    body: `Home for the summer after Shanghai and New York — Grosuplje and the garden, Ljubljana evenings.`,
     date: "2026-06",
-    description: `Home for the summer — Grosuplje, Ljubljana, Novo Mesto.`,
+    description: `Home for the summer — Grosuplje and Ljubljana.`,
     location: "Ljubljana",
     slug: "slovenia-summer-2026",
     title: "Slovenia summer",
