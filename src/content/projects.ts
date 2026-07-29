@@ -77,6 +77,48 @@ export const PROJECTS: Project[] = [
   },
   {
     approach:
+      "A cloud hub keeps an in-memory registry of rigs — real SO-101 arms or MuJoCo sims running as headless agents that only dial out over plain HTTP, so a rig needs no ports, no NAT config, and no SDK. Operators take a single-writer lease and drive from browser keys, their own leader arm, or a Vision Pro. World ID gates execution rights (unverified → HTTP 402), a TeeML-verified model on 0G Compute grades the recorded episode itself, and booking is staking: SlotMarket contracts deployed byte-identical to 0G Galileo and Hedera settle every graded attempt permissionlessly, with the TEE's own EIP-191 signature carried cross-chain and ecrecover-verified on Hedera.",
+    client: "ETHGlobal Lisbon 2026",
+    date: "2026",
+    highlights: [
+      "Real SO-101 arm on the venue floor, drivable from anywhere on the internet",
+      "World ID gates the arm; TEE-graded episodes decide payment, not the operator's claim",
+      "Booking is staking — on-chain FIFO slots, strikes, permissionless settle()",
+      "Cross-chain TEE attestation: 0G enclave signature verified on Hedera, no bridge",
+    ],
+    liveUrl: "https://web-production-b5106.up.railway.app",
+    metrics: [
+      { label: "Prizes", value: "World ID Check · 0G 2nd" },
+      { label: "Chains", value: "0G + Hedera" },
+      { label: "Result", value: "Finalist" },
+    ],
+    outcome:
+      "ETHGlobal Lisbon 2026 finalist; World Identity Check winner and 2nd place 0G Best AI Product. Four contracts live on two testnets, one TypeScript app with hub + rig entrypoints, and a vendored Python driver so a rig costs zero hardware.",
+    problem:
+      "Robot foundation models have no internet to scrape — they learn from human teleoperation episodes, collected one at a time by operators paid $25–48/hr on-site. That market is closed, local, and trust-based: identity is unverified and success is self-declared.",
+    repoUrl: "https://github.com/grmkris/eth-global-lisbon-2026-hands-unchained",
+    role: "Platform + chain (team of 2)",
+    slug: "hands-unchained",
+    stack: [
+      "Bun",
+      "TanStack Start",
+      "Effect v4",
+      "React 19",
+      "Python / LeRobot",
+      "MuJoCo",
+      "Foundry",
+      "World ID",
+      "0G Compute",
+      "Hedera",
+    ],
+    status: "live",
+    tagline:
+      "A labor market where verified humans teleoperate real robots — and only AI-graded work gets paid.",
+    theme: "ai-infra",
+    title: "Hands Unchained",
+  },
+  {
+    approach:
       "Capture audio from a file, mic, or shared tab and extract ~15 features with Meyda at 60Hz. Parse text and voice intent with Gemini, generate keyframes with fal.ai FLUX.2, and blend them through a WebGL2 feedback-FBO shader with a painterly filter and 21 presets. Songs are recognized via AudD; credits are billed in USDC on Base.",
     client: "Personal product",
     date: "2026",

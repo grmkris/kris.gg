@@ -689,6 +689,194 @@
       ]
     }
   },
+  "lisbon-2026": {
+    "10": {
+      "caption": "Speaker presenting at the ETHGlobal Lisbon conference",
+      "scene": "ETHGlobal presentation",
+      "score": 23,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "11": {
+      "caption": "A VR presentation on stage at the ETHGlobal Lisbon event",
+      "scene": "ETHGlobal Lisbon",
+      "score": 23,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "12": {
+      "caption": "Two people posing in front of an ETHGlobal Lisbon backdrop",
+      "scene": "Conference hall",
+      "score": 22,
+      "tags": [
+        "people"
+      ]
+    },
+    "13": {
+      "caption": "A group of people posing on stage at ETHGlobal Lisbon",
+      "scene": "ETHGlobal Lisbon stage",
+      "score": 47,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "14": {
+      "caption": "A couple stands in front of the large yellow Lisboa sign.",
+      "scene": "Lisboa sign",
+      "score": 82,
+      "tags": [
+        "people"
+      ]
+    },
+    "15": {
+      "caption": "A woman sitting at an outdoor restaurant table in Lisbon at night",
+      "scene": "Lisbon outdoor dining",
+      "score": 95,
+      "tags": [
+        "people",
+        "portrait",
+        "night"
+      ]
+    },
+    "16": {
+      "caption": "A plate of octopus carpaccio with peppers.",
+      "scene": "Octopus food",
+      "score": 28,
+      "tags": [
+        "food"
+      ]
+    },
+    "17": {
+      "caption": "Man overlooking the 25 de Abril Bridge from a Lisbon marina",
+      "scene": "25 de Abril Bridge",
+      "score": 78,
+      "tags": [
+        "people",
+        "landscape",
+        "architecture"
+      ]
+    },
+    "18": {
+      "caption": "Monument to the Discoveries along the Tagus River in Lisbon",
+      "scene": "Monument to the Discoveries",
+      "score": 94,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "19": {
+      "caption": "A woman posing with a bicycle near 25 de Abril Bridge",
+      "scene": "25 de Abril Bridge",
+      "score": 77,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "20": {
+      "caption": "Couple posing in front of the Belém Tower in Lisbon",
+      "scene": "Belém Tower",
+      "score": 92,
+      "tags": [
+        "people",
+        "portrait",
+        "architecture"
+      ]
+    },
+    "21": {
+      "caption": "Sunset over Praia Nova beach in Costa de Caparica",
+      "scene": "Costa de Caparica beach sunset",
+      "score": 46,
+      "tags": [
+        "landscape",
+        "people"
+      ]
+    },
+    "22": {
+      "caption": "A table with Portuguese seafood dishes including grilled sardines and prawns",
+      "scene": "Portuguese dining",
+      "score": 91,
+      "tags": [
+        "food"
+      ]
+    },
+    "23": {
+      "caption": "A man pouring sangria at an outdoor restaurant in Lisbon",
+      "scene": "Lisbon outdoor dining",
+      "score": 87,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "03": {
+      "caption": "An Air Serbia turboprop airplane parked on the tarmac",
+      "scene": "Airport tarmac",
+      "score": 16,
+      "tags": [
+        "other"
+      ]
+    },
+    "04": {
+      "caption": "An ETHGlobal Lisbon event banner next to a stone statue",
+      "scene": "Statue and azulejos",
+      "score": 61,
+      "tags": [
+        "architecture",
+        "other"
+      ]
+    },
+    "05": {
+      "caption": "Long wooden table with laptops and electronics at a tech event",
+      "scene": "Web Summit conference",
+      "score": 24,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "06": {
+      "caption": "People smiling and working at a tech conference",
+      "scene": "ETHGlobal event",
+      "score": 38,
+      "tags": [
+        "people"
+      ]
+    },
+    "07": {
+      "caption": "People demonstrating VR technology at a tech conference.",
+      "scene": "Tech conference",
+      "score": 29,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "08": {
+      "caption": "A man sleeping on a brown leather sofa.",
+      "scene": "Sofa nap",
+      "score": 15,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "09": {
+      "caption": "Audience watching the finalists announcement at ETHGlobal Lisbon",
+      "scene": "ETHGlobal Lisbon Event",
+      "score": 61,
+      "tags": [
+        "people",
+        "other"
+      ]
+    }
+  },
   "seoul-2025": {
     "10": {
       "caption": "Enjoying a warm Korean egg bread on the streets of Seoul",
