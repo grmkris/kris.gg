@@ -691,68 +691,95 @@
   },
   "lisbon-2026": {
     "10": {
-      "caption": "A VR presentation on stage at the ETHGlobal Lisbon event",
-      "scene": "ETHGlobal event",
-      "score": 46,
+      "caption": "Speaker presenting at the ETHGlobal Lisbon conference",
+      "scene": "ETHGlobal presentation",
+      "score": 23,
       "tags": [
         "people",
         "other"
       ]
     },
     "11": {
-      "caption": "Two people posing in front of an ETHGlobal Lisbon backdrop",
-      "scene": "conference backdrop",
-      "score": 31,
+      "caption": "A VR presentation on stage at the ETHGlobal Lisbon event",
+      "scene": "ETHGlobal Lisbon",
+      "score": 23,
       "tags": [
-        "people"
+        "people",
+        "other"
       ]
     },
     "12": {
-      "caption": "A couple stands in front of the large yellow Lisboa sign.",
-      "scene": "Lisboa sign",
-      "score": 95,
+      "caption": "Two people posing in front of an ETHGlobal Lisbon backdrop",
+      "scene": "Conference hall",
+      "score": 22,
       "tags": [
         "people"
       ]
     },
     "13": {
+      "caption": "A group of people posing on stage at ETHGlobal Lisbon",
+      "scene": "ETHGlobal Lisbon stage",
+      "score": 47,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "14": {
+      "caption": "A couple stands in front of the large yellow Lisboa sign.",
+      "scene": "Lisboa sign",
+      "score": 82,
+      "tags": [
+        "people"
+      ]
+    },
+    "15": {
       "caption": "A woman sitting at an outdoor restaurant table in Lisbon at night",
-      "scene": "Lisbon outdoor dining night",
-      "score": 89,
+      "scene": "Lisbon outdoor dining",
+      "score": 95,
       "tags": [
         "people",
         "portrait",
         "night"
       ]
     },
-    "14": {
+    "16": {
       "caption": "A plate of octopus carpaccio with peppers.",
-      "scene": "Octopus carpaccio",
-      "score": 39,
+      "scene": "Octopus food",
+      "score": 28,
       "tags": [
         "food"
       ]
     },
-    "15": {
+    "17": {
       "caption": "Man overlooking the 25 de Abril Bridge from a Lisbon marina",
-      "scene": "Doca de Santo Amaro marina",
-      "score": 96,
+      "scene": "25 de Abril Bridge",
+      "score": 78,
       "tags": [
         "people",
         "landscape",
         "architecture"
       ]
     },
-    "16": {
+    "18": {
+      "caption": "Monument to the Discoveries along the Tagus River in Lisbon",
+      "scene": "Monument to the Discoveries",
+      "score": 94,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "19": {
       "caption": "A woman posing with a bicycle near 25 de Abril Bridge",
-      "scene": "25 de Abril Bridge bicycle",
-      "score": 97,
+      "scene": "25 de Abril Bridge",
+      "score": 77,
       "tags": [
         "people",
         "landscape"
       ]
     },
-    "17": {
+    "20": {
       "caption": "Couple posing in front of the Belém Tower in Lisbon",
       "scene": "Belém Tower",
       "score": 92,
@@ -762,27 +789,27 @@
         "architecture"
       ]
     },
-    "18": {
+    "21": {
       "caption": "Sunset over Praia Nova beach in Costa de Caparica",
-      "scene": "Costa de Caparica beach",
-      "score": 83,
+      "scene": "Costa de Caparica beach sunset",
+      "score": 46,
       "tags": [
         "landscape",
         "people"
       ]
     },
-    "19": {
+    "22": {
       "caption": "A table with Portuguese seafood dishes including grilled sardines and prawns",
-      "scene": "Portuguese seafood dinner",
-      "score": 99,
+      "scene": "Portuguese dining",
+      "score": 91,
       "tags": [
         "food"
       ]
     },
-    "20": {
+    "23": {
       "caption": "A man pouring sangria at an outdoor restaurant in Lisbon",
-      "scene": "Outdoor dining in Alfama",
-      "score": 97,
+      "scene": "Lisbon outdoor dining",
+      "score": 87,
       "tags": [
         "food",
         "people"
@@ -790,7 +817,7 @@
     },
     "03": {
       "caption": "An Air Serbia turboprop airplane parked on the tarmac",
-      "scene": "Transit",
+      "scene": "Airport tarmac",
       "score": 16,
       "tags": [
         "other"
@@ -798,8 +825,8 @@
     },
     "04": {
       "caption": "An ETHGlobal Lisbon event banner next to a stone statue",
-      "scene": "ETHGlobal event",
-      "score": 62,
+      "scene": "Statue and azulejos",
+      "score": 61,
       "tags": [
         "architecture",
         "other"
@@ -807,8 +834,8 @@
     },
     "05": {
       "caption": "Long wooden table with laptops and electronics at a tech event",
-      "scene": "Tech event workspace",
-      "score": 69,
+      "scene": "Web Summit conference",
+      "score": 24,
       "tags": [
         "people",
         "other"
@@ -816,16 +843,16 @@
     },
     "06": {
       "caption": "People smiling and working at a tech conference",
-      "scene": "Tech conference",
-      "score": 47,
+      "scene": "ETHGlobal event",
+      "score": 38,
       "tags": [
         "people"
       ]
     },
     "07": {
       "caption": "People demonstrating VR technology at a tech conference.",
-      "scene": "Lisbon tech conference",
-      "score": 78,
+      "scene": "Tech conference",
+      "score": 29,
       "tags": [
         "people",
         "other"
@@ -833,17 +860,17 @@
     },
     "08": {
       "caption": "A man sleeping on a brown leather sofa.",
-      "scene": "Indoor resting",
-      "score": 24,
+      "scene": "Sofa nap",
+      "score": 15,
       "tags": [
         "people",
         "other"
       ]
     },
     "09": {
-      "caption": "Speaker presenting at the ETHGlobal Lisbon conference",
-      "scene": "ETHGlobal conference",
-      "score": 47,
+      "caption": "Audience watching the finalists announcement at ETHGlobal Lisbon",
+      "scene": "ETHGlobal Lisbon Event",
+      "score": 61,
       "tags": [
         "people",
         "other"
