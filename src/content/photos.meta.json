@@ -691,6 +691,41 @@
   },
   "lisbon-2026": {
     "10": {
+      "caption": "A man sleeping on a brown leather sofa.",
+      "scene": "Indoor resting",
+      "score": 24,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "11": {
+      "caption": "Speaker presenting at the ETHGlobal Lisbon conference",
+      "scene": "ETHGlobal conference",
+      "score": 47,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "12": {
+      "caption": "A VR presentation on stage at the ETHGlobal Lisbon event",
+      "scene": "ETHGlobal event",
+      "score": 46,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "13": {
+      "caption": "Two people posing in front of an ETHGlobal Lisbon backdrop",
+      "scene": "conference backdrop",
+      "score": 31,
+      "tags": [
+        "people"
+      ]
+    },
+    "14": {
       "caption": "A couple stands in front of the large yellow Lisboa sign.",
       "scene": "Lisboa sign",
       "score": 95,
@@ -698,7 +733,7 @@
         "people"
       ]
     },
-    "11": {
+    "15": {
       "caption": "A woman sitting at an outdoor restaurant table in Lisbon at night",
       "scene": "Lisbon outdoor dining night",
       "score": 89,
@@ -708,7 +743,7 @@
         "night"
       ]
     },
-    "12": {
+    "16": {
       "caption": "A plate of octopus carpaccio with peppers.",
       "scene": "Octopus carpaccio",
       "score": 39,
@@ -716,7 +751,7 @@
         "food"
       ]
     },
-    "13": {
+    "17": {
       "caption": "Man overlooking the 25 de Abril Bridge from a Lisbon marina",
       "scene": "Doca de Santo Amaro marina",
       "score": 96,
@@ -726,7 +761,7 @@
         "architecture"
       ]
     },
-    "14": {
+    "18": {
       "caption": "A woman posing with a bicycle near 25 de Abril Bridge",
       "scene": "25 de Abril Bridge bicycle",
       "score": 97,
@@ -735,7 +770,7 @@
         "landscape"
       ]
     },
-    "15": {
+    "19": {
       "caption": "Couple posing in front of the Belém Tower in Lisbon",
       "scene": "Belém Tower",
       "score": 92,
@@ -745,7 +780,7 @@
         "architecture"
       ]
     },
-    "16": {
+    "20": {
       "caption": "Sunset over Praia Nova beach in Costa de Caparica",
       "scene": "Costa de Caparica beach",
       "score": 83,
@@ -754,16 +789,7 @@
         "people"
       ]
     },
-    "17": {
-      "caption": "A couple standing on Costa de Caparica beach at sunset",
-      "scene": "Costa de Caparica beach sunset",
-      "score": 96,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "18": {
+    "21": {
       "caption": "A table with Portuguese seafood dishes including grilled sardines and prawns",
       "scene": "Portuguese seafood dinner",
       "score": 99,
@@ -771,27 +797,7 @@
         "food"
       ]
     },
-    "19": {
-      "caption": "A couple posing at Marquês de Pombal square at night",
-      "scene": "Marquês de Pombal square",
-      "score": 70,
-      "tags": [
-        "people",
-        "portrait",
-        "night"
-      ]
-    },
-    "20": {
-      "caption": "A smiling couple posing with a panoramic view of Lisbon in Portugal",
-      "scene": "Lisbon overlook",
-      "score": 97,
-      "tags": [
-        "people",
-        "portrait",
-        "cityscape"
-      ]
-    },
-    "21": {
+    "22": {
       "caption": "A man pouring sangria at an outdoor restaurant in Lisbon",
       "scene": "Outdoor dining in Alfama",
       "score": 97,
