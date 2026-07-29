@@ -6261,6 +6261,107 @@
       "width": 1200
     }
   ],
+  "umag-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoKAA0AA4BaJbACdACybPsnYAD9gth2ceumEakWjtNtEFp8DrN1pZVlL1m1DRlfyb7ZOTUEtrQ0gAAA",
+      "dominant": "#6898d8",
+      "full": "https://i.kris.gg/photos/umag-2026/01.37270ad9-1600.webp",
+      "height": 2400,
+      "id": "37270ad9",
+      "mid": "https://i.kris.gg/photos/umag-2026/01.37270ad9-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/01.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/01.37270ad9-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAQCdASoKAA0AA4BaJQAAXLzkwAAA/vkOYem1pKJ5cE+1oEdww3NWYvAl4N2oKgwY2YWMdcQsW+s89n3w1vvDSCAAAA==",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/umag-2026/02.59e51d24-1600.webp",
+      "height": 2400,
+      "id": "59e51d24",
+      "mid": "https://i.kris.gg/photos/umag-2026/02.59e51d24-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/02.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/02.59e51d24-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoKAA0AA4BaJQBOj+ADA0NSuxkAAP74gngvCrnf33VQVTtJjZuruve4bEHraR/e/MSmpF729s/7lH0xMxNKffcNFy4dL2+tKhwneL7TofAAAA==",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/umag-2026/03.f1840945-1600.webp",
+      "height": 2400,
+      "id": "f1840945",
+      "mid": "https://i.kris.gg/photos/umag-2026/03.f1840945-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/03.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/03.f1840945-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoKAA0AA4BaJQBOgCBvOgBnd+AA/uUyS6jWwsAFK0EwWUZrqVAKXeyuHwOC06yUvzhH7IY+zcr2TcSJeYZAMPiTS8wM0RZEN3SNWAAA",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/umag-2026/04.f448d913-1600.webp",
+      "height": 2400,
+      "id": "f448d913",
+      "mid": "https://i.kris.gg/photos/umag-2026/04.f448d913-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/04.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/04.f448d913-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoKAA0AA4BaJYgCdAYvDvoXhWZAAADN8kwdt1V0bwV4uK4GJVPnZg5mFDAVJKyE0wQjbwIHqLa/BI4O4jXAwhqmgRMHvQ1Rpx8d4E8tiXYa1/eoAAA=",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/umag-2026/05.62622c3e-1600.webp",
+      "height": 2400,
+      "id": "62622c3e",
+      "mid": "https://i.kris.gg/photos/umag-2026/05.62622c3e-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/05.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/05.62622c3e-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoKAA0AA4BaJZACdADdsmqA4a4AAP6jKbYYgymeiykqSBWZQbCMJU3XDVDr7tGZKEHjXzmsO6GS0U3Ah1Xl3C8XrQLJzVrAUDiSr4gBjFvLvXKkAAA=",
+      "dominant": "#382828",
+      "full": "https://i.kris.gg/photos/umag-2026/06.8fe0d900-1600.webp",
+      "height": 2400,
+      "id": "8fe0d900",
+      "mid": "https://i.kris.gg/photos/umag-2026/06.8fe0d900-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/06.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/06.8fe0d900-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoKAA0AA4BaJaACdH8AE173gAD+sjyL/YgWol2ucg4GCeqv38b+JngC9CogQtj4oJSPSf5nbc7SyOGjCW6iVSq0BDa4BNY9DtgQuXydaAV5gAAA",
+      "dominant": "#d8e8f8",
+      "full": "https://i.kris.gg/photos/umag-2026/07.c66342d7-1600.webp",
+      "height": 2400,
+      "id": "c66342d7",
+      "mid": "https://i.kris.gg/photos/umag-2026/07.c66342d7-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/07.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/07.c66342d7-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoKAA0AA4BaJYwCdAYvDy14nmjAAAD+8Rwt3MOYtdC+49U0mYoS+y6yPCKiwlNp4nctWnm/2uCsXdzrTws3l2ZmXe3VjPnnxuD/gqcebNuAAA==",
+      "dominant": "#080808",
+      "full": "https://i.kris.gg/photos/umag-2026/08.e6a7fe8f-1600.webp",
+      "height": 2400,
+      "id": "e6a7fe8f",
+      "mid": "https://i.kris.gg/photos/umag-2026/08.e6a7fe8f-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/08.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/08.e6a7fe8f-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoKAA0AA4BaJaACdAD8Y+HEwW5Z0ADyo1pejEtq958mWOQlHMsINYTccTCU+8ZnKlTpL2Cl0/HO77vL4eDnYIEPT9gVyVDhrr83IYMhzLQtMFM0ZeGP/iaPPIAAAA==",
+      "dominant": "#b8b8b8",
+      "full": "https://i.kris.gg/photos/umag-2026/09.ddc18490-1600.webp",
+      "height": 2400,
+      "id": "ddc18490",
+      "mid": "https://i.kris.gg/photos/umag-2026/09.ddc18490-800.webp",
+      "src": "https://i.kris.gg/photos/umag-2026/09.jpg",
+      "thumb": "https://i.kris.gg/photos/umag-2026/09.ddc18490-400.webp",
+      "width": 1800
+    }
+  ],
   "uyuni-2025": [
     {
       "blur": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABwAQCdASoKAA0ABIBaJYwC7AFAAAD+9TMnSAqX7KpAAA==",
@@ -6327,6 +6428,140 @@
       "src": "https://i.kris.gg/photos/uyuni-2025/06.jpg",
       "thumb": "https://i.kris.gg/photos/uyuni-2025/06.63d03bc8-400.webp",
       "width": 1200
+    }
+  ],
+  "velika-planina-2026": [
+    {
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoKAA0AA4BaJYgCdAEf2vyd46+AAPzVQ4GaWxwyk7ICefv4QVWd5NtmY70wiEEi5BXv8uxJ7H04JyY4/SN/e0TPZjB45cAmIAA=",
+      "dominant": "#7898b8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/01.a3e138c7-1600.webp",
+      "height": 2400,
+      "id": "a3e138c7",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/01.a3e138c7-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/01.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/01.a3e138c7-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoKAA0AA4BaJbACdAEfhq8MpcAA+GPGUC4vIEvtJ0Poy8RMOx9WL02iwhF9HS1/uVYhP5MjFcwAAA==",
+      "dominant": "#989838",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/02.096a2b79-1600.webp",
+      "height": 2400,
+      "id": "096a2b79",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/02.096a2b79-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/02.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/02.096a2b79-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoKAA0AA4BaJYgCdAD8LrNnOCSAAP7rfy6h48PmajV2qYsGWSc21Af0exaCH4azmvUfgW4KzFi4HwPC1ARFvTgfK9BiuAF9HDGGAAAA",
+      "dominant": "#a8c8f8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/03.98d7ad6b-1600.webp",
+      "height": 2400,
+      "id": "98d7ad6b",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/03.98d7ad6b-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/03.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/03.98d7ad6b-400.webp",
+      "width": 1799
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoKAA0AA4BaJbACdGuAAvsSVXBNAADym8vR1pAChETaS4rQtMp+srpMTutXMTWjWlFW8/V/dBzeQ9sz3DX2UQYuDAAAAA==",
+      "dominant": "#2868c8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/04.a8b11129-1600.webp",
+      "height": 2400,
+      "id": "a8b11129",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/04.a8b11129-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/04.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/04.a8b11129-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoKAA0AA4BaJZACdACfjsUAAMyUBC98/0LqHMOjz/3lB4Qun6XqnS3Lm36eKvg+9YxSGgs3TDI/2+mfqAA=",
+      "dominant": "#8898a8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/05.96a036bf-1600.webp",
+      "height": 2400,
+      "id": "96a036bf",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/05.96a036bf-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/05.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/05.96a036bf-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoKAA0AA4BaJZgCdAD0RxMkqIAA/ufXU6wvzJdrX/in9cbA+HX6fuwfwY9LahyXtxhfHcV2aaRg7oqxKmEVSUYAAAA=",
+      "dominant": "#a8c8f8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/06.1e49e9a3-1600.webp",
+      "height": 2400,
+      "id": "1e49e9a3",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/06.1e49e9a3-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/06.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/06.1e49e9a3-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoKAA0AA4BaJQBOgCP1HioLhgAA/u168p/JhiKq+0DmEEBPOsOKLSpzX91cx3xcKUUmAIc/EVGqCtYsLav/L9HjJWwBMkAA",
+      "dominant": "#a8b8c8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/07.083aabf5-1600.webp",
+      "height": 2400,
+      "id": "083aabf5",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/07.083aabf5-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/07.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/07.083aabf5-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAA0AA4BaJbACdADzg454aAAA/pnV5WDdVme96J16UIEMB9m8LWuzDBXVmAUbLffl4K+3d6o4T/Q+yciFKURjL+nxB/YgAAA=",
+      "dominant": "#4888e8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/08.22152177-1600.webp",
+      "height": 2400,
+      "id": "22152177",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/08.22152177-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/08.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/08.22152177-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJbACdAEedHrdSkAAykHOyff3wKvcRwHxS+OqOyiJt7MZkiyNLdeZMI00ldVEikVt1gf7rAsD1kiWbnAAAA==",
+      "dominant": "#788838",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/09.47a61803-1600.webp",
+      "height": 2400,
+      "id": "47a61803",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/09.47a61803-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/09.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/09.47a61803-400.webp",
+      "width": 1800
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAQCdASoKAA0AA4BaJaACdADaJVAA2+37mGpmPR98Dwm7TYKZJEe8cfGA7gDTEB7/g0LXfzGxi64+IrgAAA==",
+      "dominant": "#889858",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/10.a067bfd2-1600.webp",
+      "height": 2400,
+      "id": "a067bfd2",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/10.a067bfd2-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/10.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/10.a067bfd2-400.webp",
+      "width": 1801
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoKAA0AA4BaJQBOgCIfj2KE1AAA/o2kNK+CpRopAhUdN2sRNsNMtb0VetUwKoxsJz9UoWsfTPs7E9avpEdY16VjjW9J1Ut6U01WQAAA",
+      "dominant": "#a8b8d8",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/11.59adfede-1600.webp",
+      "height": 2400,
+      "id": "59adfede",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/11.59adfede-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/11.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/11.59adfede-400.webp",
+      "width": 1799
+    },
+    {
+      "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKAA0AA4BaJbACdAEO9DCYAADLSy/FNLV0tFArtdXNX/38Tcb2W52F/hrr2xYCIYzWI/+nEk8GVFSgAAA=",
+      "dominant": "#889838",
+      "full": "https://i.kris.gg/photos/velika-planina-2026/12.bc814073-1600.webp",
+      "height": 2400,
+      "id": "bc814073",
+      "mid": "https://i.kris.gg/photos/velika-planina-2026/12.bc814073-800.webp",
+      "src": "https://i.kris.gg/photos/velika-planina-2026/12.jpg",
+      "thumb": "https://i.kris.gg/photos/velika-planina-2026/12.bc814073-400.webp",
+      "width": 1800
     }
   ],
   "verona-2026": [
