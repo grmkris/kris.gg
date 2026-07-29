@@ -17,6 +17,22 @@ export interface Trip {
 
 export const TRIPS: Trip[] = [
   {
+    body: `ETHGlobal Lisbon at the Carlos Lopes Pavilion — team of two with Lisa, her first hackathon. We put a real SO-101 robot arm on the venue floor and let anyone with the lobby URL drive it over the public internet: World ID gates the arm, a TEE-verified model on 0G grades each episode, and staking + settlement run on 0G and Hedera. Finalist stage on Sunday morning.
+
+Pragma the day before, Parque Eduardo VII on the walk in.`,
+    date: "2026-07",
+    description: `A labor market where verified humans teleoperate real robots — only AI-graded work gets paid.`,
+    event: "ETHGlobal Lisbon",
+    github: "https://github.com/grmkris/eth-global-lisbon-2026-hands-unchained",
+    location: "Lisbon",
+    prizes: "Finalist, World 1st, 0G 2nd",
+    project: "Hands Unchained",
+    showcase: "https://ethglobal.com/showcase/hands-unchained-6kdf3",
+    slug: "lisbon-2026",
+    title: "Lisbon",
+    type: "hackathon",
+  },
+  {
     body: `A day trip across the border to Gardaland on the south shore of Lake Garda — the dragon-pagoda corner, the Atlantide water ride, mirror mazes and old carousels.`,
     date: "2026-06",
     description: `A day at Gardaland on Lake Garda.`,
