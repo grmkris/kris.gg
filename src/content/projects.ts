@@ -88,12 +88,12 @@ export const PROJECTS: Project[] = [
     ],
     liveUrl: "https://web-production-b5106.up.railway.app",
     metrics: [
-      { label: "Prizes", value: "World 1st · 0G 2nd" },
+      { label: "Prizes", value: "World ID Check · 0G 2nd" },
       { label: "Chains", value: "0G + Hedera" },
       { label: "Result", value: "Finalist" },
     ],
     outcome:
-      "ETHGlobal Lisbon 2026 finalist; 1st place World track, 2nd place 0G Best AI Product. Four contracts live on two testnets, one TypeScript app with hub + rig entrypoints, and a vendored Python driver so a rig costs zero hardware.",
+      "ETHGlobal Lisbon 2026 finalist; World Identity Check winner and 2nd place 0G Best AI Product. Four contracts live on two testnets, one TypeScript app with hub + rig entrypoints, and a vendored Python driver so a rig costs zero hardware.",
     problem:
       "Robot foundation models have no internet to scrape — they learn from human teleoperation episodes, collected one at a time by operators paid $25–48/hr on-site. That market is closed, local, and trust-based: identity is unverified and success is self-declared.",
     repoUrl: "https://github.com/grmkris/eth-global-lisbon-2026-hands-unchained",
