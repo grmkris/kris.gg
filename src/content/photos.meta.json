@@ -1662,5 +1662,178 @@
         "architecture"
       ]
     }
+  },
+  "umag-2026": {
+    "01": {
+      "caption": "A dry bush on a grassy shore overlooking the blue sea",
+      "scene": "Beach landscape",
+      "score": 16,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "02": {
+      "caption": "Two friends laughing by the harbor in Umag at night",
+      "scene": "waterfront night girls",
+      "score": 70,
+      "tags": [
+        "people",
+        "portrait",
+        "night"
+      ]
+    },
+    "03": {
+      "caption": "Two young women laughing by the water at night",
+      "scene": "Night waterfront close-up",
+      "score": 42,
+      "tags": [
+        "people",
+        "portrait",
+        "night"
+      ]
+    },
+    "04": {
+      "caption": "A smiling couple posing for a photo at night in Umag",
+      "scene": "couple night portrait",
+      "score": 81,
+      "tags": [
+        "people",
+        "portrait",
+        "night"
+      ]
+    },
+    "06": {
+      "caption": "People relaxing on a rocky beach under a pine tree",
+      "scene": "Umag beach relaxation",
+      "score": 94,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "07": {
+      "caption": "Two women posing under a pine tree near the beach",
+      "scene": "Umag beach portrait",
+      "score": 93,
+      "tags": [
+        "people"
+      ]
+    },
+    "08": {
+      "caption": "Grilled whole fish served with potatoes and Swiss chard",
+      "scene": "Local gastronomy",
+      "score": 100,
+      "tags": [
+        "food"
+      ]
+    }
+  },
+  "velika-planina-2026": {
+    "10": {
+      "caption": "A brown and white cow grazing in a mountain pasture",
+      "scene": "Cows grazing",
+      "score": 48,
+      "tags": [
+        "other"
+      ]
+    },
+    "11": {
+      "caption": "A visitor admiring the mountain view at Velika Planina",
+      "scene": "Visitor at Velika Planina",
+      "score": 78,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "12": {
+      "caption": "Traditional wooden herdsman's hut on a grassy hill",
+      "scene": "Cottage architecture",
+      "score": 60,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "01": {
+      "caption": "Gravel path leading through the grassy hills of Velika Planina",
+      "scene": "Velika Planina hiking path",
+      "score": 77,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "02": {
+      "caption": "A woman posing with hiking poles on a grassy trail",
+      "scene": "Hiking trail portrait",
+      "score": 30,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
+      ]
+    },
+    "03": {
+      "caption": "Wooden heart-shaped frame at Velika Planina with mountains in the background",
+      "scene": "Heart-shaped frame",
+      "score": 86,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "04": {
+      "caption": "Traditional wooden cottages on the green hills of Velika Planina",
+      "scene": "Huts on rolling hills",
+      "score": 100,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "05": {
+      "caption": "Traditional wooden huts on the green hills of Velika Planina",
+      "scene": "Huts on rolling hills",
+      "score": 98,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "06": {
+      "caption": "Traditional wooden huts in Velika Planina with mountain views",
+      "scene": "Wooden huts close-up",
+      "score": 95,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "07": {
+      "caption": "Traditional wooden cottages on Velika Planina under a cloudy sky",
+      "scene": "Velika Planina wooden cottages closeup",
+      "score": 80,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "08": {
+      "caption": "Woman posing with peace signs at Velika Planina",
+      "scene": "Portrait on hills",
+      "score": 69,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
+      ]
+    },
+    "09": {
+      "caption": "A woman interacting with a brown cow on a grassy pasture",
+      "scene": "Interacting with cows",
+      "score": 26,
+      "tags": [
+        "people"
+      ]
+    }
   }
 }
