@@ -1702,7 +1702,7 @@
         "night"
       ]
     },
-    "05": {
+    "06": {
       "caption": "People relaxing on a rocky beach under a pine tree",
       "scene": "Umag beach relaxation",
       "score": 94,
@@ -1711,19 +1711,10 @@
         "landscape"
       ]
     },
-    "06": {
-      "caption": "Smiling woman sitting on a towel at a rocky beach",
-      "scene": "Umag beach relaxation",
-      "score": 98,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
     "07": {
-      "caption": "Two women posing under a pine tree near the sea in Bašanija",
-      "scene": "Women posing under pine tree in Bašanija",
-      "score": 89,
+      "caption": "Two women posing under a pine tree near the beach",
+      "scene": "Umag beach portrait",
+      "score": 93,
       "tags": [
         "people"
       ]
