@@ -1,10 +1,40 @@
 # kris.gg — Autonomous Operation
 
-Personal site: **static Next.js (App Router) on Vercel**. No backend — it's a
-content site (trips/journal/building/notes) built from `src/content/*` + photos.
-The better-auth/ORPC/Drizzle scaffolding from the original template has been
-removed; ignore the DB/auth/router patterns further down unless you re-introduce
-a backend.
+Personal site: **prerendered Next.js (App Router) on Vercel**. The public site
+(trips/journal/building/notes) is a content site built from `src/content/*` +
+photos and stays fully static.
+
+The ORPC scaffolding from the original template is gone — **ignore the ORPC /
+`src/server` / `src/test` patterns further down**, they describe code that no
+longer exists. Drizzle and better-auth are back, but only for `/stash`.
+
+## /stash — private capture inbox
+
+A personal, single-user tool at `/stash`; not published content and not part of
+`src/content/*`. It is the only stateful part of the site.
+
+- **Storage:** Cloudflare D1 over its **HTTP API** (`src/db/client.ts`). There is
+  no runtime `d1-http` Drizzle driver — queries go through
+  `drizzle-orm/sqlite-proxy`; `driver: "d1-http"` in `drizzle.config.ts` is
+  drizzle-kit/migrations only.
+- **D1 has no usable transactions.** Both drizzle drivers emit literal
+  `BEGIN`/`COMMIT`, which D1 rejects. `assertNoTransaction` fails loudly instead
+  of allowing partial writes — **keep every mutation a single statement**.
+- **Latency:** every query is one Vercel → Cloudflare round-trip. better-auth's
+  `session.cookieCache` is load-bearing, not an optimisation.
+- **Auth:** better-auth with **passkey** (browser) + **API key** (Raycast, CLI,
+  MCP). Passkeys are interactive and cannot authenticate headless clients.
+  `rpID: "kris.gg"` covers `dev.kris.gg` too.
+- **Effect v4** (pinned exact, currently `4.0.0-beta.101`). Note this version has
+  `Context.Service`, **not** `ServiceMap.Service` as the effect-ts skill claims;
+  prefer the invok repo's real beta code over the skill for API shapes.
+- **Bundle discipline:** `src/stash/api.ts` is imported by the browser, so it
+  must never reach server-only code. Auth's implementation lives in
+  `middleware-live.ts` (marked `server-only`), separate from the `middleware.ts`
+  declaration. Verify with a build that only `/stash` loads the Effect chunk.
+- **Capture surfaces:** `scripts/stash.ts` (CLI), `scripts/raycast/` (hotkey),
+  `/api/mcp` (MCP). A web page cannot read the OS selection or bind a global
+  hotkey — that needs a native app — so capture lives outside the browser.
 
 ## Environments (Vercel dev-flow)
 

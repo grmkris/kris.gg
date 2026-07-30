@@ -15,6 +15,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       allow: "/",
+      // Private capture inbox — also noindex'd at the page level.
+      disallow: "/stash",
       userAgent: "*",
     },
     sitemap: `${siteUrl()}/sitemap.xml`,
