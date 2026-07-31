@@ -1,8 +1,8 @@
 import { describe, expect, it } from "bun:test";
+
 import {
   ascentM,
   bboxOf,
-  type Coord,
   downsampleTo,
   haversineM,
   loopGapM,
@@ -11,6 +11,7 @@ import {
   simplify,
   toLatLon,
 } from "./geo";
+import type { Coord } from "./geo";
 
 /** A straight east-west run of points, dense enough to exercise simplification. */
 const straightLine = (count: number): Coord[] =>

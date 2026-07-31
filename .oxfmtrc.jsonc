@@ -8,6 +8,9 @@
   "ignorePatterns": [
     "src/content/*.generated.json",
     "src/content/photos.meta.json",
+    // drizzle-kit owns these; reformatting them makes every migration a
+    // whole-file diff and risks confusing the snapshot comparison.
+    "src/db/migrations/**",
     ".claude/**",
   ],
   "printWidth": 80,

@@ -1,5 +1,4 @@
 import "server-only";
-
 /**
  * The two model calls. Both are **strictly optional to correctness**: the
  * pipeline produces a valid, routable result with `fallbackConstraints` alone,
@@ -17,18 +16,15 @@ import "server-only";
  * calls that each `Object.assign` into the same `~standard` key, so both are
  * required; one alone type-errors and throws at runtime.
  */
-
 import { google } from "@ai-sdk/google";
 import { generateText, Output } from "ai";
 import { Schema } from "effect";
+
 import { formatDistance, formatDuration } from "@/lib/route/pace";
+
 import { sanitizeConstraints } from "./constraints-fallback";
-import {
-  type Poi,
-  RouteConstraints,
-  type RouteCandidate,
-  type RouteInputs,
-} from "./schema";
+import { RouteConstraints } from "./schema";
+import type { Poi, RouteCandidate, RouteInputs } from "./schema";
 
 /** Both halves of the Standard Schema contract the AI SDK requires. */
 const AI_CONSTRAINTS = Schema.toStandardJSONSchemaV1(
@@ -50,8 +46,7 @@ const AI_EXPLANATION = Schema.toStandardJSONSchemaV1(
   Schema.toStandardSchemaV1(Explanation)
 );
 
-const modelId = (): string =>
-  process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
+const modelId = (): string => process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
 
 const hasKey = (): boolean => {
   const key = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
@@ -99,16 +94,16 @@ export const refineConstraints = async (
 
     // Sanitize regardless: the model is told the foot/cycling rule but cannot be
     // trusted with it, and one wrong field is a hard 400 from ORS.
-    return sanitizeConstraints(result.output as RouteConstraints, inputs);
+    return sanitizeConstraints(result.output, inputs);
   } catch {
     return fallback;
   }
 };
 
-export type Explanation = {
+export interface Explanation {
   readonly title: string;
   readonly why: readonly string[];
-};
+}
 
 /** Deterministic name, used when the model is unavailable. */
 export const fallbackTitle = (

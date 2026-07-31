@@ -19,8 +19,11 @@
  *   route — the geometry is the product, POIs are garnish.
  */
 
-import { type Coord, haversineM, sampleAlong, toLatLon } from "@/lib/route/geo";
-import { Poi, type PoiCategory } from "./schema";
+import { haversineM, sampleAlong, toLatLon } from "@/lib/route/geo";
+import type { Coord } from "@/lib/route/geo";
+
+import { Poi } from "./schema";
+import type { PoiCategory } from "./schema";
 
 const OVERPASS_ENDPOINT = "https://overpass-api.de/api/interpreter";
 
@@ -41,13 +44,13 @@ const CATEGORY_TAGS: Record<PoiCategory, string> = {
   viewpoint: '["tourism"="viewpoint"]',
 };
 
-export type OverpassOptions = {
+export interface OverpassOptions {
   readonly categories: readonly PoiCategory[];
   readonly coords: readonly Coord[];
   /** Corridor half-width in metres. */
   readonly radiusM?: number;
   readonly timeoutS?: number;
-};
+}
 
 /**
  * Build the Overpass QL query. `nwr` rather than `node` because parks and many
@@ -77,18 +80,18 @@ export const buildOverpassQuery = ({
   return `[out:json][timeout:${timeoutS}];\n(\n${clauses}\n);\nout center;`;
 };
 
-type OverpassElement = {
+interface OverpassElement {
   readonly center?: { readonly lat?: number; readonly lon?: number };
   readonly id?: number;
   readonly lat?: number;
   readonly lon?: number;
   readonly tags?: Record<string, string>;
   readonly type?: string;
-};
+}
 
-export type OverpassResponse = {
+export interface OverpassResponse {
   readonly elements?: readonly OverpassElement[];
-};
+}
 
 /** Which requested category an element satisfies. First match wins. */
 const categoryOf = (
@@ -97,20 +100,33 @@ const categoryOf = (
 ): PoiCategory | undefined =>
   categories.find((category) => {
     switch (category) {
-      case "artwork":
+      case "artwork": {
         return tags.tourism === "artwork";
-      case "bakery":
+      }
+      case "bakery": {
         return tags.shop === "bakery";
-      case "cafe":
+      }
+      case "cafe": {
         return tags.amenity === "cafe";
-      case "drinking_water":
+      }
+      case "drinking_water": {
         return tags.amenity === "drinking_water";
-      case "park":
+      }
+      case "park": {
         return tags.leisure === "park";
-      case "toilets":
+      }
+      case "toilets": {
         return tags.amenity === "toilets";
-      default:
+      }
+      // Was the `default` arm, which made the switch silently non-exhaustive:
+      // a category added later would have been matched against viewpoint tags
+      // rather than failing to compile.
+      case "viewpoint": {
         return tags.tourism === "viewpoint";
+      }
+      default: {
+        return false;
+      }
     }
   });
 
@@ -179,7 +195,7 @@ export const parseOverpassResponse = (
     );
   }
 
-  return pois.sort((a, b) => a.atMeters - b.atMeters);
+  return pois.toSorted((a, b) => a.atMeters - b.atMeters);
 };
 
 export type FetchLike = (input: string, init: RequestInit) => Promise<Response>;

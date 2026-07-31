@@ -15,7 +15,8 @@
  * GPX (`gpx.ts`) remains the lossless path; these are for "open it on my phone".
  */
 
-import { type Coord, sampleAlong } from "./geo";
+import { sampleAlong } from "./geo";
+import type { Coord } from "./geo";
 
 export type Activity = "run" | "walk" | "hike" | "bike";
 
@@ -69,7 +70,7 @@ export const pickWaypoints = (
   );
 };
 
-export type DeepLinkOptions = {
+export interface DeepLinkOptions {
   readonly coords: readonly Coord[];
   readonly activity: Activity;
   /** Defaults to Google's mobile ceiling; pass `GOOGLE_WAYPOINTS_DESKTOP` when
@@ -77,7 +78,7 @@ export type DeepLinkOptions = {
   readonly waypointBudget?: number;
   /** Maps to Apple's `avoid=stairs`. Google's URL scheme has no equivalent. */
   readonly avoidStairs?: boolean;
-};
+}
 
 export const googleMapsUrl = ({
   coords,

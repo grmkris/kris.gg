@@ -1,12 +1,14 @@
 import { describe, expect, it } from "bun:test";
+
 import type { Coord } from "@/lib/route/geo";
+
 import {
   buildOverpassQuery,
   CORRIDOR_SAMPLES,
   fetchPois,
-  type OverpassResponse,
   parseOverpassResponse,
 } from "./overpass";
+import type { OverpassResponse } from "./overpass";
 
 /** A dense line heading north from Ljubljana. */
 const route: Coord[] = Array.from(
@@ -98,13 +100,17 @@ describe("parseOverpassResponse", () => {
 
   it("dedupes by type/id", () => {
     const first = body.elements?.[0];
-    const duplicated: OverpassResponse = { elements: [first ?? {}, first ?? {}] };
+    const duplicated: OverpassResponse = {
+      elements: [first ?? {}, first ?? {}],
+    };
     expect(parseOverpassResponse(duplicated, route, ["cafe"])).toHaveLength(1);
   });
 
   it("survives an empty or malformed body", () => {
     expect(parseOverpassResponse({}, route, ["cafe"])).toEqual([]);
-    expect(parseOverpassResponse({ elements: [] }, route, ["cafe"])).toEqual([]);
+    expect(parseOverpassResponse({ elements: [] }, route, ["cafe"])).toEqual(
+      []
+    );
   });
 });
 
@@ -145,9 +151,7 @@ describe("fetchPois", () => {
       categories: ["cafe"],
       coords: route,
       fetchImpl: () =>
-        Promise.resolve(
-          new Response(JSON.stringify({ elements }), { status: 200 })
-        ),
+        Promise.resolve(Response.json({ elements }, { status: 200 })),
       limit: 10,
     });
 

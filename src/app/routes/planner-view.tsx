@@ -3,22 +3,21 @@
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
+
 import { Toaster } from "@/components/ui/sonner";
-import {
-  type Activity,
-  appleMapsUrl,
-  googleMapsUrl,
-} from "@/lib/route/export-urls";
+import { authClient, useSession } from "@/lib/auth-client";
+import { appleMapsUrl, googleMapsUrl } from "@/lib/route/export-urls";
+import type { Activity } from "@/lib/route/export-urls";
 import type { Coord } from "@/lib/route/geo";
 import { gpxFilename, toGpx } from "@/lib/route/gpx";
 import { formatDistance, formatDuration } from "@/lib/route/pace";
-import { authClient, useSession } from "@/lib/auth-client";
 import type {
   GeneratedRoute,
   Mood,
   PlannedRoute,
   RouteInputs,
 } from "@/planner/schema";
+
 import { planRoute, saveRoute, shareRoute } from "./planner-client";
 
 // MapLibre needs `window` and WebGL2 at module scope — it can only be loaded
@@ -40,13 +39,7 @@ const ACTIVITIES: readonly { label: string; value: Activity }[] = [
   { label: "Hike", value: "hike" },
 ];
 
-const MOODS: readonly Mood[] = [
-  "scenic",
-  "quiet",
-  "tourist",
-  "fast",
-  "nature",
-];
+const MOODS: readonly Mood[] = ["scenic", "quiet", "tourist", "fast", "nature"];
 
 /** Fallback start when geolocation is unavailable or refused. */
 const DEFAULT_START = { lat: 46.0511, lon: 14.5051 };
@@ -76,7 +69,9 @@ function SignIn() {
       <button
         className={`${BUTTON} ${IDLE}`}
         disabled={busy}
-        onClick={signIn}
+        onClick={() => {
+          void signIn();
+        }}
         type="button"
       >
         {busy ? "Waiting for passkey…" : "Sign in with passkey"}
@@ -369,7 +364,10 @@ export function PlannerView() {
                 disabled={busy}
                 onClick={() =>
                   void generate({
-                    distanceKm: Math.max(1, Math.round(distanceKm * 0.8 * 2) / 2),
+                    distanceKm: Math.max(
+                      1,
+                      Math.round(distanceKm * 0.8 * 2) / 2
+                    ),
                   })
                 }
                 type="button"

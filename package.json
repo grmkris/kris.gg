@@ -21,7 +21,8 @@
     "fix": "ultracite fix --type-aware --type-check",
     "fix:unsafe": "ultracite fix --unsafe --type-aware --type-check",
     "test": "bun test",
-    "verify": "bun run typecheck && bun run fix && bun run test"
+    "check": "ultracite check --type-aware --type-check",
+    "verify": "bun run typecheck && bun run check && bun run test"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.1",

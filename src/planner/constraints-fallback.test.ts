@@ -1,4 +1,5 @@
 import { describe, expect, it } from "bun:test";
+
 import {
   fallbackConstraints,
   pointsForDistance,
@@ -59,12 +60,12 @@ describe("fallbackConstraints", () => {
   });
 
   it("avoids steps for runs and rides but not for walks and hikes", () => {
-    expect(fallbackConstraints(inputs("run", "scenic")).avoidFeatures).toContain(
-      "steps"
-    );
-    expect(fallbackConstraints(inputs("bike", "scenic")).avoidFeatures).toContain(
-      "steps"
-    );
+    expect(
+      fallbackConstraints(inputs("run", "scenic")).avoidFeatures
+    ).toContain("steps");
+    expect(
+      fallbackConstraints(inputs("bike", "scenic")).avoidFeatures
+    ).toContain("steps");
     expect(
       fallbackConstraints(inputs("hike", "scenic")).avoidFeatures
     ).not.toContain("steps");
@@ -82,9 +83,9 @@ describe("fallbackConstraints", () => {
     expect(
       fallbackConstraints(inputs("walk", "tourist")).poiCategories
     ).toContain("cafe");
-    expect(fallbackConstraints(inputs("run", "nature")).poiCategories).toContain(
-      "park"
-    );
+    expect(
+      fallbackConstraints(inputs("run", "nature")).poiCategories
+    ).toContain("park");
   });
 });
 

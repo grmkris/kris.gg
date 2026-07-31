@@ -12,15 +12,15 @@
  * - `steepness_difficulty` is `cycling-*` only.
  */
 
-import { bboxOf, type Coord, loopGapM, pathLengthM } from "@/lib/route/geo";
-import {
-  type AvoidFeature,
-  type Position,
-  RouteCandidate,
-  type RouteProfile,
-  RouteStats,
-  RoutingFailed,
-  type StartPoint,
+import { bboxOf, loopGapM, pathLengthM } from "@/lib/route/geo";
+import type { Coord } from "@/lib/route/geo";
+
+import { RouteCandidate, RouteStats, RoutingFailed } from "./schema";
+import type {
+  AvoidFeature,
+  Position,
+  RouteProfile,
+  StartPoint,
 } from "./schema";
 
 /** ORS rejects round trips longer than this outright. */
@@ -30,7 +30,7 @@ const EARTH_RADIUS_M = 6_371_008.8;
 
 export type LoopStrategy = "round-trip" | "synthetic";
 
-export type OrsRouteRequest = {
+export interface OrsRouteRequest {
   readonly avoidFeatures: readonly AvoidFeature[];
   readonly green: number | null;
   readonly lengthM: number;
@@ -40,7 +40,7 @@ export type OrsRouteRequest = {
   readonly seed: number;
   readonly start: StartPoint;
   readonly steepnessDifficulty: number | null;
-};
+}
 
 export const isFootProfile = (profile: RouteProfile): boolean =>
   profile.startsWith("foot-");
@@ -157,7 +157,7 @@ export const buildBody = (
     ? buildRoundTripBody(request)
     : buildSyntheticLoopBody(request);
 
-export type OrsGeoJson = {
+export interface OrsGeoJson {
   readonly features?: readonly {
     readonly geometry?: {
       readonly coordinates?: readonly (readonly number[])[];
@@ -171,7 +171,7 @@ export type OrsGeoJson = {
       };
     };
   }[];
-};
+}
 
 /** Force every position to `[lon, lat, ele]`; ORS omits Z if elevation is off. */
 const toPositions = (raw: readonly (readonly number[])[]): Position[] =>

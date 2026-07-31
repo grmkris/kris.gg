@@ -16,14 +16,13 @@
 
 import type { Feature, FeatureCollection, LineString, Point } from "geojson";
 // v6 is ESM-only and publishes named exports — there is no default export.
-import {
-  type GeoJSONSource,
-  Map as MapLibreMap,
-  NavigationControl,
-} from "maplibre-gl";
+import { Map as MapLibreMap, NavigationControl } from "maplibre-gl";
+import type { GeoJSONSource } from "maplibre-gl";
+
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
+
 import type { Bbox, Poi, Position } from "@/planner/schema";
 
 const STYLE_URL = {
@@ -34,15 +33,13 @@ const STYLE_URL = {
 const LINE_SOURCE = "route-line";
 const POI_SOURCE = "route-pois";
 
-export type RouteMapProps = {
+export interface RouteMapProps {
   readonly bbox: Bbox;
   readonly coords: readonly Position[];
   readonly pois?: readonly Poi[];
-};
+}
 
-const lineGeoJson = (
-  coords: readonly Position[]
-): Feature<LineString> => ({
+const lineGeoJson = (coords: readonly Position[]): Feature<LineString> => ({
   geometry: {
     // MapLibre wants [lon, lat]; the elevation triple is harmless but dropped
     // so the tile renderer isn't handed a dimension it ignores.
@@ -53,9 +50,7 @@ const lineGeoJson = (
   type: "Feature",
 });
 
-const poiGeoJson = (
-  pois: readonly Poi[]
-): FeatureCollection<Point> => ({
+const poiGeoJson = (pois: readonly Poi[]): FeatureCollection<Point> => ({
   features: pois.map((poi) => ({
     geometry: { coordinates: [poi.lon, poi.lat], type: "Point" },
     properties: { category: poi.category, name: poi.name ?? poi.category },
@@ -142,12 +137,12 @@ export function RouteMap({ bbox, coords, pois = [] }: RouteMapProps) {
 
     const line = instance.getSource(LINE_SOURCE);
     if (line !== undefined && "setData" in line) {
-      (line as GeoJSONSource).setData(lineGeoJson(coords));
+      void (line as GeoJSONSource).setData(lineGeoJson(coords));
     }
 
     const poiSource = instance.getSource(POI_SOURCE);
     if (poiSource !== undefined && "setData" in poiSource) {
-      (poiSource as GeoJSONSource).setData(poiGeoJson(pois));
+      void (poiSource as GeoJSONSource).setData(poiGeoJson(pois));
     }
 
     instance.fitBounds(

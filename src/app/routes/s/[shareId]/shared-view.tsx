@@ -2,14 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import {
-  type Activity,
-  appleMapsUrl,
-  googleMapsUrl,
-} from "@/lib/route/export-urls";
+
+import { getApi, runApi } from "@/lib/api/runtime";
+import { appleMapsUrl, googleMapsUrl } from "@/lib/route/export-urls";
+import type { Activity } from "@/lib/route/export-urls";
 import { gpxFilename, toGpx } from "@/lib/route/gpx";
 import { formatDistance, formatDuration } from "@/lib/route/pace";
-import { getApi, runApi } from "@/lib/api/runtime";
 import type { PlannedRoute } from "@/planner/schema";
 
 const RouteMap = dynamic(
@@ -38,7 +36,9 @@ export function SharedView({ shareId }: { shareId: string }) {
     const load = async () => {
       try {
         const api = await getApi();
-        setRoute(await runApi(api.routesPublic.shared({ params: { shareId } })));
+        setRoute(
+          await runApi(api.routesPublic.shared({ params: { shareId } }))
+        );
       } catch {
         // A wrong or revoked id is indistinguishable from "never existed", by
         // design — it should not confirm that an id was once valid.

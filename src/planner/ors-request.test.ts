@@ -1,4 +1,5 @@
 import { describe, expect, it } from "bun:test";
+
 import {
   buildBody,
   buildRoundTripBody,
@@ -6,9 +7,9 @@ import {
   decodeCandidate,
   isFootProfile,
   MAX_ROUND_TRIP_M,
-  type OrsRouteRequest,
   seedsFrom,
 } from "./ors-request";
+import type { OrsRouteRequest } from "./ors-request";
 import { RoutingFailed } from "./schema";
 
 const base: OrsRouteRequest = {
@@ -200,7 +201,9 @@ describe("decodeCandidate", () => {
 
   it("falls back to measured length when the summary omits it", () => {
     const candidate = decodeCandidate(
-      { features: [{ geometry: geojson.features[0].geometry, properties: {} }] },
+      {
+        features: [{ geometry: geojson.features[0].geometry, properties: {} }],
+      },
       1
     );
     expect(candidate.stats.distanceM).toBeGreaterThan(0);

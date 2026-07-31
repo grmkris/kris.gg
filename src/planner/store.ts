@@ -9,15 +9,14 @@
 
 import { and, desc, eq } from "drizzle-orm";
 import { Context, Effect, Layer, Schema } from "effect";
-import { db as defaultDb, type Db } from "@/db/client";
-import { type PlannedRouteRow, plannedRoute } from "@/db/schema/planned-route";
-import {
-  type GeneratedRoute,
-  PlannedRoute,
-  type PlannedRouteId,
-  PlannerStoreError,
-  RouteNotFound,
-} from "./schema";
+
+import { db as defaultDb } from "@/db/client";
+import type { Db } from "@/db/client";
+import { plannedRoute } from "@/db/schema/planned-route";
+import type { PlannedRouteRow } from "@/db/schema/planned-route";
+
+import { PlannedRoute, PlannerStoreError, RouteNotFound } from "./schema";
+import type { GeneratedRoute, PlannedRouteId } from "./schema";
 
 const decodeRoute = Schema.decodeUnknownSync(PlannedRoute);
 
@@ -46,7 +45,9 @@ const toDomain = (row: PlannedRouteRow): PlannedRoute =>
     why: row.why,
   });
 
-const wrap = <A>(thunk: () => Promise<A>): Effect.Effect<A, PlannerStoreError> =>
+const wrap = <A>(
+  thunk: () => Promise<A>
+): Effect.Effect<A, PlannerStoreError> =>
   Effect.tryPromise({
     catch: (cause) => new PlannerStoreError({ message: String(cause) }),
     try: thunk,
@@ -107,16 +108,15 @@ export const makePlannerStore = (db: Db): PlannerStoreShape => ({
               string,
               unknown
             >,
-            coords: route.chosen.coords.map((coord) => [...coord]) as [
-              number,
-              number,
-              number,
-            ][],
+            coords: route.chosen.coords.map((coord) => [...coord]),
             descentM: Math.round(route.chosen.stats.descentM),
             distanceM: Math.round(route.chosen.stats.distanceM),
             durationS: Math.round(route.chosen.stats.durationS),
             inputs: route.inputs as unknown as Record<string, unknown>,
+            // `Poi` is a Schema.Class; the spread flattens each instance to its
+            // own fields, which is exactly the shape to persist as JSON.
             pois: route.pois.map(
+              // oxlint-disable-next-line typescript/no-misused-spread
               (poi) => ({ ...poi }) as unknown as Record<string, unknown>
             ),
             title: route.title,
@@ -143,9 +143,7 @@ export const makePlannerStore = (db: Db): PlannerStoreShape => ({
           // Turning sharing back on mints a *new* id, so a previously
           // distributed link stays dead.
           .set({ shareId: shared ? newShareId() : null })
-          .where(
-            and(eq(plannedRoute.id, id), eq(plannedRoute.userId, userId))
-          )
+          .where(and(eq(plannedRoute.id, id), eq(plannedRoute.userId, userId)))
           .returning()
       ).pipe(
         Effect.flatMap((rows) =>
@@ -177,9 +175,7 @@ export const makePlannerStore = (db: Db): PlannerStoreShape => ({
       wrap(() =>
         db
           .delete(plannedRoute)
-          .where(
-            and(eq(plannedRoute.id, id), eq(plannedRoute.userId, userId))
-          )
+          .where(and(eq(plannedRoute.id, id), eq(plannedRoute.userId, userId)))
           .returning()
       ).pipe(
         Effect.flatMap((rows) =>

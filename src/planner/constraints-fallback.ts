@@ -29,14 +29,14 @@ const PROFILE_FOR: Record<Activity, RouteProfile> = {
   walk: "foot-walking",
 };
 
-type MoodProfile = {
+interface MoodProfile {
   readonly green: number;
   readonly poiCategories: readonly PoiCategory[];
   readonly quiet: number;
   readonly rankBy: RankBy;
   /** 0-3 climb tolerance, used only when the profile is a cycling one. */
   readonly steepness: number;
-};
+}
 
 const MOOD: Record<Mood, MoodProfile> = {
   fast: {
@@ -130,14 +130,12 @@ export const sanitizeConstraints = (
 
   return {
     avoidFeatures: candidate.avoidFeatures,
-    green:
-      isFoot && candidate.green !== null ? clamp01(candidate.green) : null,
+    green: isFoot && candidate.green !== null ? clamp01(candidate.green) : null,
     lengthM: Math.round(Math.max(0.5, inputs.distanceKm) * 1000),
     points: Math.min(8, Math.max(2, Math.round(candidate.points))),
     poiCategories: candidate.poiCategories,
     profile: candidate.profile,
-    quiet:
-      isFoot && candidate.quiet !== null ? clamp01(candidate.quiet) : null,
+    quiet: isFoot && candidate.quiet !== null ? clamp01(candidate.quiet) : null,
     rankBy: candidate.rankBy,
     steepnessDifficulty:
       isFoot || candidate.steepnessDifficulty === null

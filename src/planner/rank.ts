@@ -15,26 +15,26 @@
 
 import type { RankBy, RouteCandidate } from "./schema";
 
-export type ScoredCandidate = {
+export interface ScoredCandidate {
   readonly candidate: RouteCandidate;
   readonly poiCount: number;
   readonly score: number;
-};
+}
 
-export type RankOptions = {
+export interface RankOptions {
   readonly rankBy: RankBy;
   /** The requested distance in metres — every criterion cares about this. */
   readonly targetM: number;
   /** POIs found near each candidate, index-aligned. Omit if unknown. */
   readonly poiCounts?: readonly number[];
-};
+}
 
-type Weights = {
+interface Weights {
   readonly ascent: number;
   readonly distance: number;
   readonly gap: number;
   readonly pois: number;
-};
+}
 
 /** Negative weight = a bonus rather than a penalty. */
 const WEIGHTS: Record<RankBy, Weights> = {
@@ -50,9 +50,7 @@ export const distanceErrorRatio = (
   candidate: RouteCandidate,
   targetM: number
 ): number =>
-  targetM <= 0
-    ? 0
-    : Math.abs(candidate.stats.distanceM - targetM) / targetM;
+  targetM <= 0 ? 0 : Math.abs(candidate.stats.distanceM - targetM) / targetM;
 
 /**
  * Min-max to 0..1. A flat set (every value identical) normalises to all-zero
@@ -102,7 +100,7 @@ export const rankCandidates = (
         gaps[index] * weights.gap +
         pois[index] * weights.pois,
     }))
-    .sort((a, b) => a.score - b.score);
+    .toSorted((a, b) => a.score - b.score);
 };
 
 /**

@@ -17,12 +17,11 @@
  */
 
 import { loopGapM, pathLengthM } from "../../src/lib/route/geo";
-import {
-  buildBody,
-  decodeCandidate,
-  type LoopStrategy,
-  type OrsGeoJson,
-  type OrsRouteRequest,
+import { buildBody, decodeCandidate } from "../../src/planner/ors-request";
+import type {
+  LoopStrategy,
+  OrsGeoJson,
+  OrsRouteRequest,
 } from "../../src/planner/ors-request";
 import type { RouteProfile } from "../../src/planner/schema";
 
@@ -47,10 +46,7 @@ if (apiKey === undefined || apiKey === "") {
   process.exit(1);
 }
 
-const request = (
-  profile: RouteProfile,
-  seed: number
-): OrsRouteRequest => ({
+const request = (profile: RouteProfile, seed: number): OrsRouteRequest => ({
   avoidFeatures: [],
   green: null,
   lengthM: TARGET_M,
@@ -62,12 +58,12 @@ const request = (
   steepnessDifficulty: null,
 });
 
-type Attempt = {
+interface Attempt {
   readonly ascentM: number;
   readonly distanceM: number;
   readonly gapM: number;
   readonly points: number;
-};
+}
 
 const attempt = async (
   profile: RouteProfile,
@@ -108,7 +104,8 @@ const report = (label: string, result: Attempt | string): boolean => {
     process.stdout.write(`  ${label.padEnd(22)} FAIL  ${result}\n`);
     return false;
   }
-  const ok = Math.abs(result.distanceM / TARGET_M - 1) < 0.35 && result.gapM < 250;
+  const ok =
+    Math.abs(result.distanceM / TARGET_M - 1) < 0.35 && result.gapM < 250;
   process.stdout.write(
     `  ${label.padEnd(22)} ${ok ? "ok  " : "WARN"}  ` +
       `${(result.distanceM / 1000).toFixed(2)}km (${pct(result.distanceM)})  ` +
@@ -142,12 +139,12 @@ for (const profile of PROFILES) {
   report("synthetic fallback", await attempt(profile, "synthetic", 1));
 }
 
+const named = supported.length > 0 ? ` (${supported.join(", ")})` : "";
+const advice =
+  supported.length === PROFILES.length
+    ? "Use strategy: 'round-trip'."
+    : "Set strategy: 'synthetic' for the profiles above that failed.";
+
 process.stdout.write(
-  `\nVERDICT: round_trip usable on ${supported.length}/${PROFILES.length} profiles` +
-    `${supported.length > 0 ? ` (${supported.join(", ")})` : ""}.\n` +
-    `${
-      supported.length === PROFILES.length
-        ? "Use strategy: 'round-trip'.\n"
-        : "Set strategy: 'synthetic' for the profiles above that failed.\n"
-    }`
+  `\nVERDICT: round_trip usable on ${supported.length}/${PROFILES.length} profiles${named}.\n${advice}\n`
 );

@@ -1,5 +1,4 @@
 import "server-only";
-
 /**
  * The generate pipeline: inputs → constraints → K candidates → rank → POIs →
  * explanation.
@@ -8,22 +7,18 @@ import "server-only";
  * second time, so the expensive, failable parts (ORS) happen while the optional
  * parts (Gemini, Overpass) can still be skipped without losing the result.
  */
-
-import { type Coord, downsampleTo } from "@/lib/route/geo";
+import { downsampleTo } from "@/lib/route/geo";
+import type { Coord } from "@/lib/route/geo";
 import { estimateDurationS } from "@/lib/route/pace";
+
 import { explainRoute, refineConstraints } from "./ai";
 import { fallbackConstraints } from "./constraints-fallback";
 import { fetchCandidates, orsApiKey } from "./ors";
 import type { LoopStrategy } from "./ors-request";
 import { fetchPois } from "./overpass";
 import { rankCandidates, withinDistanceTolerance } from "./rank";
-import {
-  GeneratedRoute,
-  type Poi,
-  RouteCandidate,
-  type RouteInputs,
-  RouteStats,
-} from "./schema";
+import { GeneratedRoute, RouteCandidate, RouteStats } from "./schema";
+import type { Poi, RouteInputs } from "./schema";
 
 /** How many seeds to try per generate. Four sits well inside ORS's 40/min. */
 export const CANDIDATE_COUNT = 4;
@@ -34,11 +29,11 @@ export const CANDIDATE_COUNT = 4;
  */
 export const MAX_STORED_POINTS = 1000;
 
-export type PlanOptions = {
+export interface PlanOptions {
   readonly count?: number;
   readonly seedBase?: number;
   readonly strategy?: LoopStrategy;
-};
+}
 
 /**
  * `Coord` leaves elevation optional; `Position` requires it. Simplification
@@ -120,13 +115,14 @@ export const planRoute = async (
   const poiCounts =
     constraints.rankBy === "most-pois"
       ? await Promise.all(
-          viable.map(async (candidate) =>
-            (
-              await fetchPois({
-                categories: constraints.poiCategories,
-                coords: candidate.coords,
-              })
-            ).length
+          viable.map(
+            async (candidate) =>
+              (
+                await fetchPois({
+                  categories: constraints.poiCategories,
+                  coords: candidate.coords,
+                })
+              ).length
           )
         )
       : undefined;

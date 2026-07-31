@@ -1,5 +1,4 @@
 import "server-only";
-
 /**
  * OpenRouteService transport — the half that holds the API key and touches the
  * network. All request construction and response decoding lives in
@@ -14,16 +13,10 @@ import "server-only";
  * Free tier: 2000 directions/day, 40/min on a sliding window. A generate call
  * costs K (4) of those.
  */
-
-import {
-  buildBody,
-  decodeCandidate,
-  type LoopStrategy,
-  type OrsGeoJson,
-  type OrsRouteRequest,
-  seedsFrom,
-} from "./ors-request";
-import { type RouteCandidate, RoutingFailed } from "./schema";
+import { buildBody, decodeCandidate, seedsFrom } from "./ors-request";
+import type { LoopStrategy, OrsGeoJson, OrsRouteRequest } from "./ors-request";
+import { RoutingFailed } from "./schema";
+import type { RouteCandidate } from "./schema";
 
 const ORS_BASE = "https://api.heigit.org/openrouteservice/v2/directions";
 
@@ -40,11 +33,11 @@ export const orsApiKey = (): string => {
   return key;
 };
 
-export type FetchOptions = {
+export interface FetchOptions {
   readonly apiKey: string;
   readonly fetchImpl?: FetchLike;
   readonly strategy?: LoopStrategy;
-};
+}
 
 /** One ORS call. Throws `RoutingFailed` for anything the caller cannot fix. */
 export const fetchCandidate = async (
@@ -64,9 +57,9 @@ export const fetchCandidate = async (
       },
       method: "POST",
     });
-  } catch (cause) {
+  } catch (error) {
     throw new RoutingFailed({
-      message: `Could not reach OpenRouteService: ${String(cause)}`,
+      message: `Could not reach OpenRouteService: ${String(error)}`,
     });
   }
 

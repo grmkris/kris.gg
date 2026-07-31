@@ -16,8 +16,8 @@
 
 "use client";
 
-import { Layer, ManagedRuntime } from 'effect';
-import type { Effect } from 'effect';
+import { Layer, ManagedRuntime } from "effect";
+import type { Effect } from "effect";
 import { FetchHttpClient } from "effect/unstable/http";
 import { HttpApiClient } from "effect/unstable/httpapi";
 

@@ -58,6 +58,10 @@ export default defineConfig({
     // The photo pipeline serialises API calls on purpose; `Promise.all` would
     // fan out into rate limits.
     "no-await-in-loop": "off",
+    // `arr.at(i)` returns `T | undefined` where `arr[i]` does not, so this
+    // rule's autofix introduces type errors in the route geometry code. It is
+    // a rewrite, not a lint.
+    "unicorn/prefer-at": "off",
     "promise/prefer-await-to-then": "off",
     "promise/prefer-await-to-callbacks": "off",
     "unicorn/no-new-array": "off",
@@ -86,5 +90,11 @@ export default defineConfig({
     "typescript/use-unknown-in-catch-callback-variable": "off",
     "typescript/return-await": "off",
     "typescript/consistent-return": "off",
+    // A function that returns a promise without being `async` is normal in
+    // Effect code and in thin pass-through wrappers.
+    "typescript/promise-function-async": "off",
+    // Fights `no-misused-promises`: its own prescribed fix for an async
+    // handler is `() => void run()`, which this rule then rejects.
+    "typescript/no-confusing-void-expression": "off",
   },
 });

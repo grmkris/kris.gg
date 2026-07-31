@@ -86,10 +86,7 @@ export const toLatLon = (coord: Coord): readonly [number, number] => [
  * perpendicular-distance test below at city scale, and far cheaper than a
  * proper geodesic — simplification tolerances are metres, not millimetres.
  */
-const project = (
-  coord: Coord,
-  cosLat0: number
-): readonly [number, number] => [
+const project = (coord: Coord, cosLat0: number): readonly [number, number] => [
   toRadians(coord[0]) * cosLat0 * EARTH_RADIUS_M,
   toRadians(coord[1]) * EARTH_RADIUS_M,
 ];

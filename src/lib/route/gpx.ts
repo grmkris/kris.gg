@@ -17,27 +17,29 @@ const XML_ESCAPES: Record<string, string> = {
 };
 
 const escapeXml = (value: string): string =>
-  value.replace(/["&'<>]/g, (character) => XML_ESCAPES[character] ?? character);
+  value.replaceAll(
+    /["&'<>]/g,
+    (character) => XML_ESCAPES[character] ?? character
+  );
 
 /** Coordinates carry more precision than any consumer needs; 7dp is ~1cm. */
 const fixed = (value: number, places: number): string =>
   Number.parseFloat(value.toFixed(places)).toString();
 
-export type GpxOptions = {
+export interface GpxOptions {
   readonly coords: readonly Coord[];
   readonly name: string;
   /** ISO-8601 timestamp. Passed in rather than read from the clock so the
    *  output is deterministic and testable. */
   readonly time?: string;
-};
+}
 
 export const toGpx = ({ coords, name, time }: GpxOptions): string => {
   const points = coords
     .map((coord) => {
       const [lon, lat, ele] = coord;
       const open = `      <trkpt lat="${fixed(lat, 7)}" lon="${fixed(lon, 7)}">`;
-      const elevation =
-        ele === undefined ? "" : `<ele>${fixed(ele, 2)}</ele>`;
+      const elevation = ele === undefined ? "" : `<ele>${fixed(ele, 2)}</ele>`;
       return `${open}${elevation}</trkpt>`;
     })
     .join("\n");
@@ -63,7 +65,7 @@ ${points}
 export const gpxFilename = (name: string): string => {
   const slug = name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
   return `${slug === "" ? "route" : slug}.gpx`;
 };
