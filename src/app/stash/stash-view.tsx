@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { authClient, useSession } from "@/lib/auth-client";
 import { StashItem } from "@/stash/schema";
+import type { StashItemId } from "@/stash/schema";
 
 import {
   createStash,
@@ -19,6 +20,12 @@ const isTypingTarget = (target: EventTarget | null): boolean =>
   (target.tagName === "INPUT" ||
     target.tagName === "TEXTAREA" ||
     target.isContentEditable);
+
+const without = (set: ReadonlySet<string>, id: string): Set<string> => {
+  const next = new Set(set);
+  next.delete(id);
+  return next;
+};
 
 /**
  * `StashItem` is an Effect `Schema.Class`, so `{ ...item, done }` would hand
@@ -37,6 +44,35 @@ const asUrl = (text: string): string | undefined => {
   }
   return trimmed;
 };
+
+/**
+ * Placeholder rows while the first list loads. The geometry matches a real row
+ * — 44px control, two text lines, same padding and divider — so the list does
+ * not jump when the data arrives.
+ */
+function StashSkeleton() {
+  return (
+    <div aria-hidden="true" className="animate-pulse">
+      {[0, 1, 2].map((row) => (
+        <div
+          className="flex items-start gap-3 border-t border-[#1a1a1a] py-4"
+          key={row}
+        >
+          <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center">
+            <span className="block h-4 w-4 rounded-[3px] bg-[#1a1a1a]" />
+          </div>
+          <div className="min-w-0 flex-1 space-y-2 py-1">
+            <span
+              className="block h-3 rounded-sm bg-[#1a1a1a]"
+              style={{ width: ["78%", "56%", "67%"][row] }}
+            />
+            <span className="block h-2.5 w-24 rounded-sm bg-[#141414]" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function SignIn() {
   const [busy, setBusy] = useState(false);
@@ -80,7 +116,7 @@ function SignIn() {
     <div className="flex min-h-[50vh] flex-col items-center justify-center gap-6 text-center">
       <h1 className="font-display text-4xl font-light text-[#f4ede1]">Stash</h1>
       <button
-        className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-colors hover:border-[#555] disabled:opacity-50"
+        className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-[color,border-color,transform] duration-150 ease-out hover:border-[#555] active:scale-[0.96] disabled:opacity-50"
         disabled={busy}
         onClick={() => void signIn()}
         type="button"
@@ -107,7 +143,7 @@ function SignIn() {
             value={secret}
           />
           <button
-            className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-colors hover:border-[#555] disabled:opacity-50"
+            className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-[color,border-color,transform] duration-150 ease-out hover:border-[#555] active:scale-[0.96] disabled:opacity-50"
             disabled={busy || secret.trim() === ""}
             onClick={() => void register()}
             type="button"
@@ -136,12 +172,36 @@ export function StashView() {
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(true);
   const [cursor, setCursor] = useState(0);
+  /** Rows written optimistically, not yet acknowledged by the server. */
+  const [pending, setPending] = useState<ReadonlySet<string>>(new Set());
+  /** Rows added after mount — the only ones that animate in. */
+  const [entering, setEntering] = useState<ReadonlySet<string>>(new Set());
+  /** Rows playing their exit animation before being dropped from the list. */
+  const [exiting, setExiting] = useState<ReadonlySet<string>>(new Set());
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  /**
+   * A provisional row is created with a temporary id and later replaced by the
+   * server's. React would treat that as a different element and remount it
+   * mid-animation, so rows are keyed through this map: the real id inherits the
+   * provisional id's key and the DOM node survives the swap.
+   */
+  const rowKeys = useRef(new Map<string, string>());
+  const keyFor = (id: string): string => {
+    const existing = rowKeys.current.get(id);
+    if (existing !== undefined) {
+      return existing;
+    }
+    rowKeys.current.set(id, id);
+    return id;
+  };
 
   const signedIn = session?.user !== undefined;
 
   const refresh = useCallback(async () => {
     try {
+      // Deliberately does not clear `items` first: a refetch keeps the current
+      // list on screen rather than flashing empty for a Cloudflare round trip.
       setItems(await listStash());
     } catch (error) {
       toast.error(`Could not load stash: ${String(error)}`);
@@ -161,17 +221,53 @@ export function StashView() {
     if (body === "") {
       return;
     }
-    setDraft("");
     const url = asUrl(body);
+    const kind = url === undefined ? ("note" as const) : ("link" as const);
+    const now = Date.now();
+    const tempId = `stx_local_${crypto.randomUUID().replaceAll("-", "")}`;
+
+    // Show the row immediately. Every write is one Vercel -> Cloudflare round
+    // trip, so waiting for the response before rendering is the whole reason
+    // saving felt slow.
+    const provisional = new StashItem({
+      archivedAt: null,
+      body,
+      createdAt: now,
+      done: false,
+      id: tempId as StashItemId,
+      kind,
+      source: "web",
+      tags: [],
+      title: null,
+      updatedAt: now,
+      url: url ?? null,
+    });
+
+    setDraft("");
+    setItems((current) => [provisional, ...current]);
+    setPending((current) => new Set(current).add(tempId));
+    setEntering((current) => new Set(current).add(tempId));
+
     try {
       const created = await createStash({
         body,
-        kind: url === undefined ? "note" : "link",
+        kind,
         source: "web",
         ...(url === undefined ? {} : { url }),
       });
-      setItems((current) => [created, ...current]);
+      // Inherit the provisional row's key so the swap does not remount it.
+      rowKeys.current.set(created.id, keyFor(tempId));
+      setItems((current) =>
+        current.map((i) => (i.id === tempId ? created : i))
+      );
+      setEntering((current) =>
+        new Set(without(current, tempId)).add(created.id)
+      );
+      setPending((current) => without(current, tempId));
     } catch (error) {
+      setItems((current) => current.filter((i) => i.id !== tempId));
+      setPending((current) => without(current, tempId));
+      setEntering((current) => without(current, tempId));
       setDraft(body);
       toast.error(`Could not save: ${String(error)}`);
     }
@@ -193,14 +289,34 @@ export function StashView() {
     }
   }, []);
 
-  const drop = useCallback(async (item: StashItem) => {
-    setItems((current) => current.filter((i) => i.id !== item.id));
-    try {
-      await removeStash(item.id);
-    } catch (error) {
-      toast.error(`Could not delete: ${String(error)}`);
-      setItems(await listStash());
-    }
+  /**
+   * Marks the row for exit; `onAnimationEnd` below is what actually drops it.
+   * Letting the animation report its own completion avoids duplicating the CSS
+   * duration here, where the two would drift apart.
+   */
+  const drop = useCallback(
+    async (item: StashItem) => {
+      setExiting((current) => new Set(current).add(item.id));
+      try {
+        await removeStash(item.id);
+      } catch (error) {
+        setExiting((current) => without(current, item.id));
+        toast.error(`Could not delete: ${String(error)}`);
+        await refresh();
+      }
+    },
+    [refresh]
+  );
+
+  /** The exit animation finished — now the row can leave the list. */
+  const settleExit = useCallback((id: string) => {
+    setExiting((current) => {
+      if (!current.has(id)) {
+        return current;
+      }
+      setItems((rows) => rows.filter((row) => row.id !== id));
+      return without(current, id);
+    });
   }, []);
 
   // The repo's first keyboard layer. `/` focuses capture, j/k move, x toggles,
@@ -224,12 +340,12 @@ export function StashView() {
         setCursor((c) => Math.max(c - 1, 0));
       } else if (event.key === "x") {
         const item = items[cursor];
-        if (item !== undefined) {
+        if (item !== undefined && !pending.has(item.id)) {
           void toggleDone(item);
         }
       } else if (event.key === "e") {
         const item = items[cursor];
-        if (item !== undefined) {
+        if (item !== undefined && !pending.has(item.id)) {
           void drop(item);
         }
       }
@@ -238,7 +354,7 @@ export function StashView() {
     return () => {
       window.removeEventListener("keydown", onKey);
     };
-  }, [signedIn, items, cursor, toggleDone, drop]);
+  }, [signedIn, items, cursor, pending, toggleDone, drop]);
 
   if (isPending) {
     return <p className="text-sm text-[#525252]">Loading…</p>;
@@ -276,7 +392,7 @@ export function StashView() {
       />
 
       <section className="mt-8">
-        {loading ? <p className="text-sm text-[#525252]">Loading…</p> : null}
+        {loading && items.length === 0 ? <StashSkeleton /> : null}
         {!loading && items.length === 0 ? (
           <p className="text-sm text-[#525252]">Nothing stashed yet.</p>
         ) : null}
@@ -285,25 +401,55 @@ export function StashView() {
           <article
             className={`flex items-start gap-3 border-t border-[#1a1a1a] py-4 ${
               index === cursor ? "border-l-2 border-l-[#c8472b] pl-3" : ""
+            } ${entering.has(item.id) ? "stash-enter" : ""} ${
+              exiting.has(item.id) ? "stash-exit" : ""
+            } ${
+              // Not yet acknowledged by D1: dimmed, and not interactive —
+              // toggling a row the server has never seen would 404.
+              pending.has(item.id) ? "pointer-events-none opacity-50" : ""
             }`}
-            key={item.id}
+            key={keyFor(item.id)}
+            onAnimationEnd={() => {
+              settleExit(item.id);
+            }}
           >
             <button
               aria-label={item.done ? "Mark not done" : "Mark done"}
-              className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center text-[#525252] transition-colors hover:text-[#e8e8e8]"
+              className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center text-[#525252] transition-transform duration-150 ease-out hover:text-[#e8e8e8] active:scale-[0.96]"
               onClick={() => void toggleDone(item)}
               type="button"
             >
               <span
-                className={`block h-4 w-4 rounded-sm border ${
+                className={`relative block h-4 w-4 rounded-[3px] border transition-colors duration-150 ease-out ${
                   item.done ? "border-[#c8472b] bg-[#c8472b]" : "border-[#333]"
                 }`}
-              />
+              >
+                {/* Kept in the DOM and cross-faded rather than mounted on
+                    toggle, so the check has an exit as well as an enter. */}
+                <svg
+                  aria-hidden="true"
+                  className={`absolute inset-0 h-full w-full text-[#0a0a0a] transition-[opacity,scale,filter] duration-200 ease-[cubic-bezier(0.2,0,0,1)] ${
+                    item.done
+                      ? "scale-100 opacity-100 blur-0"
+                      : "scale-[0.25] opacity-0 blur-[4px]"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.5 8.5 L6.5 11.5 L12.5 4.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </button>
 
             <div className="min-w-0 flex-1">
               <p
-                className={`whitespace-pre-wrap break-words text-sm ${
+                className={`whitespace-pre-wrap break-words text-pretty text-sm transition-colors duration-150 ease-out ${
                   item.done ? "text-[#525252] line-through" : "text-[#e8e8e8]"
                 }`}
               >
@@ -327,7 +473,7 @@ export function StashView() {
 
             <button
               aria-label="Delete"
-              className="flex h-11 w-11 shrink-0 items-center justify-center text-[#525252] transition-colors hover:text-[#c8472b]"
+              className="flex h-11 w-11 shrink-0 items-center justify-center text-[#525252] transition-[color,transform] duration-150 ease-out hover:text-[#c8472b] active:scale-[0.96]"
               onClick={() => void drop(item)}
               type="button"
             >

@@ -11,7 +11,10 @@
     // drizzle-kit owns these; reformatting them makes every migration a
     // whole-file diff and risks confusing the snapshot comparison.
     "src/db/migrations/**",
+    // Agent instructions, not source. `.claude/skills/*` symlinks into
+    // `.agents/skills/*`, so both paths have to be listed.
     ".claude/**",
+    ".agents/**",
   ],
   "printWidth": 80,
   "tabWidth": 2,
