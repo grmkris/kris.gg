@@ -1,202 +1,107 @@
 # Instruction: Bring /stash online against real Cloudflare D1
 
-## Objective
+**Status: done on `dev`, verified on `dev.kris.gg`.** Everything that can be
+checked without a browser has been. What remains is the passkey ceremony itself
+(needs a real authenticator) and the promotion to production.
 
-The `/stash` private capture inbox is fully written and committed (`b415f50` on
-`dev`) but has **never touched a real database**. Provision D1, run migrations,
-mint a passkey + API key, and verify every surface end-to-end.
-
-## Context — what /stash is
+## What /stash is
 
 A personal "I'll need this later" inbox, inspired by
-[Copper](https://shadcn.com/copper). Single user (me), private, **not** published
+[Copper](https://shadcn.com/copper). Single user, private, **not** published
 content and **not** wired into `src/content/*`.
 
-The design constraint that drives everything: a web page cannot read the OS text
-selection or bind a global hotkey — that needs a native app with a macOS
-Accessibility grant. So `/stash` is the **triage UI**, and **capture happens
-elsewhere**: CLI, Raycast, and an MCP endpoint that agents can write to. The
-agent-writable inbox is the part Copper structurally cannot do.
+A web page cannot read the OS text selection or bind a global hotkey — that needs
+a native app with a macOS Accessibility grant. So `/stash` is the **triage UI**,
+and **capture happens elsewhere**: CLI, Raycast, and an MCP endpoint agents can
+write to. The agent-writable inbox is the part Copper structurally cannot do.
 
-## Current state
+## Infrastructure
 
-Committed on `dev` as `b415f50`. `bun run typecheck` clean, `bun test` 15/15
-green, `bun run build` succeeds.
-
-### Architecture
-
-```
-kris.gg (Vercel, Node runtime)
-├── /stash                        client UI, passkey sign-in, keyboard layer
-├── /api/auth/[...all]            better-auth handler
-└── /api/[[...path]]              ONE Effect HttpRouter serving:
-      ├── /api/stash  (HttpApi)   list / create / update / remove
-      └── /api/mcp    (McpServer) stash_add / stash_list / stash_done
-                    │
-                    └── drizzle-orm/sqlite-proxy ──HTTP──> Cloudflare D1
-```
-
-### Files
-
-| Path | Role |
+| | |
 | --- | --- |
-| `src/db/client.ts` | D1 over REST; `assertNoTransaction` guard |
-| `src/db/schema/{stash,auth,index}.ts` | `stash_item` + better-auth tables (CLI-generated) |
-| `src/stash/schema.ts` | `StashItem`, payloads, tagged errors |
-| `src/stash/api.ts` | `StashApi` contract — **imported by the browser too** |
-| `src/stash/store.ts` | `StashStore` service + layer |
-| `src/stash/handlers.ts` | `StashGroup` implementation |
-| `src/stash/middleware.ts` | `StashAuth` **declaration only** (browser-safe) |
-| `src/stash/middleware-live.ts` | `StashAuth` implementation (`server-only`) |
-| `src/stash/mcp.ts` | MCP toolkit + `StashOwner` reference + key middleware |
-| `src/lib/auth.ts` | better-auth (passkey + apiKey, cookieCache) |
-| `src/lib/api/runtime.ts` | lazy `ManagedRuntime` + `HttpApiClient` (invok donor port) |
-| `src/app/stash/*` | page, promise-shaped client, UI |
-| `scripts/stash.ts`, `scripts/raycast/stash-clipboard.sh` | capture surfaces |
+| Cloudflare account | `bceaeae4788dce3493514fde194b4a7e` |
+| `kris-stash-dev` | `50d682a5-d57f-4f97-abe8-e8876a391f83` — migrated, in use by localhost + dev.kris.gg |
+| `kris-stash-prod` | `5ab11715-827f-46fd-9b62-2fe8e053d0f9` — created, **empty, unmigrated** |
+| Vercel Preview (dev) | `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_D1_DATABASE_ID`, `CLOUDFLARE_D1_TOKEN`, `BETTER_AUTH_SECRET`, `STASH_REGISTRATION_SECRET` |
+| Local | same five in `.env` (gitignored, mode 600) |
 
-### Dependencies added (exact pins matter)
+Migration `0000_futuristic_ken_ellis` (from the `/routes` work — it covers all 8
+tables) is applied to the dev database. An earlier `0000_public_ikaris` generated
+in this session was discarded when the branches converged, and the dev database
+was dropped and re-migrated so its history matches the repo exactly.
 
-```
-effect                4.0.0-beta.101   (exact)
-@effect/platform-node 4.0.0-beta.101   (exact)
-better-auth           ^1.6.25
-@better-auth/passkey  1.6.25           (separate package in 1.6.x)
-@better-auth/api-key  1.6.25           (separate package in 1.6.x)
-drizzle-orm           ^0.45.2
-drizzle-kit           ^0.31.10
-server-only           ^0.0.1
-```
+## What changed
 
-## Hard-won facts — do not re-derive, do not "fix" these
+- **Passkey registration did not exist.** The UI only offered
+  `signIn.passkey()`, `emailAndPassword` is off, and `addPasskey` needs a
+  session, so the first user could never be created. Now
+  `registration.requireSession: false` + `resolveUser` in `src/lib/auth.ts`,
+  gated on `STASH_REGISTRATION_SECRET`, binding to the single existing account —
+  which also closes the deferred single-user gate.
+- **API keys died after ten requests.** better-auth's api-key plugin defaults to
+  10 per key per *day*; every surface then 401s silently. Disabled in config and
+  at mint time.
+- **MCP identity** reads the request off the current fiber's context rather than
+  a middleware-provided `Context.Reference`.
+- `scripts/stash-key.ts` mints keys; `scripts/d1-smoke.ts` round-trips an item
+  through real D1 and asserts the mappings that fail silently.
+- `bun run verify` is now non-mutating (`ultracite check`, not `fix`) — the old
+  gate rewrote the tree it was checking, and its autofixes change behaviour.
 
-Verified against installed source, not docs:
+## Verified
 
-1. **There is no runtime `d1-http` Drizzle driver.** `drizzle-orm/d1` needs a
-   Workers binding. `driver: "d1-http"` in `drizzle.config.ts` is drizzle-kit
-   (migrations) only. Runtime goes through `drizzle-orm/sqlite-proxy`.
-2. **D1 has no usable transactions, either driver.** Both emit literal
-   `BEGIN`/`COMMIT`, which D1 rejects — and over stateless REST they'd hit
-   different connections anyway. `assertNoTransaction` fails loudly on purpose.
-   **Every mutation must stay a single statement.** Ownership is enforced by
-   putting `userId` in the `WHERE`, never by read-then-write.
-3. **D1's `/raw` returns `result[0].results.rows`** (positional arrays), not
-   `result[0].results`. `/query` would return row *objects* and force fragile
-   key-order reconstruction — that's why `/raw` is used.
-4. **Effect beta.101 has `Context.Service`, NOT `ServiceMap.Service`.** The
-   installed effect-ts skill is wrong for this version. Same class of drift:
-   `HttpApiEndpoint.delete` (not `del`), `Schema.NonEmptyString` (no
-   `Schema.minLength`). **Prefer `~/Code/github-com/invok` real beta code over
-   the skill** for API shapes.
-5. **better-auth 1.6.25 does not bundle passkey/api-key** — separate
-   `@better-auth/*` packages. The API key's owner column is **`referenceId`**,
-   not `userId`.
-6. **Bundle discipline is load-bearing.** `src/stash/api.ts` is imported by the
-   browser. It must never reach server-only code — that's why the `StashAuth`
-   declaration and its implementation are in separate files. Regression check:
-   after a build, `drizzle-orm` and `api.cloudflare.com` must not appear in
-   `.next/static/chunks/`, and only `/stash` should reference the Effect chunk.
-7. **MCP tool handlers require `R = never`**, so per-request identity cannot be
-   an ordinary service. `StashOwner` is a `Context.Reference` (has a default →
-   stays out of `R`), filled from `x-api-key` by a global router middleware.
-   Empty string means "no valid key" and every tool refuses.
-8. **Passkey `rpID: "kris.gg"` covers `dev.kris.gg`** (labels drop from the
-   left), so one passkey works in both. Locally it must be `localhost`.
+- [x] Both D1 databases exist; env set locally and on Vercel Preview (dev)
+- [x] Migration applied to the dev database
+- [x] Real `SELECT` returns correctly-shaped rows — 23/23 smoke checks, covering
+      the `/raw` rows path, int→boolean, epoch ms→Date, JSON text→array,
+      cross-user rejection, and the transaction guard
+- [x] Registration gate: wrong/absent secret 401s, correct secret returns
+      WebAuthn options (rpID `localhost` locally, `kris.gg` on dev)
+- [x] Single-user rule: repeated registration attempts leave exactly one row
+- [x] `bun run stash "…"` and `--list` against `dev.kris.gg`
+- [x] `/api/stash` 401 without a credential, 200 with one
+- [x] MCP over `dev.kris.gg`: `tools/list`, `stash_add`, `stash_list`; refused
+      without a key, and the refused write never reached the database
+- [x] Public site unaffected: content routes prerender, `/stash` is `noindex`
+      and absent from the sitemap
+- [x] Effect chunks load only on `/stash` and `/routes` across 773 pages; no
+      `drizzle-orm`, `api.cloudflare.com` or token in `.next/static/chunks`
+- [x] `bun run verify` — 122 tests, no lint or type errors
 
-## Requirements
+## Left to do
 
-### 1. Provision D1 (needs Cloudflare access — the blocker)
+- [ ] **Register a passkey** at <https://dev.kris.gg/stash> → "Register a new
+      device" → paste `STASH_REGISTRATION_SECRET` (in `.env`). Needs a real
+      authenticator, so it cannot be scripted.
+- [ ] Exercise the UI: capture, toggle done, delete; keyboard `/` focus, `⌘↵`
+      save, `j`/`k` move, `x` toggle, `e` delete.
+- [ ] **Retest on the phone** — mobile is where rpID/origin problems surface.
+- [ ] Rotate `STASH_REGISTRATION_SECRET` once devices are enrolled: it travels
+      as a query parameter and lands in access logs.
+- [ ] Production: migrate `kris-stash-prod`, set Production env vars, promote
+      with a `dev`→`main` **merge-commit** PR (never squash).
 
-- Create **two** databases: `kris-stash-dev` and `kris-stash-prod`. Never share
-  one; pointing `dev.kris.gg` at prod would write into the real stash.
-- Create an API token with **D1 Edit**.
-- Fill `.env` locally (see `.env.example`) and set per-environment on Vercel:
-  - `CLOUDFLARE_ACCOUNT_ID`
-  - `CLOUDFLARE_D1_DATABASE_ID` (dev id for Preview, prod id for Production)
-  - `CLOUDFLARE_D1_TOKEN`
-  - `BETTER_AUTH_SECRET` (`openssl rand -base64 32`)
-
-### 2. Migrate
-
-```
-bun run db:generate     # writes src/db/migrations
-bun run db:migrate      # applies to whichever DB the env points at
-```
-
-Ask before running either, per house rules.
-
-### 3. Verify the D1 read path first
-
-This is the least-trusted code in the change — the `/raw` row mapping has never
-seen a real response. A wrong mapping returns empty rows silently rather than
-erroring, so check an actual SELECT before trusting anything downstream.
-
-### 4. Sign in and exercise the UI
-
-`bun run dev` (port 3001) → `/stash` → register a passkey (rpID `localhost`) →
-capture, toggle done, delete. Keyboard: `/` focus, `⌘↵` save, `j`/`k` move, `x`
-toggle, `e` delete.
-
-### 5. Machine surfaces
-
-Mint an API key via better-auth, export `STASH_API_KEY`, then:
-
-```
-bun run stash "hello from the cli"
-bun run stash --list
-curl -H "x-api-key: $STASH_API_KEY" https://dev.kris.gg/api/stash   # 200
-curl https://dev.kris.gg/api/stash                                  # 401
-claude mcp add --transport http stash https://dev.kris.gg/api/mcp --header "x-api-key: $STASH_API_KEY"
-```
-
-Then have Claude call `stash_add` and confirm the row appears in the UI.
-
-## Acceptance Criteria
-
-- [ ] Two D1 databases exist; env vars set locally and per Vercel environment
-- [ ] `bun run db:migrate` applied to the dev database
-- [ ] A real `SELECT` returns correctly-shaped rows (validates the `/raw` mapping)
-- [ ] Passkey registration + sign-in works locally
-- [ ] Capture / toggle / delete work against real D1
-- [ ] `bun run stash "…"` and `--list` work with an API key
-- [ ] `/api/stash` returns 401 without a credential, 200 with one
-- [ ] MCP: `stash_add` from Claude Code creates a visible row
-- [ ] Deployed to `dev.kris.gg`; passkey + capture retested **on the phone**
-      (mobile is where passkey config problems surface)
-- [ ] Public site unaffected: content routes still prerender, `/stash` is
-      `noindex` and absent from `sitemap.xml`
-- [ ] Only `/stash` loads the Effect chunk (see fact #6)
-- [ ] `bun run typecheck` and `bun test` pass
-- [ ] Promote with a `dev`→`main` **merge-commit** PR (never squash)
-
-## Known issues NOT caused by this work
-
-- **`bun run fix` is broken repo-wide.** `.oxlintrc.json` extends
-  `node_modules/ultracite/config/oxlint/{core,next}/.oxlintrc.json`, which
-  ultracite 7.8.3 no longer ships. Pre-existing (lockfile untouched for
-  ultracite/oxlint). It means **`bun run verify` cannot pass today** — use
-  `bun run typecheck && bun test` until it's fixed.
-- **`src/components/ui/sonner.tsx` is missing `"use client"`.** Latent — nothing
-  rendered `<Toaster/>` before. Worked around by mounting it from a client
-  component instead of editing the shared file.
-- Stale docs still describing the deleted ORPC stack: `README.md` (unmodified
-  Better-T-Stack template) and `.claude/skills/{backend,drizzle,frontend,testing}-patterns`.
-  Also orphaned: `local.db`, `apps/kris.gg/`. Left in place deliberately —
-  deletion is irreversible and was not confirmed.
-
-## Deferred / not built
+## Not built
 
 - Browser extension (MV3 context-menu capture)
 - OAuth for claude.ai custom connectors — would need better-auth's **OAuth
-  Provider** plugin, not its `mcp` plugin (that one is slated for deprecation).
-  Bearer/API key is sufficient for Claude Code.
+  Provider** plugin, not its `mcp` plugin. Bearer/API key suffices for Claude Code.
 - FTS5 search
-- A single-user gate on sign-up (currently any passkey registration creates a
-  user — **close this before `main`**)
+
+## Known, unrelated
+
+- `/routes` needs `ORS_API_KEY` and `GOOGLE_GENERATIVE_AI_API_KEY`; neither is
+  set on Vercel, so the planner will fail on `dev.kris.gg` until they are.
+- `src/components/ui/sonner.tsx` is missing `"use client"`. Worked around by
+  mounting `<Toaster/>` from a client component.
+- Stale docs describing the deleted ORPC stack: `README.md` and
+  `.claude/skills/{backend,drizzle,frontend,testing}-patterns`. Also orphaned:
+  `local.db`, `apps/kris.gg/`.
 
 ## Escape hatch
 
-If `/stash` feels sluggish, the cause is that every query is one
-Vercel → Cloudflare round-trip. `session.cookieCache` already keeps auth off that
-path. The real fix is moving the API to a Worker at `api.kris.gg` with a native
-D1 binding: the Effect/HttpApi code ports unchanged, only the host and
-cookie/CORS config move (`crossSubDomainCookies` + `trustedOrigins`).
+If `/stash` feels sluggish, every query is one Vercel → Cloudflare round-trip.
+`session.cookieCache` already keeps auth off that path. The real fix is moving
+the API to a Worker at `api.kris.gg` with a native D1 binding: the Effect/HttpApi
+code ports unchanged, only the host and cookie/CORS config move
+(`crossSubDomainCookies` + `trustedOrigins`).
