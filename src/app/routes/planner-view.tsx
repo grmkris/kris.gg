@@ -13,8 +13,13 @@ import type { Coord } from "@/lib/route/geo";
 import { gpxFilename, toGpx } from "@/lib/route/gpx";
 import { formatDistance, formatDuration } from "@/lib/route/pace";
 import { authClient, useSession } from "@/lib/auth-client";
-import type { GeneratedRoute, Mood, RouteInputs } from "@/planner/schema";
-import { planRoute } from "./planner-client";
+import type {
+  GeneratedRoute,
+  Mood,
+  PlannedRoute,
+  RouteInputs,
+} from "@/planner/schema";
+import { planRoute, saveRoute, shareRoute } from "./planner-client";
 
 // MapLibre needs `window` and WebGL2 at module scope — it can only be loaded
 // on the client, and eager import would break the build rather than the render.
@@ -103,6 +108,7 @@ export function PlannerView() {
   const [located, setLocated] = useState(false);
 
   const [route, setRoute] = useState<GeneratedRoute | null>(null);
+  const [saved, setSaved] = useState<PlannedRoute | null>(null);
   const [busy, setBusy] = useState(false);
   const [seedBase, setSeedBase] = useState(1);
 
@@ -140,6 +146,9 @@ export function PlannerView() {
       try {
         const generated = await planRoute(inputs, nextSeed ?? seedBase);
         setRoute(generated);
+        // A new route is a different route — any save/share state belongs to
+        // the previous one.
+        setSaved(null);
         // Keep the form in sync when a chip changed the inputs.
         if (overrides.distanceKm !== undefined) {
           setDistanceKm(overrides.distanceKm);
@@ -161,6 +170,37 @@ export function PlannerView() {
     setSeedBase(next);
     void generate({}, next);
   }, [generate, seedBase]);
+
+  const save = useCallback(async () => {
+    if (route === null) {
+      return;
+    }
+    try {
+      setSaved(await saveRoute(route));
+      toast.success("Route saved");
+    } catch (error) {
+      toast.error(`Could not save: ${String(error)}`);
+    }
+  }, [route]);
+
+  const toggleShare = useCallback(async () => {
+    if (saved === null) {
+      return;
+    }
+    try {
+      const updated = await shareRoute(saved.id, saved.shareId === null);
+      setSaved(updated);
+      if (updated.shareId === null) {
+        toast.success("Sharing turned off");
+        return;
+      }
+      const url = `${window.location.origin}/routes/s/${updated.shareId}`;
+      await navigator.clipboard?.writeText(url);
+      toast.success("Share link copied");
+    } catch (error) {
+      toast.error(`Could not update sharing: ${String(error)}`);
+    }
+  }, [saved]);
 
   const downloadGpx = useCallback(() => {
     if (route === null) {
@@ -419,6 +459,26 @@ export function PlannerView() {
               Map links carry only a few waypoints, so they approximate the
               route. GPX is the exact one.
             </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 border-[#1a1a1a] border-t pt-4">
+            <button
+              className={`${BUTTON} ${IDLE}`}
+              disabled={saved !== null}
+              onClick={() => void save()}
+              type="button"
+            >
+              {saved === null ? "Save" : "Saved"}
+            </button>
+            {saved === null ? null : (
+              <button
+                className={`${BUTTON} ${saved.shareId === null ? IDLE : ACTIVE}`}
+                onClick={() => void toggleShare()}
+                type="button"
+              >
+                {saved.shareId === null ? "Share" : "Sharing — copy link"}
+              </button>
+            )}
           </div>
         </section>
       )}
