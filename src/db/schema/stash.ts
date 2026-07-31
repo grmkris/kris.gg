@@ -25,7 +25,7 @@ export const stashItem = sqliteTable(
       .default("note"),
     /** Where the capture came from — tells you which surfaces actually get used. */
     source: text("source", {
-      enum: ["web", "raycast", "cli", "mcp", "extension"],
+      enum: ["web", "raycast", "cli", "mcp", "extension", "ios"],
     })
       .notNull()
       .default("web"),

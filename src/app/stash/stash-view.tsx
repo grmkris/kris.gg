@@ -166,10 +166,17 @@ function SignIn() {
   );
 }
 
-export function StashView() {
+interface StashViewProps {
+  /** Prefills the composer — used by the PWA share target (/stash/share). */
+  readonly initialDraft?: string;
+  /** Focus the composer on arrival, for the share target and the app shortcut. */
+  readonly autoFocus?: boolean;
+}
+
+export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
   const { data: session, isPending } = useSession();
   const [items, setItems] = useState<readonly StashItem[]>([]);
-  const [draft, setDraft] = useState("");
+  const [draft, setDraft] = useState(initialDraft ?? "");
   const [loading, setLoading] = useState(true);
   const [cursor, setCursor] = useState(0);
   /** Rows written optimistically, not yet acknowledged by the server. */
@@ -215,6 +222,16 @@ export function StashView() {
       void refresh();
     }
   }, [signedIn, refresh]);
+
+  useEffect(() => {
+    if (signedIn && autoFocus === true) {
+      inputRef.current?.focus();
+      // Caret to the end: a shared link is prefilled, and the natural next
+      // action is to type a note after it.
+      const length = inputRef.current?.value.length ?? 0;
+      inputRef.current?.setSelectionRange(length, length);
+    }
+  }, [signedIn, autoFocus]);
 
   const save = useCallback(async () => {
     const body = draft.trim();

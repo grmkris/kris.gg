@@ -18,6 +18,7 @@ export const StashSource = Schema.Literals([
   "cli",
   "mcp",
   "extension",
+  "ios",
 ]);
 export type StashSource = typeof StashSource.Type;
 
