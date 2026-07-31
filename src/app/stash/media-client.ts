@@ -21,10 +21,22 @@ const MAX_EDGE = 1600;
 const PLACEHOLDER_EDGE = 16;
 const QUALITY = 0.82;
 
+/**
+ * What the picker/clipboard may hand us. Wider than what we *store*: an iPhone
+ * photo arrives as HEIC, which `createImageBitmap` can decode and the canvas
+ * re-encodes to something portable. Only `passthrough` types reach the bucket
+ * unchanged, and HEIC is never one of them.
+ */
 export const isSupportedImage = (type: string): boolean =>
-  ["image/png", "image/jpeg", "image/webp", "image/gif", "image/avif"].includes(
-    type
-  );
+  [
+    "image/png",
+    "image/jpeg",
+    "image/webp",
+    "image/gif",
+    "image/avif",
+    "image/heic",
+    "image/heif",
+  ].includes(type);
 
 /**
  * `OffscreenCanvas` rather than a DOM canvas: `convertToBlob` is promise-based,
@@ -48,18 +60,37 @@ const drawTo = (
   return canvas;
 };
 
-const toBlob = async (canvas: OffscreenCanvas, type: string): Promise<Blob> =>
-  await canvas.convertToBlob({ quality: QUALITY, type });
+/**
+ * Encode, and **believe the blob about what it is**.
+ *
+ * Safari has no WebP encoder for canvas: asked for `image/webp` it silently
+ * returns PNG rather than failing. Trusting the requested type would store
+ * PNG bytes labelled `image/webp`, with a `.webp` key and a malformed
+ * `data:image/webp` placeholder. So: ask for WebP, check what came back, and
+ * fall back to JPEG — which every browser encodes, and which is far smaller
+ * than PNG for photographs.
+ */
+const encode = async (
+  canvas: OffscreenCanvas,
+  quality: number
+): Promise<Blob> => {
+  const preferred = await canvas.convertToBlob({ quality, type: "image/webp" });
+  if (preferred.type === "image/webp") {
+    return preferred;
+  }
+  return await canvas.convertToBlob({ quality, type: "image/jpeg" });
+};
 
 /** Base64 without a FileReader — the bytes are already in hand. */
 const toDataUri = async (canvas: OffscreenCanvas): Promise<string> => {
-  const blob = await canvas.convertToBlob({ quality: 0.5, type: "image/webp" });
+  const blob = await encode(canvas, 0.5);
   const bytes = new Uint8Array(await blob.arrayBuffer());
   let binary = "";
   for (const byte of bytes) {
     binary += String.fromCodePoint(byte);
   }
-  return `data:image/webp;base64,${btoa(binary)}`;
+  // The blob's own type, not an assumed one.
+  return `data:${blob.type};base64,${btoa(binary)}`;
 };
 
 export interface PreparedImage {
@@ -83,16 +114,20 @@ export const prepareImage = async (file: File): Promise<PreparedImage> => {
   const bitmap = await createImageBitmap(file);
   try {
     const scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height));
-    const passthrough = file.type === "image/gif" || scale === 1;
+    // A HEIC is always re-encoded: the API does not accept it, and most
+    // browsers cannot render it.
+    const heic = file.type === "image/heic" || file.type === "image/heif";
+    const passthrough = !heic && (file.type === "image/gif" || scale === 1);
 
     const width = Math.round(bitmap.width * scale);
     const height = Math.round(bitmap.height * scale);
 
-    // WebP everywhere except GIF, which would lose its animation.
-    const contentType = passthrough ? file.type : "image/webp";
+    // GIF is passed through — a canvas would flatten it to one frame.
     const blob = passthrough
       ? file
-      : await toBlob(drawTo(bitmap, width, height), contentType);
+      : await encode(drawTo(bitmap, width, height), QUALITY);
+    // Whatever the encoder actually produced.
+    const contentType = passthrough ? file.type : blob.type;
 
     const placeholderScale =
       PLACEHOLDER_EDGE / Math.max(bitmap.width, bitmap.height);

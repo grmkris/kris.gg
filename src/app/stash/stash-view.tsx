@@ -38,6 +38,30 @@ const isTypingTarget = (target: EventTarget | null): boolean =>
     target.tagName === "TEXTAREA" ||
     target.isContentEditable);
 
+/**
+ * Effect's client errors stringify to `[object Object]` or a bare tag, which is
+ * useless on a phone where there is no console to check. Dig out something a
+ * human can read and report.
+ */
+const describeError = (error: unknown): string => {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  if (typeof error === "object" && error !== null) {
+    const record = error as Record<string, unknown>;
+    const message = record.message ?? record._tag;
+    if (typeof message === "string") {
+      return message;
+    }
+    try {
+      return JSON.stringify(error);
+    } catch {
+      return "unknown error";
+    }
+  }
+  return String(error);
+};
+
 const without = (set: ReadonlySet<string>, id: string): Set<string> => {
   const next = new Set(set);
   next.delete(id);
@@ -52,6 +76,9 @@ const without = (set: ReadonlySet<string>, id: string): Set<string> => {
 const withDone = (item: StashItem, done: boolean): StashItem =>
   // oxlint-disable-next-line typescript/no-misused-spread -- immediately rebuilt into the class
   new StashItem({ ...item, done });
+
+/** Above this, a capture is collapsed behind "more" so it cannot own the list. */
+const LONG_BODY_CHARS = 280;
 
 /** Detects a URL-only capture so it can be stored as a link rather than a note. */
 const asUrl = (text: string): string | undefined => {
@@ -145,7 +172,7 @@ function SignIn() {
         <div className="flex w-full max-w-xs flex-col gap-3">
           <input
             autoComplete="off"
-            className="min-h-[44px] rounded-md border border-[#1a1a1a] bg-[#111] px-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
+            className="min-h-[44px] rounded-md border border-[#1a1a1a] bg-[#111] px-3 text-base text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333] md:text-sm"
             onChange={(event) => {
               setSecret(event.target.value);
             }}
@@ -205,6 +232,10 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
   /** Images staged on the draft, not yet uploaded or saved. */
   const [attached, setAttached] = useState<readonly PreparedImage[]>([]);
   const [dragging, setDragging] = useState(false);
+  /** Captures expanded past the fold. */
+  const [expanded, setExpanded] = useState<ReadonlySet<string>>(new Set());
+  /** The row whose body was just copied, for the confirmation label. */
+  const [copied, setCopied] = useState<string>();
   /** Which attachment the lightbox is showing, if any. */
   const [viewing, setViewing] = useState<{
     readonly index: number;
@@ -236,7 +267,7 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
       // list on screen rather than flashing empty for a Cloudflare round trip.
       setItems(await listStash());
     } catch (error) {
-      toast.error(`Could not load stash: ${String(error)}`);
+      toast.error(`Could not load stash: ${describeError(error)}`);
     } finally {
       setLoading(false);
     }
@@ -264,7 +295,9 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
         const image = await prepareImage(file);
         setAttached((current) => [...current, image]);
       } catch (error) {
-        toast.error(`Could not read ${file.name || "image"}: ${String(error)}`);
+        toast.error(
+          `Could not read ${file.name || "image"}: ${describeError(error)}`
+        );
       }
     }
   }, []);
@@ -359,7 +392,7 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
       setEntering((current) => without(current, tempId));
       setDraft(body);
       setAttached(staged);
-      toast.error(`Could not save: ${String(error)}`);
+      toast.error(`Could not save: ${describeError(error)}`);
     }
   }, [draft, attached]);
 
@@ -375,7 +408,7 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
       setItems((current) =>
         current.map((i) => (i.id === item.id ? withDone(i, item.done) : i))
       );
-      toast.error(`Could not update: ${String(error)}`);
+      toast.error(`Could not update: ${describeError(error)}`);
     }
   }, []);
 
@@ -391,12 +424,27 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
         await removeStash(item.id);
       } catch (error) {
         setExiting((current) => without(current, item.id));
-        toast.error(`Could not delete: ${String(error)}`);
+        toast.error(`Could not delete: ${describeError(error)}`);
         await refresh();
       }
     },
     [refresh]
   );
+
+  const copyBody = useCallback(async (item: StashItem) => {
+    try {
+      await navigator.clipboard.writeText(item.body);
+      setCopied(item.id);
+      // Revert the label rather than raising a toast — the button is already
+      // where the eye is.
+      window.setTimeout(() => {
+        setCopied((current) => (current === item.id ? undefined : current));
+      }, 1600);
+    } catch (error) {
+      // Safari refuses the clipboard outside a user gesture or over http.
+      toast.error(`Could not copy: ${describeError(error)}`);
+    }
+  }, []);
 
   /** The exit animation finished — now the row can leave the list. */
   const settleExit = useCallback((id: string) => {
@@ -490,7 +538,9 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
         }}
       >
         <textarea
-          className="min-h-[88px] w-full resize-y rounded-md border border-[#1a1a1a] bg-[#111] p-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
+          /* text-base on mobile: Safari zooms the viewport when a focused
+             control is under 16px, and never zooms back out. */
+          className="min-h-[88px] w-full resize-y rounded-md border border-[#1a1a1a] bg-[#111] p-3 text-base text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333] md:text-sm"
           onChange={(event) => {
             setDraft(event.target.value);
           }}
@@ -628,13 +678,33 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
             </button>
 
             <div className="min-w-0 flex-1">
-              <p
-                className={`whitespace-pre-wrap break-words text-pretty text-sm transition-colors duration-150 ease-out ${
-                  item.done ? "text-[#525252] line-through" : "text-[#e8e8e8]"
-                }`}
-              >
-                {item.body}
-              </p>
+              {item.body === "" ? null : (
+                <p
+                  className={`whitespace-pre-wrap break-words text-pretty text-sm transition-colors duration-150 ease-out ${
+                    item.done ? "text-[#525252] line-through" : "text-[#e8e8e8]"
+                  }`}
+                >
+                  {item.body.length > LONG_BODY_CHARS && !expanded.has(item.id)
+                    ? `${item.body.slice(0, LONG_BODY_CHARS).trimEnd()}…`
+                    : item.body}
+                </p>
+              )}
+
+              {item.body.length > LONG_BODY_CHARS ? (
+                <button
+                  className="mt-1 font-sans text-xs text-[#525252] underline underline-offset-2 transition-colors hover:text-[#a3a3a3]"
+                  onClick={() => {
+                    setExpanded((current) =>
+                      current.has(item.id)
+                        ? without(current, item.id)
+                        : new Set(current).add(item.id)
+                    );
+                  }}
+                  type="button"
+                >
+                  {expanded.has(item.id) ? "less" : "more"}
+                </button>
+              ) : null}
               {item.attachments.length > 0 ? (
                 <div className="mt-2 flex flex-wrap gap-2">
                   {item.attachments.map((attachment, i) => (
@@ -672,6 +742,15 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
 
               <div className="mt-1 flex items-center gap-3 font-sans text-xs text-[#525252]">
                 <span>{new Date(item.createdAt).toLocaleDateString()}</span>
+                {item.body === "" ? null : (
+                  <button
+                    className="underline underline-offset-2 transition-colors hover:text-[#a3a3a3]"
+                    onClick={() => void copyBody(item)}
+                    type="button"
+                  >
+                    {copied === item.id ? "copied" : "copy"}
+                  </button>
+                )}
                 {item.source === "web" ? null : <span>{item.source}</span>}
                 {item.url === null ? null : (
                   <a
