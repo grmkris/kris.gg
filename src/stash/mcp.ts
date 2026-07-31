@@ -10,33 +10,60 @@ import "server-only";
  * ## Identity
  *
  * MCP tool handlers are required to have `R = never`, so the per-request user
- * cannot be an ordinary service. `StashOwner` is a `Context.Reference` (it
- * carries a default, so it stays out of `R`) which `McpAuthMiddleware` fills in
- * from the `x-api-key` header. A request without a valid key leaves it empty and
- * every tool refuses — passkeys are interactive and cannot cover a headless
- * client, so the API key is the only credential here.
+ * cannot be an ordinary service. This used to be a `Context.Reference` filled
+ * by a global router middleware; `requireOwner` now reads the request straight
+ * off the current fiber's context instead — the same way Effect's own MCP HTTP
+ * transport reaches it — which also keeps `R` at `never`, with no dependency on
+ * middleware ordering or on how far the request context survives into the
+ * server's forked run loop. Verified: at tool-handler depth the fiber does
+ * carry `HttpServerRequest`, `x-api-key` and all.
+ *
+ * (The middleware version may well have worked too. It appeared broken while
+ * the api-key plugin's default 10-requests-per-DAY limit was quietly failing
+ * every verification — see the rate limit note in `src/lib/auth.ts`.)
+ *
+ * No valid `x-api-key`, no tool call: passkeys are interactive and cannot cover
+ * a headless client, so the API key is the only credential here.
  */
 import { Context, Effect, Layer, Schema } from "effect";
 import { McpServer, Tool, Toolkit } from "effect/unstable/ai";
-import { HttpRouter, HttpServerRequest } from "effect/unstable/http";
-import type { HttpServerResponse } from "effect/unstable/http";
+import { HttpServerRequest } from "effect/unstable/http";
 
 import { auth } from "@/lib/auth";
 
 import { StashKind, StashSource } from "./schema";
 import { StashStore } from "./store";
 
-/** Empty string = "this request presented no valid API key". */
-export const StashOwner = Context.Reference<string>("kris-gg/StashOwner", {
-  defaultValue: () => "",
+const unauthorized = Effect.die(
+  new Error("Unauthorized: send a valid x-api-key header.")
+);
+
+/** Empty string = "this request presented no API key at all". */
+const currentApiKey = Effect.withFiber<string>((fiber) => {
+  const request = Context.getOrUndefined(
+    fiber.context,
+    HttpServerRequest.HttpServerRequest
+  );
+  const key = request?.headers["x-api-key"];
+  return Effect.succeed(typeof key === "string" ? key : "");
 });
 
 const requireOwner = Effect.gen(function* requireOwner() {
-  const userId = yield* StashOwner;
-  if (userId === "") {
-    return yield* Effect.die(
-      new Error("Unauthorized: send a valid x-api-key header.")
-    );
+  const key = yield* currentApiKey;
+  if (key === "") {
+    return yield* unauthorized;
+  }
+  const verified = yield* Effect.catch(
+    Effect.tryPromise({
+      catch: () => "verify-failed" as const,
+      try: async () => auth.api.verifyApiKey({ body: { key } }),
+    }),
+    () => Effect.succeed(null)
+  );
+  // The api-key plugin stores the owning user in `referenceId`, not `userId`.
+  const userId = verified?.key?.referenceId;
+  if (verified?.valid !== true || typeof userId !== "string") {
+    return yield* unauthorized;
   }
   return userId;
 });
@@ -120,40 +147,11 @@ const StashToolkitLayer = StashToolkit.toLayer(
   })
 );
 
-/**
- * Resolves `x-api-key` into `StashOwner`. Registered globally on this router;
- * the stash HttpApi is unaffected because it takes identity from `StashAuth`.
- */
-const McpAuthMiddleware = HttpRouter.middleware(
-  (httpEffect: Effect.Effect<HttpServerResponse.HttpServerResponse, unknown>) =>
-    Effect.gen(function* McpAuthMiddleware() {
-      const request = yield* HttpServerRequest.HttpServerRequest;
-      const key = request.headers["x-api-key"];
-      if (typeof key !== "string" || key === "") {
-        return yield* httpEffect;
-      }
-      const verified = yield* Effect.catch(
-        Effect.tryPromise({
-          catch: () => "verify-failed" as const,
-          try: async () => auth.api.verifyApiKey({ body: { key } }),
-        }),
-        () => Effect.succeed(null)
-      );
-      const userId = verified?.key?.referenceId;
-      if (verified?.valid === true && typeof userId === "string") {
-        return yield* Effect.provideService(httpEffect, StashOwner, userId);
-      }
-      return yield* httpEffect;
-    }),
-  { global: true }
-);
-
 export const StashMcpLayer = McpServer.layerHttp({
   name: "kris-stash",
   path: "/api/mcp",
   version: "0.1.0",
 }).pipe(
   Layer.provide(McpServer.toolkit(StashToolkit)),
-  Layer.provide(StashToolkitLayer),
-  Layer.provideMerge(McpAuthMiddleware)
+  Layer.provide(StashToolkitLayer)
 );

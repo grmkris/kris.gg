@@ -40,6 +40,8 @@ const asUrl = (text: string): string | undefined => {
 
 function SignIn() {
   const [busy, setBusy] = useState(false);
+  const [registering, setRegistering] = useState(false);
+  const [secret, setSecret] = useState("");
 
   const signIn = async () => {
     setBusy(true);
@@ -48,6 +50,30 @@ function SignIn() {
     if (result?.error) {
       toast.error(result.error.message ?? "Passkey sign-in failed");
     }
+  };
+
+  /**
+   * Enrol this device. The secret is `STASH_REGISTRATION_SECRET`, checked
+   * server-side in `src/lib/auth.ts` — this field is a courier, not the gate.
+   * Registration does not create a session, so sign in straight after.
+   */
+  const register = async () => {
+    if (secret.trim() === "") {
+      return;
+    }
+    setBusy(true);
+    const result = await authClient.passkey.addPasskey({
+      context: secret.trim(),
+      name: `${navigator.platform || "device"} · ${new Date().toISOString().slice(0, 10)}`,
+    });
+    if (result?.error) {
+      setBusy(false);
+      toast.error(result.error.message ?? "Registration failed");
+      return;
+    }
+    setSecret("");
+    setRegistering(false);
+    await signIn();
   };
 
   return (
@@ -61,6 +87,45 @@ function SignIn() {
       >
         {busy ? "Waiting for passkey…" : "Sign in with passkey"}
       </button>
+
+      {registering ? (
+        <div className="flex w-full max-w-xs flex-col gap-3">
+          <input
+            autoComplete="off"
+            className="min-h-[44px] rounded-md border border-[#1a1a1a] bg-[#111] px-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
+            onChange={(event) => {
+              setSecret(event.target.value);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                void register();
+              }
+            }}
+            placeholder="Registration secret"
+            type="password"
+            value={secret}
+          />
+          <button
+            className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-colors hover:border-[#555] disabled:opacity-50"
+            disabled={busy || secret.trim() === ""}
+            onClick={() => void register()}
+            type="button"
+          >
+            {busy ? "Waiting for passkey…" : "Register this device"}
+          </button>
+        </div>
+      ) : (
+        <button
+          className="min-h-[44px] text-xs text-[#525252] underline underline-offset-4 transition-colors hover:text-[#a3a3a3]"
+          onClick={() => {
+            setRegistering(true);
+          }}
+          type="button"
+        >
+          Register a new device
+        </button>
+      )}
     </div>
   );
 }
