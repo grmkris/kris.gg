@@ -25,6 +25,7 @@ const toDomain = (row: StashItemRow): StashItem =>
     body: row.body,
     createdAt: row.createdAt.getTime(),
     done: row.done,
+    attachments: (row.attachments ?? []).map((a) => ({ ...a, url: "" })),
     id: row.id,
     kind: row.kind,
     source: row.source,
@@ -53,10 +54,11 @@ export interface StashStoreShape {
     id: StashItemId,
     input: UpdateStashItem
   ) => Effect.Effect<StashItem, StashItemNotFound | StashStoreError>;
+  /** Resolves with the removed row's attachment keys, for object cleanup. */
   readonly remove: (
     userId: string,
     id: StashItemId
-  ) => Effect.Effect<void, StashItemNotFound | StashStoreError>;
+  ) => Effect.Effect<readonly string[], StashItemNotFound | StashStoreError>;
 }
 
 export class StashStore extends Context.Service<StashStore, StashStoreShape>()(
@@ -76,6 +78,14 @@ export const makeStashStore = (db: Db): StashStoreShape => ({
             url: input.url ?? null,
             title: input.title ?? null,
             tags: [...(input.tags ?? [])],
+            attachments: (input.attachments ?? []).map((a) => ({
+              bytes: a.bytes,
+              contentType: a.contentType,
+              height: a.height,
+              key: a.key,
+              placeholder: a.placeholder ?? null,
+              width: a.width,
+            })),
             source: input.source ?? "web",
           })
           .returning()
@@ -107,11 +117,12 @@ export const makeStashStore = (db: Db): StashStoreShape => ({
         .where(and(eq(stashItem.id, id), eq(stashItem.userId, userId)))
         .returning()
     ).pipe(
-      Effect.flatMap((rows) =>
-        rows[0] === undefined
+      Effect.flatMap((rows) => {
+        const row = rows[0];
+        return row === undefined
           ? Effect.fail(new StashItemNotFound({ id }))
-          : Effect.void
-      )
+          : Effect.succeed((row.attachments ?? []).map((a) => a.key));
+      })
     )
   ),
 

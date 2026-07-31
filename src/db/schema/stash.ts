@@ -3,6 +3,15 @@ import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 import { user } from "./auth";
 
+export interface StashAttachmentRow {
+  readonly key: string;
+  readonly contentType: string;
+  readonly width: number;
+  readonly height: number;
+  readonly bytes: number;
+  readonly placeholder: string | null;
+}
+
 /**
  * A captured fragment. Single-table by design: D1 has no usable transactions,
  * so every mutation must be expressible as one statement.
@@ -20,7 +29,7 @@ export const stashItem = sqliteTable(
     id: text("id")
       .primaryKey()
       .$defaultFn(() => `stx_${crypto.randomUUID().replaceAll("-", "")}`),
-    kind: text("kind", { enum: ["note", "link", "prompt", "todo"] })
+    kind: text("kind", { enum: ["note", "link", "prompt", "todo", "image"] })
       .notNull()
       .default("note"),
     /** Where the capture came from — tells you which surfaces actually get used. */
@@ -32,6 +41,15 @@ export const stashItem = sqliteTable(
     /** JSON string array; D1 has no native array type. */
     tags: text("tags", { mode: "json" })
       .$type<string[]>()
+      .notNull()
+      .default(sql`'[]'`),
+    /**
+     * Uploaded images, as JSON on the row rather than a child table — D1 has no
+     * transactions, so an item and its attachments must be one statement. The
+     * presigned `url` is minted per read and never stored.
+     */
+    attachments: text("attachments", { mode: "json" })
+      .$type<StashAttachmentRow[]>()
       .notNull()
       .default(sql`'[]'`),
     title: text("title"),

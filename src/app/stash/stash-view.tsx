@@ -1,19 +1,36 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+
+import "yet-another-react-lightbox/styles.css";
 
 import { Toaster } from "@/components/ui/sonner";
 import { authClient, useSession } from "@/lib/auth-client";
 import { StashItem } from "@/stash/schema";
-import type { StashItemId } from "@/stash/schema";
+import type { NewStashAttachment, StashItemId } from "@/stash/schema";
 
+import {
+  imageFilesFrom,
+  isSupportedImage,
+  prepareImage,
+  uploadImage,
+} from "./media-client";
+import type { PreparedImage } from "./media-client";
 import {
   createStash,
   listStash,
   removeStash,
   updateStash,
 } from "./stash-client";
+
+/** Loaded on demand — most stash sessions never open an image. */
+const Lightbox = dynamic(
+  async () =>
+    await import("yet-another-react-lightbox").then((mod) => mod.default),
+  { ssr: false }
+);
 
 const isTypingTarget = (target: EventTarget | null): boolean =>
   target instanceof HTMLElement &&
@@ -185,6 +202,14 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
   const [entering, setEntering] = useState<ReadonlySet<string>>(new Set());
   /** Rows playing their exit animation before being dropped from the list. */
   const [exiting, setExiting] = useState<ReadonlySet<string>>(new Set());
+  /** Images staged on the draft, not yet uploaded or saved. */
+  const [attached, setAttached] = useState<readonly PreparedImage[]>([]);
+  const [dragging, setDragging] = useState(false);
+  /** Which attachment the lightbox is showing, if any. */
+  const [viewing, setViewing] = useState<{
+    readonly index: number;
+    readonly item: StashItem;
+  }>();
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   /**
@@ -233,13 +258,37 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
     }
   }, [signedIn, autoFocus]);
 
+  const attach = useCallback(async (files: readonly File[]) => {
+    for (const file of files) {
+      try {
+        const image = await prepareImage(file);
+        setAttached((current) => [...current, image]);
+      } catch (error) {
+        toast.error(`Could not read ${file.name || "image"}: ${String(error)}`);
+      }
+    }
+  }, []);
+
+  const detach = useCallback((image: PreparedImage) => {
+    URL.revokeObjectURL(image.previewUrl);
+    setAttached((current) => current.filter((i) => i !== image));
+  }, []);
+
   const save = useCallback(async () => {
     const body = draft.trim();
-    if (body === "") {
+    const staged = attached;
+    // An image on its own is a capture; text is not required when one is
+    // attached.
+    if (body === "" && staged.length === 0) {
       return;
     }
     const url = asUrl(body);
-    const kind = url === undefined ? ("note" as const) : ("link" as const);
+    const kind =
+      staged.length > 0
+        ? ("image" as const)
+        : url === undefined
+          ? ("note" as const)
+          : ("link" as const);
     const now = Date.now();
     const tempId = `stx_local_${crypto.randomUUID().replaceAll("-", "")}`;
 
@@ -248,6 +297,17 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
     // saving felt slow.
     const provisional = new StashItem({
       archivedAt: null,
+      attachments: staged.map((image, i) => ({
+        bytes: image.blob.size,
+        contentType: image.contentType,
+        height: image.height,
+        key: `local-${i}`,
+        placeholder: image.placeholder,
+        // The local object URL, so the thumbnail is visible before the upload
+        // even starts.
+        url: image.previewUrl,
+        width: image.width,
+      })),
       body,
       createdAt: now,
       done: false,
@@ -261,17 +321,29 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
     });
 
     setDraft("");
+    setAttached([]);
     setItems((current) => [provisional, ...current]);
     setPending((current) => new Set(current).add(tempId));
     setEntering((current) => new Set(current).add(tempId));
 
     try {
+      // Upload first: `create` stores the object keys, so a row must never
+      // reference bytes that failed to land.
+      const uploaded: NewStashAttachment[] = [];
+      for (const image of staged) {
+        uploaded.push(await uploadImage(image));
+      }
+
       const created = await createStash({
         body,
         kind,
         source: "web",
+        ...(uploaded.length === 0 ? {} : { attachments: uploaded }),
         ...(url === undefined ? {} : { url }),
       });
+      for (const image of staged) {
+        URL.revokeObjectURL(image.previewUrl);
+      }
       // Inherit the provisional row's key so the swap does not remount it.
       rowKeys.current.set(created.id, keyFor(tempId));
       setItems((current) =>
@@ -286,9 +358,10 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
       setPending((current) => without(current, tempId));
       setEntering((current) => without(current, tempId));
       setDraft(body);
+      setAttached(staged);
       toast.error(`Could not save: ${String(error)}`);
     }
-  }, [draft]);
+  }, [draft, attached]);
 
   const toggleDone = useCallback(async (item: StashItem) => {
     // Optimistic: the list is the whole UI, so a round-trip of latency here is
@@ -392,21 +465,111 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
         </span>
       </header>
 
-      <textarea
-        className="min-h-[88px] w-full resize-y rounded-md border border-[#1a1a1a] bg-[#111] p-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
-        onChange={(event) => {
-          setDraft(event.target.value);
+      {/* Drop anywhere on the composer, not just the textarea — aiming at a
+          textarea with a dragged file is needlessly fiddly. */}
+      <div
+        className={`rounded-md border transition-colors duration-150 ease-out ${
+          dragging ? "border-[#c8472b] bg-[#141414]" : "border-transparent"
+        }`}
+        onDragLeave={() => {
+          setDragging(false);
         }}
-        onKeyDown={(event) => {
-          if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+        onDragOver={(event) => {
+          if (event.dataTransfer.types.includes("Files")) {
             event.preventDefault();
-            void save();
+            setDragging(true);
           }
         }}
-        placeholder="Capture something…  ( / to focus, ⌘↵ to save )"
-        ref={inputRef}
-        value={draft}
-      />
+        onDrop={(event) => {
+          const files = imageFilesFrom(event.dataTransfer);
+          setDragging(false);
+          if (files.length > 0) {
+            event.preventDefault();
+            void attach(files);
+          }
+        }}
+      >
+        <textarea
+          className="min-h-[88px] w-full resize-y rounded-md border border-[#1a1a1a] bg-[#111] p-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
+          onChange={(event) => {
+            setDraft(event.target.value);
+          }}
+          onKeyDown={(event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+              event.preventDefault();
+              void save();
+            }
+          }}
+          onPaste={(event) => {
+            // The ⌘V path. `clipboardData.files` covers a screenshot copied
+            // from the OS as well as an image copied from a web page; text
+            // pastes fall through to the default handler untouched.
+            const files = imageFilesFrom(event.clipboardData);
+            if (files.length > 0) {
+              event.preventDefault();
+              void attach(files);
+            }
+          }}
+          placeholder="Capture something…  ( / to focus, ⌘↵ to save, ⌘V an image )"
+          ref={inputRef}
+          value={draft}
+        />
+
+        {attached.length > 0 ? (
+          <div className="flex flex-wrap gap-2 px-1 pt-2">
+            {attached.map((image) => (
+              <div className="group relative" key={image.previewUrl}>
+                {/* biome-ignore lint: a local object URL, not a remote asset */}
+                <img
+                  alt=""
+                  className="h-20 w-20 rounded-md object-cover outline outline-white/10"
+                  src={image.previewUrl}
+                />
+                <button
+                  aria-label="Remove image"
+                  className="-right-2 -top-2 absolute flex h-6 w-6 items-center justify-center rounded-full border border-[#333] bg-[#0a0a0a] text-[#a3a3a3] transition-[color,transform] duration-150 ease-out hover:text-[#c8472b] active:scale-[0.96]"
+                  onClick={() => {
+                    detach(image);
+                  }}
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="mt-2 flex items-center gap-4">
+        <label className="cursor-pointer font-sans text-xs text-[#525252] underline underline-offset-4 transition-colors hover:text-[#a3a3a3]">
+          <input
+            accept="image/*"
+            className="sr-only"
+            multiple
+            onChange={(event) => {
+              const files = [...(event.target.files ?? [])].filter((file) =>
+                isSupportedImage(file.type)
+              );
+              if (files.length > 0) {
+                void attach(files);
+              }
+              // Allow re-picking the same file.
+              event.target.value = "";
+            }}
+            type="file"
+          />
+          Add image
+        </label>
+        <button
+          className="font-sans text-xs text-[#525252] underline underline-offset-4 transition-colors hover:text-[#a3a3a3] disabled:opacity-40"
+          disabled={draft.trim() === "" && attached.length === 0}
+          onClick={() => void save()}
+          type="button"
+        >
+          Save
+        </button>
+      </div>
 
       <section className="mt-8">
         {loading && items.length === 0 ? <StashSkeleton /> : null}
@@ -472,6 +635,41 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
               >
                 {item.body}
               </p>
+              {item.attachments.length > 0 ? (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {item.attachments.map((attachment, i) => (
+                    <button
+                      className="block overflow-hidden rounded-md transition-transform duration-150 ease-out active:scale-[0.96]"
+                      key={attachment.key}
+                      onClick={() => {
+                        setViewing({ index: i, item });
+                      }}
+                      type="button"
+                    >
+                      {/* Not next/image: these are private, presigned, and
+                          expire — nothing to optimise or cache. The
+                          placeholder is an inline data URI, so the tile has
+                          something to show before the bytes land. */}
+                      {/* biome-ignore lint: presigned private asset */}
+                      <img
+                        alt=""
+                        className="h-24 w-24 bg-[#141414] object-cover outline outline-white/10"
+                        loading="lazy"
+                        src={attachment.url}
+                        style={
+                          attachment.placeholder === null
+                            ? undefined
+                            : {
+                                backgroundImage: `url(${attachment.placeholder})`,
+                                backgroundSize: "cover",
+                              }
+                        }
+                      />
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+
               <div className="mt-1 flex items-center gap-3 font-sans text-xs text-[#525252]">
                 <span>{new Date(item.createdAt).toLocaleDateString()}</span>
                 {item.source === "web" ? null : <span>{item.source}</span>}
@@ -499,6 +697,24 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
           </article>
         ))}
       </section>
+
+      {viewing === undefined ? null : (
+        <Lightbox
+          close={() => {
+            setViewing(undefined);
+          }}
+          index={viewing.index}
+          open
+          slides={viewing.item.attachments.map((attachment) => ({
+            src: attachment.url,
+            // Only when known — a capture surface that could not decode the
+            // image sends 0, and the lightbox should measure it instead.
+            ...(attachment.width > 0 && attachment.height > 0
+              ? { height: attachment.height, width: attachment.width }
+              : {}),
+          }))}
+        />
+      )}
 
       {/* Mounted here, not in the root layout: only /stash raises toasts, so the
           public pages keep shipping no extra JS. Rendered from a client

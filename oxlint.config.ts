@@ -29,6 +29,8 @@ export default defineConfig({
     "require-yield": "off",
     // Fires on `Layer.effect(X, …)` inside the module that defines X.
     "no-shadow": "off",
+    // Reads `Effect.forEach(items, fn)` as `Array#forEach(fn, thisArg)`.
+    "unicorn/no-array-method-this-argument": "off",
 
     // ── Style this codebase deliberately does not follow ────────────────────
     // Mix of `function` declarations and arrow consts, by file and by author.

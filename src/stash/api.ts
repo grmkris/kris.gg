@@ -16,6 +16,9 @@ import {
   StashItemNotFound,
   StashStoreError,
   UpdateStashItem,
+  UploadRejected,
+  UploadRequest,
+  UploadTicket,
 } from "./schema";
 
 const IdParam = Schema.Struct({ id: Schema.String });
@@ -32,6 +35,18 @@ export class StashGroup extends HttpApiGroup.make("stash")
       payload: CreateStashItem,
       success: StashItem,
       error: [StashStoreError],
+    })
+  )
+  .add(
+    /**
+     * Hands back a presigned PUT so the browser uploads straight to R2 —
+     * bytes never pass through a Vercel function. The returned `key` comes
+     * back on `create` as an attachment.
+     */
+    HttpApiEndpoint.post("upload", "/api/stash/upload", {
+      payload: UploadRequest,
+      success: UploadTicket,
+      error: [UploadRejected, StashStoreError],
     })
   )
   .add(

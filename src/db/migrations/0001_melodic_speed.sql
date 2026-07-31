@@ -1,0 +1,1 @@
+ALTER TABLE `stash_item` ADD `attachments` text DEFAULT '[]' NOT NULL;
