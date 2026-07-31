@@ -19,7 +19,7 @@
 import { type Effect, Layer, ManagedRuntime } from "effect";
 import { FetchHttpClient } from "effect/unstable/http";
 import { HttpApiClient } from "effect/unstable/httpapi";
-import { StashApi } from "@/stash/api";
+import { KrisApi } from "./contract";
 
 /** `credentials: "include"` so the better-auth session cookie rides along. */
 const CredentialedFetchLive = Layer.mergeAll(
@@ -36,10 +36,11 @@ const getRuntime = (): UnconstrainedRuntime => {
   return cachedRuntime;
 };
 
-export type StashClient = HttpApiClient.ForApi<typeof StashApi>;
+/** One client for every group — `api.stash.*`, `api.routes.*`, `api.routesPublic.*`. */
+export type KrisClient = HttpApiClient.ForApi<typeof KrisApi>;
 
-let cachedApi: StashClient | undefined;
-let cachedApiPromise: Promise<StashClient> | undefined;
+let cachedApi: KrisClient | undefined;
+let cachedApiPromise: Promise<KrisClient> | undefined;
 
 /**
  * The real effect additionally requires `HttpApiGroup.MiddlewareClient` for the
@@ -47,13 +48,13 @@ let cachedApiPromise: Promise<StashClient> | undefined;
  * header rather than as client-side plumbing, so it is erased at this single
  * documented seam.
  */
-const buildApiEffect = (baseUrl: string): Effect.Effect<StashClient> => {
-  const effect = HttpApiClient.make(StashApi, { baseUrl });
+const buildApiEffect = (baseUrl: string): Effect.Effect<KrisClient> => {
+  const effect = HttpApiClient.make(KrisApi, { baseUrl });
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion
-  return effect as unknown as Effect.Effect<StashClient>;
+  return effect as unknown as Effect.Effect<KrisClient>;
 };
 
-export const getApi = async (): Promise<StashClient> => {
+export const getApi = async (): Promise<KrisClient> => {
   if (cachedApi !== undefined) {
     return cachedApi;
   }

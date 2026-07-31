@@ -14,20 +14,30 @@ import { NodeServices } from "@effect/platform-node";
 import { Layer } from "effect";
 import { Etag, HttpPlatform, HttpRouter } from "effect/unstable/http";
 import { HttpApiBuilder } from "effect/unstable/httpapi";
-import { StashApi } from "@/stash/api";
+import { KrisApi } from "@/lib/api/contract";
+import {
+  RoutesGroupLayer,
+  RoutesPublicGroupLayer,
+} from "@/planner/handlers";
+import { PlannerStoreLayer } from "@/planner/store";
 import { StashGroupLayer } from "@/stash/handlers";
 import { StashMcpLayer } from "@/stash/mcp";
 import { StashAuthLayer } from "@/stash/middleware-live";
 import { StashStoreLayer } from "@/stash/store";
 
 const ApiLive = Layer.mergeAll(
-  HttpApiBuilder.layer(StashApi),
-  // Same router: /api/stash/* and /api/mcp are served by one handler.
+  HttpApiBuilder.layer(KrisApi),
+  // Same router: /api/stash/*, /api/routes/* and /api/mcp are one handler.
   StashMcpLayer
 ).pipe(
   Layer.provide(StashGroupLayer),
+  // Every group needs its own layer here — a missing one is not a type error,
+  // it is a runtime failure on the first request to that group.
+  Layer.provide(RoutesGroupLayer),
+  Layer.provide(RoutesPublicGroupLayer),
   Layer.provide(StashAuthLayer),
   Layer.provide(StashStoreLayer),
+  Layer.provide(PlannerStoreLayer),
   // HttpPlatform only backs file responses, which this API never returns, but
   // HttpApiBuilder requires the service regardless. NodeServices supplies the
   // FileSystem/Path it depends on — fine here because Next route handlers run

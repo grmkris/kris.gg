@@ -5,13 +5,13 @@
 
 import { Effect } from "effect";
 import { HttpApiBuilder } from "effect/unstable/httpapi";
-import { StashApi } from "./api";
+import { KrisApi } from "@/lib/api/contract";
 import { CurrentUser } from "./middleware";
 import type { StashItemId } from "./schema";
 import { StashStore } from "./store";
 
 export const StashGroupLayer = HttpApiBuilder.group(
-  StashApi,
+  KrisApi,
   "stash",
   (handlers) =>
     Effect.gen(function* () {

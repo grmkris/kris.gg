@@ -1,11 +1,13 @@
 /**
- * The `StashApi` contract. Imported by BOTH the route handler and the browser
+ * The `StashGroup` contract. Imported by BOTH the route handler and the browser
  * client — that shared import is what makes the client fully typed with no
  * codegen step.
+ *
+ * The `HttpApi` that composes this group lives in `src/lib/api/contract.ts`.
  */
 
 import { Schema } from "effect";
-import { HttpApi, HttpApiEndpoint, HttpApiGroup } from "effect/unstable/httpapi";
+import { HttpApiEndpoint, HttpApiGroup } from "effect/unstable/httpapi";
 import {
   CreateStashItem,
   StashItem,
@@ -48,4 +50,6 @@ export class StashGroup extends HttpApiGroup.make("stash")
   )
   .middleware(StashAuth) {}
 
-export class StashApi extends HttpApi.make("kris-gg").add(StashGroup) {}
+// The `HttpApi` root now lives in `src/lib/api/contract.ts` — it composes this
+// group alongside the planner's, and keeping it here would have forced
+// `src/stash` to import `src/planner`.
