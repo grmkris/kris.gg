@@ -1,6 +1,7 @@
 # Instruction: Bring /stash online against real Cloudflare D1
 
-**Status: done on `dev`, verified on `dev.kris.gg`.** Everything that can be
+**Status: done on `dev`, verified on `dev.kris.gg`.** Images, motion and PWA
+landed after the original handoff — see "Later work" below. Everything that can be
 checked without a browser has been. What remains is the passkey ceremony itself
 (needs a real authenticator) and the promotion to production.
 
@@ -68,6 +69,29 @@ was dropped and re-migrated so its history matches the repo exactly.
       `drizzle-orm`, `api.cloudflare.com` or token in `.next/static/chunks`
 - [x] `bun run verify` — 122 tests, no lint or type errors
 
+## Later work (2026-07-31)
+
+Three follow-ups beyond the original instruction, all live on `dev.kris.gg`:
+
+- **Images.** ⌘V, drag-and-drop and a file picker. A private R2 bucket
+  (`kris-stash-media`) with presigned direct-to-R2 uploads; the browser
+  downscales and derives an inline placeholder in an OffscreenCanvas first, so
+  nothing large crosses the wire and `sharp` stays off the request path.
+  Attachments are a JSON column (D1 has no transactions). Verified live:
+  upload → presigned read → delete removes the object.
+  `bun run smoke:r2` guards the signing.
+- **Perceived speed.** Capture was awaiting the round trip before rendering;
+  it is optimistic now, with skeletons and enter/exit motion that respects
+  `prefers-reduced-motion`.
+- **PWA.** Installable, with a "New capture" shortcut and a GET share target at
+  `/stash/share`. iOS supports neither, so `scripts/ios-shortcut.md` documents
+  the Shortcuts.app action that does work there.
+
+Env added since: `R2_STASH_BUCKET`, `R2_STASH_ACCESS_KEY_ID`,
+`R2_STASH_SECRET_ACCESS_KEY`, plus `ORS_API_KEY` and
+`GOOGLE_GENERATIVE_AI_API_KEY` for `/routes`. All set locally and on Vercel
+Preview (dev). Migration `0001` adds the attachments column.
+
 ## Left to do
 
 - [ ] **Register a passkey** at <https://dev.kris.gg/stash> → "Register a new
@@ -78,8 +102,8 @@ was dropped and re-migrated so its history matches the repo exactly.
 - [ ] **Retest on the phone** — mobile is where rpID/origin problems surface.
 - [ ] Rotate `STASH_REGISTRATION_SECRET` once devices are enrolled: it travels
       as a query parameter and lands in access logs.
-- [ ] Production: migrate `kris-stash-prod`, set Production env vars, promote
-      with a `dev`→`main` **merge-commit** PR (never squash).
+- [ ] Production: migrate `kris-stash-prod` (**both** migrations), set Production
+      env vars, promote with a `dev`→`main` **merge-commit** PR (never squash).
 
 ## Not built
 
@@ -90,8 +114,6 @@ was dropped and re-migrated so its history matches the repo exactly.
 
 ## Known, unrelated
 
-- `/routes` needs `ORS_API_KEY` and `GOOGLE_GENERATIVE_AI_API_KEY`; neither is
-  set on Vercel, so the planner will fail on `dev.kris.gg` until they are.
 - `src/components/ui/sonner.tsx` is missing `"use client"`. Worked around by
   mounting `<Toaster/>` from a client component.
 - Stale docs describing the deleted ORPC stack: `README.md` and
