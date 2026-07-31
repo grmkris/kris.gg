@@ -1,0 +1,18 @@
+import { PlannerView } from "./planner-view";
+
+// Private tool. Keep it out of search engines and the sitemap regardless of
+// which environment it is deployed to.
+export const metadata = {
+  robots: { follow: false, index: false },
+  title: "Routes",
+};
+
+export default function RoutesPage() {
+  return (
+    <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
+      <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-24 md:px-12 md:pt-24">
+        <PlannerView />
+      </div>
+    </main>
+  );
+}
