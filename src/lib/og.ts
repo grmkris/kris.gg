@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import sharp from "sharp";
 
 import { getCoverIndex } from "@/lib/covers";
-import { getTripPhotos, type PhotoMeta } from "@/lib/photos";
+import { getTripPhotos } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
 
 // Satori font shape — { name, data, weight, style }. Cached at module scope
 // so repeated builds in the same process share one read.

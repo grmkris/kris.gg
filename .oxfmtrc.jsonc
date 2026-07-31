@@ -2,6 +2,14 @@
 // https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // Generated data and agent docs, not source: the formatter rewrites
+  // photos.meta.json wholesale on every `bun run verify`, which buries real
+  // diffs.
+  "ignorePatterns": [
+    "src/content/*.generated.json",
+    "src/content/photos.meta.json",
+    ".claude/**",
+  ],
   "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,

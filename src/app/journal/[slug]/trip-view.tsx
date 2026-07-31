@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
 import { FLAGS } from "@/content/flags";
-import { TRIPS, type Trip } from "@/content/trips";
+import { TRIPS } from "@/content/trips";
+import type { Trip } from "@/content/trips";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { showcaseLabel } from "@/lib/prizes";
 
@@ -16,7 +17,7 @@ function renderBody(body: string) {
         className="mt-5 font-display text-[1.0625rem] leading-[1.7] text-[#c4bdb1]"
       >
         {parts.map((part, j) => {
-          const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+          const match = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
           if (match) {
             return (
               <a

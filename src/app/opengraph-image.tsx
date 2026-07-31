@@ -12,7 +12,7 @@ export default async function Image() {
   const fonts = await loadOgFonts();
   const covers = getHeroCovers().slice(0, 3);
   const thumbs = await Promise.all(
-    covers.map(async (c) => embedPhoto(c.thumb))
+    covers.map(async (c) => await embedPhoto(c.thumb))
   );
 
   return new ImageResponse(

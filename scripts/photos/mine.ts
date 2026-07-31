@@ -21,6 +21,7 @@
 import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, rm } from "node:fs/promises";
 import { join } from "node:path";
+
 import sharp from "sharp";
 
 import {
@@ -83,7 +84,7 @@ function parseExportName(
   }
   const kind = match[2]?.toLowerCase();
   // Prefer the edited render, then the original, then the low-res preview.
-  const priority = kind === "edited" ? 3 : (kind === "preview" ? 1 : 2);
+  const priority = kind === "edited" ? 3 : kind === "preview" ? 1 : 2;
   return { priority, uuid: match[1] };
 }
 

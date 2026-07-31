@@ -14,11 +14,9 @@ import { NodeServices } from "@effect/platform-node";
 import { Layer } from "effect";
 import { Etag, HttpPlatform, HttpRouter } from "effect/unstable/http";
 import { HttpApiBuilder } from "effect/unstable/httpapi";
+
 import { KrisApi } from "@/lib/api/contract";
-import {
-  RoutesGroupLayer,
-  RoutesPublicGroupLayer,
-} from "@/planner/handlers";
+import { RoutesGroupLayer, RoutesPublicGroupLayer } from "@/planner/handlers";
 import { PlannerStoreLayer } from "@/planner/store";
 import { StashGroupLayer } from "@/stash/handlers";
 import { StashMcpLayer } from "@/stash/mcp";

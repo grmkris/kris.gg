@@ -22,36 +22,36 @@ export const StashSource = Schema.Literals([
 export type StashSource = typeof StashSource.Type;
 
 export class StashItem extends Schema.Class<StashItem>("StashItem")({
-  id: StashItemId,
-  body: Schema.String,
-  kind: StashKind,
-  url: Schema.NullOr(Schema.String),
-  title: Schema.NullOr(Schema.String),
-  tags: Schema.Array(Schema.String),
-  done: Schema.Boolean,
-  source: StashSource,
   archivedAt: Schema.NullOr(Schema.Number),
+  body: Schema.String,
   createdAt: Schema.Number,
+  done: Schema.Boolean,
+  id: StashItemId,
+  kind: StashKind,
+  source: StashSource,
+  tags: Schema.Array(Schema.String),
+  title: Schema.NullOr(Schema.String),
   updatedAt: Schema.Number,
+  url: Schema.NullOr(Schema.String),
 }) {}
 
 /** Capture payload. `body` is the only thing a capture surface must supply. */
 export const CreateStashItem = Schema.Struct({
   body: Schema.NonEmptyString,
   kind: Schema.optional(StashKind),
-  url: Schema.optional(Schema.String),
-  title: Schema.optional(Schema.String),
-  tags: Schema.optional(Schema.Array(Schema.String)),
   source: Schema.optional(StashSource),
+  tags: Schema.optional(Schema.Array(Schema.String)),
+  title: Schema.optional(Schema.String),
+  url: Schema.optional(Schema.String),
 });
 export type CreateStashItem = typeof CreateStashItem.Type;
 
 /** Triage payload — every field optional, but each update is one statement. */
 export const UpdateStashItem = Schema.Struct({
+  archived: Schema.optional(Schema.Boolean),
   body: Schema.optional(Schema.String),
   done: Schema.optional(Schema.Boolean),
   tags: Schema.optional(Schema.Array(Schema.String)),
-  archived: Schema.optional(Schema.Boolean),
 });
 export type UpdateStashItem = typeof UpdateStashItem.Type;
 

@@ -9,6 +9,7 @@
  */
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import sharp from "sharp";
 
 const SRC = "public/portrait/avatar.jpg";

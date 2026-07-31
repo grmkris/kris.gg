@@ -1,5 +1,4 @@
 import "server-only";
-
 /**
  * The stash as an MCP server, so Claude Code (and any MCP client that can reach
  * the site) can capture and read without a browser. This is the capability
@@ -17,15 +16,13 @@ import "server-only";
  * every tool refuses — passkeys are interactive and cannot cover a headless
  * client, so the API key is the only credential here.
  */
-
 import { Context, Effect, Layer, Schema } from "effect";
 import { McpServer, Tool, Toolkit } from "effect/unstable/ai";
-import {
-  HttpRouter,
-  type HttpServerResponse,
-  HttpServerRequest,
-} from "effect/unstable/http";
+import { HttpRouter, HttpServerRequest } from "effect/unstable/http";
+import type { HttpServerResponse } from "effect/unstable/http";
+
 import { auth } from "@/lib/auth";
+
 import { StashKind, StashSource } from "./schema";
 import { StashStore } from "./store";
 
@@ -34,7 +31,7 @@ export const StashOwner = Context.Reference<string>("kris-gg/StashOwner", {
   defaultValue: () => "",
 });
 
-const requireOwner = Effect.gen(function* () {
+const requireOwner = Effect.gen(function* requireOwner() {
   const userId = yield* StashOwner;
   if (userId === "") {
     return yield* Effect.die(
@@ -50,8 +47,8 @@ const StashAdd = Tool.make("stash_add", {
   parameters: Schema.Struct({
     body: Schema.NonEmptyString,
     kind: Schema.optional(StashKind),
-    url: Schema.optional(Schema.String),
     tags: Schema.optional(Schema.Array(Schema.String)),
+    url: Schema.optional(Schema.String),
   }),
   success: Schema.Struct({ id: Schema.String }),
 });
@@ -62,11 +59,11 @@ const StashList = Tool.make("stash_list", {
   parameters: Schema.Struct({ includeDone: Schema.optional(Schema.Boolean) }),
   success: Schema.Array(
     Schema.Struct({
-      id: Schema.String,
       body: Schema.String,
-      done: Schema.Boolean,
-      source: StashSource,
       createdAt: Schema.Number,
+      done: Schema.Boolean,
+      id: Schema.String,
+      source: StashSource,
     })
   ),
 });
@@ -80,7 +77,7 @@ const StashDone = Tool.make("stash_done", {
 export const StashToolkit = Toolkit.make(StashAdd, StashList, StashDone);
 
 const StashToolkitLayer = StashToolkit.toLayer(
-  Effect.gen(function* () {
+  Effect.gen(function* StashToolkitLayer() {
     const store = yield* StashStore;
 
     return {
@@ -98,6 +95,14 @@ const StashToolkitLayer = StashToolkit.toLayer(
         return { id: item.id as string };
       }),
 
+      stash_done: Effect.fn("mcp.stash_done")(function* (params) {
+        const userId = yield* requireOwner;
+        yield* Effect.orDie(
+          store.update(userId, params.id as never, { done: true })
+        );
+        return { ok: true };
+      }),
+
       stash_list: Effect.fn("mcp.stash_list")(function* (params) {
         const userId = yield* requireOwner;
         const items = yield* Effect.orDie(store.list(userId));
@@ -111,14 +116,6 @@ const StashToolkitLayer = StashToolkit.toLayer(
             createdAt: i.createdAt,
           }));
       }),
-
-      stash_done: Effect.fn("mcp.stash_done")(function* (params) {
-        const userId = yield* requireOwner;
-        yield* Effect.orDie(
-          store.update(userId, params.id as never, { done: true })
-        );
-        return { ok: true };
-      }),
     };
   })
 );
@@ -128,8 +125,8 @@ const StashToolkitLayer = StashToolkit.toLayer(
  * the stash HttpApi is unaffected because it takes identity from `StashAuth`.
  */
 const McpAuthMiddleware = HttpRouter.middleware(
-  (httpEffect: Effect.Effect<HttpServerResponse.HttpServerResponse, unknown, never>) =>
-    Effect.gen(function* () {
+  (httpEffect: Effect.Effect<HttpServerResponse.HttpServerResponse, unknown>) =>
+    Effect.gen(function* McpAuthMiddleware() {
       const request = yield* HttpServerRequest.HttpServerRequest;
       const key = request.headers["x-api-key"];
       if (typeof key !== "string" || key === "") {
@@ -137,8 +134,8 @@ const McpAuthMiddleware = HttpRouter.middleware(
       }
       const verified = yield* Effect.catch(
         Effect.tryPromise({
-          try: () => auth.api.verifyApiKey({ body: { key } }),
           catch: () => "verify-failed" as const,
+          try: async () => auth.api.verifyApiKey({ body: { key } }),
         }),
         () => Effect.succeed(null)
       );

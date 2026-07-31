@@ -25,7 +25,7 @@ const D1_API_BASE = "https://api.cloudflare.com/client/v4/accounts";
  * which is what sqlite-proxy's `values` contract expects, so no key-order
  * reconstruction is needed.
  */
-type D1RawResult = {
+interface D1RawResult {
   success: boolean;
   result?: {
     results?: { columns?: string[]; rows?: unknown[][] };
@@ -33,7 +33,7 @@ type D1RawResult = {
     meta?: unknown;
   }[];
   errors?: { code: number; message: string }[];
-};
+}
 
 const required = (name: string): string => {
   const value = process.env[name];

@@ -2,16 +2,16 @@ import { relations, sql } from "drizzle-orm";
 import { sqliteTable, text, integer, index } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
-  id: text("id").primaryKey(),
-  name: text("name").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp_ms" })
+    .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
+    .notNull(),
   email: text("email").notNull().unique(),
   emailVerified: integer("email_verified", { mode: "boolean" })
     .default(false)
     .notNull(),
+  id: text("id").primaryKey(),
   image: text("image"),
-  createdAt: integer("created_at", { mode: "timestamp_ms" })
-    .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
-    .notNull(),
+  name: text("name").notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp_ms" })
     .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
     .$onUpdate(() => /* @__PURE__ */ new Date())
@@ -21,16 +21,16 @@ export const user = sqliteTable("user", {
 export const session = sqliteTable(
   "session",
   {
-    id: text("id").primaryKey(),
-    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
-    token: text("token").notNull().unique(),
     createdAt: integer("created_at", { mode: "timestamp_ms" })
       .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
       .notNull(),
+    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
+    id: text("id").primaryKey(),
+    ipAddress: text("ip_address"),
+    token: text("token").notNull().unique(),
     updatedAt: integer("updated_at", { mode: "timestamp_ms" })
       .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
-    ipAddress: text("ip_address"),
     userAgent: text("user_agent"),
     userId: text("user_id")
       .notNull()
@@ -42,29 +42,29 @@ export const session = sqliteTable(
 export const account = sqliteTable(
   "account",
   {
-    id: text("id").primaryKey(),
-    accountId: text("account_id").notNull(),
-    providerId: text("provider_id").notNull(),
-    userId: text("user_id")
-      .notNull()
-      .references(() => user.id, { onDelete: "cascade" }),
     accessToken: text("access_token"),
-    refreshToken: text("refresh_token"),
-    idToken: text("id_token"),
     accessTokenExpiresAt: integer("access_token_expires_at", {
       mode: "timestamp_ms",
     }),
+    accountId: text("account_id").notNull(),
+    createdAt: integer("created_at", { mode: "timestamp_ms" })
+      .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
+      .notNull(),
+    id: text("id").primaryKey(),
+    idToken: text("id_token"),
+    password: text("password"),
+    providerId: text("provider_id").notNull(),
+    refreshToken: text("refresh_token"),
     refreshTokenExpiresAt: integer("refresh_token_expires_at", {
       mode: "timestamp_ms",
     }),
     scope: text("scope"),
-    password: text("password"),
-    createdAt: integer("created_at", { mode: "timestamp_ms" })
-      .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
-      .notNull(),
     updatedAt: integer("updated_at", { mode: "timestamp_ms" })
       .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
   },
   (table) => [index("account_userId_idx").on(table.userId)]
 );
@@ -72,17 +72,17 @@ export const account = sqliteTable(
 export const verification = sqliteTable(
   "verification",
   {
-    id: text("id").primaryKey(),
-    identifier: text("identifier").notNull(),
-    value: text("value").notNull(),
-    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
     createdAt: integer("created_at", { mode: "timestamp_ms" })
       .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
       .notNull(),
+    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
+    id: text("id").primaryKey(),
+    identifier: text("identifier").notNull(),
     updatedAt: integer("updated_at", { mode: "timestamp_ms" })
       .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
       .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
+    value: text("value").notNull(),
   },
   (table) => [index("verification_identifier_idx").on(table.identifier)]
 );
@@ -90,19 +90,19 @@ export const verification = sqliteTable(
 export const passkey = sqliteTable(
   "passkey",
   {
+    aaguid: text("aaguid"),
+    backedUp: integer("backed_up", { mode: "boolean" }).notNull(),
+    counter: integer("counter").notNull(),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }),
+    credentialID: text("credential_id").notNull(),
+    deviceType: text("device_type").notNull(),
     id: text("id").primaryKey(),
     name: text("name"),
     publicKey: text("public_key").notNull(),
+    transports: text("transports"),
     userId: text("user_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
-    credentialID: text("credential_id").notNull(),
-    counter: integer("counter").notNull(),
-    deviceType: text("device_type").notNull(),
-    backedUp: integer("backed_up", { mode: "boolean" }).notNull(),
-    transports: text("transports"),
-    createdAt: integer("created_at", { mode: "timestamp_ms" }),
-    aaguid: text("aaguid"),
   },
   (table) => [
     index("passkey_userId_idx").on(table.userId),
@@ -113,30 +113,30 @@ export const passkey = sqliteTable(
 export const apikey = sqliteTable(
   "apikey",
   {
-    id: text("id").primaryKey(),
     configId: text("config_id").default("default").notNull(),
-    name: text("name"),
-    start: text("start"),
-    referenceId: text("reference_id").notNull(),
-    prefix: text("prefix"),
-    key: text("key").notNull(),
-    refillInterval: integer("refill_interval"),
-    refillAmount: integer("refill_amount"),
-    lastRefillAt: integer("last_refill_at", { mode: "timestamp_ms" }),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
     enabled: integer("enabled", { mode: "boolean" }).default(true),
+    expiresAt: integer("expires_at", { mode: "timestamp_ms" }),
+    id: text("id").primaryKey(),
+    key: text("key").notNull(),
+    lastRefillAt: integer("last_refill_at", { mode: "timestamp_ms" }),
+    lastRequest: integer("last_request", { mode: "timestamp_ms" }),
+    metadata: text("metadata"),
+    name: text("name"),
+    permissions: text("permissions"),
+    prefix: text("prefix"),
     rateLimitEnabled: integer("rate_limit_enabled", {
       mode: "boolean",
     }).default(true),
-    rateLimitTimeWindow: integer("rate_limit_time_window").default(86400000),
     rateLimitMax: integer("rate_limit_max").default(10),
-    requestCount: integer("request_count").default(0),
+    rateLimitTimeWindow: integer("rate_limit_time_window").default(86400000),
+    referenceId: text("reference_id").notNull(),
+    refillAmount: integer("refill_amount"),
+    refillInterval: integer("refill_interval"),
     remaining: integer("remaining"),
-    lastRequest: integer("last_request", { mode: "timestamp_ms" }),
-    expiresAt: integer("expires_at", { mode: "timestamp_ms" }),
-    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+    requestCount: integer("request_count").default(0),
+    start: text("start"),
     updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
-    permissions: text("permissions"),
-    metadata: text("metadata"),
   },
   (table) => [
     index("apikey_configId_idx").on(table.configId),
@@ -146,9 +146,9 @@ export const apikey = sqliteTable(
 );
 
 export const userRelations = relations(user, ({ many }) => ({
-  sessions: many(session),
   accounts: many(account),
   passkeys: many(passkey),
+  sessions: many(session),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({

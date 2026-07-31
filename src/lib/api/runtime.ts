@@ -16,9 +16,11 @@
 
 "use client";
 
-import { type Effect, Layer, ManagedRuntime } from "effect";
+import { Layer, ManagedRuntime } from 'effect';
+import type { Effect } from 'effect';
 import { FetchHttpClient } from "effect/unstable/http";
 import { HttpApiClient } from "effect/unstable/httpapi";
+
 import { KrisApi } from "./contract";
 
 /** `credentials: "include"` so the better-auth session cookie rides along. */
@@ -60,7 +62,9 @@ export const getApi = async (): Promise<KrisClient> => {
   }
   if (cachedApiPromise === undefined) {
     const baseUrl =
-      typeof window === "undefined" ? "http://localhost:3001" : window.location.origin;
+      typeof window === "undefined"
+        ? "http://localhost:3001"
+        : window.location.origin;
     cachedApiPromise = getRuntime().runPromise(buildApiEffect(baseUrl));
   }
   cachedApi = await cachedApiPromise;
@@ -68,6 +72,5 @@ export const getApi = async (): Promise<KrisClient> => {
 };
 
 /** Run a client effect and resolve with a plain promise. */
-export const runApi = async <A, E>(
-  effect: Effect.Effect<A, E>
-): Promise<A> => await getRuntime().runPromise(effect);
+export const runApi = async <A, E>(effect: Effect.Effect<A, E>): Promise<A> =>
+  await getRuntime().runPromise(effect);

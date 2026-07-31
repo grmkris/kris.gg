@@ -7,7 +7,8 @@ import { NOTES } from "@/content/notes";
 import { PROJECTS } from "@/content/projects";
 import { TRIPS } from "@/content/trips";
 import { getHeroFrames } from "@/lib/covers";
-import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
+import { getCoverPhoto } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
 
 // Literal route union — each member is a real route, so Link accepts it
 // without a cast (a widened `string` would not be assignable).

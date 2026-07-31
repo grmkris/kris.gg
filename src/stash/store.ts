@@ -7,41 +7,37 @@
 
 import { and, desc, eq } from "drizzle-orm";
 import { Context, Effect, Layer, Schema } from "effect";
-import { db as defaultDb, type Db } from "@/db/client";
-import { type StashItemRow, stashItem } from "@/db/schema/stash";
-import {
-  type CreateStashItem,
-  StashItem,
-  type StashItemId,
-  StashItemNotFound,
-  StashStoreError,
-  type UpdateStashItem,
-} from "./schema";
+
+import { db as defaultDb } from "@/db/client";
+import type { Db } from "@/db/client";
+import { stashItem } from "@/db/schema/stash";
+import type { StashItemRow } from "@/db/schema/stash";
+
+import { StashItem, StashItemNotFound, StashStoreError } from "./schema";
+import type { CreateStashItem, StashItemId, UpdateStashItem } from "./schema";
 
 const decodeItem = Schema.decodeUnknownSync(StashItem);
 
 /** D1 row → domain object. Dates cross the wire as epoch millis. */
 const toDomain = (row: StashItemRow): StashItem =>
   decodeItem({
-    id: row.id,
-    body: row.body,
-    kind: row.kind,
-    url: row.url,
-    title: row.title,
-    tags: row.tags ?? [],
-    done: row.done,
-    source: row.source,
     archivedAt: row.archivedAt === null ? null : row.archivedAt.getTime(),
+    body: row.body,
     createdAt: row.createdAt.getTime(),
+    done: row.done,
+    id: row.id,
+    kind: row.kind,
+    source: row.source,
+    tags: row.tags ?? [],
+    title: row.title,
     updatedAt: row.updatedAt.getTime(),
+    url: row.url,
   });
 
-const wrap = <A>(
-  thunk: () => Promise<A>
-): Effect.Effect<A, StashStoreError> =>
+const wrap = <A>(thunk: () => Promise<A>): Effect.Effect<A, StashStoreError> =>
   Effect.tryPromise({
-    try: thunk,
     catch: (cause) => new StashStoreError({ message: String(cause) }),
+    try: thunk,
   });
 
 export interface StashStoreShape {
@@ -68,16 +64,6 @@ export class StashStore extends Context.Service<StashStore, StashStoreShape>()(
 ) {}
 
 export const makeStashStore = (db: Db): StashStoreShape => ({
-  list: Effect.fn("StashStore.list")((userId: string) =>
-    wrap(() =>
-      db
-        .select()
-        .from(stashItem)
-        .where(eq(stashItem.userId, userId))
-        .orderBy(desc(stashItem.createdAt))
-    ).pipe(Effect.map((rows) => rows.map(toDomain)))
-  ),
-
   create: Effect.fn("StashStore.create")(
     (userId: string, input: CreateStashItem) =>
       wrap(() =>
@@ -104,6 +90,31 @@ export const makeStashStore = (db: Db): StashStoreShape => ({
       )
   ),
 
+  list: Effect.fn("StashStore.list")((userId: string) =>
+    wrap(() =>
+      db
+        .select()
+        .from(stashItem)
+        .where(eq(stashItem.userId, userId))
+        .orderBy(desc(stashItem.createdAt))
+    ).pipe(Effect.map((rows) => rows.map(toDomain)))
+  ),
+
+  remove: Effect.fn("StashStore.remove")((userId: string, id: StashItemId) =>
+    wrap(() =>
+      db
+        .delete(stashItem)
+        .where(and(eq(stashItem.id, id), eq(stashItem.userId, userId)))
+        .returning()
+    ).pipe(
+      Effect.flatMap((rows) =>
+        rows[0] === undefined
+          ? Effect.fail(new StashItemNotFound({ id }))
+          : Effect.void
+      )
+    )
+  ),
+
   update: Effect.fn("StashStore.update")(
     (userId: string, id: StashItemId, input: UpdateStashItem) =>
       wrap(() =>
@@ -128,21 +139,6 @@ export const makeStashStore = (db: Db): StashStoreShape => ({
             : Effect.succeed(toDomain(rows[0]))
         )
       )
-  ),
-
-  remove: Effect.fn("StashStore.remove")((userId: string, id: StashItemId) =>
-    wrap(() =>
-      db
-        .delete(stashItem)
-        .where(and(eq(stashItem.id, id), eq(stashItem.userId, userId)))
-        .returning()
-    ).pipe(
-      Effect.flatMap((rows) =>
-        rows[0] === undefined
-          ? Effect.fail(new StashItemNotFound({ id }))
-          : Effect.void
-      )
-    )
   ),
 });
 

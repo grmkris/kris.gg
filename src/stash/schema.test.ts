@@ -1,5 +1,7 @@
 import { describe, expect, it } from "bun:test";
+
 import { Effect, Schema } from "effect";
+
 import {
   CreateStashItem,
   StashItem,
@@ -11,17 +13,17 @@ const decodeItem = Schema.decodeUnknownSync(StashItem);
 const encodeItem = Schema.encodeSync(StashItem);
 
 const row = {
-  id: "stx_abc",
-  body: "remember this",
-  kind: "note" as const,
-  url: null,
-  title: null,
-  tags: ["a", "b"],
-  done: false,
-  source: "cli" as const,
   archivedAt: null,
+  body: "remember this",
   createdAt: 1_700_000_000_000,
+  done: false,
+  id: "stx_abc",
+  kind: "note" as const,
+  source: "cli" as const,
+  tags: ["a", "b"],
+  title: null,
   updatedAt: 1_700_000_000_000,
+  url: null,
 };
 
 describe("StashItem", () => {
@@ -57,7 +59,7 @@ describe("CreateStashItem", () => {
 describe("tagged errors", () => {
   it("StashItemNotFound is yieldable and carries its id", () => {
     const exit = Effect.runSyncExit(
-      Effect.gen(function* () {
+      Effect.gen(function* exit() {
         return yield* new StashItemNotFound({ id: "stx_missing" });
       })
     );

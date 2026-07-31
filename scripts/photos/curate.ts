@@ -1,6 +1,4 @@
 #!/usr/bin/env bun
-import { google } from "@ai-sdk/google";
-import { generateObject, generateText, NoObjectGeneratedError } from "ai";
 /**
  * Stage 2 — curate: classify candidates, then rank them comparatively.
  *
@@ -22,6 +20,9 @@ import { generateObject, generateText, NoObjectGeneratedError } from "ai";
  */
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+
+import { google } from "@ai-sdk/google";
+import { generateObject, generateText, NoObjectGeneratedError } from "ai";
 import { z } from "zod";
 
 import {
@@ -211,7 +212,8 @@ async function classifyOne(
   imagePath: string
 ): Promise<Classification> {
   const image = await readFile(imagePath);
-  const { object } = await withRetry(() =>
+  const { object } = await withRetry(async () =>
+    // oxlint-disable-next-line typescript/no-deprecated -- AI SDK v7 replacement not adopted yet
     generateObject({
       maxRetries: 0,
       messages: [
@@ -266,7 +268,8 @@ async function rankBatch(
     content.push(imagePart(buffer));
   }
 
-  const { object } = await withRetry(() =>
+  const { object } = await withRetry(async () =>
+    // oxlint-disable-next-line typescript/no-deprecated -- AI SDK v7 replacement not adopted yet
     generateObject({
       maxRetries: 0,
       messages: [{ content, role: "user" }],
@@ -331,7 +334,8 @@ async function tournament(
   usable: Scored[]
 ): Promise<Map<string, Ranked>> {
   const info = new Map<string, Ranked>();
-  const rank = (batch: Scored[]) => rankBatch(modelId, trip, paths, batch);
+  const rank = async (batch: Scored[]) =>
+    rankBatch(modelId, trip, paths, batch);
   // Each evaluation deepens a photo's `depth`; surviving more rounds = better,
   // which is the only globally-comparable signal (a single round's tier is only
   // relative to that batch).
@@ -504,7 +508,8 @@ async function main(): Promise<void> {
       log(`  ✓ model: ${modelId}`);
       let done = 0;
       let failed = 0;
-      const flush = () => writeJson(paths.scoredJson, [...byUuid.values()]);
+      const flush = async () =>
+        writeJson(paths.scoredJson, [...byUuid.values()]);
       await pool(todo, CONCURRENCY, async (candidate) => {
         try {
           const cls = await classifyOne(

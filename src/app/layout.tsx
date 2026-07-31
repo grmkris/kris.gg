@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import Script from "next/script";
 

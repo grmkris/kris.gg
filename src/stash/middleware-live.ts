@@ -1,5 +1,4 @@
 import "server-only";
-
 /**
  * `StashAuth` implementation. Server-only — it imports better-auth and, through
  * it, the D1 client. Kept out of `middleware.ts` so the shared API contract can
@@ -10,18 +9,19 @@ import "server-only";
  *   2. **API key** (`x-api-key`) — Raycast, the CLI, MCP. Passkeys are
  *      interactive by definition and cannot cover those.
  */
-
 import { Effect, Layer } from "effect";
 import { HttpServerRequest } from "effect/unstable/http";
+
 import { auth } from "@/lib/auth";
+
 import { CurrentUser, StashAuth } from "./middleware";
 import { Unauthorized } from "./schema";
 
 export const StashAuthLayer = Layer.effect(
   StashAuth,
-  Effect.gen(function* () {
+  Effect.gen(function* StashAuthLayer() {
     return (httpEffect) =>
-      Effect.gen(function* () {
+      Effect.gen(function* StashAuthLayer() {
         const request = yield* HttpServerRequest.HttpServerRequest;
         const headers = new Headers(
           request.headers as unknown as Record<string, string>
@@ -32,8 +32,8 @@ export const StashAuthLayer = Layer.effect(
         // fall-through 401s.
         const session = yield* Effect.catch(
           Effect.tryPromise({
-            try: () => auth.api.getSession({ headers }),
             catch: () => "getSession-failed" as const,
+            try: async () => auth.api.getSession({ headers }),
           }),
           () => Effect.succeed(null)
         );
@@ -49,8 +49,8 @@ export const StashAuthLayer = Layer.effect(
         if (typeof key === "string" && key !== "") {
           const verified = yield* Effect.catch(
             Effect.tryPromise({
-              try: () => auth.api.verifyApiKey({ body: { key } }),
               catch: () => "verify-failed" as const,
+              try: async () => auth.api.verifyApiKey({ body: { key } }),
             }),
             () => Effect.succeed(null)
           );

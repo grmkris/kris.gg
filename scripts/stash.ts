@@ -10,7 +10,8 @@
  * cannot cover a headless client.
  */
 
-export {};
+// Also what makes this file a module, so the top-level `await`s below are legal.
+import { Buffer } from "node:buffer";
 
 const BASE = process.env.STASH_URL ?? "https://kris.gg";
 const KEY = process.env.STASH_API_KEY;
@@ -22,18 +23,18 @@ if (KEY === undefined || KEY === "") {
   process.exit(1);
 }
 
-const request = async (
-  path: string,
-  init?: RequestInit
-): Promise<unknown> => {
-  const response = await fetch(`${BASE}${path}`, {
-    ...init,
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": KEY,
-      ...init?.headers,
-    },
+const request = async (path: string, init?: RequestInit): Promise<unknown> => {
+  // Merged through `Headers` rather than by spreading: `HeadersInit` may be an
+  // array of pairs, which spreads into numeric keys instead of headers.
+  const headers = new Headers({
+    "Content-Type": "application/json",
+    "x-api-key": KEY,
   });
+  for (const [name, value] of new Headers(init?.headers)) {
+    headers.set(name, value);
+  }
+
+  const response = await fetch(`${BASE}${path}`, { ...init, headers });
   if (!response.ok) {
     console.error(`${response.status} ${await response.text()}`);
     process.exit(1);
@@ -46,7 +47,7 @@ const readStdin = async (): Promise<string> => {
   for await (const chunk of Bun.stdin.stream()) {
     chunks.push(chunk);
   }
-  return Buffer.concat(chunks).toString("utf8");
+  return Buffer.concat(chunks).toString("utf-8");
 };
 
 const args = process.argv.slice(2);
@@ -58,7 +59,9 @@ if (args[0] === "--list" || args[0] === "-l") {
     id: string;
   }[];
   for (const item of items) {
-    console.log(`${item.done ? "x" : " "}  ${item.id}  ${item.body.split("\n")[0]}`);
+    console.log(
+      `${item.done ? "x" : " "}  ${item.id}  ${item.body.split("\n")[0]}`
+    );
   }
   process.exit(0);
 }
@@ -66,7 +69,9 @@ if (args[0] === "--list" || args[0] === "-l") {
 const body = args[0] === "-" ? await readStdin() : args.join(" ");
 
 if (body.trim() === "") {
-  console.error('Nothing to save. Usage: bun run stash "text" | bun run stash -');
+  console.error(
+    'Nothing to save. Usage: bun run stash "text" | bun run stash -'
+  );
   process.exit(1);
 }
 

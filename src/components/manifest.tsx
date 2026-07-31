@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { FLAGS } from "@/content/flags";
 import type { Trip } from "@/content/trips";
-import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
+import { getCoverPhoto } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
 import { parsePlacement } from "@/lib/prizes";
 
 interface Props {
@@ -50,9 +51,9 @@ function ManifestRow({ trip, cover }: { trip: Trip; cover: PhotoMeta | null }) {
       <span className="hidden font-sans text-xs uppercase tracking-wider text-[#737373] md:inline">
         {hasEvent
           ? trip.event
-          : (trip.type === "project"
+          : trip.type === "project"
             ? "Side project"
-            : "Trip")}
+            : "Trip"}
       </span>
 
       {/* Description / project */}

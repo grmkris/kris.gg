@@ -17,6 +17,7 @@ import { existsSync } from "node:fs";
  */
 import { mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import sharp from "sharp";
 
 import {
@@ -79,7 +80,7 @@ function pickByUuid(files: string[]): Map<string, string> {
       continue;
     }
     const kind = match[2]?.toLowerCase();
-    const priority = kind === "edited" ? 3 : (kind === "preview" ? 1 : 2);
+    const priority = kind === "edited" ? 3 : kind === "preview" ? 1 : 2;
     const current = best.get(match[1]);
     if (!current || priority > current.priority) {
       best.set(match[1], { file, priority });
@@ -360,9 +361,9 @@ async function main(): Promise<void> {
       .toFile(dest);
     const tag = previewUuids.has(uuid)
       ? " (preview ≤1024px)"
-      : (isVideo(uuid)
+      : isVideo(uuid)
         ? " (video frame)"
-        : "");
+        : "";
     log(`  + ${slug}/${pad2(index)}.jpg${tag}`);
     newlyPlaced.push(uuid);
     index++;

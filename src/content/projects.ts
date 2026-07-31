@@ -96,7 +96,8 @@ export const PROJECTS: Project[] = [
       "ETHGlobal Lisbon 2026 finalist; World Identity Check winner and 2nd place 0G Best AI Product. Four contracts live on two testnets, one TypeScript app with hub + rig entrypoints, and a vendored Python driver so a rig costs zero hardware.",
     problem:
       "Robot foundation models have no internet to scrape — they learn from human teleoperation episodes, collected one at a time by operators paid $25–48/hr on-site. That market is closed, local, and trust-based: identity is unverified and success is self-declared.",
-    repoUrl: "https://github.com/grmkris/eth-global-lisbon-2026-hands-unchained",
+    repoUrl:
+      "https://github.com/grmkris/eth-global-lisbon-2026-hands-unchained",
     role: "Platform + chain (team of 2)",
     slug: "hands-unchained",
     stack: [

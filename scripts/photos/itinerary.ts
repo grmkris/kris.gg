@@ -230,7 +230,7 @@ async function main(): Promise<void> {
     .filter((l) => l.count > 0)
     .toSorted((a, b) => (a.from || "9999").localeCompare(b.from || "9999"));
 
-  await writeJson(paths.root + "/_itinerary.json", legs);
+  await writeJson(`${paths.root}/_itinerary.json`, legs);
 
   // Print table.
   log(`\nItinerary for "${pool}" — ${candidates.length} candidates\n`);

@@ -9,6 +9,7 @@
 
 import { Context } from "effect";
 import { HttpApiMiddleware } from "effect/unstable/httpapi";
+
 import { Unauthorized } from "./schema";
 
 export interface CurrentUserShape {

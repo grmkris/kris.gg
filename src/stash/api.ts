@@ -8,6 +8,8 @@
 
 import { Schema } from "effect";
 import { HttpApiEndpoint, HttpApiGroup } from "effect/unstable/httpapi";
+
+import { StashAuth } from "./middleware";
 import {
   CreateStashItem,
   StashItem,
@@ -15,7 +17,6 @@ import {
   StashStoreError,
   UpdateStashItem,
 } from "./schema";
-import { StashAuth } from "./middleware";
 
 const IdParam = Schema.Struct({ id: Schema.String });
 

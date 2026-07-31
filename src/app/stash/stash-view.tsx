@@ -2,9 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+
 import { Toaster } from "@/components/ui/sonner";
 import { authClient, useSession } from "@/lib/auth-client";
-import type { StashItem } from "@/stash/schema";
+import { StashItem } from "@/stash/schema";
+
 import {
   createStash,
   listStash,
@@ -17,6 +19,15 @@ const isTypingTarget = (target: EventTarget | null): boolean =>
   (target.tagName === "INPUT" ||
     target.tagName === "TEXTAREA" ||
     target.isContentEditable);
+
+/**
+ * `StashItem` is an Effect `Schema.Class`, so `{ ...item, done }` would hand
+ * back a plain object typed as a `StashItem` — prototype gone, and a lie to
+ * every consumer. Rebuild through the constructor instead.
+ */
+const withDone = (item: StashItem, done: boolean): StashItem =>
+  // oxlint-disable-next-line typescript/no-misused-spread -- immediately rebuilt into the class
+  new StashItem({ ...item, done });
 
 /** Detects a URL-only capture so it can be stored as a link rather than a note. */
 const asUrl = (text: string): string | undefined => {
@@ -45,7 +56,7 @@ function SignIn() {
       <button
         className="min-h-[44px] rounded-md border border-[#333] px-5 py-2 text-sm text-[#e8e8e8] transition-colors hover:border-[#555] disabled:opacity-50"
         disabled={busy}
-        onClick={signIn}
+        onClick={() => void signIn()}
         type="button"
       >
         {busy ? "Waiting for passkey…" : "Sign in with passkey"}
@@ -105,13 +116,13 @@ export function StashView() {
     // Optimistic: the list is the whole UI, so a round-trip of latency here is
     // very visible (every write is a Vercel -> Cloudflare hop).
     setItems((current) =>
-      current.map((i) => (i.id === item.id ? { ...i, done: !i.done } : i))
+      current.map((i) => (i.id === item.id ? withDone(i, !i.done) : i))
     );
     try {
       await updateStash(item.id, { done: !item.done });
     } catch (error) {
       setItems((current) =>
-        current.map((i) => (i.id === item.id ? { ...i, done: item.done } : i))
+        current.map((i) => (i.id === item.id ? withDone(i, item.done) : i))
       );
       toast.error(`Could not update: ${String(error)}`);
     }
@@ -159,7 +170,9 @@ export function StashView() {
       }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
   }, [signedIn, items, cursor, toggleDone, drop]);
 
   if (isPending) {
@@ -183,7 +196,9 @@ export function StashView() {
 
       <textarea
         className="min-h-[88px] w-full resize-y rounded-md border border-[#1a1a1a] bg-[#111] p-3 text-sm text-[#e8e8e8] outline-none transition-colors placeholder:text-[#525252] focus:border-[#333]"
-        onChange={(event) => setDraft(event.target.value)}
+        onChange={(event) => {
+          setDraft(event.target.value);
+        }}
         onKeyDown={(event) => {
           if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
             event.preventDefault();
@@ -216,9 +231,7 @@ export function StashView() {
             >
               <span
                 className={`block h-4 w-4 rounded-sm border ${
-                  item.done
-                    ? "border-[#c8472b] bg-[#c8472b]"
-                    : "border-[#333]"
+                  item.done ? "border-[#c8472b] bg-[#c8472b]" : "border-[#333]"
                 }`}
               />
             </button>
