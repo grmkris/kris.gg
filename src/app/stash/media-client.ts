@@ -166,11 +166,23 @@ export const uploadImage = async (
     })
   );
 
-  const response = await fetch(ticket.uploadUrl, {
-    body: image.blob,
-    headers: { "Content-Type": image.contentType },
-    method: "PUT",
-  });
+  let response: Response;
+  try {
+    response = await fetch(ticket.uploadUrl, {
+      body: image.blob,
+      headers: { "Content-Type": image.contentType },
+      method: "PUT",
+    });
+  } catch (cause) {
+    // A blocked CORS preflight rejects before any status exists, so this
+    // arrives as a bare "Failed to fetch" with nothing to go on. An image
+    // content type is not CORS-safelisted, so the PUT is always preflighted —
+    // and an R2 bucket has no CORS policy until one is set on it.
+    throw new Error(
+      "Upload was blocked before it reached storage — the bucket's CORS policy must allow PUT from this origin.",
+      { cause }
+    );
+  }
   if (!response.ok) {
     throw new Error(`Upload failed (${response.status})`);
   }
