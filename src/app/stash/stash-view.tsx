@@ -796,8 +796,7 @@ export function StashView({ autoFocus, initialDraft }: StashViewProps = {}) {
       )}
 
       {/* Mounted here, not in the root layout: only /stash raises toasts, so the
-          public pages keep shipping no extra JS. Rendered from a client
-          component because ui/sonner.tsx has no "use client" of its own. */}
+          public pages keep shipping no extra JS. */}
       <Toaster />
     </>
   );

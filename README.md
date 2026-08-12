@@ -1,69 +1,75 @@
-# agent-next-app
+# kris.gg
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Self, ORPC, and more.
+My personal site. A **prerendered Next.js (App Router) site on Vercel** — the
+public half (journal / trips / building / notes) is fully static, built from
+`src/content/*` plus photos served from Cloudflare R2.
 
-## Features
+Two dynamic islands sit behind it, both private:
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **oRPC** - End-to-end type-safe APIs with OpenAPI integration
-- **Drizzle** - TypeScript-first ORM
-- **SQLite/Turso** - Database engine
-- **Authentication** - Better-Auth
+- **`/stash`** — a personal capture inbox. Passkey in the browser, API keys for
+  the CLI, a Raycast hotkey and an MCP endpoint agents can write to.
+- **`/routes`** — a running-route planner (OpenRouteService + Overpass + a
+  two-call AI pass).
 
-## Getting Started
+Both are served by one Effect `HttpRouter` mounted at a single Next catch-all
+route, backed by **Cloudflare D1 over its HTTP API**.
 
-First, install the dependencies:
+## Getting started
 
 ```bash
 bun install
+bun run dev            # http://localhost:3001
 ```
 
-## Database Setup
+`/stash` and `/routes` need environment variables — see `.env.example`. The
+public content pages render without any of them.
 
-This project uses SQLite with Drizzle ORM.
+## Stack
 
-1. Start the local SQLite database (optional):
+|             |                                                                    |
+| ----------- | ------------------------------------------------------------------ |
+| Framework   | Next.js 16 (App Router), React 19, Tailwind v4                     |
+| Dynamic API | Effect v4 `HttpApi` (pinned exact — currently `4.0.0-beta.101`)    |
+| Database    | Cloudflare D1 via its HTTP API, Drizzle over `sqlite-proxy`        |
+| Auth        | better-auth — passkey (browser) + API key (CLI, Raycast, MCP)      |
+| Media       | Cloudflare R2 — photos on `i.kris.gg`, private bucket for `/stash` |
+| Runtime     | Bun                                                                |
+
+## Scripts
 
 ```bash
-bun run db:local
+bun run dev            # dev server on :3001
+bun run build          # production build
+bun run verify         # typecheck + lint/format check + tests (non-mutating)
+bun run typecheck      # tsgo --noEmit
+bun run fix            # lint + format
+bun run test           # bun test
+
+bun run db:generate    # generate a migration (ask first)
+bun run db:migrate     # apply migrations (never automatic)
+
+bun run smoke:d1       # round-trip a real item through D1
+bun run smoke:r2       # presigned upload / read / delete
+bun run stash "…"      # capture from the CLI
 ```
 
-2. Update your `.env` file in the `apps/web` directory with the appropriate connection details if needed.
+### Photo pipeline
 
-3. Apply the schema to your database:
+Galleries are built locally from Apple Photos and uploaded to R2 — the Vercel
+build does zero image work, and `public/photos/` stays out of git.
 
 ```bash
-bun run db:push
+bun run photos:mine <slug> --from YYYY-MM-DD --to YYYY-MM-DD
+bun run photos:itinerary <pool> [--partition]   # GPS clustering → per-leg dirs
+bun run photos:curate <slug>                    # Gemini classify + rank
+bun run photos:review [slug]                    # local dashboard: pick + order
+bun run photos:place <slug> [--download]        # commit winners to public/photos
+bun run photos:meta                             # captions/tags → committed JSON
+bun run photos:publish                          # encode webp + upload to R2
 ```
 
-Then, run the development server:
+## Environments
 
-```bash
-bun run dev
-```
-
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the fullstack application.
-
-## Project Structure
-
-```
-agent-next-app/
-├── apps/
-│   └── web/         # Fullstack application (Next.js)
-├── packages/
-│   ├── api/         # API layer / business logic
-│   ├── auth/        # Authentication configuration & logic
-│   └── db/          # Database schema & queries
-```
-
-## Available Scripts
-
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run db:push`: Push schema changes to database
-- `bun run db:studio`: Open database studio UI
-- `bun run db:local`: Start the local SQLite database
+`dev` auto-deploys to `dev.kris.gg`; `main` to `kris.gg`. Work on `dev`, then
+promote with a reviewed **merge-commit** PR (never squash). `main` is never
+pushed directly.
