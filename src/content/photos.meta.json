@@ -307,11 +307,12 @@
       ]
     },
     "04": {
-      "caption": "Woman posing next to a dragon statue at Gardaland amusement park",
-      "scene": "Gardaland dragon statue",
-      "score": 95,
+      "caption": "A man in a pink bucket hat smiling",
+      "scene": "Travel portrait",
+      "score": 73,
       "tags": [
-        "people"
+        "people",
+        "portrait"
       ]
     },
     "05": {
@@ -793,12 +794,12 @@
       ]
     },
     "08": {
-      "caption": "Woman standing next to the historic Kutaisi cable car",
-      "scene": "Kutaisi cable car",
-      "score": 98,
+      "caption": "A man walks with a suitcase towards Bagrati Cathedral",
+      "scene": "Street to Bagrati Cathedral",
+      "score": 76,
       "tags": [
         "people",
-        "other"
+        "architecture"
       ]
     },
     "09": {
@@ -857,13 +858,12 @@
       ]
     },
     "15": {
-      "caption": "A woman sitting at an outdoor restaurant table in Lisbon at night",
-      "scene": "Lisbon outdoor dining",
-      "score": 95,
+      "caption": "A couple posing in front of Belém Tower in Lisbon",
+      "scene": "Belem Tower",
+      "score": 100,
       "tags": [
         "people",
-        "portrait",
-        "night"
+        "architecture"
       ]
     },
     "16": {
@@ -894,12 +894,13 @@
       ]
     },
     "19": {
-      "caption": "A woman posing with a bicycle near 25 de Abril Bridge",
-      "scene": "25 de Abril Bridge",
-      "score": 77,
+      "caption": "Outdoor dining terrace near the 25 de Abril Bridge in Lisbon",
+      "scene": "Docas terrace",
+      "score": 98,
       "tags": [
-        "people",
-        "landscape"
+        "architecture",
+        "landscape",
+        "people"
       ]
     },
     "20": {
@@ -1149,6 +1150,15 @@
       ]
     },
     "05": {
+      "caption": "Couple posing in a photo frame with mountains in the background",
+      "scene": "Heshkili photo frame",
+      "score": 96,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "06": {
       "caption": "People dining at a restaurant with various Georgian dishes and beer.",
       "scene": "Georgian dinner",
       "score": 97,
@@ -1157,7 +1167,7 @@
         "people"
       ]
     },
-    "06": {
+    "07": {
       "caption": "Interior view of a car driving past cows on a road",
       "scene": "Cows on road trip",
       "score": 97,
@@ -1166,7 +1176,7 @@
         "other"
       ]
     },
-    "07": {
+    "08": {
       "caption": "A couple posing on a scenic mountain road in Svaneti",
       "scene": "Road pose with Mt. Ushba",
       "score": 98,
@@ -1175,18 +1185,9 @@
         "landscape"
       ]
     },
-    "08": {
+    "09": {
       "caption": "Man giving a woman a piggyback ride on a mountain road",
       "scene": "Road pose with Mt. Ushba",
-      "score": 97,
-      "tags": [
-        "people",
-        "landscape"
-      ]
-    },
-    "09": {
-      "caption": "A woman doing a handstand on a mountain road in Svaneti",
-      "scene": "Mountain road",
       "score": 97,
       "tags": [
         "people",
@@ -1195,16 +1196,6 @@
     }
   },
   "mestia-2026": {
-    "10": {
-      "caption": "A woman sitting at a restaurant table with mountain views",
-      "scene": "Cafe portrait",
-      "score": 93,
-      "tags": [
-        "people",
-        "portrait",
-        "food"
-      ]
-    },
     "01": {
       "caption": "Friends enjoying a traditional Georgian dinner with khachapuri and beer",
       "scene": "Georgian dinner",
@@ -1936,25 +1927,6 @@
     }
   },
   "slovenian-coast-2026": {
-    "10": {
-      "caption": "A cyclist riding through the stone Valeta tunnel in Portorož",
-      "scene": "Parenzana stone tunnel",
-      "score": 51,
-      "tags": [
-        "architecture",
-        "people",
-        "blurry"
-      ]
-    },
-    "11": {
-      "caption": "A couple posing on the rocky coast of Piran at sunset",
-      "scene": "Piran coast couple",
-      "score": 96,
-      "tags": [
-        "people",
-        "landscape"
-      ]
-    },
     "01": {
       "caption": "Scenic view of the rocky coast in Piran at sunset",
       "scene": "Piran harbor scenic",
@@ -1974,15 +1946,6 @@
       ]
     },
     "03": {
-      "caption": "A smiling woman walks on a stony beach by the sea",
-      "scene": "Stony beach portrait",
-      "score": 81,
-      "tags": [
-        "people",
-        "portrait"
-      ]
-    },
-    "04": {
       "caption": "A woman riding a bicycle on a coastal path in Slovenia",
       "scene": "Coastal bike path",
       "score": 95,
@@ -1991,7 +1954,7 @@
         "landscape"
       ]
     },
-    "05": {
+    "04": {
       "caption": "A woman cycling along the coastal bike path in Koper",
       "scene": "Coastal bike path",
       "score": 90,
@@ -2000,7 +1963,7 @@
         "people"
       ]
     },
-    "06": {
+    "05": {
       "caption": "A cyclist riding through a stone tunnel in Izola, Slovenia.",
       "scene": "Parenzana tunnel interior",
       "score": 97,
@@ -2009,7 +1972,7 @@
         "architecture"
       ]
     },
-    "07": {
+    "06": {
       "caption": "A cyclist riding through a stone tunnel on the Parenzana trail",
       "scene": "Parenzana tunnel exit",
       "score": 99,
@@ -2017,20 +1980,32 @@
         "landscape"
       ]
     },
-    "08": {
-      "caption": "Woman sitting on the grass next to bicycles in Izola",
-      "scene": "Izola biking break",
-      "score": 56,
+    "07": {
+      "caption": "A cyclist riding through the stone Valeta tunnel in Portorož",
+      "scene": "Parenzana stone tunnel",
+      "score": 51,
       "tags": [
-        "people"
+        "architecture",
+        "people",
+        "blurry"
+      ]
+    },
+    "08": {
+      "caption": "A couple posing on the rocky coast of Piran at sunset",
+      "scene": "Piran coast couple",
+      "score": 96,
+      "tags": [
+        "people",
+        "landscape"
       ]
     },
     "09": {
-      "caption": "Smiling young woman riding a bicycle on a path in Portorož",
-      "scene": "Portoroz cycling path",
-      "score": 52,
+      "caption": "A man standing on the rocky coast in Piran at sunset",
+      "scene": "Piran coast portrait",
+      "score": 94,
       "tags": [
-        "people"
+        "people",
+        "portrait"
       ]
     }
   },
@@ -2191,9 +2166,9 @@
       ]
     },
     "03": {
-      "caption": "Two young women laughing by the water at night",
-      "scene": "Night waterfront close-up",
-      "score": 42,
+      "caption": "Smiling couple hugging at a night event in Umag",
+      "scene": "Umag nightlife",
+      "score": 96,
       "tags": [
         "people",
         "portrait",
@@ -2220,11 +2195,12 @@
       ]
     },
     "07": {
-      "caption": "Two women posing under a pine tree near the beach",
-      "scene": "Umag beach portrait",
-      "score": 93,
+      "caption": "People relaxing on a shaded rocky beach next to the sea",
+      "scene": "rocky pine beach",
+      "score": 79,
       "tags": [
-        "people"
+        "people",
+        "landscape"
       ]
     },
     "08": {
@@ -2238,6 +2214,16 @@
   },
   "ushguli-2026": {
     "10": {
+      "caption": "A couple posing in a scenic mountain valley in Ushguli",
+      "scene": "Couple in Ushguli valley",
+      "score": 90,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
+      ]
+    },
+    "11": {
       "caption": "Couple posing in the Ushguli valley with Mount Shkhara behind",
       "scene": "Mount Shkhara valley view",
       "score": 97,
@@ -2246,7 +2232,7 @@
         "landscape"
       ]
     },
-    "11": {
+    "12": {
       "caption": "Green mountain valley with snowy peaks near Ushguli",
       "scene": "Ushguli valley landscape",
       "score": 94,
@@ -2254,7 +2240,7 @@
         "landscape"
       ]
     },
-    "12": {
+    "13": {
       "caption": "Lush green valley leading towards snow-capped mountains in Ushguli",
       "scene": "Ushguli valley landscape",
       "score": 95,
@@ -2262,22 +2248,12 @@
         "landscape"
       ]
     },
-    "13": {
+    "14": {
       "caption": "A woman in a red jacket overlooking the Caucasus Mountains",
       "scene": "Shkhara mountain view with red jacket",
       "score": 98,
       "tags": [
         "people",
-        "landscape"
-      ]
-    },
-    "14": {
-      "caption": "Woman posing in a scenic mountain valley near Ushguli, Georgia",
-      "scene": "Mount Shkhara valley view",
-      "score": 95,
-      "tags": [
-        "people",
-        "portrait",
         "landscape"
       ]
     },
@@ -2309,15 +2285,6 @@
       ]
     },
     "02": {
-      "caption": "Woman posing on a wooden bridge in Ushguli at sunset",
-      "scene": "River bridge sunset",
-      "score": 96,
-      "tags": [
-        "people",
-        "landscape"
-      ]
-    },
-    "03": {
       "caption": "Scenic view of Ushguli with historic Svan towers and mountains",
       "scene": "Ushguli Svan towers landscape",
       "score": 93,
@@ -2327,7 +2294,7 @@
         "people"
       ]
     },
-    "04": {
+    "03": {
       "caption": "Scenic view of Svan towers in Ushguli village",
       "scene": "Ushguli village towers landscape",
       "score": 99,
@@ -2336,7 +2303,7 @@
         "architecture"
       ]
     },
-    "05": {
+    "04": {
       "caption": "River flowing through Ushguli village with mountains in the background",
       "scene": "River and Ushguli village",
       "score": 93,
@@ -2345,7 +2312,7 @@
         "architecture"
       ]
     },
-    "06": {
+    "05": {
       "caption": "Woman walking past ancient stone Svan towers in Ushguli",
       "scene": "Walking among Svan towers",
       "score": 94,
@@ -2355,7 +2322,7 @@
         "landscape"
       ]
     },
-    "07": {
+    "06": {
       "caption": "A person walking on a path between stone towers in Ushguli",
       "scene": "Walking among Svan towers",
       "score": 96,
@@ -2365,7 +2332,7 @@
         "landscape"
       ]
     },
-    "08": {
+    "07": {
       "caption": "Svan towers in the mountain village of Ushguli",
       "scene": "Ushguli Svan towers landscape",
       "score": 96,
@@ -2373,6 +2340,16 @@
         "landscape",
         "architecture",
         "people"
+      ]
+    },
+    "08": {
+      "caption": "A smiling couple takes a selfie in the mountains",
+      "scene": "Mountain selfie",
+      "score": 72,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
       ]
     },
     "09": {
@@ -2387,32 +2364,6 @@
     }
   },
   "velika-planina-2026": {
-    "10": {
-      "caption": "A brown and white cow grazing in a mountain pasture",
-      "scene": "Cows grazing",
-      "score": 48,
-      "tags": [
-        "other"
-      ]
-    },
-    "11": {
-      "caption": "A visitor admiring the mountain view at Velika Planina",
-      "scene": "Visitor at Velika Planina",
-      "score": 78,
-      "tags": [
-        "people",
-        "landscape"
-      ]
-    },
-    "12": {
-      "caption": "Traditional wooden herdsman's hut on a grassy hill",
-      "scene": "Cottage architecture",
-      "score": 60,
-      "tags": [
-        "landscape",
-        "architecture"
-      ]
-    },
     "01": {
       "caption": "Gravel path leading through the grassy hills of Velika Planina",
       "scene": "Velika Planina hiking path",
@@ -2422,16 +2373,6 @@
       ]
     },
     "02": {
-      "caption": "A woman posing with hiking poles on a grassy trail",
-      "scene": "Hiking trail portrait",
-      "score": 30,
-      "tags": [
-        "people",
-        "portrait",
-        "landscape"
-      ]
-    },
-    "03": {
       "caption": "Wooden heart-shaped frame at Velika Planina with mountains in the background",
       "scene": "Heart-shaped frame",
       "score": 86,
@@ -2439,7 +2380,7 @@
         "landscape"
       ]
     },
-    "04": {
+    "03": {
       "caption": "Traditional wooden cottages on the green hills of Velika Planina",
       "scene": "Huts on rolling hills",
       "score": 100,
@@ -2448,7 +2389,7 @@
         "architecture"
       ]
     },
-    "05": {
+    "04": {
       "caption": "Traditional wooden huts on the green hills of Velika Planina",
       "scene": "Huts on rolling hills",
       "score": 98,
@@ -2457,7 +2398,7 @@
         "architecture"
       ]
     },
-    "06": {
+    "05": {
       "caption": "Traditional wooden huts in Velika Planina with mountain views",
       "scene": "Wooden huts close-up",
       "score": 95,
@@ -2466,7 +2407,7 @@
         "architecture"
       ]
     },
-    "07": {
+    "06": {
       "caption": "Traditional wooden cottages on Velika Planina under a cloudy sky",
       "scene": "Velika Planina wooden cottages closeup",
       "score": 80,
@@ -2475,22 +2416,30 @@
         "architecture"
       ]
     },
+    "07": {
+      "caption": "A brown and white cow grazing in a mountain pasture",
+      "scene": "Cows grazing",
+      "score": 48,
+      "tags": [
+        "other"
+      ]
+    },
     "08": {
-      "caption": "Woman posing with peace signs at Velika Planina",
-      "scene": "Portrait on hills",
-      "score": 69,
+      "caption": "A visitor admiring the mountain view at Velika Planina",
+      "scene": "Visitor at Velika Planina",
+      "score": 78,
       "tags": [
         "people",
-        "portrait",
         "landscape"
       ]
     },
     "09": {
-      "caption": "A woman interacting with a brown cow on a grassy pasture",
-      "scene": "Interacting with cows",
-      "score": 26,
+      "caption": "Traditional wooden herdsman's hut on a grassy hill",
+      "scene": "Cottage architecture",
+      "score": 60,
       "tags": [
-        "people"
+        "landscape",
+        "architecture"
       ]
     }
   }
