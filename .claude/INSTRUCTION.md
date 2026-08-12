@@ -114,11 +114,16 @@ Preview (dev). Migration `0001` adds the attachments column.
 
 ## Known, unrelated
 
-- `src/components/ui/sonner.tsx` is missing `"use client"`. Worked around by
-  mounting `<Toaster/>` from a client component.
-- Stale docs describing the deleted ORPC stack: `README.md` and
-  `.claude/skills/{backend,drizzle,frontend,testing}-patterns`. Also orphaned:
-  `local.db`, `apps/kris.gg/`.
+All cleared on 2026-08-12 (`baa95e2`): `sonner.tsx` has its own `"use client"`,
+`README.md` and the project `CLAUDE.md` describe the real stack, and the
+orphans (`local.db`, `apps/kris.gg/`, a stray `a.out`, an osxphotos crash log)
+are gone. The four skills were already rewritten in `4d930c3`.
+
+One thing to know: the local `.env` now holds **only** `GOOGLE_GENERATIVE_AI_API_KEY`
+and `GEMINI_MODEL` — the five `CLOUDFLARE_*` / `BETTER_AUTH_*` /
+`STASH_REGISTRATION_SECRET` values this document describes are no longer there.
+`bun run smoke:d1` and any local `/stash` work need them restored first, and
+migrating `kris-stash-prod` needs `CLOUDFLARE_D1_TOKEN`.
 
 ## Escape hatch
 
