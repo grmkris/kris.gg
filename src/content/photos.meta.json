@@ -689,6 +689,129 @@
       ]
     }
   },
+  "kutaisi-2026": {
+    "10": {
+      "caption": "Bagrati Cathedral under a blue sky in Kutaisi",
+      "scene": "Bagrati Cathedral exterior",
+      "score": 93,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "11": {
+      "caption": "Interior of the Bagrati Cathedral in Kutaisi",
+      "scene": "Bagrati Cathedral interior",
+      "score": 99,
+      "tags": [
+        "architecture",
+        "people"
+      ]
+    },
+    "12": {
+      "caption": "Interior of the Bagrati Cathedral in Kutaisi",
+      "scene": "Bagrati Cathedral interior",
+      "score": 94,
+      "tags": [
+        "architecture"
+      ]
+    },
+    "13": {
+      "caption": "Bagrati Cathedral in Kutaisi under a cloudy sky",
+      "scene": "Bagrati Cathedral exterior (cloudy)",
+      "score": 88,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "14": {
+      "caption": "Grilled meat and kebab served at a restaurant in Kutaisi",
+      "scene": "Georgian food",
+      "score": 86,
+      "tags": [
+        "food"
+      ]
+    },
+    "01": {
+      "caption": "Bagrati Cathedral in Kutaisi, Georgia",
+      "scene": "Bagrati Cathedral exterior",
+      "score": 100,
+      "tags": [
+        "architecture",
+        "landscape"
+      ]
+    },
+    "02": {
+      "caption": "Scenic view of a river winding through a forested valley",
+      "scene": "Rioni River valley",
+      "score": 95,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "03": {
+      "caption": "Scenic view of a lush green river valley under a cloudy sky",
+      "scene": "Kutaisi river valley",
+      "score": 92,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "04": {
+      "caption": "View of Motsameta Monastery from a stone terrace",
+      "scene": "Motsameta Monastery",
+      "score": 96,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "05": {
+      "caption": "Interior of an Orthodox church in Kutaisi featuring the iconostasis.",
+      "scene": "Orthodox church interior",
+      "score": 97,
+      "tags": [
+        "architecture"
+      ]
+    },
+    "06": {
+      "caption": "Interior of an Orthodox church with an iconostasis and icons",
+      "scene": "Orthodox church interior",
+      "score": 91,
+      "tags": [
+        "architecture",
+        "other"
+      ]
+    },
+    "07": {
+      "caption": "A man posing with the Picasso Boy statue on White Bridge",
+      "scene": "White Bridge",
+      "score": 90,
+      "tags": [
+        "people"
+      ]
+    },
+    "08": {
+      "caption": "Woman standing next to the historic Kutaisi cable car",
+      "scene": "Kutaisi cable car",
+      "score": 98,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "09": {
+      "caption": "Man sitting on a grassy hill overlooking Kutaisi",
+      "scene": "Kutaisi panorama hill",
+      "score": 89,
+      "tags": [
+        "landscape",
+        "cityscape",
+        "people"
+      ]
+    }
+  },
   "lisbon-2026": {
     "10": {
       "caption": "Speaker presenting at the ETHGlobal Lisbon conference",
@@ -874,6 +997,292 @@
       "tags": [
         "people",
         "other"
+      ]
+    }
+  },
+  "mazeri-2026": {
+    "10": {
+      "caption": "A woman walking along a scenic mountain road in Svaneti",
+      "scene": "Mountain road walk",
+      "score": 99,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "11": {
+      "caption": "Turquoise river with a wooden gazebo and mountains in Svaneti",
+      "scene": "Turquoise alpine lake",
+      "score": 99,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "12": {
+      "caption": "An A-frame wooden cabin nestled in a forest",
+      "scene": "A-frame cabin in forest",
+      "score": 97,
+      "tags": [
+        "architecture",
+        "landscape",
+        "people"
+      ]
+    },
+    "13": {
+      "caption": "Turquoise alpine lake with mountain reflections under a clear blue sky",
+      "scene": "Turquoise alpine lake",
+      "score": 100,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "14": {
+      "caption": "Golden sunset light on a mountain peak in Svaneti",
+      "scene": "Sunset mountain peak",
+      "score": 100,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "15": {
+      "caption": "Hikers posing in front of a golden mountain peak at sunset",
+      "scene": "Group portrait at sunset",
+      "score": 99,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "16": {
+      "caption": "A group of friends posing in front of a sunlit mountain",
+      "scene": "Group portrait",
+      "score": 97,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "17": {
+      "caption": "River flowing through a mountain valley at sunset in Svaneti",
+      "scene": "River valley at sunset",
+      "score": 98,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "18": {
+      "caption": "Two hikers walking along a forested trail with mountains in the background",
+      "scene": "Forest trail hike",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "19": {
+      "caption": "A couple standing on a wooden bridge over a rushing mountain river",
+      "scene": "Bridge over mountain river",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "20": {
+      "caption": "Waterfall cascading down a rocky mountain slope in Svaneti",
+      "scene": "Waterfall",
+      "score": 98,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "21": {
+      "caption": "Scenic view of a mountain valley and winding river in Svaneti",
+      "scene": "Svaneti valley view",
+      "score": 99,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "22": {
+      "caption": "Scenic view of a lush mountain valley with a winding river",
+      "scene": "Lush mountain valley panorama",
+      "score": 99,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "01": {
+      "caption": "A person walking on a green meadow towards distant mountains",
+      "scene": "Svaneti meadow hike",
+      "score": 100,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "02": {
+      "caption": "A woman stands on a grassy field looking at Caucasus mountains",
+      "scene": "Meadow overlook",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "03": {
+      "caption": "Two people sitting inside a green photo frame in the mountains",
+      "scene": "Giant photo frame",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "04": {
+      "caption": "Two people sitting on a large frame overlooking mountain views",
+      "scene": "Giant photo frame",
+      "score": 99,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "05": {
+      "caption": "People dining at a restaurant with various Georgian dishes and beer.",
+      "scene": "Georgian dinner",
+      "score": 97,
+      "tags": [
+        "food",
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "Interior view of a car driving past cows on a road",
+      "scene": "Cows on road trip",
+      "score": 97,
+      "tags": [
+        "people",
+        "other"
+      ]
+    },
+    "07": {
+      "caption": "A couple posing on a scenic mountain road in Svaneti",
+      "scene": "Road pose with Mt. Ushba",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "08": {
+      "caption": "Man giving a woman a piggyback ride on a mountain road",
+      "scene": "Road pose with Mt. Ushba",
+      "score": 97,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "09": {
+      "caption": "A woman doing a handstand on a mountain road in Svaneti",
+      "scene": "Mountain road",
+      "score": 97,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    }
+  },
+  "mestia-2026": {
+    "10": {
+      "caption": "A woman sitting at a restaurant table with mountain views",
+      "scene": "Cafe portrait",
+      "score": 93,
+      "tags": [
+        "people",
+        "portrait",
+        "food"
+      ]
+    },
+    "01": {
+      "caption": "Friends enjoying a traditional Georgian dinner with khachapuri and beer",
+      "scene": "Georgian dinner",
+      "score": 100,
+      "tags": [
+        "people",
+        "food"
+      ]
+    },
+    "02": {
+      "caption": "Driving along a mountain road viewed from inside the car",
+      "scene": "Car road trip",
+      "score": 74,
+      "tags": [
+        "landscape",
+        "people"
+      ]
+    },
+    "03": {
+      "caption": "An arm resting on a car window with scenic green hills outside",
+      "scene": "Road trip to Mestia",
+      "score": 66,
+      "tags": [
+        "landscape",
+        "other"
+      ]
+    },
+    "04": {
+      "caption": "Street scene in Mestia with distant mountain peaks",
+      "scene": "Mestia street view",
+      "score": 85,
+      "tags": [
+        "cityscape",
+        "landscape",
+        "people"
+      ]
+    },
+    "05": {
+      "caption": "Wall with handwritten messages from travelers in a guest house",
+      "scene": "Guesthouse wall",
+      "score": 63,
+      "tags": [
+        "other"
+      ]
+    },
+    "06": {
+      "caption": "Traveler signatures and messages written on a wall and ceiling.",
+      "scene": "Bar interior",
+      "score": 89,
+      "tags": [
+        "other"
+      ]
+    },
+    "07": {
+      "caption": "A group of people dining in a decorated restaurant in Mestia",
+      "scene": "Georgian dinner",
+      "score": 70,
+      "tags": [
+        "people",
+        "food"
+      ]
+    },
+    "08": {
+      "caption": "Yellow hiking signs in Mestia pointing to Zardlashi and Zhabeshi",
+      "scene": "Hiking trail sign",
+      "score": 96,
+      "tags": [
+        "night",
+        "other"
+      ]
+    },
+    "09": {
+      "caption": "Illuminated river flowing through a steep canyon at night",
+      "scene": "Mestia canyon night",
+      "score": 78,
+      "tags": [
+        "landscape",
+        "night"
       ]
     }
   },
@@ -1725,6 +2134,156 @@
       "score": 100,
       "tags": [
         "food"
+      ]
+    }
+  },
+  "ushguli-2026": {
+    "10": {
+      "caption": "Couple posing in the Ushguli valley with Mount Shkhara behind",
+      "scene": "Mount Shkhara valley view",
+      "score": 97,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "11": {
+      "caption": "Green mountain valley with snowy peaks near Ushguli",
+      "scene": "Ushguli valley landscape",
+      "score": 94,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "12": {
+      "caption": "Lush green valley leading towards snow-capped mountains in Ushguli",
+      "scene": "Ushguli valley landscape",
+      "score": 95,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "13": {
+      "caption": "A woman in a red jacket overlooking the Caucasus Mountains",
+      "scene": "Shkhara mountain view with red jacket",
+      "score": 98,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "14": {
+      "caption": "Woman posing in a scenic mountain valley near Ushguli, Georgia",
+      "scene": "Mount Shkhara valley view",
+      "score": 95,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
+      ]
+    },
+    "15": {
+      "caption": "Scenic view of a river flowing through a lush green valley",
+      "scene": "Enguri river valley",
+      "score": 97,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "16": {
+      "caption": "A tourist overlooking the ancient stone towers of Ushguli village",
+      "scene": "Ushguli village overhead",
+      "score": 100,
+      "tags": [
+        "landscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "01": {
+      "caption": "A person in a red jacket looking at the Caucasus Mountains",
+      "scene": "Shkhara mountain view with red jacket",
+      "score": 100,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "02": {
+      "caption": "Woman posing on a wooden bridge in Ushguli at sunset",
+      "scene": "River bridge sunset",
+      "score": 96,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "03": {
+      "caption": "Scenic view of Ushguli with historic Svan towers and mountains",
+      "scene": "Ushguli Svan towers landscape",
+      "score": 93,
+      "tags": [
+        "landscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "04": {
+      "caption": "Scenic view of Svan towers in Ushguli village",
+      "scene": "Ushguli village towers landscape",
+      "score": 99,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "05": {
+      "caption": "River flowing through Ushguli village with mountains in the background",
+      "scene": "River and Ushguli village",
+      "score": 93,
+      "tags": [
+        "landscape",
+        "architecture"
+      ]
+    },
+    "06": {
+      "caption": "Woman walking past ancient stone Svan towers in Ushguli",
+      "scene": "Walking among Svan towers",
+      "score": 94,
+      "tags": [
+        "people",
+        "architecture",
+        "landscape"
+      ]
+    },
+    "07": {
+      "caption": "A person walking on a path between stone towers in Ushguli",
+      "scene": "Walking among Svan towers",
+      "score": 96,
+      "tags": [
+        "people",
+        "architecture",
+        "landscape"
+      ]
+    },
+    "08": {
+      "caption": "Svan towers in the mountain village of Ushguli",
+      "scene": "Ushguli Svan towers landscape",
+      "score": 96,
+      "tags": [
+        "landscape",
+        "architecture",
+        "people"
+      ]
+    },
+    "09": {
+      "caption": "A couple posing with snow-capped mountains in the background",
+      "scene": "Shkhara mountain with couple",
+      "score": 99,
+      "tags": [
+        "people",
+        "portrait",
+        "landscape"
       ]
     }
   },

@@ -17,6 +17,38 @@ export interface Trip {
 
 export const TRIPS: Trip[] = [
   {
+    body: `The way out of Georgia, spent in Imereti instead of at the airport. Motsameta on its spur above the Rioni gorge, the old cable car over the river, the White Bridge, and Bagrati up on the hill in the evening. Kebab, then the flight home.`,
+    date: "2026-08",
+    description: `A day in Imereti on the way out — Motsameta, the cable car, Bagrati.`,
+    location: "Kutaisi",
+    slug: "kutaisi-2026",
+    title: "Kutaisi",
+  },
+  {
+    body: `The middle of the Svaneti week. Up the chairlifts to the Zuruldi ridge above Mestia — a whole afternoon of the four of us on the grass with the Caucasus laid out behind — then over to Mazeri for the night in an A-frame under Ushba, and up the Dolra valley to the waterfall the next morning. Forest trail, wooden bridges, meadows of wildflowers.`,
+    date: "2026-08",
+    description: `Zuruldi ridge above Mestia, then the Dolra valley under Ushba.`,
+    location: "Mazeri",
+    slug: "mazeri-2026",
+    title: "Mazeri",
+  },
+  {
+    body: `Back down the valley from Ushguli to Mestia for the night. Georgian dinner — khachapuri and beer — in a room where the walls and the ceiling are covered in travellers' handwriting. Yellow trail signs on the corner pointing to Zhabeshi and Zardlashi, and the canyon lit up below the town.`,
+    date: "2026-08",
+    description: `A night in Mestia — dinner, signed walls, trail signs on the corner.`,
+    location: "Mestia",
+    slug: "mestia-2026",
+    title: "Mestia",
+  },
+  {
+    body: `Up the Enguri gorge into Upper Svaneti — a long day of dirt road, cows and horses that own it, and then Ushguli at the head of the valley: stone Svan towers under Shkhara, the highest of the Caucasus. Evening on the wooden bridge over the river, and a morning walking out between the towers with the mountain in front of you the whole way.`,
+    date: "2026-08",
+    description: `Svan towers under Shkhara, at the head of the Enguri valley.`,
+    location: "Ushguli",
+    slug: "ushguli-2026",
+    title: "Ushguli",
+  },
+  {
     body: `ETHGlobal Lisbon at the Carlos Lopes Pavilion — team of two with Lisa, her first hackathon. We put a real SO-101 robot arm on the venue floor and let anyone with the lobby URL drive it over the public internet: World ID gates the arm, a TEE-verified model on 0G grades each episode, and staking + settlement run on 0G and Hedera. Finalist stage on Sunday morning.
 
 Pragma the day before, Parque Eduardo VII on the walk in.`,
