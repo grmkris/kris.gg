@@ -36,6 +36,7 @@ export const FLAGS: Record<string, string> = {
   "San Martín de los Andes": "🇦🇷",
   Seoul: "🇰🇷",
   Shanghai: "🇨🇳",
+  "Slovenian Istria": "🇸🇮",
   Songjiang: "🇨🇳",
   Taipei: "🇹🇼",
   Tbilisi: "🇬🇪",

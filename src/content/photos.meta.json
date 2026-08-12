@@ -1935,6 +1935,105 @@
       ]
     }
   },
+  "slovenian-coast-2026": {
+    "10": {
+      "caption": "A cyclist riding through the stone Valeta tunnel in Portorož",
+      "scene": "Parenzana stone tunnel",
+      "score": 51,
+      "tags": [
+        "architecture",
+        "people",
+        "blurry"
+      ]
+    },
+    "11": {
+      "caption": "A couple posing on the rocky coast of Piran at sunset",
+      "scene": "Piran coast couple",
+      "score": 96,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "01": {
+      "caption": "Scenic view of the rocky coast in Piran at sunset",
+      "scene": "Piran harbor scenic",
+      "score": 100,
+      "tags": [
+        "landscape",
+        "cityscape"
+      ]
+    },
+    "02": {
+      "caption": "A large CMA CGM cargo ship docked at the Port of Koper",
+      "scene": "Port of Koper container ship",
+      "score": 67,
+      "tags": [
+        "landscape",
+        "other"
+      ]
+    },
+    "03": {
+      "caption": "A smiling woman walks on a stony beach by the sea",
+      "scene": "Stony beach portrait",
+      "score": 81,
+      "tags": [
+        "people",
+        "portrait"
+      ]
+    },
+    "04": {
+      "caption": "A woman riding a bicycle on a coastal path in Slovenia",
+      "scene": "Coastal bike path",
+      "score": 95,
+      "tags": [
+        "people",
+        "landscape"
+      ]
+    },
+    "05": {
+      "caption": "A woman cycling along the coastal bike path in Koper",
+      "scene": "Coastal bike path",
+      "score": 90,
+      "tags": [
+        "landscape",
+        "people"
+      ]
+    },
+    "06": {
+      "caption": "A cyclist riding through a stone tunnel in Izola, Slovenia.",
+      "scene": "Parenzana tunnel interior",
+      "score": 97,
+      "tags": [
+        "people",
+        "architecture"
+      ]
+    },
+    "07": {
+      "caption": "A cyclist riding through a stone tunnel on the Parenzana trail",
+      "scene": "Parenzana tunnel exit",
+      "score": 99,
+      "tags": [
+        "landscape"
+      ]
+    },
+    "08": {
+      "caption": "Woman sitting on the grass next to bicycles in Izola",
+      "scene": "Izola biking break",
+      "score": 56,
+      "tags": [
+        "people"
+      ]
+    },
+    "09": {
+      "caption": "Smiling young woman riding a bicycle on a path in Portorož",
+      "scene": "Portoroz cycling path",
+      "score": 52,
+      "tags": [
+        "people"
+      ]
+    }
+  },
   "songjiang-2026": {
     "10": {
       "caption": "A man posing at a moon gate in Guangfulin Cultural Site.",
