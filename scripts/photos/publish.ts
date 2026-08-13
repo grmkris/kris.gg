@@ -155,10 +155,13 @@ async function publishPhoto(
     uploaded++;
   }
 
-  // Source JPG — needed by OG cards (decoded → JPEG for Satori at build).
+  // Source JPG — the photo permalink's og:image (journal/[slug]/[photo]).
+  // Content-hashed like the variants: a swapped/renumbered photo gets a fresh
+  // URL, so the year-long edge cache can never serve the wrong image (a
+  // positional NN.jpg key + putIfAbsent left stale objects live for a year).
   await putIfAbsent(
     s3,
-    `photos/${slug}/${filename}`,
+    `photos/${slug}/${baseName}.${v}.jpg`,
     bytes,
     "image/jpeg",
     force
@@ -181,7 +184,7 @@ async function publishPhoto(
     height: meta.height,
     id: v,
     mid: url(`photos/${slug}/${baseName}.${v}-800.webp`),
-    src: url(`photos/${slug}/${filename}`),
+    src: url(`photos/${slug}/${baseName}.${v}.jpg`),
     thumb: url(`photos/${slug}/${baseName}.${v}-400.webp`),
     width: meta.width,
   };
