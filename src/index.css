@@ -163,6 +163,18 @@
   .page-enter {
     animation: page-fade 0.35s ease-out both;
   }
+  /* /stash capture settling into the list. Applied only to rows added after
+     mount — never on first paint, where every row animating at once is noise
+     rather than information. */
+  .stash-enter {
+    animation: stash-in 0.26s var(--ease-out-strong) both;
+  }
+  /* Exits are shorter and softer than enters (150ms vs 260ms): attention is
+     already moving on, so this indicates direction without asking for focus. */
+  .stash-exit {
+    animation: stash-out 0.15s ease-out both;
+    pointer-events: none;
+  }
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
@@ -173,6 +185,14 @@
     }
     .page-enter {
       animation: none;
+    }
+    .stash-enter {
+      animation: none;
+    }
+    /* Still fades, just without the movement — the row must not vanish
+       instantly while its delete request is still in flight. */
+    .stash-exit {
+      animation: stash-fade-out 0.15s ease-out both;
     }
   }
 }
@@ -203,6 +223,42 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes stash-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* A small fixed offset, not the row height — enough to say "it went up there"
+   without the list appearing to collapse. */
+@keyframes stash-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes stash-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 

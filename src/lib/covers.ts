@@ -1,6 +1,7 @@
 import coversData from "@/content/covers.generated.json";
 import { TRIPS } from "@/content/trips";
-import { getTripPhotos, type PhotoMeta } from "@/lib/photos";
+import { getTripPhotos } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
 
 interface CoverEntry {
   slug: string;

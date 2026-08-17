@@ -1,5 +1,6 @@
 /* eslint-disable func-style, @typescript-eslint/no-unsafe-type-assertion */
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";

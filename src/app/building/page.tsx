@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { PROJECTS, type Project } from "@/content/projects";
-import { getCoverPhoto, type PhotoMeta } from "@/lib/photos";
+import { PROJECTS } from "@/content/projects";
+import type { Project } from "@/content/projects";
+import { getCoverPhoto } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
 
 export const metadata = {
   description:
@@ -20,9 +22,9 @@ function StatusDot({ status }: { status: Project["status"] }) {
   const color =
     status === "live"
       ? "bg-[#c8472b]"
-      : (status === "active"
+      : status === "active"
         ? "bg-[#c8472b]/50"
-        : "bg-[#525252]");
+        : "bg-[#525252]";
   return <span className={`inline-block h-2 w-2 rounded-full ${color}`} />;
 }
 

@@ -69,3 +69,7 @@ dev-dist
 # (scripts/photos/publish.ts). Sources + encoded variants stay local/on R2 and
 # out of git; only src/content/photos.generated.json (R2 URLs) is committed.
 public/photos/
+
+# The real database is Cloudflare D1 — never commit a local SQLite file
+local.db
+*.sqlite

@@ -9,7 +9,8 @@ import type { PhotoMeta } from "@/lib/photos";
 import "yet-another-react-lightbox/styles.css";
 
 const Lightbox = dynamic(
-  async () => import("yet-another-react-lightbox").then((mod) => mod.default),
+  async () =>
+    await import("yet-another-react-lightbox").then((mod) => mod.default),
   { ssr: false }
 );
 

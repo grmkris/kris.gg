@@ -10,7 +10,8 @@ import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { join } from "node:path";
 
-import { TRIPS, type Trip } from "../../src/content/trips";
+import { TRIPS } from "../../src/content/trips";
+import type { Trip } from "../../src/content/trips";
 
 /** osxphotos is Python-only; ~/.local/bin/osxphotos is the shim on PATH. */
 export const OSXPHOTOS = join(homedir(), ".local/bin/osxphotos");
@@ -100,7 +101,9 @@ export async function osxphotos(
     stdout: "pipe",
   });
   const timer = opts.timeoutMs
-    ? setTimeout(() => proc.kill(9), opts.timeoutMs)
+    ? setTimeout(() => {
+        proc.kill(9);
+      }, opts.timeoutMs)
     : null;
   const [stdout, stderr] = await Promise.all([
     new Response(proc.stdout).text(),
@@ -222,7 +225,7 @@ export async function readJson<T>(path: string, fallback: T): Promise<T> {
   if (!existsSync(path)) {
     return fallback;
   }
-  return JSON.parse(await readFile(path, "utf8")) as T;
+  return JSON.parse(await readFile(path, "utf-8")) as T;
 }
 
 export async function writeJson(path: string, data: unknown): Promise<void> {

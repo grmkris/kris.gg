@@ -2,6 +2,20 @@
 // https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // Generated data and agent docs, not source: the formatter rewrites
+  // photos.meta.json wholesale on every `bun run verify`, which buries real
+  // diffs.
+  "ignorePatterns": [
+    "src/content/*.generated.json",
+    "src/content/photos.meta.json",
+    // drizzle-kit owns these; reformatting them makes every migration a
+    // whole-file diff and risks confusing the snapshot comparison.
+    "src/db/migrations/**",
+    // Agent instructions, not source. `.claude/skills/*` symlinks into
+    // `.agents/skills/*`, so both paths have to be listed.
+    ".claude/**",
+    ".agents/**",
+  ],
   "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,

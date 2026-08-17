@@ -1,5 +1,4 @@
 #!/usr/bin/env bun
-import { S3Client } from "bun";
 /**
  * Stage: publish — encode webp variants, upload variants + source JPGs to
  * Cloudflare R2, and write src/content/photos.generated.json with absolute R2
@@ -19,6 +18,8 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
+import { S3Client } from "bun";
 import sharp from "sharp";
 
 const PUBLIC_PHOTOS = "public/photos";
@@ -51,7 +52,7 @@ function loadEnv(path: string): void {
       `Missing ${path}. Create it with R2_BUCKET, R2_S3_ENDPOINT, R2_PUBLIC_BASE, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY.`
     );
   }
-  for (const raw of readFileSync(path, "utf8").split("\n")) {
+  for (const raw of readFileSync(path, "utf-8").split("\n")) {
     const line = raw.trim();
     if (!line || line.startsWith("#")) {
       continue;
@@ -93,7 +94,7 @@ async function mapPool<T, R>(
   async function worker(): Promise<void> {
     while (next < items.length) {
       const i = next++;
-      results[i] = await fn(items[i] as T, i);
+      results[i] = await fn(items[i], i);
     }
   }
   await Promise.all(
@@ -154,10 +155,13 @@ async function publishPhoto(
     uploaded++;
   }
 
-  // Source JPG — needed by OG cards (decoded → JPEG for Satori at build).
+  // Source JPG — the photo permalink's og:image (journal/[slug]/[photo]).
+  // Content-hashed like the variants: a swapped/renumbered photo gets a fresh
+  // URL, so the year-long edge cache can never serve the wrong image (a
+  // positional NN.jpg key + putIfAbsent left stale objects live for a year).
   await putIfAbsent(
     s3,
-    `photos/${slug}/${filename}`,
+    `photos/${slug}/${baseName}.${v}.jpg`,
     bytes,
     "image/jpeg",
     force
@@ -180,7 +184,7 @@ async function publishPhoto(
     height: meta.height,
     id: v,
     mid: url(`photos/${slug}/${baseName}.${v}-800.webp`),
-    src: url(`photos/${slug}/${filename}`),
+    src: url(`photos/${slug}/${baseName}.${v}.jpg`),
     thumb: url(`photos/${slug}/${baseName}.${v}-400.webp`),
     width: meta.width,
   };
@@ -219,7 +223,7 @@ async function main(): Promise<void> {
     `Publishing ${tasks.length} photos across ${slugs.length} trips to ${publicBase} …`
   );
 
-  const metas = await mapPool(tasks, CONCURRENCY, (t) =>
+  const metas = await mapPool(tasks, CONCURRENCY, async (t) =>
     publishPhoto(s3, publicBase, t.slug, t.file, force)
   );
 
