@@ -6,6 +6,9 @@
   // photos.meta.json wholesale on every `bun run verify`, which buries real
   // diffs.
   "ignorePatterns": [
+    "scripts/agents-sync.ts",
+    ".cursor/mcp.json",
+    ".codex/**",
     "src/content/*.generated.json",
     "src/content/photos.meta.json",
     // drizzle-kit owns these; reformatting them makes every migration a

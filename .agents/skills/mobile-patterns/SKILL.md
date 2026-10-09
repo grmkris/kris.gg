@@ -1,3 +1,8 @@
+---
+name: mobile-patterns
+description: Mobile-first UI patterns for this site (touch targets, layout, safe areas). Use when building or changing any UI.
+---
+
 # Mobile-First Patterns
 
 ## When to Use

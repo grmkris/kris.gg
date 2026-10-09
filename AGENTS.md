@@ -1,5 +1,7 @@
 # kris.gg — Autonomous Operation
 
+Master file. `CLAUDE.md` is a symlink to it — edit `AGENTS.md`. Skills: `.agents/skills`; MCP: `.mcp.json`; run `bun scripts/agents-sync.ts` after changing agent config. The finished /stash D1 handoff is in [docs/stash-d1-handoff.md](docs/stash-d1-handoff.md).
+
 Personal site: **prerendered Next.js (App Router) on Vercel**. The public site
 (trips/journal/building/notes) is a content site built from `src/content/*` +
 photos and stays fully static.
@@ -159,12 +161,12 @@ bun run smoke:r2     # presigned upload/read/delete against the media bucket
 The four skills hold the real, current patterns — read the relevant one before
 writing code rather than copying from here:
 
-| Skill | Covers |
-| --- | --- |
-| `.claude/skills/backend-patterns/SKILL.md` | HttpApi groups, handlers, layer wiring, the browser-safe/server-only split |
-| `.claude/skills/drizzle-patterns/SKILL.md` | D1 over HTTP, no transactions, schema + query rules |
+| Skill                                       | Covers                                                                        |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
+| `.claude/skills/backend-patterns/SKILL.md`  | HttpApi groups, handlers, layer wiring, the browser-safe/server-only split    |
+| `.claude/skills/drizzle-patterns/SKILL.md`  | D1 over HTTP, no transactions, schema + query rules                           |
 | `.claude/skills/frontend-patterns/SKILL.md` | The promise-shaped Effect client, optimistic updates, Schema.Class rebuilding |
-| `.claude/skills/testing-patterns/SKILL.md` | What is worth a `bun:test`, and what the smoke scripts cover instead |
+| `.claude/skills/testing-patterns/SKILL.md`  | What is worth a `bun:test`, and what the smoke scripts cover instead          |
 
 The shape, in brief — an endpoint touches four files, in order:
 
@@ -238,6 +240,7 @@ better-auth with **passkey** (browser) + **API key** (Raycast, CLI, MCP), in
 - Client: `authClient.useSession()` for session state.
 - `session.cookieCache` is load-bearing — every uncached check is a
   Vercel → Cloudflare round-trip.
+
 ## Instruction Protocol
 
 At session start, check `.claude/INSTRUCTION.md`. If present:
