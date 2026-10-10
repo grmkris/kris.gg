@@ -6,6 +6,7 @@
   // photos.meta.json wholesale on every `bun run verify`, which buries real
   // diffs.
   "ignorePatterns": [
+    ".agents/skills/**",
     "scripts/agents-sync.ts",
     ".cursor/mcp.json",
     ".codex/**",

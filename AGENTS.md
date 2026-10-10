@@ -286,7 +286,7 @@ All UI must be mobile-first:
 - Bottom actions with Sheet component
 - Test at 375px width (iPhone SE)
 
-See `.claude/skills/mobile-patterns/SKILL.md` for patterns.
+See the `mobile-native` and `apple-web-app` skills for patterns.
 
 ## Charts
 
@@ -325,3 +325,9 @@ Never: `git add .`, `git add -A`, force push, amend without asking
 - Arrow functions for callbacks
 - `async/await` over promise chains
 - Semantic HTML + ARIA attributes
+
+## Agent config
+
+Skills live in `.agents/skills` (vendored ones pinned in `sources.json`; the `*-patterns` skills are repo-owned), MCP
+servers in `.mcp.json` (myplan, myinbox, mytab, mytmux, mygram, cloudflare). After editing either, run
+`bun scripts/agents-sync.ts`; `--check` must pass. Standard and commands: grmkris/personal `infra/agents.md`.
