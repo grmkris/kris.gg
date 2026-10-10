@@ -1,6 +1,6 @@
 # kris.gg — Autonomous Operation
 
-Master file. `CLAUDE.md` is a symlink to it — edit `AGENTS.md`. Skills: `.agents/skills`; MCP: `.mcp.json`; run `bun scripts/agents-sync.ts` after changing agent config. The finished /stash D1 handoff is in [docs/stash-d1-handoff.md](docs/stash-d1-handoff.md).
+Master file. `CLAUDE.md` is a symlink to it — edit `AGENTS.md`. Skills: `.agents/skills`; MCP: `.mcp.json`; run `bunx repoagents` after changing agent config. The finished /stash D1 handoff is in [docs/stash-d1-handoff.md](docs/stash-d1-handoff.md).
 
 Personal site: **prerendered Next.js (App Router) on Vercel**. The public site
 (trips/journal/building/notes) is a content site built from `src/content/*` +
@@ -330,4 +330,4 @@ Never: `git add .`, `git add -A`, force push, amend without asking
 
 Skills live in `.agents/skills` (vendored ones pinned in `sources.json`; the `*-patterns` skills are repo-owned), MCP
 servers in `.mcp.json` (myplan, myinbox, mytab, mytmux, mygram, cloudflare). After editing either, run
-`bun scripts/agents-sync.ts`; `--check` must pass. Standard and commands: grmkris/personal `infra/agents.md`.
+`bunx repoagents`; `--check` must pass. Standard and commands: grmkris/personal `infra/agents.md`.

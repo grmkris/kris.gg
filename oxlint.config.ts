@@ -20,7 +20,7 @@ import next from "ultracite/oxlint/next";
  */
 export default defineConfig({
   extends: [core, next],
-  ignorePatterns: [...(core.ignorePatterns ?? []), "scripts/agents-sync.ts"],
+  ignorePatterns: core.ignorePatterns,
   rules: {
     // ── Effect v4 idioms the rules misread ──────────────────────────────────
     // `Effect.tryPromise({ try, catch })` is not `Promise.catch`.

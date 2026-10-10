@@ -7,7 +7,6 @@
   // diffs.
   "ignorePatterns": [
     ".agents/skills/**",
-    "scripts/agents-sync.ts",
     ".cursor/mcp.json",
     ".codex/**",
     "src/content/*.generated.json",
