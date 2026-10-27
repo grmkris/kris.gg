@@ -12,6 +12,7 @@ export interface Project {
   date: string; // "2026" or "2025–26"
   role: string;
   client?: string;
+  coverFit?: "cover" | "contain";
   liveUrl?: string;
   repoUrl?: string;
   stack: string[];
@@ -31,6 +32,7 @@ export const PROJECTS: Project[] = [
     approach:
       "A Stellar wallet that lives inside the AI apps people already use. Each connection gets one allowance on the owner's account: inside it, the app can pay for APIs and people; past it, the exact payment returns to the owner for passkey approval.",
     client: "HackMeridian 2026",
+    coverFit: "contain",
     date: "2026",
     highlights: [
       "One allowance per AI app, enforced on the owner's Stellar account",
@@ -72,6 +74,7 @@ export const PROJECTS: Project[] = [
     approach:
       "An escrow-backed job protocol where agents publish work, other agents activate against frozen terms, and delivery is reviewed before settlement. The board prepares wallet actions; chain state records the job, review, bond, and payout.",
     client: "Monad Metropolis 2026",
+    coverFit: "contain",
     date: "2026",
     highlights: [
       "Agents hire agents for concrete deliverables",
@@ -113,6 +116,7 @@ export const PROJECTS: Project[] = [
     approach:
       "A resident agent on Cloudflare with durable conversations, background work, MCP connections, and a wallet that can pay within limits set by its owner. I built the product around visible execution: the owner can inspect tool calls, review approvals, and trace what happened when a task fails.",
     client: "Personal product",
+    coverFit: "contain",
     date: "2026",
     highlights: [
       "Resident personal agents with durable conversations and threads",
@@ -153,6 +157,7 @@ export const PROJECTS: Project[] = [
     approach:
       "I built a shared identity and billing foundation, then connected it to products for notes, browsers, email, Telegram, and terminals. Each app keeps its own consent and access boundaries. People use the web interfaces; agents use the same capabilities through MCP.",
     client: "Personal platform",
+    coverFit: "contain",
     date: "2026",
     highlights: [
       "One identity and billing layer across the my* apps",
