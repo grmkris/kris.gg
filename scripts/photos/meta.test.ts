@@ -28,11 +28,14 @@ it("refreshes cached photos without losing uncached galleries or photos", async 
     );
     await writeFile(join(cached, "scored.json"), JSON.stringify([update]));
 
-    const run = Bun.spawn([process.execPath, join(import.meta.dir, "meta.ts")], {
-      cwd: root,
-      stderr: "pipe",
-      stdout: "ignore",
-    });
+    const run = Bun.spawn(
+      [process.execPath, join(import.meta.dir, "meta.ts")],
+      {
+        cwd: root,
+        stderr: "pipe",
+        stdout: "ignore",
+      }
+    );
     const stderr = await new Response(run.stderr).text();
     expect(stderr).toBe("");
     expect(await run.exited).toBe(0);
