@@ -29,6 +29,247 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     approach:
+      "A Stellar wallet that lives inside the AI apps people already use. Each connection gets one allowance on the owner's account: inside it, the app can pay for APIs and people; past it, the exact payment returns to the owner for passkey approval.",
+    client: "HackMeridian 2026",
+    date: "2026",
+    highlights: [
+      "One allowance per AI app, enforced on the owner's Stellar account",
+      "Passkey approval for payments above the allowance",
+      "MCP cards and OAuth connection for Claude and other AI hosts",
+      "Mainnet flow with USDC, x402, claim links, and revoke",
+    ],
+    liveUrl: "https://trynod.si",
+    metrics: [
+      { label: "Network", value: "Stellar mainnet" },
+      { label: "Protocol", value: "MCP + OAuth" },
+      { label: "Status", value: "Live" },
+    ],
+    outcome:
+      "Built at HackMeridian in Lisbon and verified on Stellar mainnet: an AI app pays inside its allowance, while a larger payment becomes a passkey approval instead of a silent full-wallet handoff.",
+    problem:
+      "An AI assistant that asks for every payment is not autonomous, but an AI assistant holding the whole wallet is not trustworthy. The missing primitive is a durable, visible amount between those two extremes.",
+    repoUrl: "https://github.com/grmkris/hack-meridian-2026",
+    role: "Solo build",
+    slug: "nod",
+    stack: [
+      "Bun",
+      "Effect",
+      "Cloudflare Workers",
+      "Stellar",
+      "Soroban",
+      "MCP",
+      "OAuth 2.1",
+      "WebAuthn",
+      "USDC",
+    ],
+    status: "live",
+    tagline:
+      "Give your AI an allowance. Small stuff, it just pays. Big stuff needs your nod.",
+    theme: "ai-infra",
+    title: "Nod",
+  },
+  {
+    approach:
+      "An escrow-backed job protocol where agents publish work, other agents activate against frozen terms, and delivery is reviewed before settlement. The board prepares wallet actions; chain state records the job, review, bond, and payout.",
+    client: "Monad Metropolis 2026",
+    date: "2026",
+    highlights: [
+      "Agents hire agents for concrete deliverables",
+      "Escrow, review, bonds, and settlement are recorded on Monad",
+      "Portable reputation follows completed work",
+      "Public board, explorer, SDK, MCP surface, and contracts",
+    ],
+    liveUrl: "https://sidequest.exchange",
+    metrics: [
+      { label: "Network", value: "Monad mainnet" },
+      { label: "Protocol", value: "Agent jobs" },
+      { label: "Status", value: "Live" },
+    ],
+    outcome:
+      "Live on Monad: a creator posts a funded job, a worker delivers against the published criteria, and the result becomes part of the worker's on-chain record.",
+    problem:
+      "Agents can call tools, but they rarely have a credible way to hire one another, escrow the work, prove delivery, and carry reputation to the next job.",
+    repoUrl: "https://github.com/grmkris/sidequest",
+    role: "Solo build",
+    slug: "sidequest",
+    stack: [
+      "Bun",
+      "Effect",
+      "Cloudflare Workers",
+      "Monad",
+      "Solidity",
+      "Foundry",
+      "MCP",
+      "OAuth",
+      "TypeScript",
+    ],
+    status: "live",
+    tagline:
+      "A job protocol where agents hire agents and the work leaves a receipt.",
+    theme: "ai-infra",
+    title: "Sidequest",
+  },
+  {
+    approach:
+      "A resident agent on Cloudflare with durable conversations, background work, MCP connections, and a wallet that can pay within limits set by its owner. I built the product around visible execution: the owner can inspect tool calls, review approvals, and trace what happened when a task fails.",
+    client: "Personal product",
+    date: "2026",
+    highlights: [
+      "Resident personal agents with durable conversations and threads",
+      "MCP servers, skills, apps, Personas, and subagents in one workspace",
+      "Owner-controlled wallet allowances and approval links",
+      "Cloudflare Durable Objects, Effect services, and live execution traces",
+    ],
+    liveUrl: "https://goblin.surf",
+    metrics: [
+      { label: "Runtime", value: "Cloudflare" },
+      { label: "Surface", value: "Agent workspace" },
+      { label: "Status", value: "Live" },
+    ],
+    outcome:
+      "Live at goblin.surf as a workspace for agents that keep working after the chat message ends, while leaving the owner in control of tools, connections, and spending.",
+    problem:
+      "A chat window is a poor home for a resident agent: work disappears into threads, tools are disconnected, and the owner cannot see what happened or stop it cleanly.",
+    repoUrl: "https://github.com/grmkris/goblin",
+    role: "Solo build",
+    slug: "goblin",
+    stack: [
+      "Bun",
+      "TypeScript",
+      "Cloudflare Workers",
+      "Durable Objects",
+      "Effect",
+      "MCP",
+      "SQLite",
+      "USDC",
+    ],
+    status: "live",
+    tagline:
+      "Your own goblin, always on: a resident agent with tools, memory, and a wallet.",
+    theme: "ai-infra",
+    title: "Goblin",
+  },
+  {
+    approach:
+      "I built a shared identity and billing foundation, then connected it to products for notes, browsers, email, Telegram, and terminals. Each app keeps its own consent and access boundaries. People use the web interfaces; agents use the same capabilities through MCP.",
+    client: "Personal platform",
+    date: "2026",
+    highlights: [
+      "One identity and billing layer across the my* apps",
+      "MyPlan, MyTab, MyInbox, MyGram, and MyTmux connected through MySI",
+      "Separate consent and grant boundaries per product",
+      "Dev and production custom domains with Cloudflare Workers and D1",
+    ],
+    liveUrl: "https://mysi.lol",
+    metrics: [
+      { label: "Interfaces", value: "Web + MCP" },
+      { label: "Runtime", value: "Cloudflare" },
+      { label: "Status", value: "Active" },
+    ],
+    outcome:
+      "Deployed products at myplan.lol, mytab.lol, myinbox.lol, mygram.lol, and mytmux.lol, connected through mysi.lol. One account brings the tools into an agent's workspace while keeping access grants separate for each app.",
+    problem:
+      "Agent tools become brittle when every product invents identity, consent, billing, and MCP connection behavior independently.",
+    role: "Product & platform engineering",
+    slug: "myapps",
+    stack: [
+      "Bun",
+      "TypeScript",
+      "Cloudflare Workers",
+      "Effect",
+      "D1",
+      "R2",
+      "Durable Objects",
+      "MCP",
+      "OAuth",
+    ],
+    status: "active",
+    tagline:
+      "A connected suite of agent-native products, built around one human identity.",
+    theme: "ai-infra",
+    title: "MyApps",
+  },
+  {
+    approach:
+      "A wallet and task workspace where a human and an AI share one hosted browser. The host keeps a credit ledger, evaluates spending rules outside the model, and records the task, evidence, payment, and approval as one receipt.",
+    client: "ETHOnline 2026",
+    date: "2026",
+    highlights: [
+      "Human and agent share one visible browser session",
+      "Spending rules are checked outside the model",
+      "Credits, receipts, approvals, and task evidence stay together",
+      "Privy, The Graph, Hedera x402, and Browser Use in one flow",
+    ],
+    metrics: [
+      { label: "Networks", value: "Base + Hedera" },
+      { label: "Surface", value: "Shared browser" },
+      { label: "Status", value: "Shipped" },
+    ],
+    outcome:
+      "Built with Jonas Heinz and Hemang Vora at ETHOnline 2026. The project demonstrated a shared browser, payment policy checks, and recorded Hedera mainnet settlements. Later credit-checkout work has separate verification requirements; those earlier receipts do not establish that it shipped.",
+    problem:
+      "Agents need browsers and payments to finish useful tasks, but a user should not have to surrender a wallet or blindly accept whatever a model decided to do.",
+    repoUrl: "https://github.com/grmkris/Froggy-ETHOnline2026",
+    role: "Engineering (team of 3)",
+    slug: "froggy",
+    stack: [
+      "Bun",
+      "TypeScript",
+      "Browser Use",
+      "Privy",
+      "The Graph",
+      "Hedera",
+      "x402",
+      "Postgres",
+    ],
+    status: "shipped",
+    tagline:
+      "A wallet for your agents: fund tasks, watch the work, and keep receipts.",
+    theme: "ai-infra",
+    title: "Froggy",
+  },
+  {
+    approach:
+      "A B2B compliance and identity platform built from a TypeScript monorepo: provider integrations, smart-contract access gates, zero-knowledge verification, W3C credentials, Polygon ID infrastructure, and The Graph subgraphs behind a shared product surface.",
+    client: "AllianceBlock → Nexera → Compilot",
+    date: "2022–25",
+    highlights: [
+      "Scaled the engineering team from 1 to 12",
+      "20+ TypeScript microservices and 10+ compliance providers",
+      "Smart contracts, ZK verification, W3C credentials, and Polygon ID",
+      "Platform deployed across major EVM and non-EVM networks",
+    ],
+    metrics: [
+      { label: "Engineers", value: "1 → 12" },
+      { label: "Services", value: "20+" },
+      { label: "Users", value: "100k+" },
+    ],
+    outcome:
+      "Led technical development from first architecture through production, moving between hands-on implementation, product direction, and managing three engineering teams.",
+    problem:
+      "Compliance products have to connect regulated workflows, identity proofs, third-party providers, and on-chain systems without turning each integration into a separate product.",
+    role: "CTO / Architect / Lead full-stack engineer",
+    slug: "compilot",
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "React",
+      "Postgres",
+      "Drizzle",
+      "Solidity",
+      "Polygon ID",
+      "The Graph",
+      "Docker",
+      "AWS",
+    ],
+    status: "shipped",
+    tagline:
+      "Production compliance and identity infrastructure, from first service to a 12-person engineering team.",
+    theme: "saas",
+    title: "Compilot / Nexera",
+  },
+  {
+    approach:
       "A local-first platform that hosts autonomous Claude Code agents. Five ways to trigger an agent — chat, cron, webhook, email, and API — twelve OAuth integrations (GitHub, Linear, Railway, Vercel, Slack and more) injected as MCP tools, and durable real-time streaming of every tool call and diff. Ships as a one-command installer or a Docker image, with an optional hosted cloud tier.",
     client: "Personal product",
     date: "2026",
@@ -38,14 +279,13 @@ export const PROJECTS: Project[] = [
       "Durable real-time streaming of tool calls + code diffs",
       "One-command installer and Docker image; cloud optional",
     ],
-    liveUrl: "https://invok.run",
     metrics: [
       { label: "Integrations", value: "12" },
       { label: "Apps / packages", value: "8 / 7" },
-      { label: "Status", value: "Live" },
+      { label: "Status", value: "Shipped" },
     ],
     outcome:
-      "Live at invok.run with hosted docs. Eight apps and seven shared packages in a Bun + Turborepo monorepo, dual SQLite (agent) + Postgres (cloud) architecture.",
+      "Shipped as a Bun + Turborepo monorepo with eight apps and seven shared packages, using dual SQLite (agent) + Postgres (cloud) architecture.",
     photos: [
       "/photos/invok/01.jpg",
       "/photos/invok/02.jpg",
@@ -69,7 +309,7 @@ export const PROJECTS: Project[] = [
       "MCP",
       "Docker",
     ],
-    status: "live",
+    status: "shipped",
     tagline:
       "A self-hostable platform for running autonomous Claude Code agents.",
     theme: "ai-infra",
@@ -86,7 +326,6 @@ export const PROJECTS: Project[] = [
       "Booking is staking — on-chain FIFO slots, strikes, permissionless settle()",
       "Cross-chain TEE attestation: 0G enclave signature verified on Hedera, no bridge",
     ],
-    liveUrl: "https://web-production-b5106.up.railway.app",
     metrics: [
       { label: "Prizes", value: "World ID Check · 0G 2nd" },
       { label: "Chains", value: "0G + Hedera" },
@@ -112,7 +351,7 @@ export const PROJECTS: Project[] = [
       "0G Compute",
       "Hedera",
     ],
-    status: "live",
+    status: "shipped",
     tagline:
       "A labor market where verified humans teleoperate real robots — and only AI-graded work gets paid.",
     theme: "ai-infra",
@@ -129,14 +368,13 @@ export const PROJECTS: Project[] = [
       "21 visual presets with shader drift and cross-fade",
       "USDC credit ledger with top-ups on Base",
     ],
-    liveUrl: "https://sonara.fm",
     metrics: [
       { label: "Frame rate", value: "60fps" },
       { label: "Presets", value: "21" },
-      { label: "Status", value: "Live" },
+      { label: "Status", value: "Shipped" },
     ],
     outcome:
-      "Live at sonara.fm. A real-time WebSocket session surface over oRPC drives the render loop, with a credit ledger and on-chain top-ups.",
+      "Shipped as a real-time WebSocket session surface over oRPC, with a credit ledger and on-chain top-ups.",
     photos: [
       "/photos/sonara/01.jpg",
       "/photos/sonara/02.jpg",
@@ -161,7 +399,7 @@ export const PROJECTS: Project[] = [
       "Gemini",
       "Base / USDC",
     ],
-    status: "live",
+    status: "shipped",
     tagline: "Real-time AI-generated visuals synced to live audio at 60fps.",
     theme: "ai-product",
     title: "Sonara",
@@ -177,14 +415,13 @@ export const PROJECTS: Project[] = [
       "Cross-origin iframe sandbox + SDK bridge — jams never touch your keys",
       "Dual-chain settlement (Circle Arc + Sepolia), USDC payments, World ID humans",
     ],
-    liveUrl: "https://superjam.fun",
     metrics: [
       { label: "Apps / packages", value: "6 / 9" },
       { label: "oRPC routers", value: "30" },
-      { label: "Status", value: "Live" },
+      { label: "Status", value: "Shipped" },
     ],
     outcome:
-      "Live at superjam.fun, built solo at ETHGlobal NY 2026. A Bun + Turborepo monorepo — 6 apps and 9 packages, 30 oRPC routers, 18 Postgres tables, and 4 Solidity contracts.",
+      "Built solo at ETHGlobal NY 2026 as a Bun + Turborepo monorepo with 6 apps, 9 packages, 30 oRPC routers, 18 Postgres tables, and 4 Solidity contracts.",
     problem:
       "Shipping a small web app — let alone an on-chain one — still means wiring up auth, wallets, payments, identity, and a deploy target before anyone can even try it.",
     repoUrl: "https://github.com/grmkris/superjam",
@@ -204,7 +441,7 @@ export const PROJECTS: Project[] = [
       "World ID",
       "Claude Agent SDK",
     ],
-    status: "live",
+    status: "shipped",
     tagline:
       "A super-app host for the open web — describe a mini-app in a sentence and an AI agent builds, deploys, and publishes it live.",
     theme: "ai-product",

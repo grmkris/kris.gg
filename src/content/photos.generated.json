@@ -2108,6 +2108,19 @@
       "width": 1200
     }
   ],
+  "goblin": [
+    {
+      "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoKAAcAA4BaJYwCdAD2HBX+AAD+5R/HOgvQxP/ki+H17u+mkBR0w959DzpNeG+AUooX4uAA",
+      "dominant": "#283828",
+      "full": "https://i.kris.gg/photos/goblin/01.cde61f06-1600.webp",
+      "height": 1000,
+      "id": "cde61f06",
+      "mid": "https://i.kris.gg/photos/goblin/01.cde61f06-800.webp",
+      "src": "https://i.kris.gg/photos/goblin/01.cde61f06.jpg",
+      "thumb": "https://i.kris.gg/photos/goblin/01.cde61f06-400.webp",
+      "width": 1440
+    }
+  ],
   "great-wall-2026": [
     {
       "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA0AA4BaJQBWACIBJr1k7gAA/k+DO6LEhYaCGbPjvjhw69rliMPQhSRJMBo/hYN9Io/ckYibeOax9U1qY1lsNuAAAA==",
@@ -4057,6 +4070,19 @@
       "width": 1800
     }
   ],
+  "myapps": [
+    {
+      "blur": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACwAQCdASoKAAcAA4BaJaQAAxf8CmeAAP71AfuKgL57XYKHxSAAAA==",
+      "dominant": "#f8f8f8",
+      "full": "https://i.kris.gg/photos/myapps/01.ce7f6e74-1600.webp",
+      "height": 1000,
+      "id": "ce7f6e74",
+      "mid": "https://i.kris.gg/photos/myapps/01.ce7f6e74-800.webp",
+      "src": "https://i.kris.gg/photos/myapps/01.ce7f6e74.jpg",
+      "thumb": "https://i.kris.gg/photos/myapps/01.ce7f6e74-400.webp",
+      "width": 1440
+    }
+  ],
   "new-delhi-2025": [
     {
       "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoKAA0AA4BaJaACdADhTzf78AD+6eqGYd7CHeJVU6l3Ckqgcmofm0rfgBkHjBxl6mUHYfTCAhqF1fH6kCpLN4Mn9/uLfLQnHksjAgKUrrBwAA==",
@@ -4468,6 +4494,19 @@
       "src": "https://i.kris.gg/photos/new-york-2026/14.a4701b30.jpg",
       "thumb": "https://i.kris.gg/photos/new-york-2026/14.a4701b30-400.webp",
       "width": 1800
+    }
+  ],
+  "nod": [
+    {
+      "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoKAAUAA4BaJYwCdAD0kihAAP7xHA7UivqUEZbSxSMnejSWAAA=",
+      "dominant": "#081828",
+      "full": "https://i.kris.gg/photos/nod/01.beccb400-1600.webp",
+      "height": 707,
+      "id": "beccb400",
+      "mid": "https://i.kris.gg/photos/nod/01.beccb400-800.webp",
+      "src": "https://i.kris.gg/photos/nod/01.beccb400.jpg",
+      "thumb": "https://i.kris.gg/photos/nod/01.beccb400-400.webp",
+      "width": 1440
     }
   ],
   "paris-feb-2025": [
@@ -5358,6 +5397,19 @@
       "src": "https://i.kris.gg/photos/shanghai-mu-2026/40.f1829a78.jpg",
       "thumb": "https://i.kris.gg/photos/shanghai-mu-2026/40.f1829a78-400.webp",
       "width": 1800
+    }
+  ],
+  "sidequest": [
+    {
+      "blur": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoKAAcAA4BaJZwAAvc5OnFAAP71GMseSYUZbHGL21oSBd+WlwlXgJ8rQgAAAA==",
+      "dominant": "#f8f8f8",
+      "full": "https://i.kris.gg/photos/sidequest/01.d393c570-1600.webp",
+      "height": 1000,
+      "id": "d393c570",
+      "mid": "https://i.kris.gg/photos/sidequest/01.d393c570-800.webp",
+      "src": "https://i.kris.gg/photos/sidequest/01.d393c570.jpg",
+      "thumb": "https://i.kris.gg/photos/sidequest/01.d393c570-400.webp",
+      "width": 1440
     }
   ],
   "slovenia-summer-2026": [

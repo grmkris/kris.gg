@@ -1,7 +1,6 @@
 ---
 name: make-interfaces-feel-better
-description: >-
-  Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, icons, micro-interactions, enter/exit animations, or any visual detail work. Supports quick and full review modes. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint.
+description: "Static polish for UI components: border radius, shadows, borders, icon sizing and alignment, tabular numbers, hit areas, hover and focus states. Use when building or reviewing components for visual finish. Motion belongs to animate and apple-design; overall visual direction to frontend-design."
 ---
 
 # Details that make interfaces feel better

@@ -2330,5 +2330,45 @@
         "architecture"
       ]
     }
+  },
+  "nod": {
+    "01": {
+      "caption": "Nod wallet — public homepage, October 2026",
+      "tags": [
+        "screenshot"
+      ],
+      "score": 0,
+      "scene": "public product homepage"
+    }
+  },
+  "sidequest": {
+    "01": {
+      "caption": "Sidequest services — public homepage, October 2026",
+      "tags": [
+        "screenshot"
+      ],
+      "score": 0,
+      "scene": "public product homepage"
+    }
+  },
+  "goblin": {
+    "01": {
+      "caption": "Goblin agent — public homepage, October 2026",
+      "tags": [
+        "screenshot"
+      ],
+      "score": 0,
+      "scene": "public product homepage"
+    }
+  },
+  "myapps": {
+    "01": {
+      "caption": "MySI connected apps — public homepage, October 2026",
+      "tags": [
+        "screenshot"
+      ],
+      "score": 0,
+      "scene": "public product homepage"
+    }
   }
 }

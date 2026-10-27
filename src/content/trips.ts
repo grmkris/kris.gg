@@ -17,6 +17,23 @@ export interface Trip {
 
 export const TRIPS: Trip[] = [
   {
+    body: `Back in Lisbon for [HackMeridian](https://www.hackmeridian.com/), 25–26 October. I built [Nod](/building/nod): a Stellar wallet that lives inside an AI conversation. Give an app one allowance; anything above it comes back to you for a passkey approval.
+
+The mainnet demo ran through Claude with my own wallet: buy an API result over x402, pay someone inside the allowance, approve a larger payment, then revoke the connection and recover the unspent pocket balance.
+
+The useful part was making the limit something the account enforces. I wrote up the reasoning in [Give your AI an allowance](/notes/ai-allowances).`,
+    date: "2026-10",
+    description: `HackMeridian in Lisbon — building Nod, a Stellar wallet with an allowance for every AI app.`,
+    event: "HackMeridian 2026",
+    github: "https://github.com/grmkris/hack-meridian-2026",
+    location: "Lisbon",
+    project: "Nod",
+    showcase: "https://trynod.si",
+    slug: "hackmeridian-2026",
+    title: "HackMeridian",
+    type: "hackathon",
+  },
+  {
     body: `The way out of Georgia, spent in Imereti instead of at the airport. Motsameta on its spur above the Rioni gorge, the old cable car over the river, the White Bridge, and Bagrati up on the hill in the evening. Kebab, then the flight home.`,
     date: "2026-08",
     description: `A day in Imereti on the way out — Motsameta, the cable car, Bagrati.`,
@@ -105,7 +122,7 @@ Pragma the day before, Parque Eduardo VII on the walk in.`,
     github: "https://github.com/grmkris/superjam",
     location: "New York",
     project: "SuperJam",
-    showcase: "https://superjam.fun",
+    showcase: "https://github.com/grmkris/superjam",
     slug: "new-york-2026",
     title: "New York",
     type: "hackathon",
