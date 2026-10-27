@@ -45,7 +45,14 @@ interface MetaEntry {
 
 async function main(): Promise<void> {
   const slugs = await listCachedSlugs();
-  const out: Record<string, Record<string, MetaEntry>> = {};
+  // Preserve metadata for galleries that are not present in the local cache.
+  // The photo pipeline is additive and a metadata refresh must not erase older
+  // galleries simply because their source Photos exports are offline.
+  const existing = await readJson<Record<string, Record<string, MetaEntry>>>(
+    OUTPUT,
+    {}
+  );
+  const out: Record<string, Record<string, MetaEntry>> = { ...existing };
 
   for (const slug of slugs) {
     const paths = cachePaths(slug);
@@ -71,7 +78,7 @@ async function main(): Promise<void> {
     });
 
     if (Object.keys(entries).length > 0) {
-      out[slug] = entries;
+      out[slug] = { ...out[slug], ...entries };
       log(`  ✓ ${slug}: ${Object.keys(entries).length} photos`);
     }
   }

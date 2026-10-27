@@ -12,6 +12,32 @@ export interface Note {
 
 export const NOTES: Note[] = [
   {
+    body: `An assistant doing useful work will eventually need to pay for something: a search, an API response, a service, or a person. Asking the owner about every ten-cent call interrupts the work. Giving the assistant the whole wallet leaves too much authority with the software. At HackMeridian I built [Nod](https://trynod.si) around a smaller permission: one allowance per AI app.
+
+The allowance is a total until an expiry, not a per-payment limit. Give Claude 5 USDC until tomorrow. It buys a 0.10 USDC report, then sends Alice 2 USDC. It has 2.90 left. A new chat, a reconnect, or more money in the wallet does not reset that number.
+
+Now ask it to pay Bob 5 USDC. Nod returns an approval link instead of signing with the app's key. The owner sees the recipient, amount, network, and requesting app on Nod's page, then signs that specific payment with a passkey. The wallet balance falls, but the app still has its 2.90 allowance: an owner-approved payment is a separate authorization.
+
+There are three permissions to keep distinct. OAuth lets the app talk to the wallet. The allowance lets its key spend a bounded amount. A passkey approval authorizes one particular payment. Connecting a tool must not silently grant spending authority, and an agent saying that a payment is approved must never count as approval.
+
+The allowance is an OpenZeppelin spending-limit policy on the owner's Stellar account. That makes the account a final enforcement point, even when the service constructs the transaction. The service also reserves spending before submission so concurrent requests do not both assume the same remaining balance. Limits in the prompt would do neither job.
+
+Retries need their own discipline. The same payment intent and idempotency key must return the same receipt, not send the money again. An unknown submission outcome needs reconciliation before retrying. Revocation stops the service signing immediately; a passkey removes the allowance rule from the account, and unspent funds in the app's payment pocket are returned.
+
+The payment pocket is a practical compatibility detail. The hosted x402 facilitators used by the demo accept classic Stellar accounts, so each AI app has a small pocket funded from the wallet under that same allowance. The receipt records both the funding and the seller payment. Funding the pocket still consumes the allowance; it does not create a second budget.
+
+MCP puts the wallet beside the conversation: balance cards, receipts, and pending approvals appear where the work is happening. The passkey signature stays on Nod's own page. The useful interface is one visible amount, an expiry, and a clear approval when the app needs more authority.
+
+The [recorded mainnet run](https://github.com/grmkris/hack-meridian-2026/blob/main/evidence/mainnet/claude-run-2026-10-25.md) covers purchases, allowance payments, passkey approval, and revoke. The [public implementation](https://github.com/grmkris/hack-meridian-2026) also records the limits of the demo. A working receipt demonstrates that flow; it is not a security audit.`,
+    date: "2026-10",
+    slug: "ai-allowances",
+    sourceProject: "nod",
+    summary:
+      "A practical model for AI-agent payments: one allowance per app, on-account enforcement, and a passkey approval lane for everything above it.",
+    tags: ["AI agents", "MCP", "Stellar", "WebAuthn", "Payments"],
+    title: "Give your AI an allowance",
+  },
+  {
     body: `Bare UUIDs are a liability. \`a1b2…\` tells you nothing, IDs from different tables are interchangeable to the compiler, and a misrouted foreign key fails at runtime instead of at the type level. Stripe solved this years ago with type-prefixed IDs — \`cus_\`, \`ch_\`, \`sub_\`. Here is how I do the same in TypeScript, type-safe from the API boundary all the way into Postgres.
 
 The foundation is a single map from entity name to prefix. Everything else is derived from it, so the prefixes can never drift out of sync with the types.
