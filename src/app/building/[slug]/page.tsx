@@ -74,7 +74,9 @@ export default async function ProjectPage({ params }: PageProps) {
           <Image
             alt=""
             blurDataURL={cover.blur}
-            className="object-cover"
+            className={
+              project.coverFit === "contain" ? "object-contain" : "object-cover"
+            }
             fill
             placeholder="blur"
             priority
