@@ -13,14 +13,14 @@ const fraunces = Fraunces({
   axes: ["opsz", "SOFT"],
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-display",
   weight: "variable",
 });
 
 const hanken = Hanken_Grotesk({
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-hanken",
+  variable: "--font-sans",
   weight: "variable",
 });
 
@@ -52,11 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      className={`${fraunces.variable} ${hanken.variable}`}
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* react-grab dev overlay — local + dev.kris.gg only, never prod */}
         {process.env.NEXT_PUBLIC_VERCEL_ENV !== "production" && (
@@ -67,7 +63,9 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className="font-sans antialiased">
+      <body
+        className={`${fraunces.variable} ${hanken.variable} font-sans antialiased`}
+      >
         <Providers>
           <Masthead />
           {children}

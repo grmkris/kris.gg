@@ -1,194 +1,220 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Contact } from "@/components/contact";
 import { HeroRotating } from "@/components/hero-rotating";
-import { PublicFooter } from "@/components/public-footer";
+import { VideoGallery } from "@/components/video-gallery";
 import { NOTES } from "@/content/notes";
 import { PROJECTS } from "@/content/projects";
 import { TRIPS } from "@/content/trips";
+import { FEATURED_VIDEOS } from "@/content/videos";
 import { getHeroFrames } from "@/lib/covers";
 import { getCoverPhoto } from "@/lib/photos";
+import type { PhotoMeta } from "@/lib/photos";
+
+// Literal route union — each member is a real route, so Link accepts it
+// without a cast (a widened `string` would not be assignable).
+type SectionHref = "/building" | "/journal" | "/notes";
+
+const SECTIONS: {
+  coverSlug: string;
+  desc: string;
+  href: SectionHref;
+  label: string;
+  meta: string;
+}[] = [
+  {
+    coverSlug: PROJECTS[0]?.slug ?? "",
+    desc: "Production AI, full-stack & web3 products — idea to live, fast.",
+    href: "/building",
+    label: "Building",
+    meta: `${PROJECTS.length} projects`,
+  },
+  {
+    // TRIPS[0] is the newest entry (may lack photos) — pin a photo-rich trip
+    // so the index hover reveal always has an image.
+    coverSlug: "valencia-oct-2026",
+    desc: "Hackathons, trips, and a well-stamped passport.",
+    href: "/journal",
+    label: "Journal",
+    meta: `${TRIPS.length} entries`,
+  },
+  {
+    coverSlug: NOTES[0]?.sourceProject ?? PROJECTS[0]?.slug ?? "",
+    desc: "Engineering patterns and field notes.",
+    href: "/notes",
+    label: "Notes",
+    meta: `${NOTES.length} notes`,
+  },
+];
+
+function IndexRow({
+  cover,
+  desc,
+  href,
+  label,
+  meta,
+}: {
+  cover: PhotoMeta | null;
+  desc: string;
+  href: SectionHref;
+  label: string;
+  meta: string;
+}) {
+  return (
+    <Link
+      className="group relative block border-t border-[#1a1a1a] py-6 transition-colors hover:border-[#333]"
+      href={href}
+    >
+      <div className="flex items-baseline justify-between gap-4">
+        <h2 className="font-display text-2xl text-[#f4ede1] transition-colors group-hover:text-[#c8472b] md:text-3xl">
+          {label}
+        </h2>
+        <span className="shrink-0 font-sans text-[10px] uppercase tracking-[0.15em] text-[#525252]">
+          {meta}
+        </span>
+      </div>
+      <p className="mt-2 max-w-xl font-display text-[1.0625rem] italic leading-snug text-[#a3a3a3]">
+        {desc}
+      </p>
+
+      {cover ? (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/2 right-[-13rem] hidden h-28 w-44 -translate-y-1/2 overflow-hidden rounded-sm opacity-0 transition-opacity duration-500 ease-[var(--ease-out-strong)] group-hover:opacity-100 xl:block"
+        >
+          <Image
+            alt=""
+            blurDataURL={cover.blur}
+            className="object-cover"
+            fill
+            placeholder="blur"
+            sizes="176px"
+            src={cover.mid}
+          />
+        </div>
+      ) : null}
+    </Link>
+  );
+}
 
 export default function Home() {
-  const featured = PROJECTS.find((project) => project.slug === "nod");
-  const cover = getCoverPhoto("nod");
-  const selected = PROJECTS.filter((project) =>
-    ["sidequest", "goblin"].includes(project.slug)
-  );
-  const experience = PROJECTS.find((project) => project.slug === "compilot");
+  // Curated hero pool (photo + slug + caption) — selected by Opus 4.7 subagents.
   const frames = getHeroFrames();
 
   return (
-    <main className="public-page">
-      <section className="public-container home-hero">
-        <div className="home-intro">
-          <h1 className="public-headline">
-            Kristjan
-            <br />
-            Grm.
-          </h1>
-          <p className="public-lead">
-            AI, crypto and privacy products, from idea to live.
-          </p>
-          <div className="home-actions">
-            <a className="public-action" href="#contact">
-              Get in touch
-            </a>
-            <Link className="public-link" href="/building">
-              Explore the work
-            </Link>
+    <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
+      {/* Grain texture */}
+      <div
+        className="pointer-events-none fixed inset-0 z-10 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-16 md:px-12 md:pt-20">
+        {/* Hero — who I am + how to reach me. Mobile order: name → photo →
+            meta; desktop: name + meta stacked left, photo right (see .hero-grid). */}
+        <header className="hero-grid">
+          {/* Reveal stagger: even ~70ms gaps — name → photo → meta cascade */}
+          <div className="hero-name reveal" style={{ animationDelay: "0ms" }}>
+            <h1 className="font-display text-[clamp(3.5rem,9vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] text-[#f4ede1]">
+              Kristjan
+              <br />
+              Grm
+            </h1>
           </div>
-        </div>
-        {featured && cover ? (
-          <figure className="home-proof">
-            <Link
-              className="home-proof-image"
-              href={`/building/${featured.slug}`}
-              aria-label="View the Nod case study"
+
+          {/* Rolling images — links each frame to its journal entry */}
+          <div
+            className="hero-photo reveal md:pl-4"
+            style={{ animationDelay: "70ms" }}
+          >
+            <HeroRotating frames={frames} />
+          </div>
+
+          <div className="hero-meta flex flex-col gap-8">
+            <div
+              className="reveal space-y-1 font-sans text-sm text-[#737373] tabular-nums"
+              style={{ animationDelay: "140ms" }}
             >
-              <Image
-                src={cover.full}
-                alt="Nod’s public wallet homepage"
-                width={cover.width}
-                height={cover.height}
-                priority
-                sizes="(min-width: 960px) 60vw, 95vw"
-              />
-            </Link>
-            <figcaption className="home-proof-caption">
-              <h2>
-                <Link
-                  className="public-link"
-                  href={`/building/${featured.slug}`}
-                >
-                  {featured.title}
-                </Link>
-              </h2>
-              <p className="public-caption">Give your AI an allowance.</p>
-              <span className="public-meta">HackMeridian 2026</span>
-            </figcaption>
-          </figure>
-        ) : null}
-      </section>
-
-      <section
-        className="public-container home-work"
-        aria-labelledby="home-work-title"
-      >
-        <div className="home-section-heading">
-          <h2 className="public-section-title" id="home-work-title">
-            Agents at work.
-          </h2>
-          <Link
-            className="public-link"
-            href="/building"
-          >{`All ${PROJECTS.length} projects`}</Link>
-        </div>
-        <div className="home-work-grid">
-          {selected.map((project) => {
-            const image = getCoverPhoto(project.slug);
-            return (
-              <Link
-                className="home-work-item"
-                href={`/building/${project.slug}`}
-                key={project.slug}
-              >
-                {image ? (
-                  <Image
-                    src={image.full}
-                    width={image.width}
-                    height={image.height}
-                    alt=""
-                    sizes="(min-width: 960px) 50vw, 95vw"
-                  />
-                ) : null}
-                <div className="home-work-caption">
-                  <h3>{project.title}</h3>
-                  <p>{project.tagline}</p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-        <Link className="home-platform-row" href="/building/myapps">
-          <h3>MyApps</h3>
-          <p>
-            A connected suite of agent-native products, built around one human
-            identity.
-          </p>
-        </Link>
-      </section>
-
-      {experience ? (
-        <section className="home-experience">
-          <div className="public-container home-experience-inner">
-            <div className="home-experience-copy">
-              <h2 className="public-section-title">Compilot / Nexera</h2>
-              <p className="public-lead">
-                Production compliance and identity infrastructure.
-              </p>
-              <p className="public-meta">
-                CTO, architect and lead full-stack engineer, 2022 to 2025.
-              </p>
-              <Link className="public-link" href="/building/compilot">
-                Read the case study
-              </Link>
+              <p>Slovenia 🇸🇮 · Ljubljana</p>
             </div>
-            <dl className="home-experience-facts">
-              {experience.metrics?.map((metric) => (
-                <div key={metric.label}>
-                  <dt>{metric.label}</dt>
-                  <dd>{metric.value}</dd>
-                </div>
-              ))}
-            </dl>
+
+            <p
+              className="reveal max-w-md font-display text-lg italic leading-snug text-[#c4bdb1]"
+              style={{ animationDelay: "210ms" }}
+            >
+              Builder at the AI × crypto × privacy intersection. Hackathons keep
+              the passport busy; life outside the terminal is a cat, mountain
+              trails, badminton, and good techno.
+            </p>
+            <p className="max-w-md font-sans text-sm leading-relaxed text-[#737373]">
+              Currently building specialised video agents at{" "}
+              <Link
+                className="text-[#c4bdb1] underline underline-offset-4"
+                href="/building/swarmm"
+              >
+                Swarmm
+              </Link>{" "}
+              and making films with{" "}
+              <Link
+                className="text-[#c4bdb1] underline underline-offset-4"
+                href="/building/video-studio"
+              >
+                video-studio
+              </Link>
+              .
+            </p>
+          </div>
+        </header>
+
+        {/* Index — the four places to go next */}
+        <section className="mt-20 md:mt-28">
+          <p className="credit-block mb-3 text-xs text-[#525252]">Index</p>
+          <div>
+            {SECTIONS.map((section) => (
+              <IndexRow
+                cover={getCoverPhoto(section.coverSlug)}
+                desc={section.desc}
+                href={section.href}
+                key={section.href}
+                label={section.label}
+                meta={section.meta}
+              />
+            ))}
           </div>
         </section>
-      ) : null}
 
-      <section className="public-container home-personal">
-        <HeroRotating frames={frames} />
-        <div className="home-personal-copy">
-          <h2 className="public-section-title">Away from the terminal.</h2>
-          <p className="public-body">
-            Hackathons keep the passport busy. Life outside the terminal is a
-            cat, mountain trails, badminton, and good techno.
-          </p>
-          <p className="public-meta">Ljubljana, Slovenia</p>
-          <Link
-            className="public-link"
-            href="/journal"
-          >{`Journal, ${TRIPS.length} entries`}</Link>
-        </div>
-      </section>
-
-      <section className="public-container home-notes">
-        <div className="home-section-heading">
-          <div>
-            <h2 className="public-section-title">Field notes.</h2>
-            <p className="public-lead">Engineering patterns from the work.</p>
-          </div>
-          <Link
-            className="public-link"
-            href="/notes"
-          >{`All ${NOTES.length} notes`}</Link>
-        </div>
-        <div className="home-note-list">
-          {NOTES.map((note) => (
-            <Link
-              className="home-note-row"
-              href={`/notes/${note.slug}`}
-              key={note.slug}
+        <section
+          aria-labelledby="selected-videos-title"
+          className="mt-20 md:mt-28"
+        >
+          <div className="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-[#1a1a1a] pt-6">
+            <h2
+              className="font-display text-3xl text-[#f4ede1]"
+              id="selected-videos-title"
             >
-              <h3>{note.title}</h3>
-              <time className="public-meta" dateTime={`${note.date}-01`}>
-                {note.date}
-              </time>
+              Selected videos
+            </h2>
+            <Link
+              className="inline-flex min-h-11 items-center font-sans text-xs text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+              href="/building/video-studio"
+            >
+              Inside video-studio →
             </Link>
-          ))}
-        </div>
-      </section>
-      <PublicFooter />
+          </div>
+          <VideoGallery ids={FEATURED_VIDEOS} />
+        </section>
+
+        {/* Contact + copyright — moved out of the hero to the page foot */}
+        <footer className="mt-24">
+          <Contact />
+          <p className="mt-8 font-sans text-xs uppercase tracking-[0.15em] text-[#525252]">
+            © {new Date().getFullYear()} · kris.gg
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }

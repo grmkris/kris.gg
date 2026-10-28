@@ -117,7 +117,8 @@ function useGroupProvider(): GroupApi {
 }
 
 // Inline quiet label; brightens while its popover is open (hover or tap).
-const LABEL = "contact-label";
+const LABEL =
+  "font-sans text-xs uppercase tracking-[0.12em] text-[#8a8a8a] transition-colors duration-200 hover:text-[#f4ede1] data-[popup-open]:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none cursor-pointer";
 
 // Card scales in from the trigger (origin-aware) with an interruptible
 // transition (not keyframes) so rapid label-hopping retargets smoothly. A
@@ -125,21 +126,21 @@ const LABEL = "contact-label";
 // motion keeps the fade but drops the scale. Duration is set per-instance
 // (0ms when opening instantly within the group).
 const POPUP =
-  "origin-(--transform-origin) flex items-center gap-3 border-t border-dashed border-[var(--color-rule)] bg-[var(--color-paper-2)] px-3 py-2 ring-1 ring-[var(--color-rule)] transition-[opacity,transform] ease-[var(--ease-out)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 motion-reduce:data-[ending-style]:scale-100 motion-reduce:data-[starting-style]:scale-100";
+  "origin-(--transform-origin) flex items-center gap-3 rounded-none border-[#2f2f2f] border-t border-dashed bg-[#161616] px-3 py-2 ring-1 ring-[#262626] transition-[opacity,transform] ease-[var(--ease-out-strong)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 motion-reduce:data-[ending-style]:scale-100 motion-reduce:data-[starting-style]:scale-100";
 
 const HANDLE =
-  "inline-flex items-baseline gap-1 font-sans text-sm text-[var(--color-ink-2)] transition-colors duration-200 hover:text-[var(--color-ink)] focus-visible:text-[var(--color-ink)] ";
+  "inline-flex items-baseline gap-1 font-sans text-sm text-[#c4bdb1] transition-colors duration-200 hover:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none";
 
 const COPY =
-  "font-sans text-sm text-[var(--color-ink-muted)] transition-[color,transform] duration-150 ease-[var(--ease-out)] hover:text-[var(--color-ink)] focus-visible:text-[var(--color-ink)]  active:scale-[0.97]";
+  "font-sans text-[0.7rem] uppercase tracking-[0.1em] text-[#737373] transition-[color,transform] duration-150 ease-[var(--ease-out-strong)] hover:text-[#f4ede1] focus-visible:text-[#f4ede1] focus-visible:outline-none active:scale-[0.97]";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
 
   return (
     <button
-      aria-label={copied ? "Copied" : `Copy ${label}: ${value}`}
-      className={copied ? `${COPY} text-[var(--color-signal)]` : COPY}
+      aria-label={copied ? "Copied" : `Copy ${label} — ${value}`}
+      className={copied ? `${COPY} text-[#c8472b]` : COPY}
       onClick={() => {
         navigator.clipboard?.writeText(value).then(
           () => {
@@ -155,12 +156,12 @@ function CopyButton({ value, label }: { value: string; label: string }) {
       }}
       type="button"
     >
-      {/* Fixed-width slot so "copy" → "Copied" doesn't reflow the card. */}
+      {/* Fixed-width slot so "copy" → "✓ copied" doesn't reflow the card. */}
       <span
         aria-live="polite"
         className="inline-block min-w-[4.5rem] text-left"
       >
-        {copied ? "Copied" : "copy"}
+        {copied ? "✓ copied" : "copy"}
       </span>
     </button>
   );
@@ -217,6 +218,11 @@ function ContactPopover({ contact }: { contact: Contact }) {
                 : {})}
             >
               {display}
+              {external && (
+                <span aria-hidden className="text-[0.7rem] text-[#c8472b]">
+                  ↗
+                </span>
+              )}
             </a>
             <CopyButton label={label} value={copyText} />
           </Popover.Popup>
@@ -247,10 +253,10 @@ export function Contact() {
 
   return (
     <GroupContext.Provider value={group}>
-      <div className="public-contact-block">
-        <p className="public-meta">Get in touch</p>
+      <div className="border-[#1a1a1a] border-t pt-6">
+        <p className="credit-block text-xs text-[#737373]">Get in touch</p>
 
-        <div className="public-contact">
+        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
           {contacts.map((c) => (
             <ContactPopover contact={c} key={c.key} />
           ))}

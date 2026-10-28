@@ -19,7 +19,10 @@ function renderInline(text: string): ReactNode[] {
     const tok = m[0];
     if (tok.startsWith("`")) {
       parts.push(
-        <code className="public-inline-code" key={`i-${key}`}>
+        <code
+          className="rounded bg-[#1a1a1a] px-1.5 py-0.5 font-mono text-[0.85em] text-[#e8e8e8]"
+          key={`i-${key}`}
+        >
           {tok.slice(1, -1)}
         </code>
       );
@@ -30,7 +33,7 @@ function renderInline(text: string): ReactNode[] {
         const internal = href.startsWith("/");
         parts.push(
           <a
-            className="public-link"
+            className="text-[#f4ede1] underline decoration-[#525252] underline-offset-4 transition-colors hover:decoration-[#a3a3a3]"
             href={href}
             key={`i-${key}`}
             {...(internal
@@ -95,7 +98,7 @@ export async function renderNoteBody(body: string): Promise<ReactNode[]> {
         <div
           // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted build-time Shiki output
           dangerouslySetInnerHTML={{ __html: html }}
-          className="public-code-block"
+          className="my-7 overflow-x-auto rounded-md border border-[#1f1f1f] text-[0.82rem] leading-relaxed [&_pre]:p-5 [&_pre]:!bg-[#0d0d0d]"
           key={`seg-${i}`}
         />
       );
@@ -106,7 +109,10 @@ export async function renderNoteBody(body: string): Promise<ReactNode[]> {
         .filter(Boolean);
       for (let j = 0; j < paras.length; j++) {
         out.push(
-          <p className="public-note-paragraph" key={`seg-${i}-p-${j}`}>
+          <p
+            className="mt-5 font-display text-[1.0625rem] leading-[1.75] text-[#c4bdb1]"
+            key={`seg-${i}-p-${j}`}
+          >
             {renderInline(paras[j])}
           </p>
         );

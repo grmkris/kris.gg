@@ -94,16 +94,15 @@ export function PhotoGallery({
 
   return (
     <>
-      <div className="photo-grid">
+      <div className="columns-2 gap-3 md:columns-3">
         {photos.map((photo, i) => (
           <button
             type="button"
-            aria-label={`Open photograph ${i + 1}`}
             key={photo.src}
             onClick={() => {
               openAt(i);
             }}
-            className="photo-grid-item"
+            className="mb-3 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-sm border border-[#1a1a1a] bg-[#1a1a1a] transition-opacity hover:opacity-90"
           >
             <Image
               src={photo.mid}
@@ -124,7 +123,7 @@ export function PhotoGallery({
       {flashColor && (
         <div
           aria-hidden
-          className="photo-flash"
+          className="pointer-events-none fixed inset-0 z-40 transition-opacity ease-out"
           style={{
             backgroundColor: flashColor,
             opacity: flashActive ? 1 : 0,
@@ -153,7 +152,7 @@ export function PhotoGallery({
         }))}
         controller={{ closeOnBackdropClick: true }}
         styles={{
-          container: { backgroundColor: "var(--color-lightbox-backdrop)" },
+          container: { backgroundColor: "rgba(10, 10, 10, 0.96)" },
         }}
       />
     </>

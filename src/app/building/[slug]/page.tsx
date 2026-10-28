@@ -1,21 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
-import { PublicFooter } from "@/components/public-footer";
+import { VideoGallery } from "@/components/video-gallery";
 import { getProject, PROJECTS } from "@/content/projects";
-import type { Project } from "@/content/projects";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { siteUrl } from "@/lib/site";
-
-import "@/portfolio.css";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.slug }));
+  return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -43,38 +41,13 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-function ProjectFacts({ project }: { project: Project }) {
+function Section({ heading, body }: { heading: string; body: string }) {
   return (
-    <dl className="portfolio-facts">
-      <div>
-        <dt>Date</dt>
-        <dd>{project.date}</dd>
-      </div>
-      <div>
-        <dt>Role</dt>
-        <dd>{project.role}</dd>
-      </div>
-      {project.client ? (
-        <div>
-          <dt>Context</dt>
-          <dd>{project.client}</dd>
-        </div>
-      ) : null}
-      {project.metrics?.map((metric) => (
-        <div key={metric.label}>
-          <dt>{metric.label}</dt>
-          <dd>{metric.value}</dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
-function ProjectSection({ title, body }: { title: string; body: string }) {
-  return (
-    <section className="portfolio-case-section">
-      <h2>{title}</h2>
-      <p className="public-body">{body}</p>
+    <section className="mt-10">
+      <h2 className="credit-block mb-2 text-xs text-[#737373]">{heading}</h2>
+      <p className="font-display text-[1.0625rem] leading-[1.75] text-[#c4bdb1]">
+        {body}
+      </p>
     </section>
   );
 }
@@ -85,99 +58,189 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!project) {
     notFound();
   }
+
   const photos = getTripPhotos(slug);
   const cover = getCoverPhoto(slug);
 
   return (
-    <main className="public-page portfolio-case">
-      <header className="public-container portfolio-case-header">
-        <h1 className="public-title">{project.title}</h1>
-        <p className="public-lead">{project.tagline}</p>
-        <div className="portfolio-case-byline public-meta">
-          <span>{project.date}</span>
-          <span>{project.role}</span>
-          {project.client ? <span>{project.client}</span> : null}
-        </div>
-        {project.liveUrl || project.repoUrl ? (
-          <div className="portfolio-case-links">
-            {project.liveUrl ? (
-              <a
-                className="public-action"
-                href={project.liveUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Visit live
-              </a>
-            ) : null}
-            {project.repoUrl ? (
-              <a
-                className="public-link"
-                href={project.repoUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                GitHub
-              </a>
-            ) : null}
-          </div>
-        ) : null}
-      </header>
+    <main className="min-h-screen bg-[#0a0a0a] text-[#e8e8e8] selection:bg-blue-500/30">
+      <div
+        className="pointer-events-none fixed inset-0 z-10 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
       {cover ? (
-        <div className="public-container">
-          <figure className="portfolio-case-cover">
-            <Image
-              alt=""
-              blurDataURL={cover.blur}
-              height={cover.height}
-              placeholder="blur"
-              priority
-              sizes="(min-width: 1440px) 1312px, 100vw"
-              src={cover.full}
-              width={cover.width}
-            />
-          </figure>
+        <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden bg-[#1a1a1a] md:h-[65vh]">
+          <Image
+            alt=""
+            blurDataURL={cover.blur}
+            className={
+              project.coverFit === "contain" ? "object-contain" : "object-cover"
+            }
+            fill
+            placeholder="blur"
+            priority
+            sizes="100vw"
+            src={cover.full}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
         </div>
       ) : null}
 
-      <article className="public-container portfolio-case-body">
-        <aside className="portfolio-case-aside">
-          <ProjectFacts project={project} />
-          <div className="portfolio-stack">
-            <h2>Built with</h2>
-            <ul className="portfolio-tags">
-              {project.stack.map((tech) => (
-                <li className="public-tag" key={tech}>
-                  {tech}
+      <article
+        className={
+          cover
+            ? "relative mx-auto max-w-2xl px-6 pt-12 pb-16"
+            : "relative mx-auto max-w-2xl px-6 pt-20 pb-16"
+        }
+      >
+        <header className="mb-8">
+          <div className="flex flex-wrap items-center gap-2 font-sans text-sm tabular-nums text-[#737373]">
+            <span>{project.date}</span>
+            <span>·</span>
+            <span>{project.role}</span>
+            {project.client ? (
+              <>
+                <span>·</span>
+                <span>{project.client}</span>
+              </>
+            ) : null}
+          </div>
+          <h1 className="mt-3 font-display text-5xl font-light leading-[1.05] tracking-tight text-[#f4ede1] md:text-6xl">
+            {project.title}
+          </h1>
+          <p className="mt-4 font-display text-lg italic leading-snug text-[#a3a3a3]">
+            {project.tagline}
+          </p>
+        </header>
+
+        {/* Facts block */}
+        <div className="mb-2 border-[#262626] border-y py-5">
+          {project.metrics && project.metrics.length > 0 ? (
+            <div className="mb-5 flex flex-wrap gap-x-10 gap-y-3">
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <div className="font-display text-2xl text-[#f4ede1]">
+                    {metric.value}
+                  </div>
+                  <div className="credit-block text-[10px] text-[#737373]">
+                    {metric.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="flex flex-wrap gap-1.5">
+            {project.stack.map((tech) => (
+              <span
+                className="rounded-full border border-[#262626] px-2.5 py-0.5 font-sans text-[10px] uppercase tracking-[0.1em] text-[#737373]"
+                key={tech}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {project.liveUrl || project.repoUrl ? (
+            <div className="mt-4 flex gap-4 font-sans text-xs">
+              {project.liveUrl ? (
+                <a
+                  className="text-[#c8472b] transition-colors hover:text-[#f4ede1]"
+                  href={project.liveUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Visit live →
+                </a>
+              ) : null}
+              {project.repoUrl ? (
+                <a
+                  className="text-[#737373] transition-colors hover:text-[#f4ede1]"
+                  href={project.repoUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  GitHub →
+                </a>
+              ) : null}
+            </div>
+          ) : null}
+        </div>
+
+        <Section body={project.problem} heading="The problem" />
+        <Section body={project.approach} heading="The approach" />
+        <Section body={project.outcome} heading="The outcome" />
+
+        {project.highlights && project.highlights.length > 0 ? (
+          <section className="mt-10">
+            <h2 className="credit-block mb-3 text-xs text-[#737373]">
+              Highlights
+            </h2>
+            <ul className="space-y-2">
+              {project.highlights.map((h) => (
+                <li
+                  className="flex gap-3 font-display text-[1.0625rem] leading-snug text-[#c4bdb1]"
+                  key={h}
+                >
+                  <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-[#c8472b]" />
+                  {h}
                 </li>
               ))}
             </ul>
-          </div>
-        </aside>
-        <div className="portfolio-case-narrative">
-          <ProjectSection body={project.problem} title="The problem" />
-          <ProjectSection body={project.approach} title="The approach" />
-          <ProjectSection body={project.outcome} title="The outcome" />
-          {project.highlights?.length ? (
-            <section className="portfolio-case-section">
-              <h2>Highlights</h2>
-              <ul className="portfolio-highlights">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-        </div>
+          </section>
+        ) : null}
+        {project.relatedProjects?.length ? (
+          <section className="mt-10 border-t border-[#262626] pt-5">
+            <h2 className="credit-block mb-2 text-xs text-[#737373]">
+              Related work
+            </h2>
+            {project.relatedProjects.map((relatedSlug) => {
+              const related = getProject(relatedSlug);
+              return related ? (
+                <Link
+                  className="inline-flex min-h-11 items-center font-display text-lg text-[#c8472b] transition-colors hover:text-[#f4ede1]"
+                  href={`/building/${related.slug}`}
+                  key={related.slug}
+                >
+                  {related.title} →
+                </Link>
+              ) : null;
+            })}
+            {project.slug === "video-studio" ? (
+              <Link
+                className="ml-6 inline-flex min-h-11 items-center font-display text-lg text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                href="/journal/valencia-oct-2026"
+              >
+                The Valencia weekend →
+              </Link>
+            ) : null}
+          </section>
+        ) : null}
       </article>
 
-      {photos.length ? (
-        <section className="public-container public-gallery">
+      {project.videoIds?.length ? (
+        <section
+          aria-labelledby="project-videos-title"
+          className="mx-auto max-w-5xl px-6 pb-24"
+        >
+          <h2
+            className="mb-8 font-display text-3xl text-[#f4ede1]"
+            id="project-videos-title"
+          >
+            Selected films
+          </h2>
+          <VideoGallery columns={2} ids={project.videoIds} />
+        </section>
+      ) : null}
+
+      {photos.length > 0 ? (
+        <section className="mx-auto max-w-5xl px-4 pb-24">
           <PhotoGallery photos={photos} />
         </section>
       ) : null}
-      <PublicFooter />
     </main>
   );
 }
