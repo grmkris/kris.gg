@@ -15,12 +15,12 @@ export function HeroRotating({ frames, intervalMs = 4800 }: Props) {
   const pool = frames.slice(0, 8);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [motionAllowed, setMotionAllowed] = useState(false);
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motion.matches) {
-      setPaused(true);
-    }
+    setMotionAllowed(!motion.matches);
+    if (motion.matches) setPaused(true);
   }, []);
 
   useEffect(() => {
@@ -41,10 +41,21 @@ export function HeroRotating({ frames, intervalMs = 4800 }: Props) {
   }
   const active = pool[index];
   const label = active.label.replace(" · ", ", ");
+  const handleLeave = () => {
+    if (motionAllowed) setPaused(false);
+  };
 
   return (
     <figure className="journal-photo">
-      <div className="journal-photo-stage">
+      <div
+        className="journal-photo-stage"
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) handleLeave();
+        }}
+        onFocusCapture={() => setPaused(true)}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={handleLeave}
+      >
         {pool.map((frame, i) => (
           <div
             className={`journal-photo-frame ${i === index ? "is-active" : ""}`}
