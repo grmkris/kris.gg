@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: clip;
+}
+html {
+  scrollbar-color: var(--color-ink-muted) var(--color-paper);
+  scroll-padding-top: var(--space-3xl);
+}
+body:has(.public-page) {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--color-signal);
+}
+::selection {
+  background: color-mix(in oklab, var(--color-signal) 22%, transparent);
+  color: var(--color-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+.public-page :is(h1, h2, h3),
+.public-footer h2 {
+  margin: 0;
+  font-family: var(--font-public-display);
+  font-weight: var(--display-weight);
+  font-synthesis: none;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.05;
+  overflow-wrap: break-word;
+  min-width: 0;
+  text-wrap: balance;
+}
+.public-page h1 {
+  max-width: 20ch;
+  font-size: var(--text-display);
+}
+.public-page h2 {
+  max-width: 30ch;
+  font-size: var(--text-section);
+}
+.public-page h3 {
+  max-width: 40ch;
+  font-size: var(--text-title);
+  line-height: 1.2;
+}
+.lead {
+  font-size: var(--text-lead);
+  line-height: 1.45;
+  max-width: 52ch;
+}
+.public-page p {
+  margin: 0;
+  text-wrap: pretty;
+}
+.public-page p:not([class]) {
+  max-width: 65ch;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+svg {
+  display: block;
+}
+[hidden] {
+  display: none !important;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+}
+.num,
+.figure,
+td.num {
+  font-variant-numeric: tabular-nums;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: clip;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
