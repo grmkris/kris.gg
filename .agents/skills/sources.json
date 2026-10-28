@@ -129,6 +129,18 @@
       "localTreeSha256": "714b8c4d1544298615f0647b237e7ea13c6940c302417c51571ca77ba5161dad",
       "unchanged": true
     },
+    "hallmark": {
+      "repository": "nutlope/hallmark",
+      "commit": "65b5e4090ed95ee3dc2ff7db55b69aef8c5ff7b5",
+      "path": "skills/hallmark",
+      "licenses": [
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "treeSha256": "d31a58b43c7c30e35773e35c2636fd84ab2fa475be2a7eaed6fc35afb1a3eb0a",
+      "localTreeSha256": "d31a58b43c7c30e35773e35c2636fd84ab2fa475be2a7eaed6fc35afb1a3eb0a",
+      "unchanged": true
+    },
     "make-interfaces-feel-better": {
       "repository": "jakubkrehel/make-interfaces-feel-better",
       "commit": "35545ea1512ad59fa463e6b1f95ca9c052981fe6",

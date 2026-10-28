@@ -20,7 +20,8 @@ import next from "ultracite/oxlint/next";
  */
 export default defineConfig({
   extends: [core, next],
-  ignorePatterns: core.ignorePatterns,
+  // Vendored agent skills ship their own scripts; same exclusion as .oxfmtrc.
+  ignorePatterns: [...(core.ignorePatterns ?? []), ".agents/**", ".claude/**"],
   rules: {
     // ── Effect v4 idioms the rules misread ──────────────────────────────────
     // `Effect.tryPromise({ try, catch })` is not `Promise.catch`.
