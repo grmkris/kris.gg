@@ -479,7 +479,9 @@
   }
 }
 @media (max-width: 40rem) {
-  .public-nav-links { gap: var(--space-sm); }
+  .public-nav-contact {
+    display: none;
+  }
   .home-proof-caption {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -537,14 +539,14 @@
   }
 }
 .home-proof-image {
-  aspect-ratio: 2.04 / 1;
+  aspect-ratio: 4 / 3;
   overflow: clip;
 }
 .home-proof-image img {
   inline-size: 100%;
   block-size: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: left center;
 }
 .home-work {
   padding-block: var(--section-gap-s) var(--section-gap);

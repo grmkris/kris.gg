@@ -7,7 +7,7 @@ export function PublicFooter() {
     <footer className="public-footer" id="contact">
       <div className="public-container public-footer-grid">
         <div>
-          <h2>Let’s build at the AI × crypto × privacy edge.</h2>
+          <h2>Let’s build something.</h2>
           <p className="public-meta">Kristjan Grm, Ljubljana, Slovenia</p>
         </div>
         <Contact />
