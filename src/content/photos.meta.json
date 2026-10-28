@@ -2370,5 +2370,63 @@
       "score": 0,
       "scene": "public product homepage"
     }
+  },
+  "valencia-oct-2026": {
+    "01": {
+      "caption": "Together in Plaça de la Mare de Déu, with Valencia Cathedral behind us.",
+      "scene": "Together in Plaça de la Mare de Déu, with Valencia Cathedral behind us.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "02": {
+      "caption": "A stop beneath the chandeliers in the old town.",
+      "scene": "A stop beneath the chandeliers in the old town.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "03": {
+      "caption": "Back on the city bikes.",
+      "scene": "Back on the city bikes.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "04": {
+      "caption": "Sunset beside the City of Arts and Sciences.",
+      "scene": "Sunset beside the City of Arts and Sciences.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "05": {
+      "caption": "Dinner after the ride to the sea.",
+      "scene": "Dinner after the ride to the sea.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "06": {
+      "caption": "A wall of graphic art in a Valencia gallery.",
+      "scene": "A wall of graphic art in a Valencia gallery.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "07": {
+      "caption": "A colourful collection of musical instruments.",
+      "scene": "A colourful collection of musical instruments.",
+      "tags": [
+        "travel"
+      ]
+    },
+    "08": {
+      "caption": "One last walk through the old town after dark.",
+      "scene": "One last walk through the old town after dark.",
+      "tags": [
+        "travel"
+      ]
+    }
   }
 }

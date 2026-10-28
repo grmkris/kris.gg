@@ -1,0 +1,37 @@
+{
+  "afterlight": {
+    "src": "https://i.kris.gg/videos/afterlight.e1de0fd9.mp4",
+    "poster": "https://i.kris.gg/videos/afterlight.c026e1ba.webp",
+    "width": 1080,
+    "height": 1920,
+    "duration": 30.4
+  },
+  "cat-reviews-sidequest": {
+    "src": "https://i.kris.gg/videos/cat-reviews-sidequest.2eea7366.mp4",
+    "poster": "https://i.kris.gg/videos/cat-reviews-sidequest.e75414e7.webp",
+    "width": 1080,
+    "height": 1920,
+    "duration": 23.8
+  },
+  "why-bees-can-fly": {
+    "src": "https://i.kris.gg/videos/why-bees-can-fly.33798dcc.mp4",
+    "poster": "https://i.kris.gg/videos/why-bees-can-fly.b6f1e9b6.webp",
+    "width": 1080,
+    "height": 1920,
+    "duration": 54.166667
+  },
+  "valencia-anime": {
+    "src": "https://i.kris.gg/videos/valencia-anime.6b0c9b6a.mp4",
+    "poster": "https://i.kris.gg/videos/valencia-anime.88d74f71.webp",
+    "width": 1080,
+    "height": 1920,
+    "duration": 49.4
+  },
+  "valencia-trip": {
+    "src": "https://i.kris.gg/videos/valencia-trip.fb141f42.mp4",
+    "poster": "https://i.kris.gg/videos/valencia-trip.8cf48c06.webp",
+    "width": 1920,
+    "height": 1080,
+    "duration": 80
+  }
+}

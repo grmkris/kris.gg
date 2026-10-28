@@ -3,9 +3,11 @@ import Link from "next/link";
 
 import { Contact } from "@/components/contact";
 import { HeroRotating } from "@/components/hero-rotating";
+import { VideoGallery } from "@/components/video-gallery";
 import { NOTES } from "@/content/notes";
 import { PROJECTS } from "@/content/projects";
 import { TRIPS } from "@/content/trips";
+import { FEATURED_VIDEOS } from "@/content/videos";
 import { getHeroFrames } from "@/lib/covers";
 import { getCoverPhoto } from "@/lib/photos";
 import type { PhotoMeta } from "@/lib/photos";
@@ -31,7 +33,7 @@ const SECTIONS: {
   {
     // TRIPS[0] is the newest entry (may lack photos) — pin a photo-rich trip
     // so the index hover reveal always has an image.
-    coverSlug: "shanghai-mu-2026",
+    coverSlug: "valencia-oct-2026",
     desc: "Hackathons, trips, and a well-stamped passport.",
     href: "/journal",
     label: "Journal",
@@ -147,6 +149,23 @@ export default function Home() {
               the passport busy; life outside the terminal is a cat, mountain
               trails, badminton, and good techno.
             </p>
+            <p className="max-w-md font-sans text-sm leading-relaxed text-[#737373]">
+              Currently building specialised video agents at{" "}
+              <Link
+                className="text-[#c4bdb1] underline underline-offset-4"
+                href="/building/swarmm"
+              >
+                Swarmm
+              </Link>{" "}
+              and making films with{" "}
+              <Link
+                className="text-[#c4bdb1] underline underline-offset-4"
+                href="/building/video-studio"
+              >
+                video-studio
+              </Link>
+              .
+            </p>
           </div>
         </header>
 
@@ -165,6 +184,27 @@ export default function Home() {
               />
             ))}
           </div>
+        </section>
+
+        <section
+          aria-labelledby="selected-videos-title"
+          className="mt-20 md:mt-28"
+        >
+          <div className="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-[#1a1a1a] pt-6">
+            <h2
+              className="font-display text-3xl text-[#f4ede1]"
+              id="selected-videos-title"
+            >
+              Selected videos
+            </h2>
+            <Link
+              className="inline-flex min-h-11 items-center font-sans text-xs text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+              href="/building/video-studio"
+            >
+              Inside video-studio →
+            </Link>
+          </div>
+          <VideoGallery ids={FEATURED_VIDEOS} />
         </section>
 
         {/* Contact + copyright — moved out of the hero to the page foot */}

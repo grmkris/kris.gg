@@ -1,3 +1,5 @@
+import type { VideoId } from "@/content/videos";
+
 export interface Trip {
   slug: string;
   title: string;
@@ -5,6 +7,7 @@ export interface Trip {
   location: string;
   description: string;
   body?: string;
+  videoIds?: VideoId[];
   photos?: string[];
   // Hackathon / project metadata (optional)
   project?: string;
@@ -32,6 +35,18 @@ The useful part was making the limit something the account enforces. I wrote up 
     slug: "hackmeridian-2026",
     title: "HackMeridian",
     type: "hackathon",
+  },
+  {
+    body: `17–19 October in València. Churros and chocolate, city bikes through the river gardens, a stop in the old town, and sunset beside the City of Arts and Sciences. Then down to the sea, dinner, and another walk after dark.
+
+The photos and clips became two films in [video-studio](/building/video-studio): an edit of the real weekend and an anime remix that turns the same moments into painted scenes. Both are below.`,
+    date: "2026-10",
+    description:
+      "A weekend of city bikes, old-town stops, and sunset by the sea.",
+    location: "València",
+    slug: "valencia-oct-2026",
+    title: "A weekend in València",
+    videoIds: ["valencia-trip", "valencia-anime"],
   },
   {
     body: `The way out of Georgia, spent in Imereti instead of at the airport. Motsameta on its spur above the Rioni gorge, the old cable car over the river, the White Bridge, and Bagrati up on the hill in the evening. Kebab, then the flight home.`,

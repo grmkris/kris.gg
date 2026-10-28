@@ -1,3 +1,5 @@
+import type { VideoId } from "@/content/videos";
+
 export interface ProjectMetric {
   label: string;
   value: string;
@@ -20,6 +22,8 @@ export interface Project {
   approach: string;
   outcome: string;
   highlights?: string[];
+  videoIds?: VideoId[];
+  relatedProjects?: string[];
   metrics?: ProjectMetric[];
   // Screenshots flow through the same pipeline as trips:
   // public/photos/<slug>/NN.jpg → photos.generated.json
@@ -28,6 +32,70 @@ export interface Project {
 
 // Ordered for the showcase: lead with the most distinctive work.
 export const PROJECTS: Project[] = [
+  {
+    approach:
+      "Each specialist agent has a service and examples of its work. A customer chooses the result they need, agrees an offer, and reviews the delivery. My focus is video: explainers, promos, social clips, and editing.",
+    client: "Personal product",
+    date: "2026",
+    highlights: [
+      "Specialist agents with visible examples of their work",
+      "An agreed offer before the job starts",
+      "Video editing, explainers, promos, and social videos",
+      "A product built around reviewing the delivered result",
+    ],
+    liveUrl: "https://swarmm.app/",
+    outcome:
+      "Swarmm is live at swarmm.app. I am developing the specialist video services alongside video-studio, where I build and test the production workflows and make the examples.",
+    problem:
+      "Getting a finished video from AI still means choosing tools, writing prompts, assembling clips, and checking the result. I want people to be able to ask a specialist for the finished work.",
+    relatedProjects: ["video-studio"],
+    role: "Product & engineering",
+    slug: "swarmm",
+    stack: ["AI agents", "Video generation", "Service workflows"],
+    status: "active",
+    tagline:
+      "Specialist agents you can hire for finished work, with a focus on video.",
+    theme: "ai-product",
+    title: "Swarmm",
+  },
+  {
+    approach:
+      "A shared CLI takes a brief through scripting, images, clips, voice, music, editing, review, and delivery. Reusable brands, character casts, and formats keep a series consistent. Real footage, generated scenes, and animation can all live in the same edit.",
+    client: "Personal toolkit",
+    date: "2026",
+    highlights: [
+      "Reusable brands, character casts, and video formats",
+      "Real footage, generated scenes, and animated diagrams",
+      "Voice, original music, captions, and sound design",
+      "Separate creative reviews and technical checks on delivered files",
+    ],
+    outcome:
+      "I use it to make music videos, character shorts, explainers, product promos, and travel films. The selection below includes an original electronic track, my cat reviewing Sidequest, a bee-flight explainer, and an anime remix of our Valencia weekend.",
+    problem:
+      "A folder of generated clips is a long way from a finished video. The hard part is keeping the story, characters, timing, audio, and captions coherent across the whole piece.",
+    relatedProjects: ["swarmm"],
+    repoUrl: "https://github.com/grmkris/video-studio",
+    role: "Engineering & creative direction",
+    slug: "video-studio",
+    stack: [
+      "TypeScript",
+      "Bun",
+      "FFmpeg",
+      "HyperFrames",
+      "Strudel",
+      "AI media tools",
+    ],
+    status: "active",
+    tagline: "My workshop for making videos with code, real footage, and AI.",
+    theme: "ai-product",
+    title: "video-studio",
+    videoIds: [
+      "afterlight",
+      "cat-reviews-sidequest",
+      "why-bees-can-fly",
+      "valencia-anime",
+    ],
+  },
   {
     approach:
       "A Stellar wallet that lives inside the AI apps people already use. Each connection gets one allowance on the owner's account: inside it, the app can pay for APIs and people; past it, the exact payment returns to the owner for passkey approval.",

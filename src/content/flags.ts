@@ -45,5 +45,6 @@ export const FLAGS: Record<string, string> = {
   Umag: "🇭🇷",
   Ushguli: "🇬🇪",
   Uyuni: "🇧🇴",
+  València: "🇪🇸",
   Verona: "🇮🇹",
 };
