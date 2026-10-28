@@ -18,6 +18,9 @@ Personal: Cat owner, hiking, badminton, techno, cooking.
 
 ## Notable Projects
 
+- [Swarmm](https://swarmm.app/): Specialist AI agents for finished work, with a focus on video. [Case study](https://kris.gg/building/swarmm).
+- [video-studio](https://kris.gg/building/video-studio): A code-driven video production toolkit, with music videos, character shorts, explainers, and travel films.
+
 - [yoda.fun](https://yoda.fun): AI Oracle for prediction markets
 - [drizzle-pg-notify-audit-table](https://github.com/grmkris/drizzle-pg-notify-audit-table): PostgreSQL real-time audit tables with Drizzle ORM
 - [typeid-drizzle-zod-example](https://github.com/grmkris/typeid-drizzle-zod-example): Type-safe TypeIDs with Drizzle ORM and Zod

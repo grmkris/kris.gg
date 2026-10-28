@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
+import { VideoGallery } from "@/components/video-gallery";
 import { getProject, PROJECTS } from "@/content/projects";
 import { getCoverPhoto, getTripPhotos } from "@/lib/photos";
 import { siteUrl } from "@/lib/site";
@@ -190,7 +192,49 @@ export default async function ProjectPage({ params }: PageProps) {
             </ul>
           </section>
         ) : null}
+        {project.relatedProjects?.length ? (
+          <section className="mt-10 border-t border-[#262626] pt-5">
+            <h2 className="credit-block mb-2 text-xs text-[#737373]">
+              Related work
+            </h2>
+            {project.relatedProjects.map((relatedSlug) => {
+              const related = getProject(relatedSlug);
+              return related ? (
+                <Link
+                  className="inline-flex min-h-11 items-center font-display text-lg text-[#c8472b] transition-colors hover:text-[#f4ede1]"
+                  href={`/building/${related.slug}`}
+                  key={related.slug}
+                >
+                  {related.title} →
+                </Link>
+              ) : null;
+            })}
+            {project.slug === "video-studio" ? (
+              <Link
+                className="ml-6 inline-flex min-h-11 items-center font-display text-lg text-[#a3a3a3] transition-colors hover:text-[#f4ede1]"
+                href="/journal/valencia-oct-2026"
+              >
+                The Valencia weekend →
+              </Link>
+            ) : null}
+          </section>
+        ) : null}
       </article>
+
+      {project.videoIds?.length ? (
+        <section
+          aria-labelledby="project-videos-title"
+          className="mx-auto max-w-5xl px-6 pb-24"
+        >
+          <h2
+            className="mb-8 font-display text-3xl text-[#f4ede1]"
+            id="project-videos-title"
+          >
+            Selected films
+          </h2>
+          <VideoGallery columns={2} ids={project.videoIds} />
+        </section>
+      ) : null}
 
       {photos.length > 0 ? (
         <section className="mx-auto max-w-5xl px-4 pb-24">

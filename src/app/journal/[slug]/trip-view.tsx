@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { PhotoGallery } from "@/components/photo-gallery";
+import { VideoGallery } from "@/components/video-gallery";
 import { FLAGS } from "@/content/flags";
 import { TRIPS } from "@/content/trips";
 import type { Trip } from "@/content/trips";
@@ -201,6 +202,21 @@ export function TripView({
 
         {hasBody && <div>{renderBody(trip.body as string)}</div>}
       </article>
+
+      {trip.videoIds?.length ? (
+        <section
+          aria-labelledby="trip-films-title"
+          className="mx-auto max-w-3xl px-6 pb-16"
+        >
+          <h2
+            className="mb-8 font-display text-3xl text-[#f4ede1]"
+            id="trip-films-title"
+          >
+            Two ways to remember it
+          </h2>
+          <VideoGallery columns={1} ids={trip.videoIds} />
+        </section>
+      ) : null}
 
       {/* Photo masonry — wider than the article column */}
       {hasPhotos && (
